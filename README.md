@@ -40,7 +40,6 @@ config.yaml ──► rastreador ──► fichas de cada inmueble ──► fil
 | Love to Live Ibiza | Eivissa | lovetoliveibiza.com |
 | Ibiza Services | Eivissa | ibiza-services.com |
 | Rentals Ibiza | Santa Eulària | rentalsibiza.co.uk |
-| Solana Ibiza | Eivissa | solanaibiza.com |
 | Ibiza Domo | Sant Antoni | ibizadomo.com |
 | Ibiza Vende | Eivissa | ibizavende.com |
 | Long Term Rental Ibiza | Ibiza | longtermrentalibiza.com |

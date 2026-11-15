@@ -93,16 +93,6 @@ sources:
     detail_pattern: 'rentalsibiza\.co\.uk/rental/[^/]+/?$'
     long_term_section: true
 
-  - name: Solana Ibiza
-    town: Eivissa
-    website: https://solanaibiza.com
-    start_urls:
-      - https://solanaibiza.com/rental/annual/
-    detail_pattern: 'solanaibiza\.com/(property|properties|rental-property|ibiza-property)/[^/]+/?$'
-    page_pattern: 'solanaibiza\.com/rental/annual/page/\d+/?$'
-    max_pages: 6
-    long_term_section: true
-
   - name: Ibiza Domo
     town: Sant Antoni
     website: https://ibizadomo.com
