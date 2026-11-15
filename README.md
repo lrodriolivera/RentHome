@@ -70,6 +70,18 @@ Una vez el código esté en la rama principal del repositorio:
    `SMTP_HOST=smtp.gmail.com`, `SMTP_PORT=587`, `SMTP_USER=tu@gmail.com`,
    `SMTP_PASSWORD=<contraseña de aplicación>`, `MAIL_TO=tu@gmail.com`.
 
+### Publicar la página web (Vercel o GitHub Pages)
+
+La búsqueda se ejecuta en GitHub Actions; la web solo muestra `docs/index.html`, que el
+workflow actualiza cada semana. Cualquiera de estas dos opciones se actualiza sola en cada
+revisión:
+
+- **Vercel**: en [vercel.com/new](https://vercel.com/new) importa el repositorio `RentHome`
+  y pulsa *Deploy* (la configuración ya está en `vercel.json`, no hay que tocar nada).
+- **GitHub Pages**: Settings → Pages → *Deploy from a branch* → rama
+  `ccr-4507a6bb-yrqzxg`, carpeta `/docs` → Save. Quedará en
+  `https://lrodriolivera.github.io/RentHome/`.
+
 ### En tu ordenador
 
 ```bash
