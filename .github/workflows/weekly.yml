@@ -1,0 +1,69 @@
+name: Búsqueda semanal de pisos
+
+on:
+  schedule:
+    # Todos los lunes a las 06:47 UTC (≈ 07:47/08:47 hora de Ibiza)
+    - cron: "47 6 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: renthome-weekly
+  cancel-in-progress: false
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SMTP_HOST: ${{ secrets.SMTP_HOST }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      SMTP_USER: ${{ secrets.SMTP_USER }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      MAIL_TO: ${{ secrets.MAIL_TO }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Buscar en las inmobiliarias
+        run: python -m renthome
+
+      - name: Guardar resultados en el repositorio
+        run: |
+          git config user.name "renthome-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data REPORT.md docs
+          if git diff --cached --quiet; then
+            echo "Sin cambios"
+          else
+            git commit -m "Revisión semanal $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Avisar de anuncios nuevos (issue de GitHub → email)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NEW=$(python -c "import json;print(len(json.load(open('data/last_run.json'))['new']))")
+          echo "Anuncios nuevos: $NEW"
+          if [ "$NEW" -gt 0 ]; then
+            gh issue create \
+              --title "🏠 $NEW piso(s) nuevo(s) en Ibiza – $(date -u +%d/%m/%Y)" \
+              --body-file data/notification.md
+          fi
+
+      - name: Enviar email (opcional, si hay secretos SMTP)
+        if: ${{ env.SMTP_HOST != '' }}
+        run: python -m renthome.notify

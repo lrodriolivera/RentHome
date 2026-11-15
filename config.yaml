@@ -1,0 +1,181 @@
+# ---------------------------------------------------------------------------
+# RentHome Ibiza – configuración
+# ---------------------------------------------------------------------------
+# Criterios de búsqueda
+criteria:
+  max_price: 2000            # €/mes máximo
+  preferred_bedrooms: 2      # habitaciones preferidas (se muestran primero)
+  min_bedrooms: 1            # mínimo aceptable (pon 2 para ver SOLO 2+ habitaciones)
+  max_bedrooms: null         # null = sin límite
+  include_unknown_price: true     # mostrar anuncios sin precio publicado (en sección aparte)
+  include_unknown_bedrooms: true  # mostrar anuncios sin nº de habitaciones detectado
+  exclude_types:             # tipos de inmueble que no interesan
+    - parking
+    - garaje
+    - plaza de aparcamiento
+    - trastero
+    - local comercial
+    - local-negocio
+    - commercial premises
+    - oficina
+    - office
+    - habitación en piso compartido
+    - alquiler de habitación
+    - room for rent
+
+# Comportamiento del rastreador
+crawler:
+  delay_seconds: 1.0         # pausa entre peticiones a una misma web (cortesía)
+  timeout_seconds: 30
+  max_detail_pages_per_source: 150
+  user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36 RentHomeIbiza/1.0"
+
+# ---------------------------------------------------------------------------
+# Inmobiliarias locales de Ibiza (sin portales masivos)
+#
+#   start_urls     páginas de listado donde empezar
+#   detail_pattern regex que identifica la URL de la ficha de un inmueble
+#   page_pattern   regex de las páginas de paginación a seguir (opcional)
+#   max_pages      nº máximo de páginas de listado a recorrer
+#   long_term_section  true si las start_urls son SOLO de alquiler anual,
+#                      (entonces basta con que el anuncio no diga "temporada")
+#   render         true si la web carga los anuncios con JavaScript (usa Chromium)
+#   selectors      selectores CSS opcionales (title / price / bedrooms / body)
+# ---------------------------------------------------------------------------
+sources:
+  - name: Living in Ibiza
+    town: Santa Eulària
+    website: https://www.living-in-ibiza.com
+    start_urls:
+      - https://www.living-in-ibiza.com/es/0__93_1_0__/alquileres-anuales-largo-plazo-pisoapartamentoalquiler.html
+      - https://www.living-in-ibiza.com/es/0__92_1_0__/alquileres-anuales-largo-plazo-casa-villa-finca.html
+    detail_pattern: 'living-in-ibiza\.com/es/0__\d+_9[23]_3_'
+    long_term_section: true
+
+  - name: Inmonline Ibiza
+    town: Sant Josep
+    website: https://www.inmonlineibiza.com
+    start_urls:
+      - https://www.inmonlineibiza.com/inmuebles
+    detail_pattern: 'inmonlineibiza\.com/inmueble/\d+$'
+    page_pattern: 'inmonlineibiza\.com/inmuebles\?.*page=\d+'
+    max_pages: 10
+    long_term_section: false
+
+  - name: Love to Live Ibiza
+    town: Eivissa
+    website: https://www.lovetoliveibiza.com
+    start_urls:
+      - https://www.lovetoliveibiza.com/long-term/
+    detail_pattern: 'lovetoliveibiza\.com/property/[^/]+/?$'
+    page_pattern: 'lovetoliveibiza\.com/long-term/page/\d+/?$'
+    max_pages: 10
+    long_term_section: true
+
+  - name: Ibiza Services
+    town: Eivissa
+    website: https://ibiza-services.com
+    start_urls:
+      - https://ibiza-services.com/rentals/apartments/annual/
+      - https://ibiza-services.com/rentals/apartments/cheap/
+      - https://ibiza-services.com/rentals/houses/
+      - https://ibiza-services.com/rentals/studios/
+    detail_pattern: 'ibiza-services\.com/properties/[^/]+/?$'
+    page_pattern: 'ibiza-services\.com/rentals/[a-z/-]+/page/\d+/?$'
+    max_pages: 6
+    long_term_section: false
+
+  - name: Rentals Ibiza
+    town: Santa Eulària
+    website: https://www.rentalsibiza.co.uk
+    start_urls:
+      - https://www.rentalsibiza.co.uk/
+    detail_pattern: 'rentalsibiza\.co\.uk/rental/[^/]+/?$'
+    long_term_section: true
+
+  - name: Solana Ibiza
+    town: Eivissa
+    website: https://solanaibiza.com
+    start_urls:
+      - https://solanaibiza.com/rental/annual/
+    detail_pattern: 'solanaibiza\.com/(property|properties|rental-property|ibiza-property)/[^/]+/?$'
+    page_pattern: 'solanaibiza\.com/rental/annual/page/\d+/?$'
+    max_pages: 6
+    long_term_section: true
+
+  - name: Ibiza Domo
+    town: Sant Antoni
+    website: https://ibizadomo.com
+    start_urls:
+      - https://ibizadomo.com/alquiler-pisos/
+      - https://ibizadomo.com/alquiler-casas-villas/
+    detail_pattern: 'ibizadomo\.com/propiedades/[^/]+/?$'
+    page_pattern: 'ibizadomo\.com/alquiler-(pisos|casas-villas)/page/\d+/?$'
+    max_pages: 5
+    long_term_section: false
+
+  - name: Ibiza Vende
+    town: Eivissa
+    website: https://www.ibizavende.com
+    start_urls:
+      - https://www.ibizavende.com/en_GB/search/long-term-rent
+    detail_pattern: 'ibizavende\.com/en_GB/property/\d+'
+    page_pattern: 'ibizavende\.com/en_GB/search/long-term-rent/page/\d+$'
+    max_pages: 10
+    long_term_section: true
+
+  - name: Long Term Rental Ibiza
+    town: Ibiza
+    website: https://longtermrentalibiza.com
+    start_urls:
+      - https://longtermrentalibiza.com/property-type/apartment/
+      - https://longtermrentalibiza.com/property-type/groundfloor-apartment/
+      - https://longtermrentalibiza.com/property-type/penthouse/
+      - https://longtermrentalibiza.com/property-type/duplex/
+      - https://longtermrentalibiza.com/property-type/townhouse/
+      - https://longtermrentalibiza.com/property-type/house/
+      - https://longtermrentalibiza.com/property-type/loft/
+    detail_pattern: 'longtermrentalibiza\.com/property/[^/]+/?$'
+    page_pattern: 'longtermrentalibiza\.com/property-type/[a-z-]+/page/\d+/?$'
+    max_pages: 5
+    long_term_section: true
+
+  - name: Summum Ibiza
+    town: Eivissa
+    website: https://summumibiza.com
+    start_urls:
+      - https://summumibiza.com/alquiler/anual/
+      - https://summumibiza.com/alquiler/pisos/
+    detail_pattern: 'summumibiza\.com/property/[^/]+/?$'
+    page_pattern: 'summumibiza\.com/alquiler/(anual|pisos)/page/\d+/?$'
+    max_pages: 5
+    long_term_section: false
+
+  - name: Mondialité Ibiza
+    town: Eivissa
+    website: https://www.mondialiteibiza.com
+    start_urls:
+      - https://www.mondialiteibiza.com/en/rentals/
+    detail_pattern: 'mondialiteibiza\.com/en/property/rentals/[^/]+/?$'
+    page_pattern: 'mondialiteibiza\.com/en/rentals/(page/\d+/?|\?.*page=\d+)$'
+    max_pages: 5
+    long_term_section: false
+
+  - name: Villa Contact
+    town: Santa Eulària
+    website: https://www.villacontact.com
+    start_urls:
+      - https://www.villacontact.com/en/long-term-rental/
+    detail_pattern: 'villacontact\.com/en/longterm/[^/]+/?$'
+    page_pattern: 'villacontact\.com/en/long-term-rental/page/\d+/?$'
+    max_pages: 5
+    long_term_section: true
+
+  - name: Roxire
+    town: Sant Antoni
+    website: https://www.roxire.com
+    start_urls:
+      - https://www.roxire.com/alquiler-anual/alquileranual
+    detail_pattern: 'roxire\.com/(inmueble|imovel|propiedad|property|alquiler-anual)/.*\d{3,}'
+    render: true
+    long_term_section: true
