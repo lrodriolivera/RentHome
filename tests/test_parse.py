@@ -94,3 +94,8 @@ def test_parking_price_not_headline():
     t = "1,800 | €/month | cozy apartment | 1 | rooms | 1 | bathrooms | parking space not included in the price: €150 per month"
     assert find_price(t)[0] == 1800
     assert find_bedrooms("Cozy apartment", t) == 1
+
+
+def test_year_round_price():
+    _, annual = find_price("available for winter at €2,000/month. | available year-round for €2,500/month.")
+    assert annual == 2500

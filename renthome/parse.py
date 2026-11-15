@@ -59,7 +59,7 @@ EXCLUDE_BEFORE = re.compile(
     re.I,
 )
 ANNUAL_PRICE_RE = re.compile(
-    rf"(?:annual|anual|anualmente|yearly|todo el ano|largo plazo|long[- ]term|larga duracion)"
+    rf"(?:annual|anual|anualmente|yearly|year[- ]round|all year|todo el ano|largo plazo|long[- ]term|larga duracion)"
     rf"[^€\d]{{0,45}}(?:(?:€|eur)\s*{_NUM}|{_NUM}\s*(?:€|eur|euros))",
     re.I,
 )

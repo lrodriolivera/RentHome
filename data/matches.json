@@ -1,0 +1,498 @@
+[
+ {
+  "active": true,
+  "agency_web": "https://www.inmonlineibiza.com",
+  "annual_price": null,
+  "bedrooms": 2,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "deaec11a7279",
+  "image": null,
+  "last_seen": "2026-11-15",
+  "location": "Cala Llonga",
+  "matches": true,
+  "notes": [],
+  "operation": "rent",
+  "price": 1500,
+  "price_history": [
+   [
+    "2026-11-15",
+    1500
+   ]
+  ],
+  "score": 110,
+  "snippet": "ento en cala llonga | ref.: 0347 | alquile anual*********** | ¡descubre tu nuevo hogar en cala llonga, santa eularia des riu! este luminoso piso en alquiler anual ofrece un espacio ideal para disfrutar de la vida mediterranea. con 70 m2 construidos, cuenta con dos acogedores dorm",
+  "source": "Inmonline Ibiza",
+  "status": "available",
+  "term": "long",
+  "term_keywords": [
+   "alquiler anual",
+   "anual",
+   "todo el ano"
+  ],
+  "title": "Estupendo Apartamento en Cala Llonga",
+  "url": "https://www.inmonlineibiza.com/inmueble/113"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.inmonlineibiza.com",
+  "annual_price": null,
+  "bedrooms": 2,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "2b56f07b78fd",
+  "image": null,
+  "last_seen": "2026-11-15",
+  "location": "Sant Antoni",
+  "matches": true,
+  "notes": [],
+  "operation": "rent",
+  "price": 1800,
+  "price_history": [
+   [
+    "2026-11-15",
+    1800
+   ]
+  ],
+  "score": 107,
+  "snippet": "amento en can bonet | ref.: 0244 | alquiler anual** | ¡descubre tu nuevo hogar en el corazon de can bonet, sant antoni de portmany! este espectacular atico en alquiler ofrece un estilo de vida moderno y comodo, con 80 m2 construidos que se distribuyen en dos amplios dormitorios y",
+  "source": "Inmonline Ibiza",
+  "status": "available",
+  "term": "long",
+  "term_keywords": [
+   "alquiler anual",
+   "anual",
+   "todo el ano"
+  ],
+  "title": "ESTUPENDO APARTAMENTO EN CAN BONET",
+  "url": "https://www.inmonlineibiza.com/inmueble/214"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.ibizavende.com",
+  "annual_price": null,
+  "bedrooms": 2,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "644ec0bda5de",
+  "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4591/24217506.jpg",
+  "last_seen": "2026-11-15",
+  "location": "Cala Tarida",
+  "matches": true,
+  "notes": [],
+  "operation": "rent",
+  "price": 1800,
+  "price_history": [
+   [
+    "2026-11-15",
+    1800
+   ]
+  ],
+  "score": 107,
+  "snippet": "544 081 | info@ibizavende.com | ref: | 4591 | sant josep de sa talaia | cala tarida | 1,800 | €/month | flat in cala tarida with views of the sea and es vedra | 2 | rooms | 2 | bathrooms | 1 | garage | 120 | m2 | annual rental. please contact us by email; we cannot assist you by",
+  "source": "Ibiza Vende",
+  "status": "available",
+  "term": "long",
+  "term_keywords": [
+   "annual"
+  ],
+  "title": "Flat in Cala Tarida with views of the sea and Es Vedrá",
+  "url": "https://www.ibizavende.com/en_GB/property/4591"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.inmonlineibiza.com",
+  "annual_price": null,
+  "bedrooms": 2,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "7c81286ea973",
+  "image": null,
+  "last_seen": "2026-11-15",
+  "location": "Roca Llisa",
+  "matches": true,
+  "notes": [],
+  "operation": "rent",
+  "price": 1800,
+  "price_history": [
+   [
+    "2026-11-15",
+    1800
+   ]
+  ],
+  "score": 107,
+  "snippet": "con piscina comunitaria en roca llisa | ref.: 0587 | alquiler anual**** | ¡descubre tu nuevo hogar en roca llisa, santa eularia des riu! este estupendo apartamento en alquiler anual ofrece un espacio ideal para disfrutar de la tranquilidad y el confort. con 80 m2 construidos, se",
+  "source": "Inmonline Ibiza",
+  "status": "available",
+  "term": "long",
+  "term_keywords": [
+   "alquiler anual",
+   "anual",
+   "todo el ano"
+  ],
+  "title": "ESTUPENDO APARTAMENTO CON PISCINA COMUNITARIA EN ROCA LLISA",
+  "url": "https://www.inmonlineibiza.com/inmueble/308"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.ibizavende.com",
+  "annual_price": null,
+  "bedrooms": 2,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "f1dfe2d5f1c6",
+  "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4241/20309278.jpg",
+  "last_seen": "2026-11-15",
+  "location": "Sant Antoni",
+  "matches": true,
+  "notes": [],
+  "operation": "rent",
+  "price": 1800,
+  "price_history": [
+   [
+    "2026-11-15",
+    1800
+   ]
+  ],
+  "score": 107,
+  "snippet": "679 757 684 | lorena@ibizavende.com | ref: | 4241 | sant antoni de portmany | san antonio | 1,800 | €/month | beautiful ground floor flat in a quiet location in san antonio | 2 | rooms | 2 | bathrooms | 0 | garage | 80 | m2 | please contact us by e-mail; we cannot inform you by p",
+  "source": "Ibiza Vende",
+  "status": "available",
+  "term": "long",
+  "term_keywords": [
+   "annual"
+  ],
+  "title": "Beautiful ground floor flat in a quiet location in San Antonio",
+  "url": "https://www.ibizavende.com/en_GB/property/4241"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.mondialiteibiza.com",
+  "annual_price": 2000,
+  "bedrooms": 2,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "3a252d3636bc",
+  "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/14/01a1ca94-a49d-75e2-aaf6-a03159c73714.jpg",
+  "last_seen": "2026-11-15",
+  "location": "Sant Antoni",
+  "matches": true,
+  "notes": [],
+  "operation": "rent",
+  "price": 2000,
+  "price_history": [
+   [
+    "2026-11-15",
+    2000
+   ]
+  ],
+  "score": 105,
+  "snippet": "sea views and terrace | ref. | so1803 | 2000 €/month | contact via whatsapp | 6 | +1 | apartment | sant antoni de portmany - benimussa | 100 m2 | 2 | 1 | rental conditions | annual rent: | €2,000 per month | availability: | immediate | utilities: | not included | available now",
+  "source": "Mondialité Ibiza",
+  "status": "available",
+  "term": "long",
+  "term_keywords": [
+   "annual"
+  ],
+  "title": "Apartment for annual rent in Benimussa",
+  "url": "https://www.mondialiteibiza.com/en/property/rentals/apartment-for-annual-rent-in-benimussa-sea-views-and-terrace-so1803/"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.roxire.com",
+  "annual_price": null,
+  "bedrooms": 2,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "c4912ba8c844",
+  "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25418525/Tphoto/ID1ddb8301-0000-0500-0000-00001a174115.jpg?a=a612eaa2-8ca7-a3254-2934e-1852549861546661311840",
+  "last_seen": "2026-11-15",
+  "location": "Cala de Bou",
+  "matches": true,
+  "notes": [
+   "sección de alquiler anual de la inmobiliaria"
+  ],
+  "operation": "rent",
+  "price": 1800,
+  "price_history": [
+   [
+    "2026-11-15",
+    1800
+   ]
+  ],
+  "score": 102,
+  "snippet": "politica de cookies | | | gestionar datos | crm y paginas inmobiliarias por ego real estate | atencion: este sitio web utiliza cookies. puede aceptar o rechazar nuestras cookies haciendo clic en los botones a continuacion. un rechazo no limitara su experiencia como visitan",
+  "source": "Roxire",
+  "status": "available",
+  "term": "unknown",
+  "term_keywords": [],
+  "title": "Piso. Cala de Bou. Vistas mar 2 habitaciones parking piscina",
+  "url": "https://www.roxire.com/detalles-del-inmueble/piso-cala-de-bou-vistas-mar-2-habitaciones-parking-piscina/21576472"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.roxire.com",
+  "annual_price": null,
+  "bedrooms": 2,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "ebfbe197826a",
+  "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30003328/Tphoto/ID80d0c901-0000-0500-0000-00001aba05fd.jpg?a=e157708e-2d4f-c1429-9343d-0042300033286661218832",
+  "last_seen": "2026-11-15",
+  "location": "Sant Antoni",
+  "matches": true,
+  "notes": [
+   "sección de alquiler anual de la inmobiliaria"
+  ],
+  "operation": "rent",
+  "price": 1800,
+  "price_history": [
+   [
+    "2026-11-15",
+    1800
+   ]
+  ],
+  "score": 102,
+  "snippet": "politica de cookies | | | gestionar datos | crm y paginas inmobiliarias por ego real estate | atencion: este sitio web utiliza cookies. puede aceptar o rechazar nuestras cookies haciendo clic en los botones a continuacion. un rechazo no limitara su experiencia como visitan",
+  "source": "Roxire",
+  "status": "available",
+  "term": "unknown",
+  "term_keywords": [],
+  "title": "Piso vistas mar San Antonio de Portmany 2 habitaciones 2 baños",
+  "url": "https://www.roxire.com/detalles-del-inmueble/piso-vistas-mar-san-antonio-de-portmany-2-habitaciones-2-banos/25738023"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.ibizavende.com",
+  "annual_price": null,
+  "bedrooms": 1,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "e723da275efe",
+  "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4218/20083006.jpg",
+  "last_seen": "2026-11-15",
+  "location": "Eivissa",
+  "matches": true,
+  "notes": [],
+  "operation": "rent",
+  "price": 1340,
+  "price_history": [
+   [
+    "2026-11-15",
+    1340
+   ]
+  ],
+  "score": 71,
+  "snippet": "679 757 684 | lorena@ibizavende.com | ref: | 4218 | ibiza | ibiza centro | 1,340 | €/month | charming flat in the heart of ibiza in the old town | 1 | rooms | 1 | bathrooms | 0 | garage | 40 | m2 | annual rental! payment in advance! charming flat in the heart of ibiza’s old town.",
+  "source": "Ibiza Vende",
+  "status": "available",
+  "term": "long",
+  "term_keywords": [
+   "annual"
+  ],
+  "title": "Charming flat in the heart of Ibiza in the old town",
+  "url": "https://www.ibizavende.com/en_GB/property/4218"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.ibizavende.com",
+  "annual_price": null,
+  "bedrooms": 1,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "0a3ed8bfc772",
+  "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4754/26407709.jpg",
+  "last_seen": "2026-11-15",
+  "location": "Sant Joan",
+  "matches": true,
+  "notes": [],
+  "operation": "rent",
+  "price": 1400,
+  "price_history": [
+   [
+    "2026-11-15",
+    1400
+   ]
+  ],
+  "score": 71,
+  "snippet": "+34 648 47 84 58 | goya@ibizavende.com | ref: | 4754 | sant joan de labritja | san juan | 1,400 | €/month | charming apartment 300m from the village of sant joan | 1 | rooms | 1 | bathrooms | 0 | garage | 38 | m2 | annual rental. please contact us via email; we are unable to ass",
+  "source": "Ibiza Vende",
+  "status": "available",
+  "term": "long",
+  "term_keywords": [
+   "annual"
+  ],
+  "title": "Charming apartment 300m from the village of Sant Joan",
+  "url": "https://www.ibizavende.com/en_GB/property/4754"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.mondialiteibiza.com",
+  "annual_price": null,
+  "bedrooms": 1,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "70c27bd17f2a",
+  "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/b4/01a1de9f-8851-7369-9eb8-57edf9dec4b4.jpg",
+  "last_seen": "2026-11-15",
+  "location": "Santa Eulària",
+  "matches": true,
+  "notes": [],
+  "operation": "rent",
+  "price": 1500,
+  "price_history": [
+   [
+    "2026-11-15",
+    1500
+   ]
+  ],
+  "score": 70,
+  "snippet": "al rent near santa eulalia. | ref. | ma-0005 | 1500 €/month | contact via whatsapp | 17 | +12 | country house | santa eularia des riu - santa eularia des riu | 50 m2 | 1 | 1 | rental conditions | price: €1,500 per month. | available for annual rental. | pets are not allowed. | an",
+  "source": "Mondialité Ibiza",
+  "status": "available",
+  "term": "long",
+  "term_keywords": [
+   "annual"
+  ],
+  "title": "Independent renovated apartment for annual rent near Santa Eulalia.",
+  "url": "https://www.mondialiteibiza.com/en/property/rentals/independent-renovated-apartment-for-annual-rent-near-santa-eulalia-ma-0005/"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.roxire.com",
+  "annual_price": null,
+  "bedrooms": 1,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "8a3ef8f03ef0",
+  "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31344632/Tphoto/IDf847de01-0000-0500-0000-00001ac409ee.jpg?a=ba70f5ae-e758-e3446-2934e-1231329589444661312844",
+  "last_seen": "2026-11-15",
+  "location": "Sant Antoni",
+  "matches": true,
+  "notes": [
+   "sección de alquiler anual de la inmobiliaria"
+  ],
+  "operation": "rent",
+  "price": 1300,
+  "price_history": [
+   [
+    "2026-11-15",
+    1300
+   ]
+  ],
+  "score": 67,
+  "snippet": "politica de cookies | | | gestionar datos | crm y paginas inmobiliarias por ego real estate | atencion: este sitio web utiliza cookies. puede aceptar o rechazar nuestras cookies haciendo clic en los botones a continuacion. un rechazo no limitara su experiencia como visitan",
+  "source": "Roxire",
+  "status": "available",
+  "term": "unknown",
+  "term_keywords": [],
+  "title": "PLANTA BAJA REFORMADA 1HABITACIÓN 5MINUTOS DE LA PLAYA SAN ANTONIO",
+  "url": "https://www.roxire.com/detalles-del-inmueble/planta-baja-reformada-1habitacion-5minutos-de-la-playa-san-antonio/26904235"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.living-in-ibiza.com",
+  "annual_price": null,
+  "bedrooms": 1,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "0c9da95473cb",
+  "image": "https://www.living-in-ibiza.com/es/upload/32881-892-3-g.jpg",
+  "last_seen": "2026-11-15",
+  "location": "Santa Eulària",
+  "matches": true,
+  "notes": [],
+  "operation": "rent",
+  "price": 1900,
+  "price_history": [
+   [
+    "2026-11-15",
+    1900
+   ]
+  ],
+  "score": 66,
+  "snippet": "lish | inicio | ultimas ofertas | inmuebles venta | casas · villas · fincas | plaza de parking - aparcamiento | pisos · apartamentos | terrenos · parcelas | locales comerciales | alquileres anuales / largo plazo | casa · villa · finca | plaza de parking - aparcamiento | piso·apar",
+  "source": "Living in Ibiza",
+  "status": "available",
+  "term": "long",
+  "term_keywords": [
+   "alquiler anual",
+   "anual",
+   "larga duracion"
+  ],
+  "title": "Santa Eularia des Riu: Acogedor apartamento con piscina comunitaria en alquiler anual ALQUILER DE LARGA DURACIÓN | AMUEBLADO",
+  "url": "https://www.living-in-ibiza.com/es/0__892_93_3_/santa-eularia-des-riu-acogedor-apartamento-con-piscina-comunitaria-en-alquiler-anual-alquiler-de-larga-duracion-amueblado-santa-eularia-des-riu-ibiza.html"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.lovetoliveibiza.com",
+  "annual_price": 1600,
+  "bedrooms": 1,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "f2b590c14a27",
+  "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/10/f321b1e9-0004215688.jpg",
+  "last_seen": "2026-11-15",
+  "location": "Talamanca",
+  "matches": true,
+  "notes": [
+   "⚠️ menciona anual y temporada: confirmar contrato"
+  ],
+  "operation": "rent",
+  "price": 1600,
+  "price_history": [
+   [
+    "2026-11-15",
+    1600
+   ]
+  ],
+  "score": 64,
+  "snippet": "seasonal | love to be on holiday | holidays | six senses | services | love to be different | why we are different | team | love to sell | contact | log in | long-term seasonal rental – modern apartment with terrace in talamanca, ibiza – a413 | for rent, long term rentals | €1,60",
+  "source": "Love to Live Ibiza",
+  "status": "available",
+  "term": "mixed",
+  "term_keywords": [
+   "long-term",
+   "seasonal"
+  ],
+  "title": "LONG-TERM SEASONAL RENTAL – Modern Apartment with Terrace in Talamanca, Ibiza",
+  "url": "https://www.lovetoliveibiza.com/property/long-term-seasonal-rental-modern-apartment-with-terrace-in-talamanca-ibiza-a413/"
+ },
+ {
+  "active": true,
+  "agency_web": "https://www.ibizavende.com",
+  "annual_price": 1800,
+  "bedrooms": 1,
+  "first_matched": "2026-11-15",
+  "first_seen": "2026-11-15",
+  "id": "2ff8efcfe0c3",
+  "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/5051/28677629.jpg",
+  "last_seen": "2026-11-15",
+  "location": "Eivissa",
+  "matches": true,
+  "notes": [
+   "⚠️ menciona anual y temporada: confirmar contrato"
+  ],
+  "operation": "rent",
+  "price": 1800,
+  "price_history": [
+   [
+    "2026-11-15",
+    1800
+   ]
+  ],
+  "score": 62,
+  "snippet": "+34 648 47 84 58 | goya@ibizavende.com | ref: | 5051 | ibiza | ibiza centro | 1,800 | €/month | cozy apartment in the heart of ibiza with a parking space | 1 | rooms | 1 | bathrooms | 1 | garage | 70 | m2 | winter seasonal rental at €1,200/month. | summer seasonal rental at €2,5",
+  "source": "Ibiza Vende",
+  "status": "available",
+  "term": "mixed",
+  "term_keywords": [
+   "annual",
+   "seasonal",
+   "winter",
+   "summer"
+  ],
+  "title": "Cozy apartment in the heart of Ibiza with a parking space",
+  "url": "https://www.ibizavende.com/en_GB/property/5051"
+ }
+]

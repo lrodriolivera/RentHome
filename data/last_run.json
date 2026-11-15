@@ -1,0 +1,41 @@
+{
+ "date": "2026-11-15",
+ "scanned": 500,
+ "matching": 15,
+ "new": [
+  "0c9da95473cb",
+  "deaec11a7279",
+  "2b56f07b78fd",
+  "7c81286ea973",
+  "f2b590c14a27",
+  "e723da275efe",
+  "644ec0bda5de",
+  "2ff8efcfe0c3",
+  "f1dfe2d5f1c6",
+  "0a3ed8bfc772",
+  "70c27bd17f2a",
+  "3a252d3636bc",
+  "8a3ef8f03ef0",
+  "ebfbe197826a",
+  "c4912ba8c844"
+ ],
+ "price_drops": [],
+ "back": [],
+ "gone": [],
+ "errors": [],
+ "sources_ok": [
+  "Ibiza Domo",
+  "Ibiza Services",
+  "Ibiza Vende",
+  "Inmonline Ibiza",
+  "Living in Ibiza",
+  "Long Term Rental Ibiza",
+  "Love to Live Ibiza",
+  "Mondialité Ibiza",
+  "Rentals Ibiza",
+  "Roxire",
+  "Summum Ibiza",
+  "Villa Contact"
+ ],
+ "sources_total": 12
+}
