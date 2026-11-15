@@ -209,7 +209,7 @@
   "term_keywords": [],
   "status": "available",
   "operation": "rent",
-  "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25418525/Tphoto/ID1ddb8301-0000-0500-0000-00001a174115.jpg?a=b4814a74-32fb-a0125-4312b-4185250448451522293810",
+  "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25418525/Tphoto/ID1ddb8301-0000-0500-0000-00001a174115.jpg?a=fe80aae1-2e7f-d5925-9343d-1854185250871532215833",
   "snippet": "politica de cookies | | | gestionar datos | crm y paginas inmobiliarias por ego real estate | atencion: este sitio web utiliza cookies. puede aceptar o rechazar nuestras cookies haciendo clic en los botones a continuacion. un rechazo no limitara su experiencia como visitan",
   "matches": true,
   "notes": [
@@ -241,7 +241,7 @@
   "term_keywords": [],
   "status": "available",
   "operation": "rent",
-  "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30003328/Tphoto/ID80d0c901-0000-0500-0000-00001aba05fd.jpg?a=53e5261a-094a-e4943-3431c-7000000332831522297824",
+  "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30003328/Tphoto/ID80d0c901-0000-0500-0000-00001aba05fd.jpg?a=a389dc23-070c-c3530-3431c-5800332891851532294822",
   "snippet": "politica de cookies | | | gestionar datos | crm y paginas inmobiliarias por ego real estate | atencion: este sitio web utiliza cookies. puede aceptar o rechazar nuestras cookies haciendo clic en los botones a continuacion. un rechazo no limitara su experiencia como visitan",
   "matches": true,
   "notes": [
@@ -369,7 +369,7 @@
   "term_keywords": [],
   "status": "available",
   "operation": "rent",
-  "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31344632/Tphoto/IDf847de01-0000-0500-0000-00001ac409ee.jpg?a=3c6a7cfc-4f9e-c1344-9343d-7363219700559422211832",
+  "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31344632/Tphoto/IDf847de01-0000-0500-0000-00001ac409ee.jpg?a=9cc36786-9c14-b1283-3178a-8383134463279432293401",
   "snippet": "politica de cookies | | | gestionar datos | crm y paginas inmobiliarias por ego real estate | atencion: este sitio web utiliza cookies. puede aceptar o rechazar nuestras cookies haciendo clic en los botones a continuacion. un rechazo no limitara su experiencia como visitan",
   "matches": true,
   "notes": [
@@ -484,6 +484,43 @@
   "score": 62,
   "agency_web": "https://www.ibizavende.com",
   "id": "2ff8efcfe0c3",
+  "first_seen": "2026-11-15",
+  "first_matched": "2026-11-15",
+  "price_history": [
+   [
+    "2026-11-15",
+    1800
+   ]
+  ],
+  "last_seen": "2026-11-15",
+  "active": true
+ },
+ {
+  "url": "https://longtermrentalibiza.com/property/apartment-bou-beach/",
+  "source": "Long Term Rental Ibiza",
+  "title": "Apartment Bou Beach",
+  "price": 1800,
+  "annual_price": null,
+  "bedrooms": 1,
+  "location": "Cala de Bou",
+  "term": "mixed",
+  "term_keywords": [
+   "annual",
+   "year-round",
+   "long-term",
+   "winter"
+  ],
+  "status": "available",
+  "operation": "rent",
+  "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/09/Longterm-Rental-Ibiza-Apartment-Bou-Beach-5.jpeg",
+  "snippet": "apartment bou beach | direct available | €1,800 per month | 1 | of | 8 | property id : | rh-60398-property | share | added to favorites | add to favorites | print | bedrooms | 1 | bathrooms | 1 | area | 80 | m2 | description | annual rental – port des torrent. bright and spaci",
+  "matches": true,
+  "notes": [
+   "⚠️ menciona anual y temporada: confirmar contrato"
+  ],
+  "score": 62,
+  "agency_web": "https://longtermrentalibiza.com",
+  "id": "79e4d834b8a7",
   "first_seen": "2026-11-15",
   "first_matched": "2026-11-15",
   "price_history": [

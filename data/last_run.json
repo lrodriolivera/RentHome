@@ -1,8 +1,10 @@
 {
  "date": "2026-11-15",
- "scanned": 498,
- "matching": 15,
- "new": [],
+ "scanned": 503,
+ "matching": 16,
+ "new": [
+  "79e4d834b8a7"
+ ],
  "price_drops": [],
  "back": [],
  "gone": [],

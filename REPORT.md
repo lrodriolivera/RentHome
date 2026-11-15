@@ -1,10 +1,12 @@
 # 🏠 RentHome Ibiza – alquiler anual en inmobiliarias locales
 
-Última revisión: **2026-11-15** · Criterios: alquiler anual, ≤ 2000 €/mes, preferiblemente 2 habitaciones · 15 anuncios activos cumplen los criterios.
+Última revisión: **2026-11-15** · Criterios: alquiler anual, ≤ 2000 €/mes, preferiblemente 2 habitaciones · 16 anuncios activos cumplen los criterios.
 
-## 🆕 Nuevos en esta revisión (0)
+## 🆕 Nuevos en esta revisión (1)
 
-_No hay anuncios nuevos esta semana._
+| Inmueble | Precio | Hab. | Zona | Inmobiliaria | Visto desde | Notas |
+|---|---|---|---|---|---|---|
+| [Apartment Bou Beach](https://longtermrentalibiza.com/property/apartment-bou-beach/) | 1.800 €/mes | 1 hab. | Cala de Bou | Long Term Rental Ibiza | 2026-11-15 | ⚠️ menciona anual y temporada: confirmar contrato |
 
 ## ⭐ 2 habitaciones (8)
 
@@ -19,7 +21,7 @@ _No hay anuncios nuevos esta semana._
 | [Piso. Cala de Bou. Vistas mar 2 habitaciones parking piscina](https://www.roxire.com/detalles-del-inmueble/piso-cala-de-bou-vistas-mar-2-habitaciones-parking-piscina/21576472) | 1.800 €/mes | 2 hab. | Cala de Bou | Roxire | 2026-11-15 | sección de alquiler anual de la inmobiliaria |
 | [Piso vistas mar San Antonio de Portmany 2 habitaciones 2 baños](https://www.roxire.com/detalles-del-inmueble/piso-vistas-mar-san-antonio-de-portmany-2-habitaciones-2-banos/25738023) | 1.800 €/mes | 2 hab. | Sant Antoni | Roxire | 2026-11-15 | sección de alquiler anual de la inmobiliaria |
 
-## Otras opciones (7)
+## Otras opciones (8)
 
 | Inmueble | Precio | Hab. | Zona | Inmobiliaria | Visto desde | Notas |
 |---|---|---|---|---|---|---|
@@ -30,6 +32,7 @@ _No hay anuncios nuevos esta semana._
 | [Santa Eularia des Riu: Acogedor apartamento con piscina comunitaria en alquiler anual ALQU](https://www.living-in-ibiza.com/es/0__892_93_3_/santa-eularia-des-riu-acogedor-apartamento-con-piscina-comunitaria-en-alquiler-anual-alquiler-de-larga-duracion-amueblado-santa-eularia-des-riu-ibiza.html) | 1.900 €/mes | 1 hab. | Santa Eulària | Living in Ibiza | 2026-11-15 |  |
 | [LONG-TERM SEASONAL RENTAL – Modern Apartment with Terrace in Talamanca, Ibiza](https://www.lovetoliveibiza.com/property/long-term-seasonal-rental-modern-apartment-with-terrace-in-talamanca-ibiza-a413/) | 1.600 €/mes | 1 hab. | Talamanca | Love to Live Ibiza | 2026-11-15 | ⚠️ menciona anual y temporada: confirmar contrato |
 | [Cozy apartment in the heart of Ibiza with a parking space](https://www.ibizavende.com/en_GB/property/5051) | 1.800 €/mes | 1 hab. | Eivissa | Ibiza Vende | 2026-11-15 | ⚠️ menciona anual y temporada: confirmar contrato |
+| [Apartment Bou Beach](https://longtermrentalibiza.com/property/apartment-bou-beach/) | 1.800 €/mes | 1 hab. | Cala de Bou | Long Term Rental Ibiza | 2026-11-15 | ⚠️ menciona anual y temporada: confirmar contrato |
 
 ---
 Generado automáticamente por RentHome Ibiza. Confirma siempre con la inmobiliaria el tipo de contrato y la disponibilidad.
