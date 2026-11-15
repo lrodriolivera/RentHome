@@ -73,7 +73,7 @@ def crawl_source(fetcher: Fetcher, src: dict, max_details: int) -> tuple[list[di
         errors.append(f"{src['name']}: no se encontraron fichas (¿cambió la web?)")
     results = []
     for url in urls[:max_details]:
-        html = fetcher.get(url, render=src.get("render", False))
+        html = fetcher.get(url, render=src.get("render_details", False))
         if not html:
             continue
         try:

@@ -25,6 +25,11 @@ def evaluate(d: dict, criteria: dict, long_term_section: bool) -> tuple[bool, li
         if norm(ex) in title:
             return False, [f"tipo excluido: {ex}"], 0
 
+    full = title + " " + norm(d.get("snippet", ""))
+    for place in criteria.get("exclude_places", []):
+        if norm(place) in full:
+            return False, [f"fuera de Ibiza: {place}"], 0
+
     term = d.get("term", "unknown")
     if term == "seasonal":
         return False, ["temporada / no anual"], 0
@@ -40,7 +45,13 @@ def evaluate(d: dict, criteria: dict, long_term_section: bool) -> tuple[bool, li
     if price is None:
         if not criteria.get("include_unknown_price", True):
             return False, ["sin precio"], 0
-        notes.append("precio no publicado")
+        # sin precio publicado: casi siempre villas/fincas de lujo muy por encima del presupuesto
+        if (d.get("bedrooms") or 0) > criteria.get("unknown_price_max_bedrooms", 3):
+            return False, ["sin precio y muchas habitaciones (probable lujo)"], 0
+        for w in criteria.get("luxury_words", []):
+            if norm(w) in title:
+                return False, [f"sin precio y '{w}' (probable lujo)"], 0
+        notes.append("precio no publicado: consultar")
     elif price > max_price:
         return False, [f"precio {price} € > {max_price} €"], 0
     elif price < 300:

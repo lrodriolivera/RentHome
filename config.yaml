@@ -22,6 +22,37 @@ criteria:
     - habitación en piso compartido
     - alquiler de habitación
     - room for rent
+    - tienda
+    - licencia
+    - plot
+    - parcela
+    - terreno
+    - solar
+    - nave
+    - warehouse
+  # anuncios fuera de la isla que algunas inmobiliarias mezclan
+  exclude_places:
+    - formentera
+    - tarbena
+    - alicante
+    - valencia
+    - mallorca
+    - menorca
+    - barcelona
+    - montjuic
+  # anuncios SIN precio publicado: solo se muestran si son pequeños y no parecen de lujo
+  unknown_price_max_bedrooms: 3
+  luxury_words:
+    - villa
+    - mansion
+    - finca
+    - lujo
+    - luxury
+    - exclusiv
+    - six senses
+    - estate
+    - casa de campo
+    - payesa
 
 # Comportamiento del rastreador
 crawler:
@@ -39,7 +70,8 @@ crawler:
 #   max_pages      nº máximo de páginas de listado a recorrer
 #   long_term_section  true si las start_urls son SOLO de alquiler anual,
 #                      (entonces basta con que el anuncio no diga "temporada")
-#   render         true si la web carga los anuncios con JavaScript (usa Chromium)
+#   render         true si el LISTADO se carga con JavaScript (usa Chromium)
+#   render_details true si además las fichas necesitan JavaScript
 #   selectors      selectores CSS opcionales (title / price / bedrooms / body)
 # ---------------------------------------------------------------------------
 sources:
@@ -166,6 +198,9 @@ sources:
     website: https://www.roxire.com
     start_urls:
       - https://www.roxire.com/alquiler-anual/alquileranual
-    detail_pattern: 'roxire\.com/(inmueble|imovel|propiedad|property|alquiler-anual)/.*\d{3,}'
-    render: true
+    detail_pattern: 'roxire\.com/detalles-del-inmueble/[^/]+/\d+$'
+    page_pattern: 'roxire\.com/alquiler-anual\?.*pag=\d+'
+    max_pages: 8
+    render: true            # el listado se carga con JavaScript
+    render_details: false   # las fichas no lo necesitan
     long_term_section: true

@@ -34,8 +34,14 @@ CUT_MARKERS = [
     "te puede interesar", "you may also like", "compare properties",
     "otras propiedades", "other properties", "mas propiedades", "inmuebles relacionados",
     "featured properties", "propiedades destacadas", "ultimas propiedades", "latest properties",
-    "recently viewed", "vistos recientemente",
+    "recently viewed", "vistos recientemente", "opciones similares", "anuncios similares",
+    "similar listings", "more properties", "otros inmuebles", "ver mas inmuebles",
 ]
+
+# El precio "no disponible" en estas webs significa que ya está alquilado
+PRICE_UNAVAILABLE_RE = re.compile(
+    r"(precio|price)\s*:?\s*\|?\s*(no disponible|not available|alquilado|rented)", re.I)
+
 
 # ---------------------------------------------------------------------------
 # precio
@@ -389,7 +395,8 @@ def extract(html: str, url: str, source: str, selectors: Optional[dict] = None) 
     nt = norm(title)[:40]
     start = ntext.find(nt) if nt else -1
     if start > 0:
-        text_main = ntext[start:]
+        # algunas webs ponen el precio justo antes del título
+        text_main = ntext[max(0, start - 250):]
     else:
         text_main = ntext
     # cortar en bloques de "similares"
@@ -431,7 +438,9 @@ def extract(html: str, url: str, source: str, selectors: Optional[dict] = None) 
     status = "available"
     status_zone = norm(title) + " " + text_main[:400]
     m = RENTED_RE.search(status_zone)
-    if m:
+    if PRICE_UNAVAILABLE_RE.search(text_main[:3000]):
+        status = "rented"
+    elif m:
         w = m.group(1).lower()
         status = "reserved" if w.startswith(("reserv", "under", "en reserva")) else "rented"
 
