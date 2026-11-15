@@ -69,3 +69,15 @@ def test_evaluate_rejects():
     assert not evaluate({**base, "price": 500, "title": "Plaza de parking"}, CRIT, True)[0]
     assert evaluate({**base, "price": 1500, "term": "unknown"}, CRIT, True)[0]
     assert not evaluate({**base, "price": 1500, "term": "unknown"}, CRIT, False)[0]
+
+
+def test_list_badges():
+    import re
+    from renthome.crawl import _badges
+    html = """
+    <div><a href="/p/1">Piso 1</a><div class="badge">Alquilado</div><a href="/p/1">ver</a></div>
+    <div><a href="/p/2">Piso 2</a><img><a href="/p/2">ver</a></div>
+    <div><a href="/p/3">Piso 3</a><span>Reservado</span><a href="/p/3">ver</a></div>
+    """
+    b = _badges(html, "https://x.com/", re.compile(r"/p/\d+$"))
+    assert b == {"https://x.com/p/1": "rented", "https://x.com/p/3": "reserved"}
