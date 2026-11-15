@@ -81,3 +81,16 @@ def test_list_badges():
     """
     b = _badges(html, "https://x.com/", re.compile(r"/p/\d+$"))
     assert b == {"https://x.com/p/1": "rented", "https://x.com/p/3": "reserved"}
+
+
+def test_parking_as_extra_is_not_excluded():
+    base = {"url": "u", "price": 1500, "bedrooms": 2, "term": "long",
+            "status": "available", "operation": "rent"}
+    assert evaluate({**base, "title": "Estupendo Piso con Parking en es Vivé"}, CRIT, True)[0]
+    assert not evaluate({**base, "title": "Plaza de parking en Sant Antoni", "bedrooms": None}, CRIT, True)[0]
+
+
+def test_parking_price_not_headline():
+    t = "1,800 | €/month | cozy apartment | 1 | rooms | 1 | bathrooms | parking space not included in the price: €150 per month"
+    assert find_price(t)[0] == 1800
+    assert find_bedrooms("Cozy apartment", t) == 1

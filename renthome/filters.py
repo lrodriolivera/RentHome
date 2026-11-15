@@ -1,7 +1,15 @@
 """Decide si un anuncio cumple los criterios y le asigna una puntuación."""
 from __future__ import annotations
 
+import re
+
 from .parse import norm
+
+DWELLING = (r"\b(piso|apartamento|apartment|flat|casa|house|home|estudio|studio|atico|penthouse|"
+            r"chalet|chale|villa|duplex|bajo|planta baja|ground floor|adosado|townhouse|loft|"
+            r"vivienda|cottage|finca|dormitorio|habitaciones|bedroom)s?\b")
+# palabras que en un anuncio de vivienda solo indican un extra ("con parking")
+SOFT_EXCLUDES = {"parking", "garaje", "plaza de aparcamiento", "trastero"}
 
 
 def effective_price(d: dict) -> int | None:
@@ -21,8 +29,10 @@ def evaluate(d: dict, criteria: dict, long_term_section: bool) -> tuple[bool, li
         return False, ["alquilado/reservado"], 0
 
     title = norm(d.get("title", "")) + " " + norm(d.get("url", "").rsplit("/", 1)[-1].replace("-", " "))
+    # "piso con parking" es una vivienda: solo se excluye si no se menciona vivienda
+    is_home = re.search(DWELLING, title) is not None
     for ex in criteria.get("exclude_types", []):
-        if norm(ex) in title:
+        if norm(ex) in title and not (is_home and norm(ex) in SOFT_EXCLUDES):
             return False, [f"tipo excluido: {ex}"], 0
 
     full = title + " " + norm(d.get("snippet", ""))

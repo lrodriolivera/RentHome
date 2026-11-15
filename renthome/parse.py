@@ -55,7 +55,7 @@ PRICE_LABEL_BEFORE = re.compile(r"(alquiler mensual|precio|price|rent|renta|alqu
 EXCLUDE_BEFORE = re.compile(
     r"(fianza|deposito|deposit|garantia|guarantee|parking|garaje|plaza|comunidad|gastos|"
     r"honorarios|comision|fee|agency|agencia|iva|suministros|luz|agua|electricidad|"
-    r"winter|invierno|summer|verano|min(?:imo|imum)? price|max(?:imo|imum)? price|precio m[ai]x|precio min)[^\d€]{0,30}$",
+    r"winter|invierno|summer|verano|min(?:imo|imum)? price|max(?:imo|imum)? price|precio m[ai]x|precio min)[^\d€]{0,50}$",
     re.I,
 )
 ANNUAL_PRICE_RE = re.compile(
@@ -123,8 +123,8 @@ _WORDNUM = {
     "tres": 3, "three": 3, "cuatro": 4, "four": 4, "cinco": 5, "five": 5,
     "seis": 6, "six": 6,
 }
-_BED = r"(?:dormitorios?|habitaciones?|hab\.?|dorm\.?|bedrooms?|beds?|bed\b|br\b|chambres?|schlafzimmer)"
-BED_NUM_BEFORE = re.compile(rf"\b(\d{{1,2}})\s*[- ]?\s*{_BED}", re.I)
+_BED = r"(?:dormitorios?|habitaciones?|hab\.?|dorm\.?|bedrooms?|beds?|bed\b|br\b|chambres?|schlafzimmer|rooms?\b)"
+BED_NUM_BEFORE = re.compile(rf"(?<![\d.,])\b(\d{{1,2}})\s*(?:\|\s*)?[- ]?\s*{_BED}", re.I)
 BED_WORD_BEFORE = re.compile(rf"\b({'|'.join(k for k in _WORDNUM)})[- ]{_BED}", re.I)
 BED_LABEL_AFTER = re.compile(
     r"(?:cantidad (?:de )?dormitorios|cantidad (?:de )?habitaciones|n[ºo°]? (?:de )?(?:dormitorios|habitaciones)|"

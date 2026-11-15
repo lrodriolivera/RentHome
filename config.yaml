@@ -109,13 +109,10 @@ sources:
     website: https://ibiza-services.com
     start_urls:
       - https://ibiza-services.com/rentals/apartments/annual/
-      - https://ibiza-services.com/rentals/apartments/cheap/
-      - https://ibiza-services.com/rentals/houses/
-      - https://ibiza-services.com/rentals/studios/
     detail_pattern: 'ibiza-services\.com/properties/[^/]+/?$'
-    page_pattern: 'ibiza-services\.com/rentals/[a-z/-]+/page/\d+/?$'
+    page_pattern: 'ibiza-services\.com/rentals/apartments/annual/page/\d+/?$'
     max_pages: 6
-    long_term_section: false
+    long_term_section: true
 
   - name: Rentals Ibiza
     town: Santa Eulària

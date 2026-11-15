@@ -7,7 +7,8 @@ Buscador automático de **pisos y casas en alquiler anual (larga duración)** en
 - Presupuesto máximo: **2.000 €/mes**
 - Preferencia: **2 habitaciones** (se muestran primero; también salen 1 y 3+ como alternativas)
 - Descarta alquileres de temporada (verano, invierno, "septiembre a junio", "no anual"…), anuncios
-  alquilados/reservados, ventas, parkings, locales y trasteros
+  alquilados/reservados (también las etiquetas "Alquilado" de los listados), ventas, parkings,
+  locales, oficinas, terrenos, estudios sin dormitorio y anuncios fuera de la isla
 - **Cada lunes** se ejecuta solo (GitHub Actions), guarda el historial y **avisa de los anuncios nuevos**
 
 📄 **Listado actual:** [`REPORT.md`](REPORT.md) · página visual: [`docs/index.html`](docs/index.html)
@@ -74,9 +75,10 @@ Una vez el código esté en la rama principal del repositorio:
 ```bash
 pip install -r requirements.txt
 python -m playwright install chromium      # solo necesario para webs con JavaScript (Roxire)
+# (si ya tienes un Chromium instalado: export CHROMIUM_PATH=/ruta/a/chrome)
 python -m renthome                          # búsqueda completa (~10-20 min)
 python -m renthome --only "Living in Ibiza" # una sola inmobiliaria
-python -m renthome --report-only            # regenerar informes sin volver a rastrear
+python -m renthome --report-only            # re-aplicar criterios de config.yaml y regenerar informes (sin rastrear)
 python -m pytest tests                      # tests del extractor
 ```
 
@@ -98,4 +100,5 @@ criteria:
 - Los anuncios marcados con ⚠️ mencionan a la vez alquiler anual y de temporada.
 - Si una inmobiliaria cambia su web, el informe mostrará un aviso "no se encontraron fichas";
   basta con actualizar sus `start_urls` / `detail_pattern`.
-- El rastreador va despacio a propósito (1 petición por segundo y web) para no molestar.
+- El rastreador va despacio a propósito (1 petición por segundo y web) y se identifica como
+  `RentHomeIbiza`. Si una web bloquea el acceso (HTTP 403), se respeta y aparece en los avisos.

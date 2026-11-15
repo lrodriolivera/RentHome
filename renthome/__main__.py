@@ -52,6 +52,14 @@ def main(argv=None) -> int:
     by_name = {s["name"]: s for s in cfg["sources"]}
 
     if args.report_only:
+        # re-aplica los criterios actuales de config.yaml al historial guardado
+        for rec in store.listings.values():
+            src = by_name.get(rec.get("source"), {})
+            ok, notes, score = evaluate(rec, criteria, src.get("long_term_section", False))
+            rec.update(matches=ok, notes=notes, score=score)
+            if ok and not rec.get("first_matched"):
+                rec["first_matched"] = run_date
+        store.save()
         summary = {"date": run_date, "new": [], "price_drops": [], "back": [], "gone": [], "errors": []}
         last = Path(ROOT / "data" / "last_run.json")
         if last.exists():
