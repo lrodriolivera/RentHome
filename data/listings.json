@@ -263,7 +263,7 @@
    "url": "https://www.ibizavende.com/en_GB/property/4276"
   },
   "05713a282242": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 5,
@@ -976,7 +976,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "11139f40a003",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29838118/Tphoto/ID264bc701-0000-0500-0000-000019083439.jpg?a=078f851a-0dd2-a4220-2934e-2983811830545661314840",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29838118/Tphoto/ID264bc701-0000-0500-0000-000019083439.jpg?a=0229b6d6-b370-c9838-2934e-0211861237450522311842",
    "last_seen": "2026-11-15",
    "location": "Sant Josep",
    "matches": false,
@@ -1240,7 +1240,7 @@
    "url": "https://longtermrentalibiza.com/property/the-botafoch-apartment/"
   },
   "194712e0f0ec": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -1413,7 +1413,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "1bafa23ad20b",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25248364/Tphoto/ID6c428101-0000-0500-0000-0000143c9bec.jpg?a=dc346068-dd3c-c5248-9343d-5236441378474661211832",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25248364/Tphoto/ID6c428101-0000-0500-0000-0000143c9bec.jpg?a=ef67e200-d4cb-e8364-3431c-2524068178489422290824",
    "last_seen": "2026-11-15",
    "location": null,
    "matches": false,
@@ -1471,6 +1471,41 @@
    "title": "Beautiful penthouse for seasonal rent in Los Molinos",
    "url": "https://www.lovetoliveibiza.com/property/beautiful-penthouse-for-seasonal-rent-in-los-molinos-a327/"
   },
+  "1c893383d743": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 4,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "1c893383d743",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/07/Long-term-rental-ibiza-Villa-Llonga-Blanca-11.jpg",
+   "last_seen": "2026-11-15",
+   "location": "Cala Llonga",
+   "matches": false,
+   "notes": [
+    "alquilado/reservado"
+   ],
+   "operation": "rent",
+   "price": 4500,
+   "price_history": [
+    [
+     "2026-11-15",
+     4500
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa llonga blanca | rented | rented €4,500 | 1 | of | 23 | property id : | rh-27845-property | share | added to favorites | add to favorites | print | bedrooms | 4 | bathrooms | 3 | garage | 1 | area | 220 | lot size | 1000 | description | annual rental – cala llonga. on the",
+   "source": "Long Term Rental Ibiza",
+   "status": "rented",
+   "term": "long",
+   "term_keywords": [
+    "annual",
+    "year round"
+   ],
+   "title": "Villa Llonga Blanca",
+   "url": "https://longtermrentalibiza.com/property/villa-llonga-blanca/"
+  },
   "1e03c62f63cc": {
    "active": true,
    "agency_web": "https://longtermrentalibiza.com",
@@ -1505,8 +1540,42 @@
    "title": "Casa Capella - Longterm rental Ibiza",
    "url": "https://longtermrentalibiza.com/property/casa-capella/"
   },
-  "2242bd15bc4f": {
+  "1ff6122f619e": {
    "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 8,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "1ff6122f619e",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/11/Long-term-rental-ibiza-Villa-No-shoes-75.jpg",
+   "last_seen": "2026-11-15",
+   "location": "Sant Joan",
+   "matches": false,
+   "notes": [
+    "precio 13000 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 13000,
+   "price_history": [
+    [
+     "2026-11-15",
+     13000
+    ]
+   ],
+   "score": 0,
+   "snippet": "available | €13,000 per month | 1 | of | 44 | property id : | rh-29996-property | share | added to favorites | add to favorites | print | bedrooms | 8 | bathrooms | 5 | area | 570 | m2 | lot size | 16.000 | m2 | description | annual rental – san juan de la britja. incredible vill",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "longterm"
+   ],
+   "title": "Villa Lagos - Longterm rental Ibiza",
+   "url": "https://longtermrentalibiza.com/property/villa-lagos/"
+  },
+  "2242bd15bc4f": {
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -2518,6 +2587,42 @@
    "title": "Exclusive Ibizan villa for rent in Santa Gertrudis with panoramic views",
    "url": "https://www.mondialiteibiza.com/en/property/rentals/exclusive-ibizan-villa-for-rent-in-santa-gertrudis-with-panoramic-views-3641/"
   },
+  "302faeff46b0": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 6,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "302faeff46b0",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/09/Seasonal-Rental-Ibiza-Villa-Eden-Garden-108-scaled.jpeg",
+   "last_seen": "2026-11-15",
+   "location": "Santa Eulària",
+   "matches": false,
+   "notes": [
+    "temporada / no anual"
+   ],
+   "operation": "rent",
+   "price": 6500,
+   "price_history": [
+    [
+     "2026-11-15",
+     6500
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa purple rain | direct available | €6,500 per month | 1 | of | 47 | property id : | rh-68144-property | share | added to favorites | add to favorites | print | bedrooms | 6 | garage | 2 | area | 350 | m2 | description | winter season rental – santa eulalia. authentic ibice",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "seasonal",
+   "term_keywords": [
+    "seasonal",
+    "season",
+    "winter"
+   ],
+   "title": "Villa Purple Rain",
+   "url": "https://longtermrentalibiza.com/property/villa-eden-garden/"
+  },
   "308c67efc06f": {
    "active": true,
    "agency_web": "https://www.lovetoliveibiza.com",
@@ -2925,6 +3030,41 @@
    "title": "Adosado Pastor",
    "url": "https://longtermrentalibiza.com/property/adosado-pastor/"
   },
+  "350ea77069f8": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 5,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "350ea77069f8",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/09/Seasonal-Rental-Ibiza-Villa-Diamond-8-1024x720.png",
+   "last_seen": "2026-11-15",
+   "location": "Jesús",
+   "matches": false,
+   "notes": [
+    "temporada / no anual"
+   ],
+   "operation": "rent",
+   "price": 14000,
+   "price_history": [
+    [
+     "2026-11-15",
+     14000
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa diamond | direct available | €14,000 per month | 1 | of | 48 | property id : | rh-68051-property | share | added to favorites | add to favorites | print | bedrooms | 5 | bathrooms | 9 | garage | 5 | area | 480 | m2 | lot size | 16000 | m2 | description | seasonal rental",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "seasonal",
+   "term_keywords": [
+    "seasonal",
+    "winter"
+   ],
+   "title": "Villa Diamond",
+   "url": "https://longtermrentalibiza.com/property/villa-diamond/"
+  },
   "35dda8eba54c": {
    "active": true,
    "agency_web": "https://www.living-in-ibiza.com",
@@ -3154,7 +3294,7 @@
    "url": "https://www.inmonlineibiza.com/inmueble/982"
   },
   "386106c4d6cd": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 6,
@@ -3391,7 +3531,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "3d36a004f1eb",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29163276/Tphoto/ID0cffbc01-0000-0500-0000-000018dea9a1.jpg?a=161c6487-6755-a9543-9343d-3829163276435661216830",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29163276/Tphoto/ID0cffbc01-0000-0500-0000-000018dea9a1.jpg?a=d67930f7-0493-a8262-9343d-5944291632760522218830",
    "last_seen": "2026-11-15",
    "location": "Cala Gració",
    "matches": false,
@@ -3586,6 +3726,40 @@
    "title": "Apartment Bos",
    "url": "https://longtermrentalibiza.com/property/apartment-bos/"
   },
+  "42096a1865f3": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 5,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "42096a1865f3",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/01/Longterm-Rental-Ibiza-Villa-Convergence-0-3.jpg",
+   "last_seen": "2026-11-15",
+   "location": "Sant Josep",
+   "matches": false,
+   "notes": [
+    "precio 5750 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 5750,
+   "price_history": [
+    [
+     "2026-11-15",
+     5750
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa convergence | direct available | €5,750 per month | 1 | of | 45 | property id : | rh-63123-property | share | added to favorites | add to favorites | print | bedrooms | 5 | bathrooms | 5 | area | 280 | m2 | lot size | 1000 | m2 | description | annual rental – sant josep.",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "annual"
+   ],
+   "title": "Villa Convergence",
+   "url": "https://longtermrentalibiza.com/property/villa-convergence/"
+  },
   "43225a11e9c5": {
    "active": true,
    "agency_web": "https://www.lovetoliveibiza.com",
@@ -3685,8 +3859,42 @@
    "title": "Annual Villa in Cala Tarida with Pool and Mountain Views",
    "url": "https://www.ibizavende.com/en_GB/property/4673"
   },
-  "447fa69c4e0e": {
+  "43d5ff4bbf9f": {
    "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 5,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "43d5ff4bbf9f",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/01/Longterm-Rental-Ibiza-Villa-Bali-2.jpg",
+   "last_seen": "2026-11-15",
+   "location": "Roca Llisa",
+   "matches": false,
+   "notes": [
+    "precio 10000 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 10000,
+   "price_history": [
+    [
+     "2026-11-15",
+     10000
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa roca bali | direct available | €10,000 per month | 1 | of | 44 | property id : | rh-63010-property | share | added to favorites | add to favorites | print | bedrooms | 5 | bathrooms | 6 | garage | 1 | area | 450 | m2 | description | annual rental – roca llisa. semi-detac",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "annual"
+   ],
+   "title": "Villa Roca Bali",
+   "url": "https://longtermrentalibiza.com/property/villa-bali/"
+  },
+  "447fa69c4e0e": {
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -3884,7 +4092,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "48e9701bf597",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30176117/Tphoto/ID7573cc01-0000-0500-0000-000019c9264b.jpg?a=d0858062-ecdd-a7443-3431c-0943017611785661297820",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30176117/Tphoto/ID7573cc01-0000-0500-0000-000019c9264b.jpg?a=29740ade-7542-c9818-4316b-7130176117490522293812",
    "last_seen": "2026-11-15",
    "location": "Cala de Bou",
    "matches": false,
@@ -4035,6 +4243,41 @@
    ],
    "title": "Sant Joan de Labritja: ALQUILER ANUAL/LARGO PLAZO, villa moderna sin amueblar, San Juan, Ibiza, piscina de sal, calefacción suelo radiante, 3 habitaciones, 3 baños",
    "url": "https://www.living-in-ibiza.com/es/0__524_92_3_/sant-joan-de-labritja-alquiler-anuallargo-plazo-villa-moderna-sin-amueblar-san-juan-ibiza-piscina-de-sal-calefaccion-suelo-radiante-3-habitaciones-3-banos.html"
+  },
+  "49884103ddcc": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 6,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "49884103ddcc",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2023/10/Long-Term-Rental-Ibiza-Villa-Sabanah-16.jpg",
+   "last_seen": "2026-11-15",
+   "location": "Talamanca",
+   "matches": false,
+   "notes": [
+    "precio 12500 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 12500,
+   "price_history": [
+    [
+     "2026-11-15",
+     12500
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa sabanah | direct available | €12,500 per month | 1 | of | 46 | property id : | rh-36039-property | share | added to favorites | add to favorites | print | bedrooms | 6 | bathrooms | 8 | garage | 1 | area | 400 | m2 | description | yearly rental – talamanca. no agency fee",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "yearly",
+    "year-round"
+   ],
+   "title": "Villa Sabanah",
+   "url": "https://longtermrentalibiza.com/property/villa-sabanah/"
   },
   "4a97b34175bb": {
    "active": true,
@@ -4863,6 +5106,40 @@
    "title": "ESTUPENDA CASA DE PUEBLO EN FAMORCA",
    "url": "https://www.inmonlineibiza.com/inmueble/834"
   },
+  "54d3276bb84d": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 3,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "54d3276bb84d",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Long-Term-Rental-Ibiza-Casita-Amapola-Sea-View-13.jpg",
+   "last_seen": "2026-11-15",
+   "location": null,
+   "matches": false,
+   "notes": [
+    "alquilado/reservado"
+   ],
+   "operation": "rent",
+   "price": 3500,
+   "price_history": [
+    [
+     "2026-11-15",
+     3500
+    ]
+   ],
+   "score": 0,
+   "snippet": "casita amapola sea view | rented | rented €3,500 | 1 | of | 22 | property id : | rh-45460-property | share | added to favorites | add to favorites | print | bedrooms | 3 | bathrooms | 2 | garage | 2 | area | 130 | m2 | description | yearly rental – cap martinet. beautiful ibiz",
+   "source": "Long Term Rental Ibiza",
+   "status": "rented",
+   "term": "long",
+   "term_keywords": [
+    "yearly"
+   ],
+   "title": "Casita Amapola Sea View",
+   "url": "https://longtermrentalibiza.com/property/casita-amapola-sea-view/"
+  },
   "54eded95b1c1": {
    "active": true,
    "agency_web": "https://www.inmonlineibiza.com",
@@ -4901,7 +5178,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "56382e479c49",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555238/Tphoto/ID663cd201-0000-0500-0000-000019d1f09d.jpg?a=01591049-c9f3-e5552-2934e-3230384299415661312844",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555238/Tphoto/ID663cd201-0000-0500-0000-000019d1f09d.jpg?a=47a080cb-903f-c3055-4312b-6452380542520522293812",
    "last_seen": "2026-11-15",
    "location": "Cala Vadella",
    "matches": false,
@@ -5226,7 +5503,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "59788d21fa77",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555291/Tphoto/ID9b3cd201-0000-0500-0000-000019dcb772.jpg?a=e447c5e2-ba9e-e3055-9343d-3223529188405661214834",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555291/Tphoto/ID9b3cd201-0000-0500-0000-000019dcb772.jpg?a=a34f1ff7-ac50-e2930-9343d-5017555291410522216834",
    "last_seen": "2026-11-15",
    "location": "Cala Vadella",
    "matches": false,
@@ -5285,7 +5562,7 @@
    "url": "https://longtermrentalibiza.com/property/seasonal-rental-ibiza-piso-playa-bossa/"
   },
   "5a60699472cc": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 6,
@@ -5678,7 +5955,7 @@
    "url": "https://www.living-in-ibiza.com/es/0__697_92_3_/santa-eulalia-del-rio-villa-sage-alquiler-de-temporada-en-ibiza-casa-totalmente-reformada-a-estrenar-con-piscina-cercana-a-playa-en-santa-eulalia-del-rio-eivissa.html"
   },
   "620f2378d539": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 6,
@@ -5775,7 +6052,7 @@
    "url": "https://www.ibizavende.com/en_GB/property/4591"
   },
   "670b377107b9": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -6586,7 +6863,7 @@
    "url": "https://www.rentalsibiza.co.uk/rental/family-villa-10-minutes-walking-from-santa-eulalia/"
   },
   "71d96ec650e2": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 7,
@@ -7284,7 +7561,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "7b502cee656c",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31025209/Tphoto/ID3968d901-0000-0500-0000-00001a604642.jpg?a=d2085ff9-841c-d9603-2934e-5331025209565661316843",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31025209/Tphoto/ID3968d901-0000-0500-0000-00001a604642.jpg?a=05c8423a-f10f-b7469-3431c-9453102520970522297821",
    "last_seen": "2026-11-15",
    "location": "Santa Eulària",
    "matches": false,
@@ -7316,7 +7593,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "7bf89edee9d0",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30867902/Tphoto/IDbe01d701-0000-0500-0000-00001a353028.jpg?a=3d2e7800-7bce-e0867-9343d-7063902459436661213834",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30867902/Tphoto/IDbe01d701-0000-0500-0000-00001a353028.jpg?a=09a5f635-90f1-d6790-2934e-3082885221541522310843",
    "last_seen": "2026-11-15",
    "location": "Playa d'en Bossa",
    "matches": false,
@@ -7636,7 +7913,7 @@
    "url": "https://longtermrentalibiza.com/property/las-boas-verde-71/"
   },
   "7f43a4367c54": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 5,
@@ -8147,7 +8424,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "893c3f093163",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P26469078/Tphoto/IDd6e29301-0000-0500-0000-000014f5254d.jpg?a=f442a406-aa4f-e8264-9343d-3170690788484661215834",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P26469078/Tphoto/IDd6e29301-0000-0500-0000-000014f5254d.jpg?a=26362790-a6e9-c0021-3168a-8126469078599422293402",
    "last_seen": "2026-11-15",
    "location": null,
    "matches": false,
@@ -8179,7 +8456,7 @@
    "first_matched": "2026-11-15",
    "first_seen": "2026-11-15",
    "id": "8a3ef8f03ef0",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31344632/Tphoto/IDf847de01-0000-0500-0000-00001ac409ee.jpg?a=ba70f5ae-e758-e3446-2934e-1231329589444661312844",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31344632/Tphoto/IDf847de01-0000-0500-0000-00001ac409ee.jpg?a=3c6a7cfc-4f9e-c1344-9343d-7363219700559422211832",
    "last_seen": "2026-11-15",
    "location": "Sant Antoni",
    "matches": true,
@@ -8238,7 +8515,7 @@
    "url": "https://www.inmonlineibiza.com/inmueble/811"
   },
   "8aa82564e86f": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -8715,7 +8992,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "91b6e1e3d2d8",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29704952/Tphoto/IDf842c501-0000-0500-0000-000018d48d3b.jpg?a=2ca9d4a4-96fb-c0310-9343d-1952970495275661217832",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29704952/Tphoto/IDf842c501-0000-0500-0000-000018d48d3b.jpg?a=41d2e993-6d0a-e3029-3431c-5004704952580522296824",
    "last_seen": "2026-11-15",
    "location": "Sant Carles",
    "matches": false,
@@ -8808,6 +9085,41 @@
    ],
    "title": "Casa Tarida - Longterm rental Ibiza",
    "url": "https://longtermrentalibiza.com/property/casa-tarida/"
+  },
+  "92304a018647": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 4,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "92304a018647",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/04/Longterm-Rental-Ibiza-Villa-Aprilia-Bella-Vista-2-scaled.jpg",
+   "last_seen": "2026-11-15",
+   "location": "Sant Antoni",
+   "matches": false,
+   "notes": [
+    "precio 6000 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 6000,
+   "price_history": [
+    [
+     "2026-11-15",
+     6000
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa aprilia bella vista | available soon | €6,000 per month | 1 | of | 46 | property id : | rh-64852-property | share | added to favorites | add to favorites | print | bedrooms | 4 | bathrooms | 3 | garage | 5 | area | 230 | m2 | lot size | 2000 | m2 | description | annual r",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "annual",
+    "year-round"
+   ],
+   "title": "Villa Aprilia Bella Vista",
+   "url": "https://longtermrentalibiza.com/property/villa-aprilia-bella-vista/"
   },
   "9256289ff904": {
    "active": true,
@@ -8988,6 +9300,41 @@
    "title": "ESTUPENDO PISO EN SANT ANTONI DE PORTMANY",
    "url": "https://www.inmonlineibiza.com/inmueble/617"
   },
+  "93f7204e78be": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 5,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "93f7204e78be",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/06/Longterm-Rental-Ibiza-Villa-Sant-Jordi-Retreat-3-scaled.jpg",
+   "last_seen": "2026-11-15",
+   "location": "Sant Jordi",
+   "matches": false,
+   "notes": [
+    "alquilado/reservado"
+   ],
+   "operation": "rent",
+   "price": 5000,
+   "price_history": [
+    [
+     "2026-11-15",
+     5000
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa sant jordi retreat | rented | rented €5,000 | 1 | of | 40 | property id : | rh-66293-property | share | added to favorites | add to favorites | print | bedrooms | 5 | bathrooms | 3 | garage | 3 | year built | 1955 | area | 180 | m2 | lot size | 1200 | m2 | description",
+   "source": "Long Term Rental Ibiza",
+   "status": "rented",
+   "term": "mixed",
+   "term_keywords": [
+    "annual",
+    "summer"
+   ],
+   "title": "Villa Sant Jordi Retreat",
+   "url": "https://longtermrentalibiza.com/property/villa-sant-jordi-retreat/"
+  },
   "94a0c0babc69": {
    "active": true,
    "agency_web": "https://longtermrentalibiza.com",
@@ -9064,7 +9411,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "9501fd48bddb",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P26682730/Tphoto/ID6a259701-0000-0500-0000-000019c92856.jpg?a=04deb052-4b10-d7794-2934e-3245266827305661318843",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P26682730/Tphoto/ID6a259701-0000-0500-0000-000019c92856.jpg?a=1c2cddbb-0f2f-a6113-9343d-4942668273060522217830",
    "last_seen": "2026-11-15",
    "location": "Cala de Bou",
    "matches": false,
@@ -9533,7 +9880,7 @@
    "url": "https://longtermrentalibiza.com/property/penthouse-red-siesta/"
   },
   "9bb3268c311f": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 0,
@@ -9644,7 +9991,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "9dadb82915f6",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P28184082/Tphoto/ID120eae01-0000-0500-0000-00001763b6f5.jpg?a=9f02044b-5591-a1849-3431c-3028184082014661296820",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P28184082/Tphoto/ID120eae01-0000-0500-0000-00001763b6f5.jpg?a=e69cdfaf-caae-e9328-4316b-0250184082919422293814",
    "last_seen": "2026-11-15",
    "location": null,
    "matches": false,
@@ -10026,6 +10373,40 @@
    "title": "Las boas Rojo 51",
    "url": "https://longtermrentalibiza.com/property/las-boas-rojo-51/"
   },
+  "a3137d5dfea0": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 4,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "a3137d5dfea0",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/10/Long-Term-Rental-Ibiza-Villa-Can-Calma-0-2.jpg",
+   "last_seen": "2026-11-15",
+   "location": "Sant Mateu",
+   "matches": false,
+   "notes": [
+    "alquilado/reservado"
+   ],
+   "operation": "rent",
+   "price": 5500,
+   "price_history": [
+    [
+     "2026-11-15",
+     5500
+    ]
+   ],
+   "score": 0,
+   "snippet": "finca can calma | rented | rented €5,500 | 1 | of | 48 | property id : | rh-47332-property | share | added to favorites | add to favorites | print | bedrooms | 4 | bathrooms | 3 | garage | 6 | area | 160 | m2 | lot size | 350000 | m2 | description | yearly rental – san mateo.",
+   "source": "Long Term Rental Ibiza",
+   "status": "rented",
+   "term": "long",
+   "term_keywords": [
+    "yearly"
+   ],
+   "title": "Finca Can Calma",
+   "url": "https://longtermrentalibiza.com/property/finca-can-calma/"
+  },
   "a503c8a64d2d": {
    "active": true,
    "agency_web": "https://www.inmonlineibiza.com",
@@ -10365,7 +10746,7 @@
    "url": "https://longtermrentalibiza.com/property/apartment-downtown-ibiza/"
   },
   "a9cff20dab7c": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 6,
@@ -11060,6 +11441,40 @@
    "title": "Villa GolfView",
    "url": "https://longtermrentalibiza.com/property/villa-golfview/"
   },
+  "b47bc87b6993": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 4,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "b47bc87b6993",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2023/10/Long-Term-Rental-Ibiza-Villa-Roca-Llisa-View-14-scaled.jpg",
+   "last_seen": "2026-11-15",
+   "location": "Roca Llisa",
+   "matches": false,
+   "notes": [
+    "precio 12500 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 12500,
+   "price_history": [
+    [
+     "2026-11-15",
+     12500
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa roca llisa view | direct available | €12,500 per month | 1 | of | 26 | property id : | rh-36472-property | share | added to favorites | add to favorites | print | bedrooms | 4 | bathrooms | 5 | area | 200 | m2 | description | yearly rental – roca llisa. welcome to your e",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "yearly"
+   ],
+   "title": "Villa Roca Llisa View",
+   "url": "https://longtermrentalibiza.com/property/villa-roca-llisa-view/"
+  },
   "b5d8f8bc5bfa": {
    "active": true,
    "agency_web": "https://longtermrentalibiza.com",
@@ -11203,7 +11618,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "b9c4c7c53342",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P19783097/Tphoto/IDb9dd2d01-0000-0500-0000-0000184e5158.jpg?a=5d46438b-d776-d8309-9343d-1977345709406661210833",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P19783097/Tphoto/IDb9dd2d01-0000-0500-0000-0000184e5158.jpg?a=a4a58c81-3b0e-a4755-3431c-6051197830971522298820",
    "last_seen": "2026-11-15",
    "location": "Cala Conta",
    "matches": false,
@@ -12137,7 +12552,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "c3ada5755424",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29815465/Tphoto/IDa9f2c601-0000-0500-0000-000018fe02c1.jpg?a=acaadece-4eb4-e9059-2934e-1728298154655661318844",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29815465/Tphoto/IDa9f2c601-0000-0500-0000-000018fe02c1.jpg?a=75b0fbeb-42ad-d2298-3431c-9291546559401522294823",
    "last_seen": "2026-11-15",
    "location": "Playa d'en Bossa",
    "matches": false,
@@ -12203,7 +12618,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "c479f9e93311",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30176115/Tphoto/ID7373cc01-0000-0500-0000-0000197cdc8e.jpg?a=7d9c5712-af75-e7611-9343d-7301535443514661211834",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30176115/Tphoto/ID7373cc01-0000-0500-0000-0000197cdc8e.jpg?a=1dc59d5c-84c7-c0911-4316b-9030176115529422293812",
    "last_seen": "2026-11-15",
    "location": "Sant Rafel",
    "matches": false,
@@ -12235,7 +12650,7 @@
    "first_matched": "2026-11-15",
    "first_seen": "2026-11-15",
    "id": "c4912ba8c844",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25418525/Tphoto/ID1ddb8301-0000-0500-0000-00001a174115.jpg?a=a612eaa2-8ca7-a3254-2934e-1852549861546661311840",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25418525/Tphoto/ID1ddb8301-0000-0500-0000-00001a174115.jpg?a=b4814a74-32fb-a0125-4312b-4185250448451522293810",
    "last_seen": "2026-11-15",
    "location": "Cala de Bou",
    "matches": true,
@@ -12584,7 +12999,7 @@
    "url": "https://longtermrentalibiza.com/property/apartment-aqua-bossa/"
   },
   "c97eef7cf4fd": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 5,
@@ -12690,7 +13105,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "cc84a5b9eb08",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555221/Tphoto/ID553cd201-0000-0500-0000-000019d0298b.jpg?a=2c44989a-bcf9-b9577-2934e-3305552219425661315841",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555221/Tphoto/ID553cd201-0000-0500-0000-000019d0298b.jpg?a=a35e5a5a-2b6f-e4230-4316b-8791555221530522293814",
    "last_seen": "2026-11-15",
    "location": "Cala Vadella",
    "matches": false,
@@ -12904,6 +13319,41 @@
    "title": "Santa Eulalia del Río: ALQUILER ANUAL / LARGO PLAZO Atractivo apartamento en Santa Eulalia, Ibiza, primera línea de mar.",
    "url": "https://www.living-in-ibiza.com/es/0__571_93_3_/santa-eulalia-del-rio-alquiler-anual-largo-plazo-atractivo-apartamento-en-santa-eulalia-ibiza-primera-linea-de-mar.html"
   },
+  "cdd38c6ba26a": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 3,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "cdd38c6ba26a",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/09/Longterm-Rental-Ibiza-Villa-Tree-House-0-1024x667.png",
+   "last_seen": "2026-11-15",
+   "location": "Sant Josep",
+   "matches": false,
+   "notes": [
+    "precio 5000 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 5000,
+   "price_history": [
+    [
+     "2026-11-15",
+     5000
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa tree house | direct available | €5,000 per month | 1 | of | 37 | property id : | rh-68053-property | share | added to favorites | add to favorites | print | bedrooms | 3 | bathrooms | 3 | garage | 3 | area | 200 | m2 | lot size | 1500 | m2 | description | 11 months renta",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "mixed",
+   "term_keywords": [
+    "annual",
+    "winter"
+   ],
+   "title": "Villa Tree House",
+   "url": "https://longtermrentalibiza.com/property/villa-tree-house/"
+  },
   "cef5811fc7d2": {
    "active": true,
    "agency_web": "https://longtermrentalibiza.com",
@@ -12937,6 +13387,40 @@
    ],
    "title": "Duplex Black Lion",
    "url": "https://longtermrentalibiza.com/property/duplex-black-lion/"
+  },
+  "cfbdf3993313": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 4,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "cfbdf3993313",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/08/Longterm-Rental-Ibiza-Villa-Duetto-With-Independent-Apartment-0-scaled.jpg",
+   "last_seen": "2026-11-15",
+   "location": "Santa Eulària",
+   "matches": false,
+   "notes": [
+    "precio 9000 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 9000,
+   "price_history": [
+    [
+     "2026-11-15",
+     9000
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa duetto with independent apartment | direct available | €9,000 per month | 1 | of | 48 | property id : | rh-67735-property | share | added to favorites | add to favorites | print | bedrooms | 4+1 | bathrooms | 5.5 | garage | 4 | year built | 2012 | area | 250 | m2 | lot s",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "annual"
+   ],
+   "title": "Villa Duetto With Independent Apartment",
+   "url": "https://longtermrentalibiza.com/property/villa-duetto-with-independent-apartment/"
   },
   "d17a2f1fa3b1": {
    "active": true,
@@ -13005,6 +13489,40 @@
    "title": "ESTUPENDA CASA DE PUEBLO CON MUCHAS POSIBILIDADES EN GATA DE GORGOS",
    "url": "https://www.inmonlineibiza.com/inmueble/884"
   },
+  "d211a4b4b7de": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 2,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "d211a4b4b7de",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2023/10/Long-Term-Rental-Ibiza-Villa-Cozy-14.jpg",
+   "last_seen": "2026-11-15",
+   "location": "Santa Gertrudis",
+   "matches": false,
+   "notes": [
+    "alquilado/reservado"
+   ],
+   "operation": "rent",
+   "price": 6500,
+   "price_history": [
+    [
+     "2026-11-15",
+     6500
+    ]
+   ],
+   "score": 0,
+   "snippet": "rented €6,500 | 1 | of | 21 | property id : | rh-36625-property | share | added to favorites | add to favorites | print | bedrooms | 2 | bathrooms | 2 | garage | 3 | area | 280 | m2 | description | yearly rental – santa gertrudis. welcome to your dream home nestled in the heart",
+   "source": "Long Term Rental Ibiza",
+   "status": "rented",
+   "term": "long",
+   "term_keywords": [
+    "longterm"
+   ],
+   "title": "Villa Cozy - Longterm rental Ibiza",
+   "url": "https://longtermrentalibiza.com/property/villa-cozy/"
+  },
   "d2ccb31c2203": {
    "active": true,
    "agency_web": "https://www.roxire.com",
@@ -13013,7 +13531,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "d2ccb31c2203",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555184/Tphoto/ID303cd201-0000-0500-0000-000019d024ad.jpg?a=4e5b447d-a5a4-a1713-2934e-0555184369494661313840",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555184/Tphoto/ID303cd201-0000-0500-0000-000019d024ad.jpg?a=676da591-fcb3-e2840-3431c-7901305551840522298824",
    "last_seen": "2026-11-15",
    "location": "Cala Vadella",
    "matches": false,
@@ -13072,6 +13590,40 @@
    ],
    "title": "Townhouse Golf Bay",
    "url": "https://longtermrentalibiza.com/property/townhouse-golf-bay/"
+  },
+  "d48bd9fa397b": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 6,
+   "first_matched": null,
+   "first_seen": "2026-11-15",
+   "id": "d48bd9fa397b",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2019/10/Long-term-rental-ibiza-Villa-Buscal-.jpg",
+   "last_seen": "2026-11-15",
+   "location": "Sant Rafel",
+   "matches": false,
+   "notes": [
+    "alquilado/reservado"
+   ],
+   "operation": "rent",
+   "price": 5000,
+   "price_history": [
+    [
+     "2026-11-15",
+     5000
+    ]
+   ],
+   "score": 0,
+   "snippet": "balearen, spanje | rented | rented €5,000 | 1 | of | 29 | property id : | rh-13656-property | share | added to favorites | add to favorites | print | bedrooms | 6 | bathrooms | 4 | garage | 1 | area | 200 | m2 | lot size | 7000 | m2 | description | annual rental -buscatell. trad",
+   "source": "Long Term Rental Ibiza",
+   "status": "rented",
+   "term": "long",
+   "term_keywords": [
+    "longterm"
+   ],
+   "title": "Villa Buscal - Longterm rental Ibiza",
+   "url": "https://longtermrentalibiza.com/property/villa-buscal/"
   },
   "d4fbf860b4c4": {
    "active": true,
@@ -13171,7 +13723,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "d5f7ba538a7b",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30205393/Tphoto/IDd1e5cc01-0000-0500-0000-00001ace39d0.jpg?a=fdb5b332-504c-c4329-2934e-5730205393454661316842",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30205393/Tphoto/IDd1e5cc01-0000-0500-0000-00001ace39d0.jpg?a=f4587dc1-cae2-e8302-9343d-4638053939469422215834",
    "last_seen": "2026-11-15",
    "location": "Cala Conta",
    "matches": false,
@@ -13789,7 +14341,7 @@
    "url": "https://www.mondialiteibiza.com/en/property/rentals/ibizan-style-house-with-sea-views-for-annual-rental-in-cala-moli-5837/"
   },
   "dc447d35fe83": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -13863,7 +14415,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "ddf321a4c951",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29540033/Tphoto/IDc1bec201-0000-0500-0000-0000189ea987.jpg?a=68351db0-e5cd-e0033-2934e-2954930029464661310844",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29540033/Tphoto/IDc1bec201-0000-0500-0000-0000189ea987.jpg?a=556a8c30-3ff9-b9540-9343d-2033927919479422210831",
    "last_seen": "2026-11-15",
    "location": "Sant Antoni",
    "matches": false,
@@ -14022,7 +14574,7 @@
    "url": "https://www.lovetoliveibiza.com/property/modern-mediterranean-villa-with-sea-views-and-sunset-cala-conta-a418/"
   },
   "dfc5c5a3ae0a": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 6,
@@ -15047,7 +15599,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "ebeec1ca5608",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25231231/Tphoto/ID7fff8001-0000-0500-0000-0000173f0e4a.jpg?a=b482acef-5dc4-c6920-2934e-3752523123134661317842",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25231231/Tphoto/ID7fff8001-0000-0500-0000-0000173f0e4a.jpg?a=d7eb41b4-5037-b9825-3431c-1231231897449422293821",
    "last_seen": "2026-11-15",
    "location": "Cala de Bou",
    "matches": false,
@@ -15079,7 +15631,7 @@
    "first_matched": "2026-11-15",
    "first_seen": "2026-11-15",
    "id": "ebfbe197826a",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30003328/Tphoto/ID80d0c901-0000-0500-0000-00001aba05fd.jpg?a=e157708e-2d4f-c1429-9343d-0042300033286661218832",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30003328/Tphoto/ID80d0c901-0000-0500-0000-00001aba05fd.jpg?a=53e5261a-094a-e4943-3431c-7000000332831522297824",
    "last_seen": "2026-11-15",
    "location": "Sant Antoni",
    "matches": true,
@@ -15141,7 +15693,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "ec2da4cbde00",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30798434/Tphoto/ID62f2d501-0000-0500-0000-00001a1b2ed1.jpg?a=0b51e29e-748b-e8053-2934e-0675079843416661317844",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30798434/Tphoto/ID62f2d501-0000-0500-0000-00001a1b2ed1.jpg?a=34d1d9bb-579b-c7307-3431c-0698434759421522293822",
    "last_seen": "2026-11-15",
    "location": null,
    "matches": false,
@@ -15198,7 +15750,7 @@
    "url": "https://longtermrentalibiza.com/property/penthouse-grande-allure/"
   },
   "ec5c9e201dc0": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -15692,7 +16244,7 @@
    "url": "https://longtermrentalibiza.com/property/valor-real-garden/"
   },
   "f4e87a1049af": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 3,
@@ -16369,7 +16921,7 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "fee2481ce9b0",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31132334/Tphoto/IDae0adb01-0000-0500-0000-00001a8444a4.jpg?a=d1a18c44-fa88-c1323-9343d-3134942198424661210832",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31132334/Tphoto/IDae0adb01-0000-0500-0000-00001a8444a4.jpg?a=7eb80bf0-d058-c3113-9343d-9323343550539422212832",
    "last_seen": "2026-11-15",
    "location": null,
    "matches": false,
@@ -16461,7 +17013,7 @@
   "ffb4b980dfb4": {
    "active": true,
    "agency_web": "https://www.lovetoliveibiza.com",
-   "annual_price": 20000,
+   "annual_price": null,
    "bedrooms": null,
    "first_matched": null,
    "first_seen": "2026-11-15",
@@ -16471,24 +17023,26 @@
    "location": null,
    "matches": false,
    "notes": [
-    "alquilado/reservado"
+    "es venta"
    ],
-   "operation": "rent",
-   "price": 20000,
+   "operation": "sale",
+   "price": 5950000,
    "price_history": [
     [
      "2026-11-15",
      20000
+    ],
+    [
+     "2026-11-15",
+     5950000
     ]
    ],
    "score": 0,
-   "snippet": "mq | lot size | 3197 | mq | for rent, long term rentals, villas for rent | €20,000 monthly | compare properties | compare | you can only compare 4 properties, any new property added will replace the first one from the comparison. | love to live ibiza | login | otp verification",
+   "snippet": "oms | 7 | area | 430 | mq | lot size | 50778 | mq | for sale, villas for sale | €5,950,000 | compare properties | compare | you can only compare 4 properties, any new property added will replace the first one from the comparison. | love to live ibiza | login | otp verification",
    "source": "Love to Live Ibiza",
    "status": "rented",
-   "term": "long",
-   "term_keywords": [
-    "long term"
-   ],
+   "term": "unknown",
+   "term_keywords": [],
    "title": "Love to Live Ibiza",
    "url": "https://www.lovetoliveibiza.com/property/a222/"
   }
@@ -16502,6 +17056,15 @@
    "new": 15,
    "price_drops": 0,
    "scanned": 500
+  },
+  {
+   "back": 0,
+   "date": "2026-11-15",
+   "gone": 0,
+   "matching": 15,
+   "new": 0,
+   "price_drops": 0,
+   "scanned": 498
   }
  ]
 }
