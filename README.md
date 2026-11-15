@@ -70,6 +70,11 @@ Una vez el código esté en la rama principal del repositorio:
    `SMTP_HOST=smtp.gmail.com`, `SMTP_PORT=587`, `SMTP_USER=tu@gmail.com`,
    `SMTP_PASSWORD=<contraseña de aplicación>`, `MAIL_TO=tu@gmail.com`.
 
+### En tu homelab (aplicación completa)
+
+Búsqueda semanal, web con botón **"Buscar ahora"** y avisos al móvil, todo en Docker.
+Ver la guía [HOMELAB.md](HOMELAB.md) (Mac + Tailscale + Cloudflare Tunnel).
+
 ### Publicar la página web (Vercel o GitHub Pages)
 
 La búsqueda se ejecuta en GitHub Actions; la web solo muestra `docs/index.html`, que el

@@ -5,12 +5,10 @@ on:
     # Todos los lunes a las 06:47 UTC (≈ 07:47/08:47 hora de Ibiza)
     - cron: "47 6 * * 1"
   workflow_dispatch: {}
-  # también se ejecuta al cambiar criterios o código (p. ej. editando config.yaml en GitHub)
+  # también se ejecuta al cambiar los criterios (editando config.yaml en GitHub)
   push:
     paths:
       - config.yaml
-      - renthome/**
-      - requirements.txt
       - .github/workflows/weekly.yml
 
 permissions:

@@ -1,0 +1,27 @@
+# RentHome Ibiza en tu homelab
+#   docker compose up -d --build
+# Web:  http://localhost:8088  (o http://mac-studio-ibiza:8088 por Tailscale)
+services:
+  renthome:
+    build: .
+    container_name: renthome
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8088:8080"
+    volumes:
+      - ./data:/app/data
+      - ./docs:/app/docs
+      - ./config.yaml:/app/config.yaml:ro
+
+  # Opcional: túnel de Cloudflare dentro de Docker (si NO usas ya cloudflared en el Mac).
+  # Actívalo con:  docker compose --profile tunnel up -d
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    profiles: ["tunnel"]
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - renthome

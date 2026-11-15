@@ -124,6 +124,8 @@ h1{font-size:26px;margin:0 0 4px}.sub{color:var(--muted);margin:0 0 20px}
 .note{color:var(--warn);font-size:13px}.meta{color:var(--muted);font-size:12.5px;margin-top:auto}
 .snip{color:var(--muted);font-size:13px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 h2{font-size:18px;margin:28px 0 10px}.empty{color:var(--muted)}
+.runbox{display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap}
+.bar button:disabled{opacity:.6;cursor:wait}
 details{margin-top:28px;color:var(--muted)}footer{margin-top:40px;color:var(--muted);font-size:13px}
 """
 
@@ -139,6 +141,15 @@ document.querySelectorAll('[data-beds]').forEach(b=>b.onclick=()=>{state.beds=b.
 document.getElementById('onlynew').onclick=e=>{state.onlyNew=!state.onlyNew;e.target.setAttribute('aria-pressed',state.onlyNew);apply();};
 document.getElementById('src').onchange=e=>{state.src=e.target.value;apply();};
 apply();
+// Botón "Buscar ahora": solo existe cuando la web la sirve el modo homelab (python -m renthome.serve)
+(function(){const box=document.getElementById('runbox'),btn=document.getElementById('runbtn'),msg=document.getElementById('runmsg');let wasRunning=false;
+function show(s){box.hidden=false;btn.disabled=s.running;
+ if(s.running){msg.textContent='Buscando en las inmobiliarias… (unos 15 min)';wasRunning=true;}
+ else{if(wasRunning){location.reload();return;}
+  const lr=s.last_run||{};msg.textContent=(lr.date?'Última búsqueda: '+lr.date:'')+(s.next_run?' · próxima: '+s.next_run.replace('T',' ').slice(0,16):'');}}
+function poll(){fetch('api/status',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(s=>{if(s){show(s);if(s.running)setTimeout(poll,20000);}}).catch(()=>{});}
+btn.onclick=()=>{btn.disabled=true;fetch('api/run',{method:'POST'}).then(r=>r.json().then(j=>({ok:r.ok,j}))).then(({ok,j})=>{if(ok){show(j);setTimeout(poll,20000);}else{msg.textContent=j.error||'No se pudo lanzar';btn.disabled=false;}}).catch(()=>{msg.textContent='No se pudo conectar';btn.disabled=false;});};
+poll();})();
 """
 
 
@@ -182,7 +193,8 @@ def html_report(store, criteria, sources, summary) -> str:
 <div class="stat"><b>{len(summary.get('sources_ok', []))}/{summary.get('sources_total', len(sources))}</b><span>webs revisadas</span></div></div>
 <div class="bar"><button data-beds="all" aria-pressed="true">Todos</button><button data-beds="pref" aria-pressed="false">Solo {pref} hab.</button>
 <button id="onlynew" aria-pressed="false">Solo nuevos</button><select id="src" aria-label="Inmobiliaria"><option value="all">Todas las inmobiliarias</option>{opts}</select>
-<span class="sub" style="margin:0">· <b id="count">{len(items)}</b> visibles</span></div>
+<span class="sub" style="margin:0">· <b id="count">{len(items)}</b> visibles</span>
+<span class="runbox" id="runbox" hidden><button id="runbtn" type="button">Buscar ahora</button> <span id="runmsg" class="sub" style="margin:0"></span></span></div>
 <div class="grid">{cards}</div>
 <details><summary>Inmobiliarias consultadas ({len(sources)})</summary><ul>{agencies}</ul></details>
 {f'<details open><summary>Avisos del rastreador</summary><ul>{errs}</ul></details>' if errs else ''}
