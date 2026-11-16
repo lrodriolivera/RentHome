@@ -1,13 +1,18 @@
 {
- "date": "2026-11-15",
- "scanned": 503,
- "matching": 16,
+ "date": "2026-11-16",
+ "scanned": 495,
+ "matching": 13,
  "new": [
-  "79e4d834b8a7"
+  "4b88a7bf9fa5"
  ],
  "price_drops": [],
  "back": [],
- "gone": [],
+ "gone": [
+  "3a252d3636bc",
+  "70c27bd17f2a",
+  "79e4d834b8a7",
+  "7c81286ea973"
+ ],
  "errors": [],
  "sources_ok": [
   "Ibiza Domo",

@@ -9,7 +9,7 @@
    "first_seen": "2026-11-15",
    "id": "0045e9b25867",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/12/Long-Term-Rental-Ibiza-Conic-Pep-Simo-0-1.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -45,7 +45,7 @@
    "first_seen": "2026-11-15",
    "id": "004ab50b03b9",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2015/12/Long-term-rental-Ibiza-Aparrtment-Los-Molinos-7.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -80,7 +80,7 @@
    "first_seen": "2026-11-15",
    "id": "009aaaf55b75",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/09/Longterm-Rental-Ibiza-Apartment-Nova-Jesus-12-scaled.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Jesús",
    "matches": false,
    "notes": [
@@ -115,7 +115,7 @@
    "first_seen": "2026-11-15",
    "id": "01b1fb64198e",
    "image": "https://www.living-in-ibiza.com/es/upload/32006-867-40-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -145,7 +145,7 @@
    "first_seen": "2026-11-15",
    "id": "0373204e3e48",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/04/f859d6e7-0003750782.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -176,7 +176,7 @@
    "first_seen": "2026-11-15",
    "id": "038c8053ff39",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -205,7 +205,7 @@
    "first_seen": "2026-11-15",
    "id": "04a67d1825e7",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2016/11/Long-term-rental-Ibiza-Can-Roca-Llisa-019-1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Roca Llisa",
    "matches": false,
    "notes": [
@@ -239,7 +239,7 @@
    "first_seen": "2026-11-15",
    "id": "052c1f6a7c6c",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4276/20875162.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -296,6 +296,40 @@
    "title": "Finca Llorenç",
    "url": "https://longtermrentalibiza.com/property/finca-llorenc/"
   },
+  "067f6a3414d1": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 4,
+   "first_matched": null,
+   "first_seen": "2026-11-16",
+   "id": "067f6a3414d1",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/08/Longterm-Rental-Ibiza-Villa-Ines-5.jpeg",
+   "last_seen": "2026-11-16",
+   "location": "Santa Agnès",
+   "matches": false,
+   "notes": [
+    "precio 6850 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 6850,
+   "price_history": [
+    [
+     "2026-11-16",
+     6850
+    ]
+   ],
+   "score": 0,
+   "snippet": "vailable | €6,850 per month | 1 | of | 32 | property id : | rh-67370-property | share | added to favorites | add to favorites | print | bedrooms | 4 | bathrooms | 2 | garage | 2 | area | 300 | m2 | description | annual rental – santa agnes de corona. charming countryside home sur",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "longterm"
+   ],
+   "title": "Villa Ines - Longterm rental Ibiza",
+   "url": "https://longtermrentalibiza.com/property/villa-ines/"
+  },
   "06a1a528789d": {
    "active": true,
    "agency_web": "https://longtermrentalibiza.com",
@@ -305,7 +339,7 @@
    "first_seen": "2026-11-15",
    "id": "06a1a528789d",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/SEASONAL-RENTAL-IBIZA-Apartment-Heaven-Beach-0-copia-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -339,7 +373,7 @@
    "first_seen": "2026-11-15",
    "id": "06add2fc9597",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/07/Long-Term-Rental-Ibiza-Penthouse-Sea-View-0.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -373,7 +407,7 @@
    "first_seen": "2026-11-15",
    "id": "078a4db55bfd",
    "image": "https://www.living-in-ibiza.com/es/upload/12730-487-25-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -404,7 +438,7 @@
    "first_seen": "2026-11-15",
    "id": "07ab225b13c1",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/11/Long-term-rental-Villa-Vista-Vedra-1-48.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -438,7 +472,7 @@
    "first_seen": "2026-11-15",
    "id": "087b61c22413",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Longterm-Rental-Ibiza-Apartment-Fineline-20.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -473,7 +507,7 @@
    "first_seen": "2026-11-15",
    "id": "089fc2601d21",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2020/09/Long-term-rental-Ibiza-Apartment-Miramar-11.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -507,7 +541,7 @@
    "first_seen": "2026-11-15",
    "id": "08a2dc28052c",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2018/01/Townhouse-Santa-Eularia-.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -541,7 +575,7 @@
    "first_seen": "2026-11-15",
    "id": "0958e4f1d4de",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/12/d1b0c70b-0003966193.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -578,7 +612,7 @@
    "first_seen": "2026-11-15",
    "id": "0a3ed8bfc772",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4754/26407709.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": true,
    "notes": [],
@@ -610,7 +644,7 @@
    "first_seen": "2026-11-15",
    "id": "0a6590fba6a1",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/09/49a69808-0003797378.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Vadella",
    "matches": false,
    "notes": [
@@ -644,7 +678,7 @@
    "first_seen": "2026-11-15",
    "id": "0b37f8983b89",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2023/02/Long-Term-Rental-Ibiza-Duplex-Maye-9.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -678,7 +712,7 @@
    "first_seen": "2026-11-15",
    "id": "0c9da95473cb",
    "image": "https://www.living-in-ibiza.com/es/upload/32881-892-3-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": true,
    "notes": [],
@@ -712,7 +746,7 @@
    "first_seen": "2026-11-15",
    "id": "0cb5cceb8293",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -748,7 +782,7 @@
    "first_seen": "2026-11-15",
    "id": "0e967405c34a",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/12/Long-Term-Rental-Ibiza-Villa-Divina-3.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Jesús",
    "matches": false,
    "notes": [
@@ -782,7 +816,7 @@
    "first_seen": "2026-11-15",
    "id": "0f19f3a3cd3f",
    "image": "https://www.living-in-ibiza.com/es/upload/29879-681-87-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -811,7 +845,7 @@
    "first_seen": "2026-11-15",
    "id": "0f54e638ac8e",
    "image": "https://ibizadomo.com/wp-content/uploads/2026/01/7ac1e4f4-9c02-4a8e-b460-af19dd3422a2-1024x768.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -843,7 +877,7 @@
    "first_seen": "2026-11-15",
    "id": "0f6a3c782aa1",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/11/Long-term-rental-Ibiza-The-four-ibiza-suites-9.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -877,7 +911,7 @@
    "first_seen": "2026-11-15",
    "id": "0fb61b0f5c1a",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/5099/29252951.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Portinatx",
    "matches": false,
    "notes": [
@@ -911,7 +945,7 @@
    "first_seen": "2026-11-15",
    "id": "0fc911d3aff2",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -945,7 +979,7 @@
    "first_seen": "2026-11-15",
    "id": "1015b2a47cec",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/20/01a18759-0f5b-70c7-8ba3-6f2ed30c5720.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -979,7 +1013,7 @@
    "first_seen": "2026-11-15",
    "id": "1024065bd990",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2018/10/Villa-Leau-.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -1013,7 +1047,7 @@
    "first_seen": "2026-11-15",
    "id": "1062907b2572",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -1044,8 +1078,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "11139f40a003",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29838118/Tphoto/ID264bc701-0000-0500-0000-000019083439.jpg?a=50f8084f-3064-e2187-3431c-5995298381180532298824",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29838118/Tphoto/ID264bc701-0000-0500-0000-000019083439.jpg?a=c563ff3d-e655-c8381-3431c-2918464934286902390822",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -1077,7 +1111,7 @@
    "first_seen": "2026-11-15",
    "id": "1155d9f5b1bb",
    "image": "https://summumibiza.com/wp-content/uploads/2026/10/4108330-c49c0cf2.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -1109,7 +1143,7 @@
    "first_seen": "2026-11-15",
    "id": "11f2210fe2b2",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Seasonal-Rental-Ibiza-Adosado-Marisol-0-2.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Roca Llisa",
    "matches": false,
    "notes": [
@@ -1144,7 +1178,7 @@
    "first_seen": "2026-11-15",
    "id": "14c279542d16",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/01/Long-Term-Rental-Ibiza-Villa-Ane-42-3-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -1178,7 +1212,7 @@
    "first_seen": "2026-11-15",
    "id": "152da820d7d0",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/01/SEASONAL-RENTAL-IBIZA-Apartment-Royal-Beach-Marbel-0.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -1205,7 +1239,7 @@
    "url": "https://longtermrentalibiza.com/property/apartment-royal-beach-marbel/"
   },
   "1540e7803bee": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 3,
@@ -1247,7 +1281,7 @@
    "first_seen": "2026-11-15",
    "id": "167c232ab022",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/10/LongTerm-Rental-Ibiza-Casa-Mediteraneo-View-0-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -1282,7 +1316,7 @@
    "first_seen": "2026-11-15",
    "id": "177ccf799fcf",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -1316,7 +1350,7 @@
    "first_seen": "2026-11-15",
    "id": "17f2ee34b445",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/11/Long-term-rental-Ibiza-Apartment-Botafoch-33.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -1384,7 +1418,7 @@
    "first_seen": "2026-11-15",
    "id": "1993ab12850a",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/5103/29258913.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Portinatx",
    "matches": false,
    "notes": [
@@ -1416,7 +1450,7 @@
    "first_seen": "2026-11-15",
    "id": "1a16a0f46d23",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/02/Seasonal-Rental-Ibiza-Apartment-Girasoles-Boho-2.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -1451,7 +1485,7 @@
    "first_seen": "2026-11-15",
    "id": "1a9756d86a49",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/03/Amor-0611.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -1487,7 +1521,7 @@
    "first_seen": "2026-11-15",
    "id": "1b86ed4fc5b5",
    "image": "https://www.living-in-ibiza.com/es/upload/22766-623-16-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Rafel",
    "matches": false,
    "notes": [
@@ -1515,8 +1549,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "1bafa23ad20b",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25248364/Tphoto/ID6c428101-0000-0500-0000-0000143c9bec.jpg?a=2c1696f2-1c7a-d4508-4317b-5622524836400532293813",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25248364/Tphoto/ID6c428101-0000-0500-0000-0000143c9bec.jpg?a=2d2e09d2-1af1-b1335-9343d-0622524836416902317831",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -1548,7 +1582,7 @@
    "first_seen": "2026-11-15",
    "id": "1c355ebd342b",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/12/2aac7014-0003719416.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Figueretes",
    "matches": false,
    "notes": [
@@ -1574,7 +1608,7 @@
    "url": "https://www.lovetoliveibiza.com/property/beautiful-penthouse-for-seasonal-rent-in-los-molinos-a327/"
   },
   "1c893383d743": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -1617,7 +1651,7 @@
    "first_seen": "2026-11-15",
    "id": "1e03c62f63cc",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/12/Longterm-Rental-ibiza-Casa-Capella-1-scaled.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -1685,7 +1719,7 @@
    "first_seen": "2026-11-15",
    "id": "2242bd15bc4f",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/09/Long-Term-Rental-Ibiza-Villa-Walter-1-1024x696.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Dalt Vila",
    "matches": false,
    "notes": [
@@ -1719,7 +1753,7 @@
    "first_seen": "2026-11-15",
    "id": "22f4f6d34860",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/09/Longterm-Rental-Ibiza-Adosado-Dewi-48-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -1753,7 +1787,7 @@
    "first_seen": "2026-11-15",
    "id": "236cd45cb572",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -1773,6 +1807,41 @@
    "title": "APARTAMENTO EN ES VIVER. IBIZA CIUDAD",
    "url": "https://www.inmonlineibiza.com/inmueble/616"
   },
+  "23882eb5b76d": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 4,
+   "first_matched": null,
+   "first_seen": "2026-11-16",
+   "id": "23882eb5b76d",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/01/Long-Term-Rental-Ibiza-Villa-Grand-Lux-1.jpg",
+   "last_seen": "2026-11-16",
+   "location": "Eivissa",
+   "matches": false,
+   "notes": [
+    "precio 8333 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 8333,
+   "price_history": [
+    [
+     "2026-11-16",
+     8333
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa grand lux | direct available | €8,333 per month | 1 | of | 30 | property id : | rh-39030-property | share | added to favorites | add to favorites | print | bedrooms | 4 | bathrooms | 4 | area | 330 | m2 | lot size | 1000 | m2 | description | annual rental – sa carroca. b",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "mixed",
+   "term_keywords": [
+    "annual",
+    "seasonal"
+   ],
+   "title": "Villa Grand Lux",
+   "url": "https://longtermrentalibiza.com/property/villa-grand-lux/"
+  },
   "241aa04e65d2": {
    "active": true,
    "agency_web": "https://www.ibizavende.com",
@@ -1782,7 +1851,7 @@
    "first_seen": "2026-11-15",
    "id": "241aa04e65d2",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4824/27226401.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -1817,7 +1886,7 @@
    "first_seen": "2026-11-15",
    "id": "245e09393dd8",
    "image": "https://www.living-in-ibiza.com/es/upload/16285-558-1-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -1846,7 +1915,7 @@
    "first_seen": "2026-11-15",
    "id": "24a7f4736b6a",
    "image": "https://www.living-in-ibiza.com/es/upload/30652-839-1-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Pada",
    "matches": false,
    "notes": [
@@ -1877,7 +1946,7 @@
    "first_seen": "2026-11-15",
    "id": "24ba9d65f5c2",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -1912,7 +1981,7 @@
    "first_seen": "2026-11-15",
    "id": "24cbedd1d38e",
    "image": "https://www.living-in-ibiza.com/es/upload/32459-880-8-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -1942,7 +2011,7 @@
    "first_seen": "2026-11-15",
    "id": "264a12de4ebd",
    "image": "https://www.living-in-ibiza.com/es/upload/20943-641-3-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Carles",
    "matches": false,
    "notes": [
@@ -1972,7 +2041,7 @@
    "first_seen": "2026-11-15",
    "id": "2671f6148e1c",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/06/Long-term-rental-ibiza-Adosado-Sa-Galera-24-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -2007,7 +2076,7 @@
    "first_seen": "2026-11-15",
    "id": "26b226385068",
    "image": "https://www.villacontact.com/wp-content/uploads/2025/10/print-ibizacampo-theloft-sayanacairo-1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -2043,7 +2112,7 @@
    "first_seen": "2026-11-15",
    "id": "2701748abc22",
    "image": "https://cdn.ibiza-services.com/wp-content/uploads/sites/6/2025/11/illa-plana-talamanca-6-bedroom-_9.webp",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -2077,7 +2146,7 @@
    "first_seen": "2026-11-15",
    "id": "27e618797ed1",
    "image": "https://www.living-in-ibiza.com/es/upload/29853-822-21-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -2107,7 +2176,7 @@
    "first_seen": "2026-11-15",
    "id": "289b2c7c6471",
    "image": "https://www.living-in-ibiza.com/es/upload/30550-831-27-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Vicent",
    "matches": false,
    "notes": [
@@ -2137,7 +2206,7 @@
    "first_seen": "2026-11-15",
    "id": "28a0823c1289",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/08/Seasonal-Rental-Ibiza-Apartment-Mediteraneo-Two-0.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -2172,7 +2241,7 @@
    "first_seen": "2026-11-15",
    "id": "28f7e4598328",
    "image": "https://www.living-in-ibiza.com/es/upload/30774-842-35-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -2202,7 +2271,7 @@
    "first_seen": "2026-11-15",
    "id": "29060a6bd569",
    "image": "https://www.living-in-ibiza.com/es/upload/28883-804-25-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -2231,7 +2300,7 @@
    "first_seen": "2026-11-15",
    "id": "29fe6dbb473b",
    "image": "https://www.living-in-ibiza.com/es/upload/29879-681-87-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -2260,7 +2329,7 @@
    "first_seen": "2026-11-15",
    "id": "2a674aba8e98",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4808/27106730.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -2294,7 +2363,7 @@
    "first_seen": "2026-11-15",
    "id": "2a95af9797ec",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/09/Longterm-Rental-Ibiza-Apartment-Can-Misses-Padel23-scaled.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Can Misses",
    "matches": false,
    "notes": [
@@ -2329,7 +2398,7 @@
    "first_seen": "2026-11-15",
    "id": "2af02503daa5",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -2361,7 +2430,7 @@
    "first_seen": "2026-11-15",
    "id": "2b56f07b78fd",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": true,
    "notes": [],
@@ -2395,7 +2464,7 @@
    "first_seen": "2026-11-15",
    "id": "2bf2feade978",
    "image": "https://www.living-in-ibiza.com/es/upload/23003-689-1-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -2425,7 +2494,7 @@
    "first_seen": "2026-11-15",
    "id": "2d99f39a0f1e",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2015/11/Long-term-rental-ibiza-Patio-Blanco-Double-8.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -2448,6 +2517,40 @@
    "title": "Apartment Patio Blanco Double",
    "url": "https://longtermrentalibiza.com/property/apartment-patio-blanco-double/"
   },
+  "2e2409faf886": {
+   "active": true,
+   "agency_web": "https://www.mondialiteibiza.com",
+   "annual_price": null,
+   "bedrooms": 2,
+   "first_matched": null,
+   "first_seen": "2026-11-16",
+   "id": "2e2409faf886",
+   "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/ea/01a1e535-5f93-773b-9ef1-fc5e0e12afea.jpg",
+   "last_seen": "2026-11-16",
+   "location": "Santa Gertrudis",
+   "matches": false,
+   "notes": [
+    "temporada / no anual"
+   ],
+   "operation": "rent",
+   "price": 1200,
+   "price_history": [
+    [
+     "2026-11-16",
+     1200
+    ]
+   ],
+   "score": 0,
+   "snippet": "ntal between santa gertrudis and san lorenzo. | ref. | so7163 | 1200 €/month | contact via whatsapp | video | for rent | 9 | +4 | country house | sant joan de labritja - san lorenzo | 75 m2 | 2 | 1 | rental conditions | price: €1,200 per month. | available now until march 15, 202",
+   "source": "Mondialité Ibiza",
+   "status": "available",
+   "term": "seasonal",
+   "term_keywords": [
+    "winter"
+   ],
+   "title": "Mediterranean little house for winter rental between Santa Gertrudis and San Lorenzo.",
+   "url": "https://www.mondialiteibiza.com/en/property/rentals/mediterranean-little-house-for-winter-rental-between-santa-gertrudis-and-san-lorenzo-so7163/"
+  },
   "2e7195d530aa": {
    "active": true,
    "agency_web": "https://www.inmonlineibiza.com",
@@ -2457,7 +2560,7 @@
    "first_seen": "2026-11-15",
    "id": "2e7195d530aa",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -2486,7 +2589,7 @@
    "first_seen": "2026-11-15",
    "id": "2eea29a4f50f",
    "image": "https://www.villacontact.com/wp-content/uploads/2026/02/img-0064.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -2522,7 +2625,7 @@
    "first_seen": "2026-11-15",
    "id": "2fd33c3725f8",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4698/27985101.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Tarida",
    "matches": false,
    "notes": [
@@ -2593,7 +2696,7 @@
    "first_seen": "2026-11-15",
    "id": "2ff8efcfe0c3",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/5051/28677629.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": true,
    "notes": [
@@ -2630,7 +2733,7 @@
    "first_seen": "2026-11-15",
    "id": "300242d1a08d",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/05/a5f7ef83-0004249215.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Siesta",
    "matches": false,
    "notes": [
@@ -2664,7 +2767,7 @@
    "first_seen": "2026-11-15",
    "id": "302e537c4160",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/22/01a13c3a-c758-73fd-88b8-826a1f68ae22.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -2734,7 +2837,7 @@
    "first_seen": "2026-11-15",
    "id": "308c67efc06f",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/12/3046c9ad-0003669220.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -2768,7 +2871,7 @@
    "first_seen": "2026-11-15",
    "id": "30a99664aea2",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/09/Long-term-rental-Ibiza-Apartment-Seaview-20.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -2803,7 +2906,7 @@
    "first_seen": "2026-11-15",
    "id": "3141f6bd45c8",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/01/Longterm-Rental-Ibiza-Apartment-Castle-View-1.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -2830,6 +2933,40 @@
    "title": "Apartment Castle View",
    "url": "https://longtermrentalibiza.com/property/apartment-castle-view/"
   },
+  "31d6842722d6": {
+   "active": true,
+   "agency_web": "https://www.mondialiteibiza.com",
+   "annual_price": null,
+   "bedrooms": 6,
+   "first_matched": null,
+   "first_seen": "2026-11-16",
+   "id": "31d6842722d6",
+   "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/31/01a1258d-43a1-7230-a345-4f6a33711c31.jpg",
+   "last_seen": "2026-11-16",
+   "location": "Sant Rafel",
+   "matches": false,
+   "notes": [
+    "precio 13333 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 13333,
+   "price_history": [
+    [
+     "2026-11-16",
+     13333
+    ]
+   ],
+   "score": 0,
+   "snippet": "n rafael | ref. | 4141 | 13.333 €/month | contact via whatsapp | 36 | +31 | villa | sant antoni de portmany - san rafael | 350 m2 | 1500 m2 | 6 | 5 | rental conditions | €160,000 for annual rent, with payment in advance. | the property is available for | annual rent | . | charmin",
+   "source": "Mondialité Ibiza",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "annual"
+   ],
+   "title": "Ibizan-style villa for annual rent in San Rafael",
+   "url": "https://www.mondialiteibiza.com/en/property/rentals/ibizan-style-villa-for-annual-rent-in-san-rafael-4141/"
+  },
   "3313e082c94f": {
    "active": true,
    "agency_web": "https://longtermrentalibiza.com",
@@ -2839,7 +2976,7 @@
    "first_seen": "2026-11-15",
    "id": "3313e082c94f",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/11/Long-Term-Rental-Ibiza-Penthouse-Style-10.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Figueretes",
    "matches": false,
    "notes": [
@@ -2874,7 +3011,7 @@
    "first_seen": "2026-11-15",
    "id": "3363a5f8f47e",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2015/09/Long-term-Rental-Ibiza-Townhouse-11.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -2906,7 +3043,7 @@
    "first_seen": "2026-11-15",
    "id": "336976855cd2",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/5105/29270589.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -2941,7 +3078,7 @@
    "first_seen": "2026-11-15",
    "id": "3390415a140a",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/20/01a1b206-f429-74e9-927d-727588020e20.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -2975,7 +3112,7 @@
    "first_seen": "2026-11-15",
    "id": "3425dff5804d",
    "image": "https://www.living-in-ibiza.com/es/upload/18681-530-12-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -3005,7 +3142,7 @@
    "first_seen": "2026-11-15",
    "id": "343a4a74ed13",
    "image": "https://www.living-in-ibiza.com/es/upload/32851-891-1-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -3040,7 +3177,7 @@
    "first_seen": "2026-11-15",
    "id": "343c59ef1f3a",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -3074,7 +3211,7 @@
    "first_seen": "2026-11-15",
    "id": "34bfe89979b0",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -3106,7 +3243,7 @@
    "first_seen": "2026-11-15",
    "id": "34fd165f5772",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/05/Long-term-rental-ibiza-villa-pastor-0-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -3176,7 +3313,7 @@
    "first_seen": "2026-11-15",
    "id": "35dda8eba54c",
    "image": "https://www.living-in-ibiza.com/es/upload/18458-554-9-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Carles",
    "matches": false,
    "notes": [
@@ -3207,7 +3344,7 @@
    "first_seen": "2026-11-15",
    "id": "362d61b58e71",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -3241,7 +3378,7 @@
    "first_seen": "2026-11-15",
    "id": "367a48edc4da",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4492/22974967.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -3275,7 +3412,7 @@
    "first_seen": "2026-11-15",
    "id": "367f05818e60",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2017/09/White-Angel-Two-.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -3307,7 +3444,7 @@
    "first_seen": "2026-11-15",
    "id": "36dfe5eb0f47",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -3338,7 +3475,7 @@
    "first_seen": "2026-11-15",
    "id": "3837ca72276e",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -3372,7 +3509,7 @@
    "first_seen": "2026-11-15",
    "id": "384370a64e28",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -3438,7 +3575,7 @@
    "first_seen": "2026-11-15",
    "id": "38b598fc82de",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -3464,7 +3601,7 @@
    "url": "https://www.inmonlineibiza.com/inmueble/906"
   },
   "3a252d3636bc": {
-   "active": true,
+   "active": false,
    "agency_web": "https://www.mondialiteibiza.com",
    "annual_price": 2000,
    "bedrooms": 2,
@@ -3504,7 +3641,7 @@
    "first_seen": "2026-11-15",
    "id": "3a3c4e1c90ef",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -3536,7 +3673,7 @@
    "first_seen": "2026-11-15",
    "id": "3a794b0ff67e",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4325/21437693.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -3571,7 +3708,7 @@
    "first_seen": "2026-11-15",
    "id": "3bb7e0900f88",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/03/Long-term-rental-Ibiza-Las-boas-Naranja-41-3.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -3605,7 +3742,7 @@
    "first_seen": "2026-11-15",
    "id": "3cd715691553",
    "image": "https://www.living-in-ibiza.com/es/upload/24577-723-27-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -3633,8 +3770,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "3d36a004f1eb",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29163276/Tphoto/ID0cffbc01-0000-0500-0000-000018dea9a1.jpg?a=43c43e6b-e4eb-c6403-4318b-0486291632760532293812",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29163276/Tphoto/ID0cffbc01-0000-0500-0000-000018dea9a1.jpg?a=f8169d43-1796-d9163-9343d-8722765647276902312833",
+   "last_seen": "2026-11-16",
    "location": "Cala Gració",
    "matches": false,
    "notes": [
@@ -3666,7 +3803,7 @@
    "first_seen": "2026-11-15",
    "id": "3df01ae6cb82",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/1Seasonal-Rental-Ibiza-Apartment-Pelicano-Beach-11.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -3700,7 +3837,7 @@
    "first_seen": "2026-11-15",
    "id": "3e8cfe80737c",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -3734,7 +3871,7 @@
    "first_seen": "2026-11-15",
    "id": "3faa8d7bb7f1",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/72/01a1cffd-e886-7278-8bb1-fc6ea95ba372.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -3768,7 +3905,7 @@
    "first_seen": "2026-11-15",
    "id": "4035fd6cbd29",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/95/01a1c1af-445a-7698-948b-ee0c9a648e95.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -3802,7 +3939,7 @@
    "first_seen": "2026-11-15",
    "id": "40c546b3d211",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2023/01/Long-Term-Rental-Ibiza-Apartment-Bos-8.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Gració",
    "matches": false,
    "notes": [
@@ -3871,7 +4008,7 @@
    "first_seen": "2026-11-15",
    "id": "43225a11e9c5",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/09/9936c633-0003747213.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -3902,7 +4039,7 @@
    "first_seen": "2026-11-15",
    "id": "4353178cba59",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/d6/01a1b1d0-d157-7098-92be-4bad7eee89d6.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -3936,7 +4073,7 @@
    "first_seen": "2026-11-15",
    "id": "43b9f75e8e25",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4673/25468184.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Tarida",
    "matches": false,
    "notes": [
@@ -3970,7 +4107,7 @@
    "first_seen": "2026-11-15",
    "id": "43d5ff4bbf9f",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/01/Longterm-Rental-Ibiza-Villa-Bali-2.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Roca Llisa",
    "matches": false,
    "notes": [
@@ -3996,7 +4133,7 @@
    "url": "https://longtermrentalibiza.com/property/villa-bali/"
   },
   "447fa69c4e0e": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -4038,7 +4175,7 @@
    "first_seen": "2026-11-15",
    "id": "44fd93df1fbb",
    "image": "https://www.living-in-ibiza.com/es/upload/22188-674-34-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -4069,7 +4206,7 @@
    "first_seen": "2026-11-15",
    "id": "4793d3c04f6b",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -4100,7 +4237,7 @@
    "first_seen": "2026-11-15",
    "id": "485cabf8a99e",
    "image": "https://www.living-in-ibiza.com/es/upload/23207-694-8-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -4130,7 +4267,7 @@
    "first_seen": "2026-11-15",
    "id": "488b5fd205bb",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Siesta",
    "matches": false,
    "notes": [
@@ -4160,7 +4297,7 @@
    "first_seen": "2026-11-15",
    "id": "488be45bfe06",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/01/Longterm-rental-ibiza-Duplex-Talamanca-View-1.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -4194,8 +4331,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "48e9701bf597",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30176117/Tphoto/ID7573cc01-0000-0500-0000-000019c9264b.jpg?a=c98f62c5-fe60-e8301-9343d-4199761179711532215834",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30176117/Tphoto/ID7573cc01-0000-0500-0000-000019c9264b.jpg?a=18a9c42f-30d7-a5339-4318b-0522301761177902393810",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -4227,7 +4364,7 @@
    "first_seen": "2026-11-15",
    "id": "49010ccfda58",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -4258,7 +4395,7 @@
    "first_seen": "2026-11-15",
    "id": "491a5741a09a",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/05/38e7ba33-0004137150.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -4292,7 +4429,7 @@
    "first_seen": "2026-11-15",
    "id": "4963846358c2",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Llorenç",
    "matches": false,
    "notes": [
@@ -4324,7 +4461,7 @@
    "first_seen": "2026-11-15",
    "id": "496bddad84cb",
    "image": "https://www.living-in-ibiza.com/es/upload/28336-524-67-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -4347,7 +4484,7 @@
    "url": "https://www.living-in-ibiza.com/es/0__524_92_3_/sant-joan-de-labritja-alquiler-anuallargo-plazo-villa-moderna-sin-amueblar-san-juan-ibiza-piscina-de-sal-calefaccion-suelo-radiante-3-habitaciones-3-banos.html"
   },
   "49884103ddcc": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 6,
@@ -4390,7 +4527,7 @@
    "first_seen": "2026-11-15",
    "id": "4a97b34175bb",
    "image": "https://cdn.ibiza-services.com/wp-content/uploads/sites/6/2026/11/3-BEDROOMS-APPARTEMENT-BOTAFOCH-_9.webp",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -4424,7 +4561,7 @@
    "first_seen": "2026-11-15",
    "id": "4aba987a5708",
    "image": "https://www.living-in-ibiza.com/es/upload/14462-525-40-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Vicent",
    "matches": false,
    "notes": [
@@ -4446,6 +4583,38 @@
    "title": "San Vicente de Sa Cala: ALQUILER ANUAL / LARGO PLAZO. MÍNIMO UN AÑO: FINCA tradicional, clásica, en San Vicente, Ibiza, ubicada en el campo, en un entorno idílico.",
    "url": "https://www.living-in-ibiza.com/es/0__525_92_3_/san-vicente-de-sa-cala-alquiler-anual-largo-plazo-minimo-un-ano-finca-tradicional-clasica-en-san-vicente-ibiza-ubicada-en-el-campo-en-un-entorno-idilico.html"
   },
+  "4b88a7bf9fa5": {
+   "active": true,
+   "agency_web": "https://www.ibizavende.com",
+   "annual_price": null,
+   "bedrooms": 2,
+   "first_matched": "2026-11-16",
+   "first_seen": "2026-11-16",
+   "id": "4b88a7bf9fa5",
+   "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/2729/9410113.jpg",
+   "last_seen": "2026-11-16",
+   "location": "Figueretes",
+   "matches": true,
+   "notes": [],
+   "operation": "rent",
+   "price": 1800,
+   "price_history": [
+    [
+     "2026-11-16",
+     1800
+    ]
+   ],
+   "score": 107,
+   "snippet": "679 757 684 | lorena@ibizavende.com | ref: | 2729 | ibiza | figueretas | 1,800 | €/month | year-round rental! beautiful flat just opposite the sea in figueretas | 2 | rooms | 1 | bathrooms | 0 | garage | 85 | m2 | viewing appointments from 1/7! please contact us via e-mail only!",
+   "source": "Ibiza Vende",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "year-round"
+   ],
+   "title": "Year-round rental! Beautiful flat just opposite the sea in Figueretas",
+   "url": "https://www.ibizavende.com/en_GB/property/2729"
+  },
   "4bde7262899d": {
    "active": true,
    "agency_web": "https://www.inmonlineibiza.com",
@@ -4455,7 +4624,7 @@
    "first_seen": "2026-11-15",
    "id": "4bde7262899d",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -4484,7 +4653,7 @@
    "first_seen": "2026-11-15",
    "id": "4cc89d2376e0",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -4516,7 +4685,7 @@
    "first_seen": "2026-11-15",
    "id": "4d867f355d4c",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Rafel",
    "matches": false,
    "notes": [
@@ -4550,7 +4719,7 @@
    "first_seen": "2026-11-15",
    "id": "4db3713f9499",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/05/ba5a0c29-0004239800.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Tarida",
    "matches": false,
    "notes": [
@@ -4586,7 +4755,7 @@
    "first_seen": "2026-11-15",
    "id": "4db3becd999f",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -4620,7 +4789,7 @@
    "first_seen": "2026-11-15",
    "id": "4e20b14268bb",
    "image": "https://www.living-in-ibiza.com/es/upload/32652-838-63-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -4655,7 +4824,7 @@
    "first_seen": "2026-11-15",
    "id": "4e7b1e8642ba",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2015/05/Seasonal-rental-Las-Boas-Ibiza-Harbour-Apartment-Five-11.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -4689,7 +4858,7 @@
    "first_seen": "2026-11-15",
    "id": "4ec78af85acb",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/02/Seasonal-Rental-Ibiza-Casa-Antonio-0-scaled.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -4723,7 +4892,7 @@
    "first_seen": "2026-11-15",
    "id": "4eedeaaf76a9",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -4752,7 +4921,7 @@
    "first_seen": "2026-11-15",
    "id": "4feafc21cd14",
    "image": "https://www.living-in-ibiza.com/es/upload/29700-788-108-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -4782,7 +4951,7 @@
    "first_seen": "2026-11-15",
    "id": "500f0bcbc061",
    "image": "https://www.living-in-ibiza.com/es/upload/19084-620-20-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Rafel",
    "matches": false,
    "notes": [
@@ -4812,7 +4981,7 @@
    "first_seen": "2026-11-15",
    "id": "506d833c1015",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -4844,7 +5013,7 @@
    "first_seen": "2026-11-15",
    "id": "50c05e7fe627",
    "image": "https://www.living-in-ibiza.com/es/upload/22997-688-69-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -4874,7 +5043,7 @@
    "first_seen": "2026-11-15",
    "id": "50d84ce9e92c",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2023/04/Long-Term-Rental-Ibiza-Apartment-Botafoch-Charly-1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -4908,7 +5077,7 @@
    "first_seen": "2026-11-15",
    "id": "5199e60995d0",
    "image": "https://www.living-in-ibiza.com/es/upload/32654-885-2-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -4943,7 +5112,7 @@
    "first_seen": "2026-11-15",
    "id": "520a0c0dae4d",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/03/Seasonal-Rental-Ibiza-Apartment-Victoria-2-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -4977,7 +5146,7 @@
    "first_seen": "2026-11-15",
    "id": "52b7666e1110",
    "image": "https://www.living-in-ibiza.com/es/upload/20086-527-64-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -5011,7 +5180,7 @@
    "first_seen": "2026-11-15",
    "id": "5315c966b1a0",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -5043,7 +5212,7 @@
    "first_seen": "2026-11-15",
    "id": "539081db4945",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -5077,7 +5246,7 @@
    "first_seen": "2026-11-15",
    "id": "539e8aed85b6",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/12/c560abaf-0003770506.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -5115,7 +5284,7 @@
    "first_seen": "2026-11-15",
    "id": "53ab9fae60a6",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2016/03/Seaseonal-rental-Ibiza-Duplex-Ibiza-1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -5149,7 +5318,7 @@
    "first_seen": "2026-11-15",
    "id": "53e83ba4cd1f",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/3004/21676819.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Portinatx",
    "matches": false,
    "notes": [
@@ -5185,7 +5354,7 @@
    "first_seen": "2026-11-15",
    "id": "53ef5c071ddc",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -5209,7 +5378,7 @@
    "url": "https://www.inmonlineibiza.com/inmueble/834"
   },
   "54d3276bb84d": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 3,
@@ -5251,7 +5420,7 @@
    "first_seen": "2026-11-15",
    "id": "54eded95b1c1",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -5280,8 +5449,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "56382e479c49",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555238/Tphoto/ID663cd201-0000-0500-0000-000019d1f09d.jpg?a=75012451-7237-a5305-3431c-5523833531840532291820",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555238/Tphoto/ID663cd201-0000-0500-0000-000019d1f09d.jpg?a=7a9bf8e0-b0ad-b8930-4313b-8555238190356902393811",
+   "last_seen": "2026-11-16",
    "location": "Cala Vadella",
    "matches": false,
    "notes": [
@@ -5313,7 +5482,7 @@
    "first_seen": "2026-11-15",
    "id": "5668ea7cbbac",
    "image": "https://www.living-in-ibiza.com/es/upload/23253-695-29-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -5345,7 +5514,7 @@
    "first_seen": "2026-11-15",
    "id": "56f95772666e",
    "image": "https://ibizadomo.com/wp-content/uploads/2025/10/ff07a0df-b517-44bc-bb33-71d4dbcd121d.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -5379,7 +5548,7 @@
    "first_seen": "2026-11-15",
    "id": "57a8e9ff5a19",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/12/a33bb1fc-0003742056.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -5410,7 +5579,7 @@
    "first_seen": "2026-11-15",
    "id": "5807561116b5",
    "image": "https://cdn.ibiza-services.com/wp-content/uploads/sites/6/2026/07/MODERN-3-BEDROOMS-APARTMENT-FOR-YEARLY-RENTAL-IBIZA8-juil.-2026-17_01_48_resultat.webp",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Es Vivé",
    "matches": false,
    "notes": [
@@ -5478,7 +5647,7 @@
    "first_seen": "2026-11-15",
    "id": "58bcb0291791",
    "image": "https://www.living-in-ibiza.com/es/upload/31175-849-12-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -5507,7 +5676,7 @@
    "first_seen": "2026-11-15",
    "id": "58caaa2a52ab",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/ca/01a13f01-8971-76bf-be96-9476504ae5ca.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -5541,7 +5710,7 @@
    "first_seen": "2026-11-15",
    "id": "58caee95039f",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/99/01a12c59-bc0f-7493-9f6f-752af4fac499.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Miquel",
    "matches": false,
    "notes": [
@@ -5575,7 +5744,7 @@
    "first_seen": "2026-11-15",
    "id": "59671926e845",
    "image": "https://www.living-in-ibiza.com/es/upload/17548-592-19-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Llorenç",
    "matches": false,
    "notes": [
@@ -5605,8 +5774,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "59788d21fa77",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555291/Tphoto/ID9b3cd201-0000-0500-0000-000019dcb772.jpg?a=11afc41e-3350-d5529-3431c-3051111565830532290823",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555291/Tphoto/ID9b3cd201-0000-0500-0000-000019dcb772.jpg?a=977c20c6-1d42-c0305-3138a-3555291855246902393402",
+   "last_seen": "2026-11-16",
    "location": "Cala Vadella",
    "matches": false,
    "notes": [
@@ -5638,7 +5807,7 @@
    "first_seen": "2026-11-15",
    "id": "59bdcabeb070",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2016/02/Seasonal-Rental-Ibiza-Piso-Playa-Bossa-13.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -5664,7 +5833,7 @@
    "url": "https://longtermrentalibiza.com/property/seasonal-rental-ibiza-piso-playa-bossa/"
   },
   "5a60699472cc": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 6,
@@ -5706,7 +5875,7 @@
    "first_seen": "2026-11-15",
    "id": "5b87c797cb6f",
    "image": "https://www.living-in-ibiza.com/es/upload/25476-740-3-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Carles",
    "matches": false,
    "notes": [
@@ -5735,7 +5904,7 @@
    "first_seen": "2026-11-15",
    "id": "5bb1be26da99",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/20/01a155d7-3542-733b-8439-752fada67420.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -5769,7 +5938,7 @@
    "first_seen": "2026-11-15",
    "id": "5cc2bcae5837",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2019/08/Long-term-rental-Ibiza-Villa-Alhambra-.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Llonga",
    "matches": false,
    "notes": [
@@ -5803,7 +5972,7 @@
    "first_seen": "2026-11-15",
    "id": "5d70c5dce1e3",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -5837,7 +6006,7 @@
    "first_seen": "2026-11-15",
    "id": "5daadc2bd16d",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2015/11/Long-term-rental-Ibiza-Villa-Volt-12.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -5871,7 +6040,7 @@
    "first_seen": "2026-11-15",
    "id": "5e3b43ad4960",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2019/11/Villas-for-sale-Ibiza-Penthouse-White-Dream-.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -5906,7 +6075,7 @@
    "first_seen": "2026-11-15",
    "id": "5e4b55722cb3",
    "image": "https://www.living-in-ibiza.com/es/upload/12858-489-38-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Rafel",
    "matches": false,
    "notes": [
@@ -5937,7 +6106,7 @@
    "first_seen": "2026-11-15",
    "id": "5e9ad863e751",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4744/26185781.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -5971,7 +6140,7 @@
    "first_seen": "2026-11-15",
    "id": "60a81da07f4b",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2018/10/Long-term-rental-ibiza-Apartment-Bossa-Beach-3.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -6005,7 +6174,7 @@
    "first_seen": "2026-11-15",
    "id": "60b148846700",
    "image": "https://www.living-in-ibiza.com/es/upload/27887-787-48-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Conta",
    "matches": false,
    "notes": [
@@ -6036,7 +6205,7 @@
    "first_seen": "2026-11-15",
    "id": "61144eeac03d",
    "image": "https://www.living-in-ibiza.com/es/upload/23962-697-83-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -6094,7 +6263,7 @@
    "first_seen": "2026-11-15",
    "id": "63d23c6c545a",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/11/7ed96273-0003664806.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -6130,7 +6299,7 @@
    "first_seen": "2026-11-15",
    "id": "644ec0bda5de",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4591/24217506.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Tarida",
    "matches": true,
    "notes": [],
@@ -6196,7 +6365,7 @@
    "first_seen": "2026-11-15",
    "id": "67a1eba220e0",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/12/3958919-80cd8930.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -6226,7 +6395,7 @@
    "first_seen": "2026-11-15",
    "id": "68e24ae201ab",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/09/b20eda55-0004187067.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Jesús",
    "matches": false,
    "notes": [
@@ -6260,7 +6429,7 @@
    "first_seen": "2026-11-15",
    "id": "69727d947954",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/02/6f564a3b-0003980584.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Jesús",
    "matches": false,
    "notes": [
@@ -6294,7 +6463,7 @@
    "first_seen": "2026-11-15",
    "id": "69a269d6d2d7",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -6328,7 +6497,7 @@
    "first_seen": "2026-11-15",
    "id": "6a0645d8b263",
    "image": "https://www.living-in-ibiza.com/es/upload/31688-863-7-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -6357,7 +6526,7 @@
    "first_seen": "2026-11-15",
    "id": "6a07b415e46a",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2023/10/Seasonal-Rental-Ibiza-Penthouse-Cala-de-Bou-Sea-2.jpeg.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -6391,7 +6560,7 @@
    "first_seen": "2026-11-15",
    "id": "6a40bc105013",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/a4/01a1c1b5-7350-76dd-8929-8079d26039a4.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -6425,7 +6594,7 @@
    "first_seen": "2026-11-15",
    "id": "6a7d13002ca7",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4766/28294067.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -6457,7 +6626,7 @@
    "first_seen": "2026-11-15",
    "id": "6a866c689348",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -6491,7 +6660,7 @@
    "first_seen": "2026-11-15",
    "id": "6aa8b18082d6",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -6515,7 +6684,7 @@
    "url": "https://www.inmonlineibiza.com/inmueble/1001"
   },
   "6ade84cca0d1": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -6557,7 +6726,7 @@
    "first_seen": "2026-11-15",
    "id": "6ae3254eff40",
    "image": "https://www.living-in-ibiza.com/es/upload/29628-820-1-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -6587,7 +6756,7 @@
    "first_seen": "2026-11-15",
    "id": "6b6352370e40",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/3962/18224608.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Es Cubells",
    "matches": false,
    "notes": [
@@ -6619,7 +6788,7 @@
    "first_seen": "2026-11-15",
    "id": "6c2e961f0449",
    "image": "https://www.living-in-ibiza.com/es/upload/15958-510-10-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -6648,7 +6817,7 @@
    "first_seen": "2026-11-15",
    "id": "6c73f67636b9",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/3642/16653849.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Conta",
    "matches": false,
    "notes": [
@@ -6682,7 +6851,7 @@
    "first_seen": "2026-11-15",
    "id": "6dbb98bca658",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -6711,7 +6880,7 @@
    "first_seen": "2026-11-15",
    "id": "6df01cb70a53",
    "image": "https://www.living-in-ibiza.com/es/upload/26332-759-31-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Pada",
    "matches": false,
    "notes": [
@@ -6741,7 +6910,7 @@
    "first_seen": "2026-11-15",
    "id": "6f837743cc91",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/12/b1ef0165-0003890505.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -6766,6 +6935,40 @@
    "title": "Seasonal Rental Opportunity – Luxury apartment in the heart of the port of Ibiza,",
    "url": "https://www.lovetoliveibiza.com/property/seasonal-rental-opportunity-luxury-apartment-in-the-heart-of-the-port-of-ibiza-a356/"
   },
+  "6f88ba500d81": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 3,
+   "first_matched": null,
+   "first_seen": "2026-11-16",
+   "id": "6f88ba500d81",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/10/Long-Term-Rental-Ibiza-Villa-Valle-1.jpg",
+   "last_seen": "2026-11-16",
+   "location": "Sant Josep",
+   "matches": false,
+   "notes": [
+    "precio 8000 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 8000,
+   "price_history": [
+    [
+     "2026-11-16",
+     8000
+    ]
+   ],
+   "score": 0,
+   "snippet": "available | €8,000 per month | 1 | of | 34 | property id : | rh-14332-property | share | added to favorites | add to favorites | print | bedrooms | 3 | bathrooms | 3 | area | 235 | m2 | lot size | 15000 | m2 | description | anual rental – sant josep . the house is of new construc",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "longterm"
+   ],
+   "title": "Villa Valle - Longterm rental Ibiza",
+   "url": "https://longtermrentalibiza.com/property/villa-valle/"
+  },
   "703e008b63da": {
    "active": true,
    "agency_web": "https://longtermrentalibiza.com",
@@ -6775,7 +6978,7 @@
    "first_seen": "2026-11-15",
    "id": "703e008b63da",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/06/Longterm-Rental-Ibiza-Apartment-Can-Misses-6-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Can Misses",
    "matches": false,
    "notes": [
@@ -6810,7 +7013,7 @@
    "first_seen": "2026-11-15",
    "id": "704c5880d6a2",
    "image": "https://www.living-in-ibiza.com/es/upload/31884-869-30-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -6840,7 +7043,7 @@
    "first_seen": "2026-11-15",
    "id": "7055456cdf53",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/3895/26148970.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -6866,7 +7069,7 @@
    "url": "https://www.ibizavende.com/en_GB/property/3895"
   },
   "70c27bd17f2a": {
-   "active": true,
+   "active": false,
    "agency_web": "https://www.mondialiteibiza.com",
    "annual_price": null,
    "bedrooms": 1,
@@ -6906,7 +7109,7 @@
    "first_seen": "2026-11-15",
    "id": "715320c2ff01",
    "image": "https://www.living-in-ibiza.com/es/upload/30223-825-47-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -6941,7 +7144,7 @@
    "first_seen": "2026-11-15",
    "id": "71629e85633b",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/10/345d4835-0004292382.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Buscastell",
    "matches": false,
    "notes": [
@@ -6977,7 +7180,7 @@
    "first_seen": "2026-11-15",
    "id": "717d0bb6d787",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -6999,7 +7202,7 @@
    "url": "https://www.rentalsibiza.co.uk/rental/family-villa-10-minutes-walking-from-santa-eulalia/"
   },
   "71d96ec650e2": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 7,
@@ -7042,7 +7245,7 @@
    "first_seen": "2026-11-15",
    "id": "71fb1022ab36",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/05/Seasonal-Rental-Ibiza-Townhouse-Glamour-0.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -7077,7 +7280,7 @@
    "first_seen": "2026-11-15",
    "id": "723e6b9f70ac",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Can Misses",
    "matches": false,
    "notes": [
@@ -7114,7 +7317,7 @@
    "first_seen": "2026-11-15",
    "id": "72accbf9e326",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Long-Term-Rental-Ibiza-Apartment-Bali-1.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -7148,7 +7351,7 @@
    "first_seen": "2026-11-15",
    "id": "73c7b922e6dd",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4951/27875813.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -7180,7 +7383,7 @@
    "first_seen": "2026-11-15",
    "id": "746b4189b401",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2018/10/Villas-for-sale-Ibiza.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -7207,7 +7410,7 @@
    "first_seen": "2026-11-15",
    "id": "756e79d98ddc",
    "image": "https://www.villacontact.com/wp-content/uploads/2026/05/can-xic-010-copy.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -7242,7 +7445,7 @@
    "first_seen": "2026-11-15",
    "id": "756f62b357df",
    "image": "https://www.living-in-ibiza.com/es/upload/25778-746-25-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -7271,7 +7474,7 @@
    "first_seen": "2026-11-15",
    "id": "758de2f9b340",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/02/Long-Term-Rental-Ibiza-Apartment-Kaizen-0.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Dalt Vila",
    "matches": false,
    "notes": [
@@ -7305,7 +7508,7 @@
    "first_seen": "2026-11-15",
    "id": "75c1792590d0",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -7339,7 +7542,7 @@
    "first_seen": "2026-11-15",
    "id": "75cf30ed97a1",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -7371,7 +7574,7 @@
    "first_seen": "2026-11-15",
    "id": "76f1305b3eef",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4092/18839016.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Roca Llisa",
    "matches": false,
    "notes": [
@@ -7405,7 +7608,7 @@
    "first_seen": "2026-11-15",
    "id": "775dd1539f37",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -7437,7 +7640,7 @@
    "first_seen": "2026-11-15",
    "id": "77d6832bf471",
    "image": "https://www.living-in-ibiza.com/es/upload/22870-687-6-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -7459,7 +7662,7 @@
    "url": "https://www.living-in-ibiza.com/es/0__687_92_3_/santa-eulalia-del-rio-alquiler-a-largo-plazo-contrato-anual-encantadora-casa-de-dos-plantas-en-siesta-santa-eulalia-ibiza-vistas-al-mar-desde-la-terraza.html"
   },
   "77e454bd0de2": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -7501,7 +7704,7 @@
    "first_seen": "2026-11-15",
    "id": "78ef11ff78df",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/5083/28950472.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -7535,7 +7738,7 @@
    "first_seen": "2026-11-15",
    "id": "7961eaea092c",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Long-Term-Rental-Ibiza-Triplex-Art-Basel-1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -7569,7 +7772,7 @@
    "first_seen": "2026-11-15",
    "id": "796a947eff02",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2020/01/Long-term-rental-Ibiza-Casa-Pep-Simo1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -7604,7 +7807,7 @@
    "first_seen": "2026-11-15",
    "id": "79d53348eb09",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2023/01/Long-term-rental-ibiza-Apartment-Estilo-Talamanca-5.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -7630,7 +7833,7 @@
    "url": "https://longtermrentalibiza.com/property/apartment-estilo-talamanca/"
   },
   "79e4d834b8a7": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 1,
@@ -7667,7 +7870,7 @@
    "url": "https://longtermrentalibiza.com/property/apartment-bou-beach/"
   },
   "7a410f706da5": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -7709,7 +7912,7 @@
    "first_seen": "2026-11-15",
    "id": "7ade9a164379",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/11/b6dbf031-0004061362.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -7743,7 +7946,7 @@
    "first_seen": "2026-11-15",
    "id": "7affc5bfc1b7",
    "image": "https://www.living-in-ibiza.com/es/upload/27414-778-29-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -7774,7 +7977,7 @@
    "first_seen": "2026-11-15",
    "id": "7b4247ed551d",
    "image": "https://www.living-in-ibiza.com/es/upload/32521-780-47-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Dalt Vila",
    "matches": false,
    "notes": [
@@ -7802,8 +8005,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "7b502cee656c",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31025209/Tphoto/ID3968d901-0000-0500-0000-00001a604642.jpg?a=92cf7c48-f0c4-e5209-3431c-3102328490890532290824",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31025209/Tphoto/ID3968d901-0000-0500-0000-00001a604642.jpg?a=c18153bc-365c-d0252-3431c-0310936344207902391823",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -7834,8 +8037,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "7bf89edee9d0",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30867902/Tphoto/IDbe01d701-0000-0500-0000-00001a353028.jpg?a=722f1aa6-c792-a3086-3431c-7902866321861532290820",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30867902/Tphoto/IDbe01d701-0000-0500-0000-00001a353028.jpg?a=c0672c08-0c31-e1623-4317b-8676086790277902393814",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -7867,7 +8070,7 @@
    "first_seen": "2026-11-15",
    "id": "7c12425dab8f",
    "image": "https://www.living-in-ibiza.com/es/upload/21703-662-32-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -7898,7 +8101,7 @@
    "first_seen": "2026-11-15",
    "id": "7c182789c129",
    "image": "https://www.living-in-ibiza.com/es/upload/16755-570-7-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -7921,7 +8124,7 @@
    "url": "https://www.living-in-ibiza.com/es/0__570_92_3_/sant-joan-de-labritja-alquiler-anual-contrato-larga-temporada-casa-en-la-zona-de-sant-joan-ibiza-con-grandiosas-vistas-al-mar-piscina-y-pequeno-jardin.html"
   },
   "7c81286ea973": {
-   "active": true,
+   "active": false,
    "agency_web": "https://www.inmonlineibiza.com",
    "annual_price": null,
    "bedrooms": 2,
@@ -7955,7 +8158,7 @@
    "url": "https://www.inmonlineibiza.com/inmueble/308"
   },
   "7ce648208dbf": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 2,
@@ -7997,7 +8200,7 @@
    "first_seen": "2026-11-15",
    "id": "7cf66efc41b4",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/10/Casa_de_Madera_1_HD.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -8032,7 +8235,7 @@
    "first_seen": "2026-11-15",
    "id": "7cfa28c2cf98",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -8064,7 +8267,7 @@
    "first_seen": "2026-11-15",
    "id": "7d06355b3cbe",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/10/Longterm-Rental-Ibiza-Casa-Turquesa-5.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -8098,7 +8301,7 @@
    "first_seen": "2026-11-15",
    "id": "7d1463b6a715",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Longterm-Rental-Ibiza-Apartament-Eliana-26.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -8132,7 +8335,7 @@
    "first_seen": "2026-11-15",
    "id": "7d19899194ea",
    "image": "https://www.living-in-ibiza.com/es/upload/16448-564-2-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Carles",
    "matches": false,
    "notes": [
@@ -8162,7 +8365,7 @@
    "first_seen": "2026-11-15",
    "id": "7f0db189d61c",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/03/Long-term-rental-Ibiza-Las-boas-Verde-71-2.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -8230,7 +8433,7 @@
    "first_seen": "2026-11-15",
    "id": "7fcab3231bf4",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/5077/28913224.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -8257,6 +8460,38 @@
    "title": "House with private pool, large terrace, and mountain views in Sant Joan",
    "url": "https://www.ibizavende.com/en_GB/property/5077"
   },
+  "814dde76af9e": {
+   "active": true,
+   "agency_web": "https://www.roxire.com",
+   "annual_price": null,
+   "bedrooms": 4,
+   "first_matched": null,
+   "first_seen": "2026-11-16",
+   "id": "814dde76af9e",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31431189/Tphoto/ID159adf01-0000-0500-0000-00001ae181ea.jpg?a=a093b870-1856-c4311-4310b-3189080052735902393812",
+   "last_seen": "2026-11-16",
+   "location": null,
+   "matches": false,
+   "notes": [
+    "precio 4000 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 4000,
+   "price_history": [
+    [
+     "2026-11-16",
+     4000
+    ]
+   ],
+   "score": 0,
+   "snippet": "politica de cookies | | | gestionar datos | crm y paginas inmobiliarias por ego real estate | atencion: este sitio web utiliza cookies. puede aceptar o rechazar nuestras cookies haciendo clic en los botones a continuacion. un rechazo no limitara su experiencia como visitan",
+   "source": "Roxire",
+   "status": "available",
+   "term": "unknown",
+   "term_keywords": [],
+   "title": "PLANTA BAJA. ZONA MONTECRISTO 4HABITACIONES 2BAÑOS PISCINA BBQ",
+   "url": "https://www.roxire.com/detalles-del-inmueble/planta-baja-zona-montecristo-4habitaciones-2banos-piscina-bbq/26985950"
+  },
   "815d049a5258": {
    "active": true,
    "agency_web": "https://longtermrentalibiza.com",
@@ -8266,7 +8501,7 @@
    "first_seen": "2026-11-15",
    "id": "815d049a5258",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/01/Longterm-Rental-Ibiza-Apartment-Ibiza-Bay-1.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -8301,7 +8536,7 @@
    "first_seen": "2026-11-15",
    "id": "82687822617b",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/05/fda1e501-0003862177.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -8336,7 +8571,7 @@
    "first_seen": "2026-11-15",
    "id": "829dbd451b46",
    "image": "https://www.living-in-ibiza.com/es/upload/17195-505-24-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -8367,7 +8602,7 @@
    "first_seen": "2026-11-15",
    "id": "834a4b4417e3",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4638/25070272.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -8402,7 +8637,7 @@
    "first_seen": "2026-11-15",
    "id": "8363f90e8ee8",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/09/6a792d16-0004187035.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Jesús",
    "matches": false,
    "notes": [
@@ -8436,7 +8671,7 @@
    "first_seen": "2026-11-15",
    "id": "83c20bf9714a",
    "image": "https://www.living-in-ibiza.com/es/upload/31975-871-13-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Llonga",
    "matches": false,
    "notes": [
@@ -8470,7 +8705,7 @@
    "first_seen": "2026-11-15",
    "id": "84878a8776fb",
    "image": "https://www.living-in-ibiza.com/es/upload/23329-590-28-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -8505,7 +8740,7 @@
    "first_seen": "2026-11-15",
    "id": "849fa937700b",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/04/Long-Term-Rental-Ibiza-Penthouse-Royal-Beach-Heaven-0.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -8539,7 +8774,7 @@
    "first_seen": "2026-11-15",
    "id": "84fd6d0670ef",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -8571,7 +8806,7 @@
    "first_seen": "2026-11-15",
    "id": "85acfc14b95f",
    "image": "https://www.living-in-ibiza.com/es/upload/16602-566-2-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -8601,7 +8836,7 @@
    "first_seen": "2026-11-15",
    "id": "860a622b3445",
    "image": "https://www.villacontact.com/wp-content/uploads/2026/07/whatsapp-image-2026-07-23-at-121036.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Siesta",
    "matches": false,
    "notes": [
@@ -8635,7 +8870,7 @@
    "first_seen": "2026-11-15",
    "id": "86fe99e9c3e9",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/01/Long-Term-Rental-Ibiza-Apartment-Sea-Floor-0.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -8670,7 +8905,7 @@
    "first_seen": "2026-11-15",
    "id": "87e83860b3f2",
    "image": "https://www.living-in-ibiza.com/es/upload/24155-717-3-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -8699,8 +8934,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "893c3f093163",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P26469078/Tphoto/IDd6e29301-0000-0500-0000-000014f5254d.jpg?a=7d596f3c-1d74-b3642-3431c-0646907851810532294821",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P26469078/Tphoto/IDd6e29301-0000-0500-0000-000014f5254d.jpg?a=c4996c78-32fa-e8264-4315b-1556690784226902393814",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -8731,8 +8966,8 @@
    "first_matched": "2026-11-15",
    "first_seen": "2026-11-15",
    "id": "8a3ef8f03ef0",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31344632/Tphoto/IDf847de01-0000-0500-0000-00001ac409ee.jpg?a=9cc36786-9c14-b1283-3178a-8383134463279432293401",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31344632/Tphoto/IDf847de01-0000-0500-0000-00001ac409ee.jpg?a=8675d746-903f-e9428-3188a-9762313446325902393404",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": true,
    "notes": [
@@ -8764,7 +8999,7 @@
    "first_seen": "2026-11-15",
    "id": "8aa759c45353",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -8790,7 +9025,7 @@
    "url": "https://www.inmonlineibiza.com/inmueble/811"
   },
   "8aa82564e86f": {
-   "active": false,
+   "active": true,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -8798,7 +9033,7 @@
    "first_seen": "2026-11-15",
    "id": "8aa82564e86f",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/08/Longterm-Rental-Ibiza-Villa-Rubick-Illa-Plana12.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -8832,7 +9067,7 @@
    "first_seen": "2026-11-15",
    "id": "8c8bf486178a",
    "image": "https://www.living-in-ibiza.com/es/upload/31699-864-10-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -8861,7 +9096,7 @@
    "first_seen": "2026-11-15",
    "id": "8d84962a373c",
    "image": "https://www.living-in-ibiza.com/es/upload/28164-790-34-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -8890,7 +9125,7 @@
    "first_seen": "2026-11-15",
    "id": "8deacfe74005",
    "image": "https://www.living-in-ibiza.com/es/upload/31809-868-10-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -8925,7 +9160,7 @@
    "first_seen": "2026-11-15",
    "id": "8df9ed70ed68",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -8962,7 +9197,7 @@
    "first_seen": "2026-11-15",
    "id": "8e4e18bf603e",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/1707/28695730.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -8996,7 +9231,7 @@
    "first_seen": "2026-11-15",
    "id": "8e921e87af28",
    "image": "https://www.living-in-ibiza.com/es/upload/32728-615-1-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -9030,7 +9265,7 @@
    "first_seen": "2026-11-15",
    "id": "8ec0de4327a1",
    "image": "https://www.living-in-ibiza.com/es/upload/27650-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -9061,7 +9296,7 @@
    "first_seen": "2026-11-15",
    "id": "8ed3e81f5c75",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4666/25379258.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Jesús",
    "matches": false,
    "notes": [
@@ -9097,7 +9332,7 @@
    "first_seen": "2026-11-15",
    "id": "8efd8971194b",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -9129,7 +9364,7 @@
    "first_seen": "2026-11-15",
    "id": "8f27d92d4e7f",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4216/20083606.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -9164,7 +9399,7 @@
    "first_seen": "2026-11-15",
    "id": "8fea9813885c",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/10/Longterm-Rental-Ibiza-Apartment-Moda-Ibiza-14.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -9199,7 +9434,7 @@
    "first_seen": "2026-11-15",
    "id": "902a220e8a65",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/08/Long-term-rental-IBiza-Triplex-Miranda-11.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -9234,7 +9469,7 @@
    "first_seen": "2026-11-15",
    "id": "9131a1a00246",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2017/10/Villa-Fantastica-1-1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -9267,8 +9502,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "91b6e1e3d2d8",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29704952/Tphoto/IDf842c501-0000-0500-0000-000018d48d3b.jpg?a=f57d3f66-3062-c5297-2934e-1804952653801532313842",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29704952/Tphoto/IDf842c501-0000-0500-0000-000018d48d3b.jpg?a=f6b84899-4c3b-b9704-3934e-2952956822317902310841",
+   "last_seen": "2026-11-16",
    "location": "Sant Carles",
    "matches": false,
    "notes": [
@@ -9300,7 +9535,7 @@
    "first_seen": "2026-11-15",
    "id": "91eb7e537ff9",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/10/fee2d6b6-0003902104.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -9336,7 +9571,7 @@
    "first_seen": "2026-11-15",
    "id": "91fc9c9c0b1c",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2019/06/Long-term-rental-ibiza-Casa-Tarida-.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Tarida",
    "matches": false,
    "notes": [
@@ -9405,7 +9640,7 @@
    "first_seen": "2026-11-15",
    "id": "9256289ff904",
    "image": "https://www.living-in-ibiza.com/es/upload/26009-730-12-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -9436,7 +9671,7 @@
    "first_seen": "2026-11-15",
    "id": "9275ae78bae0",
    "image": "https://www.living-in-ibiza.com/es/upload/31699-864-10-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -9465,7 +9700,7 @@
    "first_seen": "2026-11-15",
    "id": "92aaf5330ea3",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2015/08/Long-term-rental-Ibiza-Esmiralda-13.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Carles",
    "matches": false,
    "notes": [
@@ -9497,7 +9732,7 @@
    "first_seen": "2026-11-15",
    "id": "932b02e6e3d7",
    "image": "https://www.living-in-ibiza.com/es/upload/23116-691-22-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -9526,7 +9761,7 @@
    "first_seen": "2026-11-15",
    "id": "9343de39d93f",
    "image": "https://www.living-in-ibiza.com/es/upload/28830-803-11-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Carles",
    "matches": false,
    "notes": [
@@ -9555,7 +9790,7 @@
    "first_seen": "2026-11-15",
    "id": "93e216863196",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -9619,7 +9854,7 @@
    "first_seen": "2026-11-15",
    "id": "94a0c0babc69",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/03/Longterm-Rental-Penthouse-Green-Royal-Beach-0-2.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -9653,7 +9888,7 @@
    "first_seen": "2026-11-15",
    "id": "94f813ed2ea3",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Rafel",
    "matches": false,
    "notes": [
@@ -9686,8 +9921,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "9501fd48bddb",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P26682730/Tphoto/ID6a259701-0000-0500-0000-000019c92856.jpg?a=e9783e80-647d-d6827-4311b-5263019832880532293813",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P26682730/Tphoto/ID6a259701-0000-0500-0000-000019c92856.jpg?a=12dc37fb-81db-a4692-3431c-9266827303296902395820",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -9719,7 +9954,7 @@
    "first_seen": "2026-11-15",
    "id": "9514949b16bd",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/10/01c1253a-0003892662.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -9746,6 +9981,41 @@
    "title": "2 bedrooms apartment Temporary Rental in Marina Botafoch",
    "url": "https://www.lovetoliveibiza.com/property/2-bedrooms-apartment-temporary-rental-in-marina-botafoch-a359/"
   },
+  "959963e9e883": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 6,
+   "first_matched": null,
+   "first_seen": "2026-11-16",
+   "id": "959963e9e883",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/09/Seasonal-Rental-Villa-Amazonas-0-1024x720.png",
+   "last_seen": "2026-11-16",
+   "location": "Jesús",
+   "matches": false,
+   "notes": [
+    "temporada / no anual"
+   ],
+   "operation": "rent",
+   "price": 16000,
+   "price_history": [
+    [
+     "2026-11-16",
+     16000
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa amazonas | direct available | €16,000 per month | 1 | of | 48 | property id : | rh-67981-property | share | added to favorites | add to favorites | print | bedrooms | 6 | bathrooms | 10 | garage | 5 | area | 2000 | m2 | lot size | 8000 | m2 | description | winter rental",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "seasonal",
+   "term_keywords": [
+    "seasonal",
+    "winter"
+   ],
+   "title": "Villa Amazonas",
+   "url": "https://longtermrentalibiza.com/property/villa-amazonas/"
+  },
   "96e5ad6ccbdf": {
    "active": true,
    "agency_web": "https://www.living-in-ibiza.com",
@@ -9755,7 +10025,7 @@
    "first_seen": "2026-11-15",
    "id": "96e5ad6ccbdf",
    "image": "https://www.living-in-ibiza.com/es/upload/29820-821-35-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -9789,7 +10059,7 @@
    "first_seen": "2026-11-15",
    "id": "977d934de9b2",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Long-Term-Rental-Ibiza-Dos-Villas-Mar-0.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -9823,7 +10093,7 @@
    "first_seen": "2026-11-15",
    "id": "97e0a29763d4",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -9858,7 +10128,7 @@
    "first_seen": "2026-11-15",
    "id": "988f0850e3aa",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2023/02/Long-term-rental-ibiza-Apartment-Botafoch-Love-1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -9892,7 +10162,7 @@
    "first_seen": "2026-11-15",
    "id": "98c275e3230a",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2022/06/bg-es-vedra.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -9926,7 +10196,7 @@
    "first_seen": "2026-11-15",
    "id": "994dec6828c9",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/11/16c4edf1-0004296985.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Dalt Vila",
    "matches": false,
    "notes": [
@@ -9960,7 +10230,7 @@
    "first_seen": "2026-11-15",
    "id": "99a1fbb217f8",
    "image": "https://www.living-in-ibiza.com/es/upload/31529-860-1-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -9990,7 +10260,7 @@
    "first_seen": "2026-11-15",
    "id": "99e0e4cbae77",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/ad/01a15027-e5f8-7050-aefa-27f55e5650ad.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -10025,7 +10295,7 @@
    "first_seen": "2026-11-15",
    "id": "9b124fca82ab",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2022/06/bg-es-vedra.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -10059,7 +10329,7 @@
    "first_seen": "2026-11-15",
    "id": "9b64de5a6eaf",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -10094,7 +10364,7 @@
    "first_seen": "2026-11-15",
    "id": "9b8103d6dc49",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/11/Long-term-rental-Ibiza-Patio-Blanco-Garden-lounge-4.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -10128,7 +10398,7 @@
    "first_seen": "2026-11-15",
    "id": "9b8cedb2f963",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/11/Longterm-Rental-Ibiza-Penthouse-Red-Siesta-0.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Siesta",
    "matches": false,
    "notes": [
@@ -10155,7 +10425,7 @@
    "url": "https://longtermrentalibiza.com/property/penthouse-red-siesta/"
   },
   "9bb3268c311f": {
-   "active": false,
+   "active": true,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 0,
@@ -10163,7 +10433,7 @@
    "first_seen": "2026-11-15",
    "id": "9bb3268c311f",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/04/Longterm-rental-ibiza-Villa-Front-Level-With-Independent-Studio-0-2.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Roca Llisa",
    "matches": false,
    "notes": [
@@ -10198,7 +10468,7 @@
    "first_seen": "2026-11-15",
    "id": "9beacf1fc52a",
    "image": "https://www.living-in-ibiza.com/es/upload/32920-893-20-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -10233,7 +10503,7 @@
    "first_seen": "2026-11-15",
    "id": "9c663b7f43ff",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/05/6202b556-0004116504.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -10266,8 +10536,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "9dadb82915f6",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P28184082/Tphoto/ID120eae01-0000-0500-0000-00001763b6f5.jpg?a=3d62c354-a909-d1840-9343d-9288223146249432211833",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P28184082/Tphoto/ID120eae01-0000-0500-0000-00001763b6f5.jpg?a=a07807c0-42b3-b5897-4318b-9424281840825902393811",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -10299,7 +10569,7 @@
    "first_seen": "2026-11-15",
    "id": "9dcfc182bad2",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Long-Term-Rental-Ibiza-Apartment-Bahia-Cannes-0.1.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Dalt Vila",
    "matches": false,
    "notes": [
@@ -10333,7 +10603,7 @@
    "first_seen": "2026-11-15",
    "id": "a068c0988623",
    "image": "https://www.living-in-ibiza.com/es/upload/23166-693-4-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -10362,7 +10632,7 @@
    "first_seen": "2026-11-15",
    "id": "a07f146100f2",
    "image": "https://www.villacontact.com/wp-content/uploads/2025/10/print-thecasita-ibizainteriossayanacairo-2.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -10397,7 +10667,7 @@
    "first_seen": "2026-11-15",
    "id": "a0e54d66c621",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -10429,7 +10699,7 @@
    "first_seen": "2026-11-15",
    "id": "a12428c223e5",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4626/24609508.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -10463,7 +10733,7 @@
    "first_seen": "2026-11-15",
    "id": "a187752876b0",
    "image": "https://www.living-in-ibiza.com/es/upload/23207-694-8-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -10493,7 +10763,7 @@
    "first_seen": "2026-11-15",
    "id": "a1b288ffaf45",
    "image": "https://www.living-in-ibiza.com/es/upload/31295-854-15-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -10528,7 +10798,7 @@
    "first_seen": "2026-11-15",
    "id": "a1b436e3d35e",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/03/Long-term-rental-Ibiza-Las-boas-Purpura-421.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -10562,7 +10832,7 @@
    "first_seen": "2026-11-15",
    "id": "a1d703ff5d82",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -10594,7 +10864,7 @@
    "first_seen": "2026-11-15",
    "id": "a20846061f49",
    "image": "https://www.living-in-ibiza.com/es/upload/30727-841-1-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Jordi",
    "matches": false,
    "notes": [
@@ -10623,7 +10893,7 @@
    "first_seen": "2026-11-15",
    "id": "a2962a6bbafe",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/03/Long-term-rental-ibiza-Las-Boas-Rojo-513.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -10649,7 +10919,7 @@
    "url": "https://longtermrentalibiza.com/property/las-boas-rojo-51/"
   },
   "a3137d5dfea0": {
-   "active": false,
+   "active": true,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -10657,7 +10927,7 @@
    "first_seen": "2026-11-15",
    "id": "a3137d5dfea0",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/10/Long-Term-Rental-Ibiza-Villa-Can-Calma-0-2.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Mateu",
    "matches": false,
    "notes": [
@@ -10691,7 +10961,7 @@
    "first_seen": "2026-11-15",
    "id": "a503c8a64d2d",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -10723,7 +10993,7 @@
    "first_seen": "2026-11-15",
    "id": "a5ad904cb329",
    "image": "https://www.living-in-ibiza.com/es/upload/19103-619-4-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -10753,7 +11023,7 @@
    "first_seen": "2026-11-15",
    "id": "a65b0552cac3",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4990/28182338.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Dalt Vila",
    "matches": false,
    "notes": [
@@ -10789,7 +11059,7 @@
    "first_seen": "2026-11-15",
    "id": "a752992816f3",
    "image": "https://www.living-in-ibiza.com/es/upload/31376-856-13-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -10820,7 +11090,7 @@
    "first_seen": "2026-11-15",
    "id": "a79a91b2907d",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/01/Longterm-Rental-Ibiza-Apartment-White-Ibiza-1.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -10856,7 +11126,7 @@
    "first_seen": "2026-11-15",
    "id": "a80700cefeaf",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/5042/28610266.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -10892,7 +11162,7 @@
    "first_seen": "2026-11-15",
    "id": "a89d5808b2d8",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/1Seasonal-Rental-Ibiza-Apartment-Star-Beach-12.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -10926,7 +11196,7 @@
    "first_seen": "2026-11-15",
    "id": "a8b0b6f6af2e",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Long-Term-Rental-Ibiza-Apartment-Bahia-Firenze-0.1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -10960,7 +11230,7 @@
    "first_seen": "2026-11-15",
    "id": "a8f5da78138f",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/04/Long-Term-Rental-Ibiza-Apartment-HopeLas-Boas-27-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -10994,7 +11264,7 @@
    "first_seen": "2026-11-15",
    "id": "a9784cdf6fb4",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/07/Longterm-Rental-IBiza-Apartment-Downtown-Ibiza-5-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -11021,7 +11291,7 @@
    "url": "https://longtermrentalibiza.com/property/apartment-downtown-ibiza/"
   },
   "a9cff20dab7c": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 6,
@@ -11063,7 +11333,7 @@
    "first_seen": "2026-11-15",
    "id": "aa12bbb8aa1b",
    "image": "https://www.villacontact.com/wp-content/uploads/2025/10/print-ibizainteriossayanacairo-2.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -11097,7 +11367,7 @@
    "first_seen": "2026-11-15",
    "id": "aac961acde45",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -11129,7 +11399,7 @@
    "first_seen": "2026-11-15",
    "id": "aaf93cf88a20",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Seasonal-Rental-Ibiza-Apartment-Botafoch-Pearl-15.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -11163,7 +11433,7 @@
    "first_seen": "2026-11-15",
    "id": "ab66a8c53283",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/10/326be73e-0003892635.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -11197,7 +11467,7 @@
    "first_seen": "2026-11-15",
    "id": "abbf987ef986",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -11232,7 +11502,7 @@
    "first_seen": "2026-11-15",
    "id": "abc60fdb363c",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -11264,7 +11534,7 @@
    "first_seen": "2026-11-15",
    "id": "ac4decf3d115",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -11299,7 +11569,7 @@
    "first_seen": "2026-11-15",
    "id": "ac8b1b9cce41",
    "image": "https://www.living-in-ibiza.com/es/upload/18585-536-76-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Carles",
    "matches": false,
    "notes": [
@@ -11330,7 +11600,7 @@
    "first_seen": "2026-11-15",
    "id": "adbb456845eb",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/2843/10640741.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -11364,7 +11634,7 @@
    "first_seen": "2026-11-15",
    "id": "adcea0154eae",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -11394,7 +11664,7 @@
    "first_seen": "2026-11-15",
    "id": "ae80deca66f0",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4979/28052477.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Vicent",
    "matches": false,
    "notes": [
@@ -11429,7 +11699,7 @@
    "first_seen": "2026-11-15",
    "id": "af65368ab301",
    "image": "https://ibizadomo.com/wp-content/uploads/2025/09/d1cb3610-c8dc-4861-97b3-2edd98c3cd84-1024x678.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -11463,7 +11733,7 @@
    "first_seen": "2026-11-15",
    "id": "afd538c65ff3",
    "image": "https://www.living-in-ibiza.com/es/upload/32118-872-28-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Rafel",
    "matches": false,
    "notes": [
@@ -11494,7 +11764,7 @@
    "first_seen": "2026-11-15",
    "id": "afe30e1e253f",
    "image": "https://www.living-in-ibiza.com/es/upload/23276-453-118-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -11525,7 +11795,7 @@
    "first_seen": "2026-11-15",
    "id": "b020ee86e0e6",
    "image": "https://www.living-in-ibiza.com/es/upload/20667-643-1-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -11557,7 +11827,7 @@
    "first_seen": "2026-11-15",
    "id": "b033c9388bd2",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -11591,7 +11861,7 @@
    "first_seen": "2026-11-15",
    "id": "b1a44305afcc",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/01/Seasonal-Rental-Ibiza-Duplex-Ses-Torres-0.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Dalt Vila",
    "matches": false,
    "notes": [
@@ -11625,7 +11895,7 @@
    "first_seen": "2026-11-15",
    "id": "b271dcfef95b",
    "image": "https://www.villacontact.com/wp-content/uploads/2026/10/villa-mussa-1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Agustí",
    "matches": false,
    "notes": [
@@ -11659,7 +11929,7 @@
    "first_seen": "2026-11-15",
    "id": "b3403cb4f640",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/f2/01a1b7cc-6c26-74cb-b14a-5c70b1c641f2.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Puig d'en Valls",
    "matches": false,
    "notes": [
@@ -11693,7 +11963,7 @@
    "first_seen": "2026-11-15",
    "id": "b3595787b7b9",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2015/11/LOng-term-rental-Ibiza-Villa-Golfview-30.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Roca Llisa",
    "matches": false,
    "notes": [
@@ -11717,7 +11987,7 @@
    "url": "https://longtermrentalibiza.com/property/villa-golfview/"
   },
   "b47bc87b6993": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -11750,6 +12020,40 @@
    "title": "Villa Roca Llisa View",
    "url": "https://longtermrentalibiza.com/property/villa-roca-llisa-view/"
   },
+  "b589204c8b64": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 4,
+   "first_matched": null,
+   "first_seen": "2026-11-16",
+   "id": "b589204c8b64",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/11/Long-term-rental-ibiza-Villa-Planta-Bajo-28.jpg",
+   "last_seen": "2026-11-16",
+   "location": "Santa Gertrudis",
+   "matches": false,
+   "notes": [
+    "precio 5500 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 5500,
+   "price_history": [
+    [
+     "2026-11-16",
+     5500
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa planta bajo | direct available | €5,500 per month | 1 | of | 38 | property id : | rh-30367-property | share | added to favorites | add to favorites | print | bedrooms | 4 | bathrooms | 2 | garage | 1 | area | 6000 | m2 | lot size | 150 | m2 | description | yearly reantal",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "yearly"
+   ],
+   "title": "Villa Planta Bajo",
+   "url": "https://longtermrentalibiza.com/property/villa-planta-bajo/"
+  },
   "b5d8f8bc5bfa": {
    "active": true,
    "agency_web": "https://longtermrentalibiza.com",
@@ -11759,7 +12063,7 @@
    "first_seen": "2026-11-15",
    "id": "b5d8f8bc5bfa",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/08/LongTerm-Rental-Ibiza-Penthouse-Nika-Sea-View-23.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Siesta",
    "matches": false,
    "notes": [
@@ -11794,7 +12098,7 @@
    "first_seen": "2026-11-15",
    "id": "b603727e6b29",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2021/03/Long-term-rental-Ibiza-Piso-Miramar-Moderna-8.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -11828,7 +12132,7 @@
    "first_seen": "2026-11-15",
    "id": "b62f765feffd",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/03/Long-Term-rental-Ibiza-Villa-Purle-Sea-View-1-2-1024x760.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -11862,7 +12166,7 @@
    "first_seen": "2026-11-15",
    "id": "b6fe7ce4190c",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Jordi",
    "matches": false,
    "notes": [
@@ -11898,7 +12202,7 @@
    "first_seen": "2026-11-15",
    "id": "b74f9e55079e",
    "image": "https://www.living-in-ibiza.com/es/upload/31003-846-1-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -11927,8 +12231,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "b9c4c7c53342",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P19783097/Tphoto/IDb9dd2d01-0000-0500-0000-0000184e5158.jpg?a=b98aac8c-9f07-c6812-4318b-6883197830971532293812",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P19783097/Tphoto/IDb9dd2d01-0000-0500-0000-0000184e5158.jpg?a=fd7af039-9033-b1978-4311b-1309751505247902393811",
+   "last_seen": "2026-11-16",
    "location": "Cala Conta",
    "matches": false,
    "notes": [
@@ -11960,7 +12264,7 @@
    "first_seen": "2026-11-15",
    "id": "ba360380c7df",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2020/03/Long-term-rental-Ibiza-Casa-Escuela24.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -11994,7 +12298,7 @@
    "first_seen": "2026-11-15",
    "id": "baf9ec9d447b",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4637/25051320.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -12029,7 +12333,7 @@
    "first_seen": "2026-11-15",
    "id": "bb44508ec055",
    "image": "https://www.living-in-ibiza.com/es/upload/24592-724-13-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -12059,7 +12363,7 @@
    "first_seen": "2026-11-15",
    "id": "bbcbefd0fcf2",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/3428/15217746.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Agustí",
    "matches": false,
    "notes": [
@@ -12093,7 +12397,7 @@
    "first_seen": "2026-11-15",
    "id": "bc8ebca0f3d8",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Longterm-Rental-Ibiza-Triplex-Can-Misses-0-2.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Can Misses",
    "matches": false,
    "notes": [
@@ -12127,7 +12431,7 @@
    "first_seen": "2026-11-15",
    "id": "bd0f90375f94",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2016/02/Seasonal-Rental-Ibiza-Can-Primero-7.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Can Misses",
    "matches": false,
    "notes": [
@@ -12161,7 +12465,7 @@
    "first_seen": "2026-11-15",
    "id": "bd60027346a3",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2020/03/Long-term-rental-Ibiza-Patio-Blanco-Lio-1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -12195,7 +12499,7 @@
    "first_seen": "2026-11-15",
    "id": "be6abe1281b1",
    "image": "https://www.living-in-ibiza.com/es/upload/30922-845-1-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -12224,15 +12528,20 @@
    "first_seen": "2026-11-15",
    "id": "bec866e38242",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Can Misses",
    "matches": false,
    "notes": [
-    "no consta que sea anual"
+    "es venta"
    ],
-   "operation": "rent",
-   "price": null,
-   "price_history": [],
+   "operation": "sale",
+   "price": 750000,
+   "price_history": [
+    [
+     "2026-11-16",
+     750000
+    ]
+   ],
    "score": 0,
    "snippet": "can misses - ibiza | ref.: 386 | piso en venta en can misses, ibiza - ¡tu hogar de ensueno te espera! | descubre este magnifico piso de 136 m2 construidos ubicado en la deseable zona de can misses, en el corazon de ibiza. se trata de una vivienda en segundo piso exterior que com",
    "source": "Inmonline Ibiza",
@@ -12287,7 +12596,7 @@
    "first_seen": "2026-11-15",
    "id": "bf6318d9b006",
    "image": "https://www.villacontact.com/wp-content/uploads/2025/10/024-the-retreat-2016-selection.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -12321,7 +12630,7 @@
    "first_seen": "2026-11-15",
    "id": "bf72d9425359",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -12353,7 +12662,7 @@
    "first_seen": "2026-11-15",
    "id": "c07a760c550c",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/2a/01a144d6-6752-75ac-9977-e8d367451b2a.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Jordi",
    "matches": false,
    "notes": [
@@ -12388,7 +12697,7 @@
    "first_seen": "2026-11-15",
    "id": "c084b1e6e5f9",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/03/860569ea-0004139977.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -12416,6 +12725,41 @@
    "title": "Luxury Townhouse for Rent in Can Furnet, Ibiza – Private Pool & Stunning Views | Utilities Included",
    "url": "https://www.lovetoliveibiza.com/property/luxury-townhouse-for-rent-in-can-furnet-ibiza-private-pool-stunning-views-utilities-included-a404/"
   },
+  "c0d8b17c1d35": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 5,
+   "first_matched": null,
+   "first_seen": "2026-11-16",
+   "id": "c0d8b17c1d35",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2023/10/Long-term-rental-ibiza-Villa-Offgrid-42.jpg-.jpg",
+   "last_seen": "2026-11-16",
+   "location": "Sant Antoni",
+   "matches": false,
+   "notes": [
+    "precio 10000 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 10000,
+   "price_history": [
+    [
+     "2026-11-16",
+     10000
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa offgrid | ibiza, balearic islands, spain | direct available | €10,000 per month | 1 | of | 44 | property id : | rh-26187-property | share | added to favorites | add to favorites | print | bedrooms | 5 | bathrooms | 6 | garage | 1 | year built | 2019 | area | 600 | lot si",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "long",
+   "term_keywords": [
+    "annual",
+    "year round"
+   ],
+   "title": "Villa Offgrid",
+   "url": "https://longtermrentalibiza.com/property/villa-offgrid/"
+  },
   "c11b76b4197f": {
    "active": true,
    "agency_web": "https://longtermrentalibiza.com",
@@ -12425,7 +12769,7 @@
    "first_seen": "2026-11-15",
    "id": "c11b76b4197f",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Seasonal-Rental-Ibiza-Adosado-Furly-0.1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Jordi",
    "matches": false,
    "notes": [
@@ -12460,7 +12804,7 @@
    "first_seen": "2026-11-15",
    "id": "c11f6d80d40d",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/10/Long-Term-Rental-Ibiza-Casa-Nael-2.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Jordi",
    "matches": false,
    "notes": [
@@ -12494,7 +12838,7 @@
    "first_seen": "2026-11-15",
    "id": "c12da50de09a",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/10/Longterm-Rental-Ibiza-The-Luxury-Apartments-Santa-Eulalia-0.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -12528,7 +12872,7 @@
    "first_seen": "2026-11-15",
    "id": "c14153e5cd5a",
    "image": "https://www.living-in-ibiza.com/es/upload/22223-673-30-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -12559,7 +12903,7 @@
    "first_seen": "2026-11-15",
    "id": "c1537dd2f059",
    "image": "https://www.living-in-ibiza.com/es/upload/32269-874-6-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Carles",
    "matches": false,
    "notes": [
@@ -12589,7 +12933,7 @@
    "first_seen": "2026-11-15",
    "id": "c171039b87ab",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -12623,7 +12967,7 @@
    "first_seen": "2026-11-15",
    "id": "c1902e506655",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/12/40e660e1-0003747248.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -12654,7 +12998,7 @@
    "first_seen": "2026-11-15",
    "id": "c20517f0a2c3",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/05/2c254514-0004111782.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -12688,7 +13032,7 @@
    "first_seen": "2026-11-15",
    "id": "c23a7691a7be",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/04/Long-term-rental-ibiza-penthouse-Siesta-Sea-View-17-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Siesta",
    "matches": false,
    "notes": [
@@ -12723,7 +13067,7 @@
    "first_seen": "2026-11-15",
    "id": "c281c231ac55",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/12/626e6542-0003805705.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Dalt Vila",
    "matches": false,
    "notes": [
@@ -12757,7 +13101,7 @@
    "first_seen": "2026-11-15",
    "id": "c2c5e97c8254",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4958/27885071.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Jesús",
    "matches": false,
    "notes": [
@@ -12793,7 +13137,7 @@
    "first_seen": "2026-11-15",
    "id": "c2fb55890f93",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/11/2c9bf415-0004296737.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -12831,7 +13175,7 @@
    "first_seen": "2026-11-15",
    "id": "c35a96eb1af7",
    "image": "https://www.living-in-ibiza.com/es/upload/18044-591-33-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -12854,7 +13198,7 @@
    "url": "https://www.living-in-ibiza.com/es/0__591_93_3_/santa-eulalia-del-rio-alquiler-anual-contrato-largo-plazo-piso-muy-espacioso-bonito-y-acogedor-en-santa-eulalia-del-rio-ibiza-con-piscina-y-jardin-comunitarios.html"
   },
   "c372dc6d1f0d": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 3,
@@ -12895,8 +13239,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "c3ada5755424",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29815465/Tphoto/IDa9f2c601-0000-0500-0000-000018fe02c1.jpg?a=80bb8707-b6f8-d5712-3431c-8609815465821532296823",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29815465/Tphoto/IDa9f2c601-0000-0500-0000-000018fe02c1.jpg?a=cd5d3f01-b7ea-b2514-3431c-1323298154657902398821",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -12928,7 +13272,7 @@
    "first_seen": "2026-11-15",
    "id": "c43f7fa0a1f1",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/04/Longterm-Rental-Ibiza-Villa-Fortress-Es-Vedra-0.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Vadella",
    "matches": false,
    "notes": [
@@ -12963,7 +13307,7 @@
    "first_seen": "2026-11-15",
    "id": "c440076c0ddd",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/05/Seasonal-rental-Townhouse-Natural-Siesta-0-37-scaled.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Siesta",
    "matches": false,
    "notes": [
@@ -12996,8 +13340,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "c479f9e93311",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30176115/Tphoto/ID7373cc01-0000-0500-0000-0000197cdc8e.jpg?a=7a5a6e1a-934d-e0083-3431c-9565017611549432297824",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30176115/Tphoto/ID7373cc01-0000-0500-0000-0000197cdc8e.jpg?a=5b68dc29-88c4-b7030-9343d-7176115403255902313831",
+   "last_seen": "2026-11-16",
    "location": "Sant Rafel",
    "matches": false,
    "notes": [
@@ -13028,8 +13372,8 @@
    "first_matched": "2026-11-15",
    "first_seen": "2026-11-15",
    "id": "c4912ba8c844",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25418525/Tphoto/ID1ddb8301-0000-0500-0000-00001a174115.jpg?a=fe80aae1-2e7f-d5925-9343d-1854185250871532215833",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25418525/Tphoto/ID1ddb8301-0000-0500-0000-00001a174115.jpg?a=aae83528-4923-d5632-3934e-1295418525387902316843",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": true,
    "notes": [
@@ -13061,7 +13405,7 @@
    "first_seen": "2026-11-15",
    "id": "c4aa7c1d82f7",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/ee/01a15dd3-07e7-712d-b0b5-971f9eb30dee.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -13084,6 +13428,41 @@
    "title": "Commercial Premises with Restaurant Licence for Rent in San Antonio, Ibiza",
    "url": "https://www.mondialiteibiza.com/en/property/rentals/commercial-premises-with-restaurant-licence-for-rent-in-san-antonio-ibiza-9904/"
   },
+  "c4d938ad1c64": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 6,
+   "first_matched": null,
+   "first_seen": "2026-11-16",
+   "id": "c4d938ad1c64",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/11/Long-Term-Rental-Ibiza-Villa-Panther-With-Touristic-License-0.jpg",
+   "last_seen": "2026-11-16",
+   "location": "Dalt Vila",
+   "matches": false,
+   "notes": [
+    "precio 18000 € > 2000 €"
+   ],
+   "operation": "rent",
+   "price": 18000,
+   "price_history": [
+    [
+     "2026-11-16",
+     18000
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa panther with touristic license | direct available | €18,000 per month | 1 | of | 26 | property id : | villa-panther-touristic-license-ltr | share | added to favorites | add to favorites | print | bedrooms | 6 | bathrooms | 6 | garage | 4 | area | 600 | m2 | lot size | 10",
+   "source": "Long Term Rental Ibiza",
+   "status": "available",
+   "term": "mixed",
+   "term_keywords": [
+    "annual",
+    "tourist"
+   ],
+   "title": "Villa Panther With Touristic License",
+   "url": "https://longtermrentalibiza.com/property/villa-panther-with-touristic-license/"
+  },
   "c5a2586cb988": {
    "active": true,
    "agency_web": "https://www.living-in-ibiza.com",
@@ -13093,7 +13472,7 @@
    "first_seen": "2026-11-15",
    "id": "c5a2586cb988",
    "image": "https://www.living-in-ibiza.com/es/upload/17117-579-10-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -13123,7 +13502,7 @@
    "first_seen": "2026-11-15",
    "id": "c66011eaff63",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/e6/01a12cf4-db15-77c9-8d7b-05a634b39ce6.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -13157,7 +13536,7 @@
    "first_seen": "2026-11-15",
    "id": "c694deb05112",
    "image": "https://www.living-in-ibiza.com/es/upload/23116-691-22-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -13186,22 +13565,26 @@
    "first_seen": "2026-11-15",
    "id": "c6cd62239380",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/11/Long-Term-Rental-Ibiza-Villa-Almeria-2.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Jordi",
    "matches": false,
    "notes": [
-    "precio 10000 € > 2000 €"
+    "precio 9000 € > 2000 €"
    ],
    "operation": "rent",
-   "price": 10000,
+   "price": 9000,
    "price_history": [
     [
      "2026-11-15",
      10000
+    ],
+    [
+     "2026-11-16",
+     9000
     ]
    ],
    "score": 0,
-   "snippet": "villa almeria | direct available | €10,000 per month | 1 | of | 35 | property id : | rh-69799-property | share | added to favorites | add to favorites | print | bedrooms | 5 | bathrooms | 3 | garage | 2 | area | 400 | m2 | description | annual rental – sant jordi. spacious 5-b",
+   "snippet": "villa almeria | direct available | €9,000 per month | 1 | of | 35 | property id : | rh-69799-property | share | added to favorites | add to favorites | print | bedrooms | 5 | bathrooms | 3 | garage | 2 | area | 400 | m2 | description | annual rental – sant jordi. spacious 5-be",
    "source": "Long Term Rental Ibiza",
    "status": "available",
    "term": "long",
@@ -13220,7 +13603,7 @@
    "first_seen": "2026-11-15",
    "id": "c71ca29e4af4",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -13255,7 +13638,7 @@
    "first_seen": "2026-11-15",
    "id": "c73a6e4719b1",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2019/10/Long-term-rental-Ibiza-Las-Boas-DC10-13.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -13290,7 +13673,7 @@
    "first_seen": "2026-11-15",
    "id": "c7bbee77d706",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/12/4b7e2d0f-0003742135.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -13321,7 +13704,7 @@
    "first_seen": "2026-11-15",
    "id": "c80f7fbb6fda",
    "image": "https://www.living-in-ibiza.com/es/upload/31939-870-5-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -13351,7 +13734,7 @@
    "first_seen": "2026-11-15",
    "id": "c903375cb86b",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2017/10/Apartment-Aqua-Bossa-1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -13377,7 +13760,7 @@
    "url": "https://longtermrentalibiza.com/property/apartment-aqua-bossa/"
   },
   "c97eef7cf4fd": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 5,
@@ -13419,7 +13802,7 @@
    "first_seen": "2026-11-15",
    "id": "c99d8897ff27",
    "image": "https://www.living-in-ibiza.com/es/upload/32603-884-19-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Jesús",
    "matches": false,
    "notes": [
@@ -13455,7 +13838,7 @@
    "first_seen": "2026-11-15",
    "id": "c9a302060da5",
    "image": "https://www.living-in-ibiza.com/es/upload/28947-807-4-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -13483,8 +13866,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "cc84a5b9eb08",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555221/Tphoto/ID553cd201-0000-0500-0000-000019d0298b.jpg?a=163f53c5-da5d-e0555-4313b-0203221202850532293814",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555221/Tphoto/ID553cd201-0000-0500-0000-000019d0298b.jpg?a=0037002b-b75e-b3861-4317b-1423055522166902393811",
+   "last_seen": "2026-11-16",
    "location": "Cala Vadella",
    "matches": false,
    "notes": [
@@ -13516,7 +13899,7 @@
    "first_seen": "2026-11-15",
    "id": "cca75ac931e8",
    "image": "https://www.living-in-ibiza.com/es/upload/32521-780-47-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Dalt Vila",
    "matches": false,
    "notes": [
@@ -13545,7 +13928,7 @@
    "first_seen": "2026-11-15",
    "id": "cced901db3f5",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4942/27770324.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -13579,7 +13962,7 @@
    "first_seen": "2026-11-15",
    "id": "cd25c49245bf",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4723/26218403.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -13613,7 +13996,7 @@
    "first_seen": "2026-11-15",
    "id": "cd65e76aa153",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/04/863adf30-0003583349.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -13644,7 +14027,7 @@
    "first_seen": "2026-11-15",
    "id": "cdaab6ccf811",
    "image": "https://www.living-in-ibiza.com/es/upload/18325-376-18-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -13675,7 +14058,7 @@
    "first_seen": "2026-11-15",
    "id": "cdcc06bf9d4a",
    "image": "https://www.living-in-ibiza.com/es/upload/17250-571-1-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -13698,7 +14081,7 @@
    "url": "https://www.living-in-ibiza.com/es/0__571_93_3_/santa-eulalia-del-rio-alquiler-anual-largo-plazo-atractivo-apartamento-en-santa-eulalia-ibiza-primera-linea-de-mar.html"
   },
   "cdd38c6ba26a": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 3,
@@ -13741,7 +14124,7 @@
    "first_seen": "2026-11-15",
    "id": "cef5811fc7d2",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/09/Long-Term-Rental-Ibiza-Duplex-Black-Lion-13.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Roca Llisa",
    "matches": false,
    "notes": [
@@ -13767,7 +14150,7 @@
    "url": "https://longtermrentalibiza.com/property/duplex-black-lion/"
   },
   "cfbdf3993313": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -13809,7 +14192,7 @@
    "first_seen": "2026-11-15",
    "id": "d17a2f1fa3b1",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/09/6f564a3b-0003980584.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Jesús",
    "matches": false,
    "notes": [
@@ -13844,7 +14227,7 @@
    "first_seen": "2026-11-15",
    "id": "d1acd6f9c8ad",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -13868,7 +14251,7 @@
    "url": "https://www.inmonlineibiza.com/inmueble/884"
   },
   "d211a4b4b7de": {
-   "active": false,
+   "active": true,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 2,
@@ -13876,7 +14259,7 @@
    "first_seen": "2026-11-15",
    "id": "d211a4b4b7de",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2023/10/Long-Term-Rental-Ibiza-Villa-Cozy-14.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -13909,8 +14292,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "d2ccb31c2203",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555184/Tphoto/ID303cd201-0000-0500-0000-000019d024ad.jpg?a=948cbb6c-8627-c7305-9343d-9655184430820532213832",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30555184/Tphoto/ID303cd201-0000-0500-0000-000019d024ad.jpg?a=faba7882-ed6d-c0555-4311b-0318413514236902393812",
+   "last_seen": "2026-11-16",
    "location": "Cala Vadella",
    "matches": false,
    "notes": [
@@ -13942,7 +14325,7 @@
    "first_seen": "2026-11-15",
    "id": "d2f8695d20e6",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/06/Townhouse-Golf-Bay-Longterm-rental-ibiza-1.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Roca Llisa",
    "matches": false,
    "notes": [
@@ -13970,7 +14353,7 @@
    "url": "https://longtermrentalibiza.com/property/townhouse-golf-bay/"
   },
   "d48bd9fa397b": {
-   "active": false,
+   "active": true,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 6,
@@ -13978,7 +14361,7 @@
    "first_seen": "2026-11-15",
    "id": "d48bd9fa397b",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2019/10/Long-term-rental-ibiza-Villa-Buscal-.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Rafel",
    "matches": false,
    "notes": [
@@ -14012,7 +14395,7 @@
    "first_seen": "2026-11-15",
    "id": "d4fbf860b4c4",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2020/09/Long-term-rental-Ibiza-Apartment-Bossa-Beach-6.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -14046,7 +14429,7 @@
    "first_seen": "2026-11-15",
    "id": "d5456e1be7b1",
    "image": "https://www.living-in-ibiza.com/es/upload/28012-507-35-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Siesta",
    "matches": false,
    "notes": [
@@ -14075,7 +14458,7 @@
    "first_seen": "2026-11-15",
    "id": "d5d80097daee",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -14101,8 +14484,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "d5f7ba538a7b",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30205393/Tphoto/IDd1e5cc01-0000-0500-0000-00001ace39d0.jpg?a=34e214f0-a372-c8290-4316b-9130205393889432293812",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30205393/Tphoto/IDd1e5cc01-0000-0500-0000-00001ace39d0.jpg?a=54cee7c5-1824-b6468-4317b-3323020539395902393811",
+   "last_seen": "2026-11-16",
    "location": "Cala Conta",
    "matches": false,
    "notes": [
@@ -14134,7 +14517,7 @@
    "first_seen": "2026-11-15",
    "id": "d6c8cbf13ddc",
    "image": "https://www.living-in-ibiza.com/es/upload/30256-832-9-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -14164,7 +14547,7 @@
    "first_seen": "2026-11-15",
    "id": "d6e31b40537c",
    "image": "https://cdn.ibiza-services.com/wp-content/uploads/sites/6/2026/10/lomg-term-rental-4-bedroom-apartment-6-1.webp",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Figueretes",
    "matches": false,
    "notes": [
@@ -14198,7 +14581,7 @@
    "first_seen": "2026-11-15",
    "id": "d76277707036",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/05/f15a233f-0004140934.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -14235,7 +14618,7 @@
    "first_seen": "2026-11-15",
    "id": "d79a54e7fd01",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/11/Long-Term-Rental-Ibiza-Apartment-White-Angel-Sand-9.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -14271,7 +14654,7 @@
    "first_seen": "2026-11-15",
    "id": "d8ad16d54d75",
    "image": "https://www.living-in-ibiza.com/es/upload/22407-680-13-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Vicent",
    "matches": false,
    "notes": [
@@ -14302,7 +14685,7 @@
    "first_seen": "2026-11-15",
    "id": "d9ae4372ab80",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -14334,7 +14717,7 @@
    "first_seen": "2026-11-15",
    "id": "d9d05d4e99be",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -14369,7 +14752,7 @@
    "first_seen": "2026-11-15",
    "id": "d9d31db31f41",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/03/Long-term-rental-Ibiza-Apartment-Patio-Blanco-Space-3.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -14403,7 +14786,7 @@
    "first_seen": "2026-11-15",
    "id": "da1826ffcbc6",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/04/e824ad8b-0004127892.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -14434,7 +14817,7 @@
    "first_seen": "2026-11-15",
    "id": "da40ad34dab0",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2022/06/bg-es-vedra.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -14471,7 +14854,7 @@
    "first_seen": "2026-11-15",
    "id": "da4b37861295",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/08/Seasonal-Rental-Ibiza-Apartment-Mediteraneo-One-5.jpeg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -14506,7 +14889,7 @@
    "first_seen": "2026-11-15",
    "id": "da53eb595ea7",
    "image": "https://www.living-in-ibiza.com/es/upload/29853-822-21-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -14536,7 +14919,7 @@
    "first_seen": "2026-11-15",
    "id": "da67449cd65c",
    "image": "https://www.living-in-ibiza.com/es/upload/27537-624-76-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -14566,7 +14949,7 @@
    "first_seen": "2026-11-15",
    "id": "daef4cb7ecb1",
    "image": "https://www.living-in-ibiza.com/es/upload/29332-816-12-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -14595,7 +14978,7 @@
    "first_seen": "2026-11-15",
    "id": "db77d130280a",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/2755/9551888.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Siesta",
    "matches": false,
    "notes": [
@@ -14629,7 +15012,7 @@
    "first_seen": "2026-11-15",
    "id": "dc1ce1422082",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4364/21688674.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -14663,7 +15046,7 @@
    "first_seen": "2026-11-15",
    "id": "dc3db0f66444",
    "image": "https://www.living-in-ibiza.com/es/upload/31884-869-30-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -14693,7 +15076,7 @@
    "first_seen": "2026-11-15",
    "id": "dc4097d924b9",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/2f/01a155a8-8976-76ce-9abf-6a24f492e92f.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -14762,7 +15145,7 @@
    "first_seen": "2026-11-15",
    "id": "ddae710cdd0f",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/c6/01a1b7e0-ef11-7688-bb11-5d75bd5750c6.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -14793,8 +15176,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "ddf321a4c951",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29540033/Tphoto/IDc1bec201-0000-0500-0000-0000189ea987.jpg?a=ec9ae562-dfea-a5729-4312b-5400334781899432293810",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P29540033/Tphoto/IDc1bec201-0000-0500-0000-0000189ea987.jpg?a=7d7ebee3-584b-d2954-4313b-5340033104206902393813",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -14818,7 +15201,7 @@
    "url": "https://www.roxire.com/detalles-del-inmueble/casa-independiente-en-san-antonio-de-3-habitaciones-2-banos-piscina-y-anexo/25327342"
   },
   "de66b3f00420": {
-   "active": false,
+   "active": true,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 5,
@@ -14826,7 +15209,7 @@
    "first_seen": "2026-11-15",
    "id": "de66b3f00420",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/08/Longterm-rental-ibiza-Villa-Versailles-0-1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -14860,7 +15243,7 @@
    "first_seen": "2026-11-15",
    "id": "deaec11a7279",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Llonga",
    "matches": true,
    "notes": [],
@@ -14894,7 +15277,7 @@
    "first_seen": "2026-11-15",
    "id": "def0e8add51b",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -14923,7 +15306,7 @@
    "first_seen": "2026-11-15",
    "id": "df8177e64243",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/04/e271de4c-0004246802.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Conta",
    "matches": false,
    "notes": [
@@ -14960,7 +15343,7 @@
    "first_seen": "2026-11-15",
    "id": "dfc5c5a3ae0a",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2025/09/Villa-Peace-Art-Longterm-Rental-Ibiza-1-1.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -14996,7 +15379,7 @@
    "first_seen": "2026-11-15",
    "id": "e0e850cdbfa3",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/3634/28918152.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -15031,7 +15414,7 @@
    "first_seen": "2026-11-15",
    "id": "e126bc044e01",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4702/26741799.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Roca Llisa",
    "matches": false,
    "notes": [
@@ -15065,7 +15448,7 @@
    "first_seen": "2026-11-15",
    "id": "e172990aca0d",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -15089,7 +15472,7 @@
    "url": "https://www.inmonlineibiza.com/inmueble/844"
   },
   "e1b0f96e8e74": {
-   "active": true,
+   "active": false,
    "agency_web": "https://www.mondialiteibiza.com",
    "annual_price": null,
    "bedrooms": 5,
@@ -15126,7 +15509,7 @@
    "first_seen": "2026-11-15",
    "id": "e215817dedb5",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -15160,7 +15543,7 @@
    "first_seen": "2026-11-15",
    "id": "e23c5f57dad9",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/11/Long-Term-Rental-Ibiza-Apartment-Roca-Golf-37-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Roca Llisa",
    "matches": false,
    "notes": [
@@ -15186,6 +15569,40 @@
    "title": "Apartment Roca Golf",
    "url": "https://longtermrentalibiza.com/property/apartment-roca-golf/"
   },
+  "e25a66cda144": {
+   "active": true,
+   "agency_web": "https://longtermrentalibiza.com",
+   "annual_price": null,
+   "bedrooms": 5,
+   "first_matched": null,
+   "first_seen": "2026-11-16",
+   "id": "e25a66cda144",
+   "image": "https://longtermrentalibiza.com/wp-content/uploads/2019/07/Seasonal-Rental-ibiza-Villa-Elephant-44.jpg",
+   "last_seen": "2026-11-16",
+   "location": "Sant Josep",
+   "matches": false,
+   "notes": [
+    "alquilado/reservado"
+   ],
+   "operation": "rent",
+   "price": 10000,
+   "price_history": [
+    [
+     "2026-11-16",
+     10000
+    ]
+   ],
+   "score": 0,
+   "snippet": "villa elephant | rented | rented €10,000 | 1 | of | 47 | property id : | rh-59391-property | share | added to favorites | add to favorites | print | bedrooms | 5 | bathrooms | 5 | garage | 1 | year built | 2008 | area | 199 | m2 | lot size | 468 | m2 | description | seasonal r",
+   "source": "Long Term Rental Ibiza",
+   "status": "rented",
+   "term": "seasonal",
+   "term_keywords": [
+    "seasonal"
+   ],
+   "title": "Villa Elephant",
+   "url": "https://longtermrentalibiza.com/property/villa-elephant/"
+  },
   "e271c7a7ab26": {
    "active": true,
    "agency_web": "https://www.lovetoliveibiza.com",
@@ -15195,7 +15612,7 @@
    "first_seen": "2026-11-15",
    "id": "e271c7a7ab26",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/06/8117e9d5-0004155328.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Conta",
    "matches": false,
    "notes": [
@@ -15233,7 +15650,7 @@
    "first_seen": "2026-11-15",
    "id": "e33c341b62c1",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/5081/28933931.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -15265,7 +15682,7 @@
    "first_seen": "2026-11-15",
    "id": "e382d493295a",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -15297,7 +15714,7 @@
    "first_seen": "2026-11-15",
    "id": "e39275cd04ef",
    "image": "https://www.villacontact.com/wp-content/uploads/2025/10/casalavistadrone-18.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -15332,7 +15749,7 @@
    "first_seen": "2026-11-15",
    "id": "e3cff9e6d199",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/03/Long-term-rental-ibiza-Las-Boas-Rojo-41-4.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -15366,7 +15783,7 @@
    "first_seen": "2026-11-15",
    "id": "e44dad4da9da",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2024/12/Long-Term-Rental-Ibiza-Apartment-Trini-19-scaled.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -15400,7 +15817,7 @@
    "first_seen": "2026-11-15",
    "id": "e4ba8ef7668e",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2020/09/Long-term-rental-Ibiza-Casa-Es-Cana-6.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Es Canar",
    "matches": false,
    "notes": [
@@ -15434,7 +15851,7 @@
    "first_seen": "2026-11-15",
    "id": "e5ab011c42bb",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/f3/01a1c501-4216-73dd-8572-5ea53ef3c4f3.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -15468,7 +15885,7 @@
    "first_seen": "2026-11-15",
    "id": "e6370a4ceebd",
    "image": "https://www.living-in-ibiza.com/es/upload/20802-648-3-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Can Misses",
    "matches": false,
    "notes": [
@@ -15497,7 +15914,7 @@
    "first_seen": "2026-11-15",
    "id": "e6803e54a99b",
    "image": "https://www.living-in-ibiza.com/es/upload/28627-795-75-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -15526,7 +15943,7 @@
    "first_seen": "2026-11-15",
    "id": "e7219d5cd7fd",
    "image": "https://www.living-in-ibiza.com/es/upload/31068-848-36-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -15557,7 +15974,7 @@
    "first_seen": "2026-11-15",
    "id": "e723da275efe",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4218/20083006.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": true,
    "notes": [],
@@ -15589,7 +16006,7 @@
    "first_seen": "2026-11-15",
    "id": "e75508070007",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2026/05/Seasonal-Rental-Penthouse-Marina-View-37-1024x616.png",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -15623,7 +16040,7 @@
    "first_seen": "2026-11-15",
    "id": "e7a5a35ee75c",
    "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/ba/01a1c4f8-c0c4-76c6-90f0-e765ef0bd3ba.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -15657,7 +16074,7 @@
    "first_seen": "2026-11-15",
    "id": "e85f419fb0cb",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -15681,7 +16098,7 @@
    "url": "https://www.inmonlineibiza.com/inmueble/808"
   },
   "e87abc728ff3": {
-   "active": true,
+   "active": false,
    "agency_web": "https://www.villacontact.com",
    "annual_price": null,
    "bedrooms": null,
@@ -15723,7 +16140,7 @@
    "first_seen": "2026-11-15",
    "id": "e90e61e6c754",
    "image": "https://www.living-in-ibiza.com/es/upload/19426-625-2-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Vicent",
    "matches": false,
    "notes": [
@@ -15744,7 +16161,7 @@
    "url": "https://www.living-in-ibiza.com/es/0__625_92_3_/cala-san-vicente-se-alquila-contrato-anual-idilica-finca-ibicenca-cerca-de-la-playa-en-san-vicente-ibiza.html"
   },
   "e918cddf7627": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": null,
@@ -15781,7 +16198,7 @@
    "first_seen": "2026-11-15",
    "id": "e94bd4242310",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/03/4464d91b-0000064417.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Josep",
    "matches": false,
    "notes": [
@@ -15811,7 +16228,7 @@
    "first_seen": "2026-11-15",
    "id": "e9935a59be0c",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/03/Long-term-rental-Ibiza-Las-boas-Verde-51-3.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -15845,7 +16262,7 @@
    "first_seen": "2026-11-15",
    "id": "e9f407e9c301",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -15879,7 +16296,7 @@
    "first_seen": "2026-11-15",
    "id": "ea383465899b",
    "image": "https://www.living-in-ibiza.com/es/upload/16530-529-2-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -15910,7 +16327,7 @@
    "first_seen": "2026-11-15",
    "id": "eb51fdea625b",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Es Vivé",
    "matches": false,
    "notes": [
@@ -15944,7 +16361,7 @@
    "first_seen": "2026-11-15",
    "id": "eba37eeba70b",
    "image": "https://www.living-in-ibiza.com/es/upload/30523-836-14-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -15977,8 +16394,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "ebeec1ca5608",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25231231/Tphoto/ID7fff8001-0000-0500-0000-0000173f0e4a.jpg?a=81494d98-d125-d5231-3128a-8322313902869432293403",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P25231231/Tphoto/ID7fff8001-0000-0500-0000-0000173f0e4a.jpg?a=6d10fa38-1890-a2431-4316b-1425231231275902393810",
+   "last_seen": "2026-11-16",
    "location": "Cala de Bou",
    "matches": false,
    "notes": [
@@ -16009,8 +16426,8 @@
    "first_matched": "2026-11-15",
    "first_seen": "2026-11-15",
    "id": "ebfbe197826a",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30003328/Tphoto/ID80d0c901-0000-0500-0000-00001aba05fd.jpg?a=a389dc23-070c-c3530-3431c-5800332891851532294822",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30003328/Tphoto/ID80d0c901-0000-0500-0000-00001aba05fd.jpg?a=8ceff6e0-97d2-a2617-3431c-0300033284267902395820",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": true,
    "notes": [
@@ -16042,7 +16459,7 @@
    "first_seen": "2026-11-15",
    "id": "ec0b11046335",
    "image": "https://www.living-in-ibiza.com/es/upload/26618-766-22-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -16071,8 +16488,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "ec2da4cbde00",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30798434/Tphoto/ID62f2d501-0000-0500-0000-00001a1b2ed1.jpg?a=4a35f2c8-6817-e7184-3431c-9949307984341532298824",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P30798434/Tphoto/ID62f2d501-0000-0500-0000-00001a1b2ed1.jpg?a=d5436323-c1e4-e1325-3934e-1784307984347902318844",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -16104,7 +16521,7 @@
    "first_seen": "2026-11-15",
    "id": "ec5a1957e8ef",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2019/01/Long-term-rental-Ibiza-Penthouse-Grande-Allure-13.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -16170,7 +16587,7 @@
    "first_seen": "2026-11-15",
    "id": "ece99e98a4b2",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/09/a10c5155-0004185705.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -16206,7 +16623,7 @@
    "first_seen": "2026-11-15",
    "id": "ed8c89a0e0d7",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/03/6c21ee9f-0004237769.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -16235,7 +16652,7 @@
    "url": "https://www.lovetoliveibiza.com/property/bar-restaurant-opportunity-v776/"
   },
   "eda47cc4c172": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -16275,7 +16692,7 @@
    "first_seen": "2026-11-15",
    "id": "ee45ad840c44",
    "image": "https://www.living-in-ibiza.com/es/upload/11743-379-46-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Dalt Vila",
    "matches": false,
    "notes": [
@@ -16297,7 +16714,7 @@
    "url": "https://www.living-in-ibiza.com/es/0__379_93_3_/isla-de-ibiza-alquiler-anual-atractivo-y-luminoso-piso-de-diseno-en-pleno-corazon-de-ibiza-con-garaje-y-vistas-al-mar-y-dalt-vila.html"
   },
   "eed98d62b233": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": null,
@@ -16334,7 +16751,7 @@
    "first_seen": "2026-11-15",
    "id": "eee1c315a950",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4493/22975096.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -16368,7 +16785,7 @@
    "first_seen": "2026-11-15",
    "id": "ef21b861835c",
    "image": "https://summumibiza.com/wp-content/uploads/2026/09/4204042-782beb16.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -16400,7 +16817,7 @@
    "first_seen": "2026-11-15",
    "id": "ef6977f7dce4",
    "image": "https://www.living-in-ibiza.com/es/upload/25476-740-3-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Carles",
    "matches": false,
    "notes": [
@@ -16429,7 +16846,7 @@
    "first_seen": "2026-11-15",
    "id": "f0c9e773210f",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/04/8f2ff68b-0003594409.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -16463,7 +16880,7 @@
    "first_seen": "2026-11-15",
    "id": "f17668535237",
    "image": "https://www.living-in-ibiza.com/es/upload/30957-412-38-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -16498,7 +16915,7 @@
    "first_seen": "2026-11-15",
    "id": "f1c7724802ae",
    "image": "https://www.living-in-ibiza.com/es/upload/19734-414-32-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Llorenç",
    "matches": false,
    "notes": [
@@ -16529,7 +16946,7 @@
    "first_seen": "2026-11-15",
    "id": "f1dfe2d5f1c6",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4241/20309278.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": true,
    "notes": [],
@@ -16561,7 +16978,7 @@
    "first_seen": "2026-11-15",
    "id": "f2b590c14a27",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/10/f321b1e9-0004215688.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": true,
    "notes": [
@@ -16596,7 +17013,7 @@
    "first_seen": "2026-11-15",
    "id": "f3b99eb10972",
    "image": "https://www.living-in-ibiza.com/es/upload/31688-863-7-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Talamanca",
    "matches": false,
    "notes": [
@@ -16617,7 +17034,7 @@
    "url": "https://www.living-in-ibiza.com/es/0__863_92_3_/talamanca-ibiza-anual-alquiler-de-piso-en-talamanca-ibiza-sin-amueblar-2-habitaciones-terraza-parking-opcional-vistas-al-mar-cerca-de-playa-y-marina-botafoch.html"
   },
   "f3c7b50f451c": {
-   "active": true,
+   "active": false,
    "agency_web": "https://longtermrentalibiza.com",
    "annual_price": null,
    "bedrooms": 4,
@@ -16659,7 +17076,7 @@
    "first_seen": "2026-11-15",
    "id": "f4e309eb914d",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2016/10/Long-Term-Rental-Ibiza-Valor-Real-Garden-002.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -16727,7 +17144,7 @@
    "first_seen": "2026-11-15",
    "id": "f5b1b70cc4ed",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2022/03/Long-term-rental-Ibiza-Las-boas-Naranja-41-4-2.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -16761,7 +17178,7 @@
    "first_seen": "2026-11-15",
    "id": "f5b83219858e",
    "image": "https://www.living-in-ibiza.com/es/upload/26138-755-16-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -16795,7 +17212,7 @@
    "first_seen": "2026-11-15",
    "id": "f604cbf6f364",
    "image": "https://www.villacontact.com/wp-content/uploads/2025/10/240323-ibizacampocasa-ariadnapuigdomenech-hr-27.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -16865,7 +17282,7 @@
    "first_seen": "2026-11-15",
    "id": "f6a1a11bd393",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/4995/28241789.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Playa d'en Bossa",
    "matches": false,
    "notes": [
@@ -16901,7 +17318,7 @@
    "first_seen": "2026-11-15",
    "id": "f6ba6b48eb67",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/11/b5d6be0e-0004009834.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -16937,7 +17354,7 @@
    "first_seen": "2026-11-15",
    "id": "f6d752177313",
    "image": "https://www.living-in-ibiza.com/es/upload/26618-766-22-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -16967,7 +17384,7 @@
    "first_seen": "2026-11-15",
    "id": "f7c855b6a847",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/3779/17224354.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Gertrudis",
    "matches": false,
    "notes": [
@@ -16999,7 +17416,7 @@
    "first_seen": "2026-11-15",
    "id": "f84f4303edaa",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/2051/5433435.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Marina Botafoch",
    "matches": false,
    "notes": [
@@ -17034,7 +17451,7 @@
    "first_seen": "2026-11-15",
    "id": "fa11cfac2494",
    "image": "https://longtermrentalibiza.com/wp-content/uploads/2015/10/Long-Term-rental-Ibiza-Casa-Noseve-14.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -17068,7 +17485,7 @@
    "first_seen": "2026-11-15",
    "id": "fa46820f8f74",
    "image": "https://media.mobiliagestion.es/Portals/inmoibizavende/Images/1000/1800227.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Joan",
    "matches": false,
    "notes": [
@@ -17104,7 +17521,7 @@
    "first_seen": "2026-11-15",
    "id": "fa9ef57c7acb",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -17135,7 +17552,7 @@
    "first_seen": "2026-11-15",
    "id": "fb01acddba47",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -17169,7 +17586,7 @@
    "first_seen": "2026-11-15",
    "id": "fb3d9533b24b",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/09/cdd3931a-0003967699.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Vadella",
    "matches": false,
    "notes": [
@@ -17204,7 +17621,7 @@
    "first_seen": "2026-11-15",
    "id": "fc9636387499",
    "image": null,
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Sant Antoni",
    "matches": false,
    "notes": [
@@ -17272,7 +17689,7 @@
    "first_seen": "2026-11-15",
    "id": "fda3274af46f",
    "image": "https://www.living-in-ibiza.com/es/upload/28769-479-43-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -17302,7 +17719,7 @@
    "first_seen": "2026-11-15",
    "id": "fe8db1c6ab05",
    "image": "https://www.living-in-ibiza.com/es/upload/16715-569-11-g.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Santa Eulària",
    "matches": false,
    "notes": [
@@ -17332,7 +17749,7 @@
    "first_seen": "2026-11-15",
    "id": "fe956dd4dfdd",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2025/04/86b114ed-0003742185.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -17362,8 +17779,8 @@
    "first_matched": null,
    "first_seen": "2026-11-15",
    "id": "fee2481ce9b0",
-   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31132334/Tphoto/IDae0adb01-0000-0500-0000-00001a8444a4.jpg?a=22b347c1-8003-a6058-3158a-1311323342859432293400",
-   "last_seen": "2026-11-15",
+   "image": "https://images.egorealestate.com/Z1280x960/OAYES/S5/C9364/P31132334/Tphoto/IDae0adb01-0000-0500-0000-00001a8444a4.jpg?a=253d0c0a-99bc-c1132-4311b-2333493064265902393812",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -17395,7 +17812,7 @@
    "first_seen": "2026-11-15",
    "id": "ff035a79ea29",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2024/12/e82b1d1e-0003946210.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Cala Vadella",
    "matches": false,
    "notes": [
@@ -17417,6 +17834,40 @@
    "title": "Breathtaking Villa in Cala Vadella",
    "url": "https://www.lovetoliveibiza.com/property/breathtaking-villa-in-cala-vadella-a366/"
   },
+  "ff484dcfbda3": {
+   "active": true,
+   "agency_web": "https://www.mondialiteibiza.com",
+   "annual_price": null,
+   "bedrooms": 2,
+   "first_matched": null,
+   "first_seen": "2026-11-16",
+   "id": "ff484dcfbda3",
+   "image": "https://app-api.paagees.com/uploads/019cfac8-8445-75ae-9932-19b5a21cb648/social-preview/8d/01a12576-119d-7102-8e2d-e68902fb9b8d.jpg",
+   "last_seen": "2026-11-16",
+   "location": "Siesta",
+   "matches": false,
+   "notes": [
+    "temporada / no anual"
+   ],
+   "operation": "rent",
+   "price": 1500,
+   "price_history": [
+    [
+     "2026-11-16",
+     1500
+    ]
+   ],
+   "score": 0,
+   "snippet": "ace in siesta – winter rental | ref. | 7313 | 1500 €/month | contact via whatsapp | 11 | +6 | apartment | santa eularia des riu - siesta | 55 m2 | 2 | 1 | rental conditions | 1,500 €/month, all expenses included | available from now until april 30 | 1 month deposit and 1 month ag",
+   "source": "Mondialité Ibiza",
+   "status": "available",
+   "term": "seasonal",
+   "term_keywords": [
+    "winter"
+   ],
+   "title": "Renovated apartment with garden and terrace in Siesta",
+   "url": "https://www.mondialiteibiza.com/en/property/rentals/renovated-apartment-with-garden-and-terrace-in-siesta-winter-rental-7313/"
+  },
   "ff985fd01b59": {
    "active": true,
    "agency_web": "https://www.lovetoliveibiza.com",
@@ -17426,7 +17877,7 @@
    "first_seen": "2026-11-15",
    "id": "ff985fd01b59",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2026/11/df5286b2-0003764750.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": "Eivissa",
    "matches": false,
    "notes": [
@@ -17460,7 +17911,7 @@
    "first_seen": "2026-11-15",
    "id": "ffb4b980dfb4",
    "image": "https://www.lovetoliveibiza.com/wp-content/uploads/2022/06/bg-es-vedra.jpg",
-   "last_seen": "2026-11-15",
+   "last_seen": "2026-11-16",
    "location": null,
    "matches": false,
    "notes": [
@@ -17521,6 +17972,15 @@
    "new": 1,
    "price_drops": 0,
    "scanned": 503
+  },
+  {
+   "back": 0,
+   "date": "2026-11-16",
+   "gone": 4,
+   "matching": 13,
+   "new": 1,
+   "price_drops": 0,
+   "scanned": 495
   }
  ]
 }
