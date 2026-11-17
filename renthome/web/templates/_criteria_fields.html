@@ -1,0 +1,50 @@
+{# Campos comunes de una búsqueda. Espera `values` y `show_profile_fields`. #}
+{% set areas = (values.areas or "").split(",") %}{% set types = (values.property_types or "").split(",") %}
+  <section class="form-section">
+    <header><h2>Dónde</h2><p>Elige una o varias zonas. Puedes afinar con barrios o pueblos.</p></header>
+    <div class="fields">
+      <div class="field wide"><span class="label">Zonas</span>
+        <div class="checks">{% for k, v in catalog.AREAS.items() %}
+          <label class="check"><input type="checkbox" name="areas" value="{{ k }}"{% if k in areas %} checked{% endif %}><span>{{ v }}</span></label>{% endfor %}</div></div>
+      <div class="field wide"><label for="zones">Barrios o pueblos preferidos</label>
+        <input id="zones" name="zones" type="text" maxlength="300" placeholder="Santa Eulària, Jesús, Gràcia, Poblenou…" value="{{ values.zones }}"></div>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <header><h2>Presupuesto y tamaño</h2><p>El máximo que puedes pagar al mes, sin contar suministros.</p></header>
+    <div class="fields">
+      <div class="field"><label for="max_price">Alquiler máximo</label>
+        <div class="money"><input id="max_price" name="max_price" type="text" inputmode="numeric" value="{{ values.max_price if values.max_price is not none else '' }}"></div></div>
+      <div class="field"><label for="min_bedrooms">Habitaciones, mínimo</label>
+        <input id="min_bedrooms" name="min_bedrooms" type="number" min="0" max="10" value="{{ values.min_bedrooms }}">
+        <span class="hint">0 incluye estudios.</span></div>
+      <div class="field"><label for="preferred_bedrooms">Habitaciones, ideal</label>
+        <input id="preferred_bedrooms" name="preferred_bedrooms" type="number" min="0" max="10" value="{{ values.preferred_bedrooms if values.preferred_bedrooms is not none else '' }}">
+        <span class="hint">Estos anuncios salen primero.</span></div>
+      <div class="field"><label for="min_size_m2">Superficie mínima (m²)</label>
+        <input id="min_size_m2" name="min_size_m2" type="number" min="10" max="2000" value="{{ values.min_size_m2 if values.min_size_m2 is not none else '' }}"></div>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <header><h2>Tipo de vivienda</h2><p>Si no marcas ninguno, se buscan todos.</p></header>
+    <div class="fields">
+      <div class="field wide"><span class="label">Tipos</span>
+        <div class="checks">{% for k, v in catalog.PROPERTY_TYPES.items() %}
+          <label class="check"><input type="checkbox" name="property_types" value="{{ k }}"{% if k in types %} checked{% endif %}><span>{{ v }}</span></label>{% endfor %}</div></div>
+      <div class="field"><label for="furnished">Muebles</label>
+        <select id="furnished" name="furnished">{% for k, v in catalog.FURNISHED.items() %}<option value="{{ k }}"{% if values.furnished == k %} selected{% endif %}>{{ v }}</option>{% endfor %}</select></div>
+{% if show_profile_fields %}      <div class="field"><label for="move_in_date">Fecha de entrada</label>
+        <input id="move_in_date" name="move_in_date" type="date" value="{{ values.move_in_date or '' }}"></div>
+{% endif %}      <div class="field wide"><span class="label">Imprescindibles</span>
+        <div class="checks">
+          <label class="check"><input type="checkbox" name="needs_pets_allowed" value="1"{% if values.needs_pets_allowed %} checked{% endif %}><span>Admite mascotas</span></label>
+          <label class="check"><input type="checkbox" name="needs_parking" value="1"{% if values.needs_parking %} checked{% endif %}><span>Parking</span></label>
+          <label class="check"><input type="checkbox" name="needs_elevator" value="1"{% if values.needs_elevator %} checked{% endif %}><span>Ascensor</span></label>
+          <label class="check"><input type="checkbox" name="wants_terrace" value="1"{% if values.wants_terrace %} checked{% endif %}><span>Terraza o balcón</span></label>
+        </div></div>
+{% if show_profile_fields %}      <div class="field wide"><label for="notes">Algo más que debamos saber</label>
+        <textarea id="notes" name="notes" maxlength="1000" placeholder="Trabajo desde casa y necesito luz natural; no quiero planta baja…">{{ values.notes }}</textarea></div>
+{% endif %}    </div>
+  </section>

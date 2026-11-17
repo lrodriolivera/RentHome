@@ -6,6 +6,7 @@ from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 
 from . import catalog, crypto, forms
+from . import criteria as criteria_lib
 from .config import Settings
 from .deps import audit, flash, get_db, get_settings, render, require_user, verify_csrf
 from .models import Profile, SearchPreference, User
@@ -106,27 +107,14 @@ async def save_preference(request: Request, user: User = Depends(require_user), 
     pref = ensure_preference(user)
     try:
         values = {
-            "areas": forms.choices(form, "areas", catalog.AREAS),
-            "zones": forms.text(form, "zones", 300),
-            "property_types": forms.choices(form, "property_types", catalog.PROPERTY_TYPES),
-            "max_price": forms.integer(form, "max_price", 200, 50_000),
-            "min_bedrooms": forms.integer(form, "min_bedrooms", 0, 10, default=1),
-            "preferred_bedrooms": forms.integer(form, "preferred_bedrooms", 0, 10),
-            "min_size_m2": forms.integer(form, "min_size_m2", 10, 2000),
-            "furnished": forms.choice(form, "furnished", catalog.FURNISHED, default="any"),
-            "needs_pets_allowed": forms.flag(form, "needs_pets_allowed"),
-            "needs_parking": forms.flag(form, "needs_parking"),
-            "needs_elevator": forms.flag(form, "needs_elevator"),
-            "wants_terrace": forms.flag(form, "wants_terrace"),
+            **criteria_lib.read_form(form),
             "move_in_date": forms.date(form, "move_in_date"),
             "notes": forms.text(form, "notes", 1000),
         }
-        if not values["areas"]:
-            raise forms.FormError("Elige al menos una zona donde buscar.")
     except forms.FormError as exc:
         return render(request, "preferences.html", user=user, pref=pref, status_code=400, error=str(exc))
     for field, value in values.items():
         setattr(pref, field, value)
     audit(db, request, user.id, "busqueda_actualizada")
-    flash(request, "Preferencias guardadas.")
-    return RedirectResponse("/busqueda", status_code=303)
+    flash(request, "Preferencias guardadas. Estos son los pisos que encajan.")
+    return RedirectResponse("/pisos", status_code=303)

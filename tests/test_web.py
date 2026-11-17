@@ -12,61 +12,11 @@ from fastapi.testclient import TestClient
 from sqlalchemy import select
 
 from renthome.web import crypto, security
-from renthome.web.app import create_app
-from renthome.web.config import MAX_FORM_REQUEST_BYTES, MAX_UPLOAD_REQUEST_BYTES, Settings
+from renthome.web.config import MAX_FORM_REQUEST_BYTES, MAX_UPLOAD_REQUEST_BYTES
 from renthome.web.models import AuditLog, Document, Invitation, Profile, SearchPreference, User, utcnow
 from renthome.web.routes_privacy import purge_stale
 
-PASSWORD = "clave-segura-123"
-PDF = b"%PDF-1.4 contenido de prueba"
-
-
-@pytest.fixture()
-def app(tmp_path):
-    listings = tmp_path / "listings.json"
-    listings.write_text(json.dumps({"listings": {
-        "a": {"url": "https://x/a", "title": "Piso dos hab", "source": "Agencia", "price": 1500, "bedrooms": 2,
-              "term": "long", "active": True, "matches": True, "location": "Eivissa"},
-        "b": {"url": "https://x/b", "title": "Piso caro", "source": "Agencia", "price": 1900, "bedrooms": 2,
-              "term": "long", "active": True, "matches": True},
-        "c": {"url": "https://x/c", "title": "De temporada", "source": "Agencia", "price": 900, "bedrooms": 2,
-              "term": "seasonal", "active": True, "matches": False},
-    }}), encoding="utf-8")
-    settings = Settings(data_dir=tmp_path, secret_key="k" * 40, cookie_secure=False,
-                        controller_name="Responsable", controller_email="r@example.org", listings_file=listings)
-    return create_app(settings)
-
-
-def db_session(app):
-    return app.state.session_factory()
-
-
-def add_user(app, email: str, role: str = "user") -> int:
-    with db_session(app) as db:
-        user = User(email=email, name=email.split("@")[0], password_hash=security.hash_password(PASSWORD),
-                    role=role, consent_at=utcnow(), consent_version="t")
-        user.profile, user.preference = Profile(), SearchPreference()
-        db.add(user)
-        db.commit()
-        return user.id
-
-
-def csrf(client: TestClient, path: str = "/login") -> str:
-    return re.search(r'name="csrf_token" value="([^"]+)"', client.get(path).text).group(1)
-
-
-def login(app, email: str) -> TestClient:
-    client = TestClient(app)
-    response = client.post("/login", data={"email": email, "password": PASSWORD, "csrf_token": csrf(client)},
-                           follow_redirects=False)
-    assert response.status_code == 303
-    return client
-
-
-def upload(client: TestClient, content: bytes = PDF, name: str = "nomina.pdf", kind: str = "nominas"):
-    return client.post("/documentos", data={"kind": kind, "csrf_token": csrf(client, "/documentos")},
-                       files={"file": (name, content, "application/pdf")}, follow_redirects=False)
-
+from .conftest import PASSWORD, PDF, add_agency, add_listing, add_user, csrf, db_session, login, upload
 
 # ---------- acceso ----------
 
@@ -175,6 +125,10 @@ def test_profile_rejects_invalid_number(app):
 
 
 def test_preferences_filter_dashboard_listings(app):
+    agency = add_agency(app)
+    add_listing(app, agency, "1", title="Piso dos hab", price=1500)
+    add_listing(app, agency, "2", title="Piso caro", price=1900)
+    add_listing(app, agency, "3", title="De temporada", price=900, eligible=False)
     add_user(app, "ana@example.org")
     client = login(app, "ana@example.org")
     assert "Piso dos hab" not in client.get("/").text  # sin zonas todavía
@@ -318,19 +272,6 @@ def test_password_guessing_with_open_session_is_limited(app):
     client.post("/mis-datos/eliminar", data={"password": PASSWORD, "csrf_token": csrf(client, "/mis-datos")})
     with db_session(app) as db:
         assert db.scalar(select(User)) is not None  # bloqueado: ni con la buena se borra
-
-
-def test_listing_links_must_be_web_urls(app, tmp_path):
-    from renthome.web import listings
-    path = tmp_path / "raros.json"
-    path.write_text(json.dumps({"listings": {
-        "x": {"url": "javascript:alert(1)", "title": "Trampa", "active": True, "matches": True, "price": 900},
-        "y": {"title": "Sin enlace", "active": True, "matches": True, "price": 900},
-        "z": {"url": "https://ok/z", "image": "http://inseguro/img.jpg", "title": "Bueno", "active": True,
-              "matches": True, "price": 900},
-    }}), encoding="utf-8")
-    found = listings.matching(path, None)
-    assert [v.title for v in found] == ["Bueno"] and found[0].image is None
 
 
 def test_limiter_memory_is_bounded():

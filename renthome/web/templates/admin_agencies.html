@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Inmobiliarias{% endblock %}
+{% block content %}
+<header class="page-head"><p class="eyebrow">Administración</p><h1>Inmobiliarias locales.</h1>
+  <p>Las webs que se rastrean. Solo agencias locales con alquiler de larga duración; nunca portales.</p></header>
+{{ flashes() }}
+<div class="row">
+  <a class="btn" href="/admin/inmobiliarias/nueva">Añadir inmobiliaria</a>
+  <form method="post" action="/admin/inmobiliarias/rastrear-todas">{{ csrf() }}<button class="btn btn-ghost" type="submit">Rastrear todas ahora</button></form>
+  <a class="btn btn-ghost" href="/admin/candidatas">Candidatas por revisar{% if candidate_count %} ({{ candidate_count }}){% endif %}</a>
+</div>
+<div class="table-wrap"><table>
+  <thead><tr><th>Inmobiliaria</th><th>Zonas</th><th>Pisos válidos</th><th>Último rastreo</th><th>Estado</th><th></th></tr></thead>
+  <tbody>{% for a in agencies %}
+  <tr>
+    <td><strong><a href="/admin/inmobiliarias/{{ a.id }}">{{ a.name }}</a></strong><br><span class="muted small">{{ a.town }}{% if a.origin == "discovered" %} · descubierta{% endif %}</span></td>
+    <td>{% for k in a.area_list %}<span class="tag">{{ catalog.AREAS.get(k, k) }}</span> {% endfor %}</td>
+    <td class="num">{{ counts.get(a.id, 0) }} <span class="muted">/ {{ a.last_found }}</span></td>
+    <td class="num">{{ a.last_crawled_at|datetime or "Nunca" }}</td>
+    <td>{% if a.id in busy %}<span class="tag warn">rastreando</span>
+        {% elif not a.enabled %}<span class="tag off">en pausa</span>
+        {% elif a.last_status %}<span class="tag off" title="{{ a.last_status }}">fallo ×{{ a.consecutive_failures }}</span><br><span class="muted small">{{ a.last_status }}</span>
+        {% elif a.last_crawled_at %}<span class="tag ok">bien</span>{% else %}<span class="tag">pendiente</span>{% endif %}</td>
+    <td><div class="row">
+      <form method="post" action="/admin/inmobiliarias/{{ a.id }}/rastrear">{{ csrf() }}<button class="btn btn-ghost btn-sm" type="submit">Rastrear</button></form>
+      <form method="post" action="/admin/inmobiliarias/{{ a.id }}/estado">{{ csrf() }}<button class="btn btn-ghost btn-sm" type="submit">{{ "Pausar" if a.enabled else "Activar" }}</button></form>
+    </div></td>
+  </tr>{% endfor %}</tbody></table></div>
+<section class="stack">
+  <h2>Últimos rastreos</h2>
+  <div class="table-wrap"><table><thead><tr><th>Inmobiliaria</th><th>Motivo</th><th>Estado</th><th>Fichas</th><th>Nuevos</th><th>Terminó</th></tr></thead><tbody>
+    {% for j in jobs %}<tr><td>{{ names.get(j.agency_id, "—") }}</td>
+      <td>{{ {"scheduled": "automático", "user": "búsqueda de un usuario", "admin": "administrador"}.get(j.reason, j.reason) }}</td>
+      <td>{% if j.status == "done" %}<span class="tag ok">hecho</span>{% elif j.status == "failed" %}<span class="tag off" title="{{ j.error }}">fallo</span>{% else %}<span class="tag warn">{{ "en cola" if j.status == "queued" else "en curso" }}</span>{% endif %}</td>
+      <td class="num">{{ j.found }}</td><td class="num">{{ j.new_count }}</td><td class="num">{{ j.finished_at|datetime }}</td></tr>{% endfor %}
+  </tbody></table></div>
+</section>
+{% endblock %}

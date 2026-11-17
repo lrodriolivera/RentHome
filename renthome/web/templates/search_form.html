@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}{{ "Editar búsqueda" if search else "Nueva búsqueda" }}{% endblock %}
+{% block content %}
+<header class="page-head"><p class="eyebrow">Búsquedas guardadas</p>
+  <h1>{{ "Editar búsqueda." if search else "Nueva búsqueda." }}</h1>
+  <p>Parte de tu búsqueda principal; cambia lo que quieras y ponle un nombre.</p></header>
+{{ flashes(error) }}
+<form method="post" action="{{ '/busquedas/' ~ search.id ~ '/editar' if search else '/busquedas' }}">
+  {{ csrf() }}
+  <section class="form-section">
+    <header><h2>Nombre</h2><p>Para reconocerla en tu lista.</p></header>
+    <div class="fields">
+      <div class="field wide"><label for="name">Nombre de la búsqueda</label>
+        <input id="name" name="name" type="text" required maxlength="80" placeholder="Mallorca con terraza" value="{{ name }}"></div>
+      <div class="field wide"><span class="label">Avisos</span>
+        <div class="checks"><label class="check"><input type="checkbox" name="notify" value="1"{% if not search or search.notify %} checked{% endif %}><span>Avisarme de pisos nuevos</span></label></div></div>
+    </div>
+  </section>
+  {% with show_profile_fields = false %}{% include "_criteria_fields.html" %}{% endwith %}
+  <div class="form-actions"><button class="btn" type="submit">Guardar búsqueda</button><a class="btn btn-ghost" href="/busquedas">Cancelar</a></div>
+</form>
+{% endblock %}

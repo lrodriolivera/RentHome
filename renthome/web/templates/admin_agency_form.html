@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}{{ agency.name if agency else "Nueva inmobiliaria" }}{% endblock %}
+{% block content %}
+<header class="page-head"><p class="eyebrow">Inmobiliarias</p>
+  <h1>{{ agency.name if agency else "Nueva inmobiliaria" }}.</h1>
+  <p>Indica dónde está su listado de alquiler de larga duración y cómo son las direcciones de sus fichas.</p></header>
+{{ flashes(error) }}
+<form method="post" action="{{ '/admin/inmobiliarias/' ~ agency.id if agency else '/admin/inmobiliarias' }}">
+  {{ csrf() }}
+  <section class="form-section">
+    <header><h2>Quién es</h2><p>Solo inmobiliarias locales. Los portales no se admiten.</p></header>
+    <div class="fields">
+      <div class="field"><label for="name">Nombre</label><input id="name" name="name" type="text" required maxlength="120" value="{{ values.name }}"></div>
+      <div class="field"><label for="town">Municipio de la oficina</label><input id="town" name="town" type="text" maxlength="80" value="{{ values.town }}"></div>
+      <div class="field wide"><label for="website">Web</label><input id="website" name="website" type="text" maxlength="200" placeholder="https://…" value="{{ values.website }}"></div>
+      <div class="field wide"><span class="label">Zonas donde trabaja</span>
+        <div class="checks">{% for k, v in catalog.AREAS.items() %}
+          <label class="check"><input type="checkbox" name="areas" value="{{ k }}"{% if k in values.areas %} checked{% endif %}><span>{{ v }}</span></label>{% endfor %}</div></div>
+    </div>
+  </section>
+  <section class="form-section">
+    <header><h2>Cómo se rastrea</h2><p>Los patrones son expresiones regulares que se buscan en la dirección completa de cada enlace.</p></header>
+    <div class="fields">
+      <div class="field wide"><label for="start_urls">Páginas de listado (una por línea)</label>
+        <textarea id="start_urls" name="start_urls" class="mono" required>{{ values.start_urls }}</textarea></div>
+      <div class="field wide"><label for="detail_pattern">Patrón de las fichas</label>
+        <input id="detail_pattern" name="detail_pattern" class="mono" type="text" required maxlength="300" value="{{ values.detail_pattern }}">
+        <span class="hint">Ejemplo: <code>miagencia\.com/inmueble/\d+$</code></span></div>
+      <div class="field wide"><label for="page_pattern">Patrón de la paginación (opcional)</label>
+        <input id="page_pattern" name="page_pattern" class="mono" type="text" maxlength="300" value="{{ values.page_pattern }}"></div>
+      <div class="field"><label for="max_pages">Páginas de listado, máximo</label>
+        <input id="max_pages" name="max_pages" type="number" min="1" max="20" value="{{ values.max_pages }}"></div>
+      <div class="field wide"><span class="label">Opciones</span>
+        <div class="checks">
+          <label class="check"><input type="checkbox" name="long_term_section" value="1"{% if values.long_term_section %} checked{% endif %}><span>El listado es solo de alquiler anual</span></label>
+          <label class="check"><input type="checkbox" name="render" value="1"{% if values.render %} checked{% endif %}><span>El listado necesita JavaScript</span></label>
+          <label class="check"><input type="checkbox" name="render_details" value="1"{% if values.render_details %} checked{% endif %}><span>Las fichas necesitan JavaScript</span></label>
+        </div>
+        <span class="hint">Si el listado mezcla temporada o venta, deja sin marcar la primera: solo se aceptarán anuncios que digan expresamente que son anuales.</span></div>
+      <div class="field wide"><label for="notes">Notas internas</label><input id="notes" name="notes" type="text" maxlength="300" value="{{ values.notes }}"></div>
+    </div>
+  </section>
+  <div class="form-actions"><button class="btn" type="submit">Guardar</button><a class="btn btn-ghost" href="/admin/inmobiliarias">Cancelar</a></div>
+</form>
+{% if agency %}
+<section class="form-section">
+  <header><h2>Eliminar</h2><p>Borra la inmobiliaria y todos sus anuncios.</p></header>
+  <details class="confirm"><summary><span class="btn btn-danger">Eliminar inmobiliaria</span></summary>
+    <form class="confirm-body" method="post" action="/admin/inmobiliarias/{{ agency.id }}/eliminar">{{ csrf() }}
+      <span>¿Seguro? Si solo falla temporalmente, es mejor ponerla en pausa.</span>
+      <div><button class="btn btn-danger" type="submit">Sí, eliminar</button></div></form></details>
+</section>
+{% endif %}
+{% endblock %}

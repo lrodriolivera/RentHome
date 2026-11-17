@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Guardados{% endblock %}
+{% block content %}
+<header class="page-head"><p class="eyebrow">Guardados</p><h1>Los que te interesan.</h1>
+  <p>Tu lista corta. Desde aquí puedes preparar el mensaje para la inmobiliaria.</p></header>
+{{ flashes() }}
+{% if matches %}{% include "_tickets.html" %}{% else %}
+<p class="empty">Aún no has guardado ningún piso. Pulsa «☆ Guardar» en los que te gusten de <a href="/pisos">tu búsqueda</a>.</p>{% endif %}
+{% if hidden_count %}
+<section class="row spread panel">
+  <span>Has descartado {{ hidden_count }} {{ "anuncio" if hidden_count == 1 else "anuncios" }}; no aparecen en tus búsquedas.</span>
+  <form method="post" action="/favoritos/restaurar-descartados">{{ csrf() }}<button class="btn btn-ghost btn-sm" type="submit">Volver a mostrarlos</button></form>
+</section>
+{% endif %}
+{% endblock %}

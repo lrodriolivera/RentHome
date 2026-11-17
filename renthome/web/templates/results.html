@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Pisos{% endblock %}
+{% block content %}
+<header class="page-head">
+  <p class="eyebrow">{{ saved.name if saved else "Mi búsqueda" }}</p>
+  <h1>{% if matches %}{{ matches|length }} {{ "piso encaja" if matches|length == 1 else "pisos encajan" }}.{% else %}Aún no hay pisos que encajen.{% endif %}</h1>
+  {% if summary %}<p>{{ summary }} · <a href="{{ '/busquedas/' ~ saved.id ~ '/editar' if saved else '/busqueda' }}">cambiar</a></p>{% endif %}
+</header>
+{{ flashes() }}
+{% if not summary %}
+  <p class="empty">Todavía no has dicho dónde buscas. <a href="/busqueda">Cuéntanos qué vivienda quieres</a> y aquí verás los anuncios que encajan.</p>
+{% else %}
+<section class="searchbar" id="rastreo" data-areas="{{ criteria.areas }}" data-pending="{{ status.pending }}">
+  <div class="stack-sm">
+    {% if status.pending %}
+      <strong>Buscando en las inmobiliarias… <span class="num" id="rastreo-pendientes">{{ status.pending }}</span> por revisar</strong>
+      <span class="muted small">La página se actualiza sola cuando termine.</span>
+    {% elif status.agencies == 0 %}
+      <strong>Todavía no hay inmobiliarias de estas zonas.</strong>
+      <span class="muted small">Se están incorporando; aparecerán aquí en cuanto estén listas.</span>
+    {% else %}
+      <strong>{{ status.agencies }} inmobiliarias locales en tus zonas</strong>
+      <span class="muted small">{% if status.oldest %}Revisadas por última vez el {{ status.oldest|datetime }} (UTC).{% else %}{{ status.never }} aún sin revisar.{% endif %} Se revisan solas cada día.</span>
+    {% endif %}
+  </div>
+  <div class="row">
+    <form method="post" action="/pisos/actualizar">{{ csrf() }}{% if saved %}<input type="hidden" name="b" value="{{ saved.id }}">{% endif %}
+      <button class="btn" type="submit"{% if status.pending or not status.can_refresh %} disabled{% endif %}>{{ "Buscando…" if status.pending else ("Al día" if not status.can_refresh else "Buscar ahora") }}</button></form>
+    {% if not saved %}<a class="btn btn-ghost" href="/busquedas/nueva">Guardar como búsqueda</a>{% endif %}
+  </div>
+</section>
+{% if searches %}
+<nav class="row" aria-label="Búsquedas guardadas">
+  <a class="chip-btn {{ 'on' if not saved else '' }}" href="/pisos">Mi búsqueda</a>
+  {% for s in searches %}<a class="chip-btn {{ 'on' if saved and saved.id == s.id else '' }}" href="/pisos?b={{ s.id }}">{{ s.name }}</a>{% endfor %}
+</nav>
+{% endif %}
+{% if matches %}
+  <p class="muted small">Solo alquiler de larga duración, de inmobiliarias locales. Los datos se leen automáticamente de cada web: confirma siempre con la inmobiliaria el precio y el tipo de contrato.</p>
+  {% include "_tickets.html" %}
+{% elif not status.pending %}
+  <p class="empty">Ningún anuncio encaja ahora mismo con estos criterios. Prueba a subir el presupuesto, añadir zonas o bajar el mínimo de habitaciones.</p>
+{% endif %}
+{% endif %}
+{% endblock %}

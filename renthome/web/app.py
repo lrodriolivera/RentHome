@@ -15,13 +15,15 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
-from . import routes_admin, routes_auth, routes_documents, routes_home, routes_privacy, routes_profile
+from . import (agencies, routes_admin, routes_agencies, routes_auth, routes_documents, routes_home, routes_privacy,
+               routes_profile, routes_search)
 from .config import SESSION_MAX_AGE_SECONDS, Settings, load_settings
 from .db import Base, make_engine, make_session_factory, session_scope
 from .deps import LoginRequired, render
 from .limits import BodyLimitMiddleware
 from .routes_privacy import purge_stale
 from .security import LoginLimiter
+from .worker import CrawlWorker
 
 PURGE_INTERVAL_SECONDS = 24 * 3600
 HERE = Path(__file__).resolve().parent
@@ -65,6 +67,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     Base.metadata.create_all(engine)
 
     session_factory = make_session_factory(engine)
+    for db in session_scope(session_factory):
+        added = agencies.seed(db)
+    if added:
+        log.info("Añadidas %d inmobiliarias iniciales", added)
+    worker = CrawlWorker(session_factory)
 
     def run_purge() -> None:
         try:
@@ -83,12 +90,16 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     @asynccontextmanager
     async def lifespan(_app: FastAPI):
         task = asyncio.create_task(purge_loop())
+        if settings.crawl_enabled:
+            worker.start()
         yield
+        worker.stop()
         task.cancel()
 
     app = FastAPI(title="RentHome", docs_url=None, redoc_url=None, openapi_url=None, lifespan=lifespan)
     app.state.settings = settings
     app.state.session_factory = session_factory
+    app.state.worker = worker
     app.state.limiter = LoginLimiter()
 
     templates = Jinja2Templates(directory=str(HERE / "templates"))
@@ -130,6 +141,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         return response
 
     app.mount("/static", StaticFiles(directory=str(HERE / "static")), name="static")
-    for module in (routes_home, routes_auth, routes_profile, routes_documents, routes_privacy, routes_admin):
+    for module in (routes_home, routes_auth, routes_profile, routes_documents, routes_privacy, routes_search,
+                   routes_admin, routes_agencies):
         app.include_router(module.router)
     return app

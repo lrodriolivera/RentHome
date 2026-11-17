@@ -17,12 +17,17 @@
     <a class="wordmark" href="/">Rent<span>Home</span></a>
     <nav class="nav" aria-label="Principal">
       {{ navlink("/", "Inicio") }}
+      {{ navlink("/pisos", "Pisos") }}
+      {{ navlink("/favoritos", "Guardados") }}
+      {{ navlink("/busquedas", "Búsquedas") }}
+      <span class="nav-label">Mi ficha</span>
       {{ navlink("/perfil", "Mi perfil") }}
       {{ navlink("/busqueda", "Qué busco") }}
       {{ navlink("/documentos", "Documentos") }}
       {% if user and user.is_admin %}
       <span class="nav-label">Administración</span>
       {{ navlink("/admin/usuarios", "Usuarios") }}
+      {{ navlink("/admin/inmobiliarias", "Inmobiliarias") }}
       {{ navlink("/admin/registro", "Actividad") }}
       {% endif %}
     </nav>

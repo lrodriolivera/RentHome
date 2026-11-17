@@ -25,9 +25,9 @@ class Settings:
     cookie_secure: bool
     controller_name: str
     controller_email: str
-    listings_file: Path
     base_url: str = ""
     trust_cf_header: bool = True
+    crawl_enabled: bool = True
 
     @property
     def db_path(self) -> Path:
@@ -53,7 +53,7 @@ def load_settings() -> Settings:
         cookie_secure=os.environ.get("RENTHOME_COOKIE_SECURE", "1") != "0",
         controller_name=os.environ.get("RENTHOME_CONTROLLER_NAME", "El administrador de RentHome"),
         controller_email=os.environ.get("RENTHOME_CONTROLLER_EMAIL", ""),
-        listings_file=Path(os.environ.get("RENTHOME_LISTINGS_FILE") or root / "data" / "listings.json"),
         base_url=os.environ.get("RENTHOME_BASE_URL", "").rstrip("/"),
         trust_cf_header=os.environ.get("RENTHOME_TRUST_CF_HEADER", "1") != "0",
+        crawl_enabled=os.environ.get("RENTHOME_CRAWL_ENABLED", "1") != "0",
     )

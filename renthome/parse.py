@@ -359,6 +359,11 @@ def _clean_title(t: str) -> str:
 
 
 def extract(html: str, url: str, source: str, selectors: Optional[dict] = None) -> Listing:
+    return extract_with_text(html, url, source, selectors)[0]
+
+
+def extract_with_text(html: str, url: str, source: str, selectors: Optional[dict] = None) -> tuple[Listing, str]:
+    """Como `extract`, y además devuelve el texto normalizado de la ficha (sin el bloque de similares)."""
     selectors = selectors or {}
     raw_soup = BeautifulSoup(html, "lxml")
     og_title = _meta(raw_soup, "og:title")
@@ -458,4 +463,4 @@ def extract(html: str, url: str, source: str, selectors: Optional[dict] = None) 
         url=url, source=source, title=title[:200], price=price, annual_price=annual,
         bedrooms=beds, location=location, term=term, term_keywords=kws,
         status=status, operation=operation, image=image, snippet=snippet,
-    )
+    ), text_main
