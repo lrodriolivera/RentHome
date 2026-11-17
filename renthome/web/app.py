@@ -133,6 +133,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.session_factory = session_factory
     app.state.worker = worker
     app.state.llm = llm
+    app.state.mailer = mailer
     app.state.limiter = LoginLimiter()
 
     templates = Jinja2Templates(directory=str(HERE / "templates"))

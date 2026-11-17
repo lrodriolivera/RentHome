@@ -13,8 +13,8 @@
     <div class="fields">
       <div class="field wide"><label for="name">Nombre de la búsqueda</label>
         <input id="name" name="name" type="text" required maxlength="80" placeholder="Mallorca con terraza" value="{{ name }}"></div>
-      <div class="field wide"><span class="label">Avisos</span>
-        <div class="checks"><label class="check"><input type="checkbox" name="notify" value="1"{% if not search or search.notify %} checked{% endif %}><span>Avisarme de pisos nuevos</span></label></div></div>
+      {% if email_enabled %}<div class="field wide"><span class="label">Avisos</span>
+        <div class="checks"><label class="check"><input type="checkbox" name="notify" value="1"{% if not search or search.notify %} checked{% endif %}><span>Avisarme por email de pisos nuevos</span></label></div></div>{% endif %}
     </div>
   </section>
   {% with show_profile_fields = false %}{% include "_criteria_fields.html" %}{% endwith %}

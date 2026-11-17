@@ -3,7 +3,7 @@
 {% block title %}Búsquedas{% endblock %}
 {% block content %}
 <header class="page-head"><p class="eyebrow">Búsquedas guardadas</p><h1>Varias búsquedas, un vistazo.</h1>
-  <p>Guarda combinaciones distintas (otra isla, otro presupuesto) y mira de un golpe qué hay nuevo en cada una.</p></header>
+  <p>Guarda combinaciones distintas (otra isla, otro presupuesto) y mira de un golpe qué hay nuevo en cada una. Los pisos nuevos se marcan aquí cada vez que entras.</p></header>
 {{ flashes() }}
 {% if rows %}
 <div class="tickets">
@@ -13,7 +13,7 @@
     <div class="ticket-body">
       <h3><a href="/pisos?b={{ r.search.id }}">{{ r.search.name }}</a></h3>
       <div class="tags">{% if r.new %}<span class="tag new">{{ r.new }} {{ "nuevo" if r.new == 1 else "nuevos" }}</span>{% endif %}
-        <span class="tag">{{ r.summary }}</span>{% if r.search.notify %}<span class="tag ok">con avisos</span>{% endif %}</div>
+        <span class="tag">{{ r.summary }}</span>{% if email_enabled and r.search.notify %}<span class="tag ok">con avisos</span>{% endif %}</div>
       <div class="ticket-foot"><span class="muted small">Creada el {{ r.search.created_at|date }}</span>
         <div class="row"><a class="chip-btn" href="/busquedas/{{ r.search.id }}/editar">Editar</a>
           <form method="post" action="/busquedas/{{ r.search.id }}/borrar">{{ csrf() }}<button class="chip-btn" type="submit">Borrar</button></form></div></div>

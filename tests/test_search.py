@@ -305,3 +305,11 @@ def test_saved_search_email_digest_is_sent_once(app):
     add_listing(app, agency, "2", title="Otro más")
     assert notify_saved_searches(factory, mailer, "https://rh.test") == 0  # como mucho uno cada 12 h
     assert notify_saved_searches(factory, None, "") == 0
+
+
+def test_email_options_hidden_when_no_mailer_configured(app):
+    add_user(app, "ana@example.org", areas="ibiza")
+    ana = login(app, "ana@example.org")
+    assert "Avisarme" not in ana.get("/busquedas/nueva").text and "Avisos por email" not in ana.get("/privacidad").text
+    app.state.mailer = object()
+    assert "Avisarme por email" in ana.get("/busquedas/nueva").text and "Avisos por email" in ana.get("/privacidad").text
