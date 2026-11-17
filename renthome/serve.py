@@ -151,9 +151,19 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def _can_run(self) -> bool:
+        """Lanzar búsquedas a mano solo desde la red local / Tailscale.
+
+        Cloudflare añade siempre la cabecera Cf-Connecting-Ip a lo que pasa por el túnel;
+        con RENTHOME_PUBLIC_READONLY=1 (por defecto) esas peticiones son de solo lectura.
+        """
+        if os.environ.get("RENTHOME_PUBLIC_READONLY", "1") == "0":
+            return True
+        return self.headers.get("Cf-Connecting-Ip") is None
+
     def do_GET(self):
         if self.path.startswith("/api/status"):
-            return self._json(200, RUNNER.status())
+            return self._json(200, {**RUNNER.status(), "can_run": self._can_run()})
         if self.path in ("/", "/index.html"):
             self.send_response(200)
             body = (DOCS / "index.html").read_bytes()
@@ -168,6 +178,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
         if not self.path.startswith("/api/run"):
             return self._json(404, {"error": "no encontrado"})
+        if not self._can_run():
+            return self._json(403, {"error": "Solo lectura desde Internet: lanza la búsqueda desde tu red o Tailscale"})
         cooldown = 60 * int(os.environ.get("RENTHOME_COOLDOWN_MIN") or 30)
         if RUNNER.running:
             return self._json(409, {"error": "Ya hay una búsqueda en marcha"})
@@ -175,7 +187,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             mins = int((cooldown - RUNNER.seconds_since_start()) // 60) + 1
             return self._json(429, {"error": f"Espera {mins} min antes de volver a buscar"})
         RUNNER.start("manual")
-        return self._json(202, RUNNER.status())
+        return self._json(202, {**RUNNER.status(), "can_run": True})
 
 
 def main():

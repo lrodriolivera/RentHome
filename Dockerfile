@@ -8,7 +8,10 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install -r requirements.txt \
+# libatomic1: lo necesita el Node que incluye Playwright en la imagen slim (arm64)
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends libatomic1 \
+ && pip install -r requirements.txt \
  && python -m playwright install --with-deps chromium \
  && rm -rf /var/lib/apt/lists/*
 

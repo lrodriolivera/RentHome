@@ -143,7 +143,7 @@ document.getElementById('src').onchange=e=>{state.src=e.target.value;apply();};
 apply();
 // Botón "Buscar ahora": solo existe cuando la web la sirve el modo homelab (python -m renthome.serve)
 (function(){const box=document.getElementById('runbox'),btn=document.getElementById('runbtn'),msg=document.getElementById('runmsg');let wasRunning=false;
-function show(s){box.hidden=false;btn.disabled=s.running;
+function show(s){box.hidden=false;btn.hidden=(s.can_run===false);btn.disabled=s.running;
  if(s.running){msg.textContent='Buscando en las inmobiliarias… (unos 15 min)';wasRunning=true;}
  else{if(wasRunning){location.reload();return;}
   const lr=s.last_run||{};msg.textContent=(lr.date?'Última búsqueda: '+lr.date:'')+(s.next_run?' · próxima: '+s.next_run.replace('T',' ').slice(0,16):'');}}
