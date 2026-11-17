@@ -1,14 +1,13 @@
 """Panel de administrador: inmobiliarias que se rastrean."""
 from __future__ import annotations
 
-import re
-
 import yaml
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
+from ..netguard import normalise_site
 from . import agencies as agency_lib
 from . import catalog, discovery, forms
 from .deps import audit, flash, get_db, render, require_admin, verify_csrf
@@ -161,14 +160,12 @@ candidates_router = APIRouter(prefix="/admin/candidatas")
 
 def public_site(url: str) -> str:
     """Solo webs públicas: evita que el servidor visite direcciones internas."""
-    host = discovery.site_key(url)
-    internal = (not host or "." not in host or host.replace(".", "").replace(":", "").isdigit()
-                or host.endswith((".local", ".internal", ".lan", ".localhost")) or host.startswith("localhost"))
-    if internal or not re.match(r"^(https?://)?[\w.-]+(/.*)?$", url):
+    site = normalise_site(url)
+    if site is None:
         raise forms.FormError("Escribe la dirección de una web pública, por ejemplo https://miagencia.com")
-    if discovery.is_portal(url):
+    if discovery.is_portal(site):
         raise forms.FormError("Eso es un portal o agregador: solo se admiten inmobiliarias locales.")
-    return f"https://{host}"
+    return site
 
 
 @candidates_router.get("")

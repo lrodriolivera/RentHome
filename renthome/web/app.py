@@ -19,7 +19,7 @@ from . import (agencies, routes_admin, routes_agencies, routes_auth, routes_docu
                routes_profile, routes_search)
 from .ai import LLM
 from .config import SESSION_MAX_AGE_SECONDS, Settings, load_settings
-from .db import Base, make_engine, make_session_factory, session_scope
+from .db import Base, add_missing_columns, make_engine, make_session_factory, session_scope
 from .deps import LoginRequired, render
 from .limits import BodyLimitMiddleware
 from .notifications import Mailer, notify_saved_searches
@@ -78,6 +78,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     settings = settings or load_settings()
     engine = make_engine(settings.db_path)
     Base.metadata.create_all(engine)
+    for column in add_missing_columns(engine, Base.metadata):
+        log.info("Base de datos actualizada: nueva columna %s", column)
 
     session_factory = make_session_factory(engine)
     for db in session_scope(session_factory):

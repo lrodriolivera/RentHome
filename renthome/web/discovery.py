@@ -21,6 +21,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session, sessionmaker
 
 from ..crawl import discover
+from ..netguard import normalise_site
 from ..parse import extract, norm
 from . import catalog
 from .ai import LLM, LLMUnavailable, as_text
@@ -170,7 +171,9 @@ def probe(fetcher, entry: dict) -> tuple[int, int, int]:
 
 def analyse_site(llm: LLM, fetcher, url: str, area: str) -> Proposal:
     """Visita una web y propone cómo rastrearla. No guarda nada."""
-    home = url if url.startswith("http") else f"https://{url}"
+    home = normalise_site(url)
+    if home is None:
+        return Proposal({}, "", "no es la dirección de una web pública", False)
     html = fetcher.get(home) or (fetcher.render(home) if fetcher.render_available() else None)
     if not html:
         return Proposal({}, "", "la web no responde", False)
@@ -241,9 +244,10 @@ def suggest_sites(llm: LLM, area: str) -> list[str]:
     answer = llm.chat_json(SUGGEST_SYSTEM, f"Zona: {catalog.AREAS.get(area, area)} (España)", max_tokens=900)
     urls = []
     for item in answer.get("agencias") or []:
-        url = as_text(item.get("web") if isinstance(item, dict) else "", 200)
-        if re.match(r"^https?://[\w.-]+\.[a-z]{2,}", url) and not is_portal(url):
-            urls.append(url)
+        raw = str(item.get("web") or "")[:200] if isinstance(item, dict) else ""
+        site = normalise_site(raw)  # solo «https://dominio»: sin usuario, puerto, IP ni ruta
+        if site and not is_portal(site):
+            urls.append(site)
     return urls
 
 

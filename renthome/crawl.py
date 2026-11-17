@@ -4,7 +4,7 @@ from __future__ import annotations
 import logging
 import re
 from collections import deque
-from urllib.parse import urljoin, urldefrag
+from urllib.parse import urljoin, urldefrag, urlparse
 
 from bs4 import BeautifulSoup
 
@@ -14,14 +14,23 @@ from .parse import extract
 log = logging.getLogger(__name__)
 
 
+MAX_URL_LENGTH = 500
+
+
+def _site(url: str) -> str:
+    host = (urlparse(url).hostname or "").lower()
+    return host[4:] if host.startswith("www.") else host
+
+
 def _links(html: str, base: str) -> list[str]:
     soup = BeautifulSoup(html, "lxml")
     out = []
     for a in soup.find_all("a", href=True):
         href = a["href"].strip()
-        if href.startswith(("mailto:", "tel:", "javascript:", "#", "whatsapp:")):
-            continue
-        out.append(urldefrag(urljoin(base, href))[0])
+        url = urldefrag(urljoin(base, href))[0]
+        # solo enlaces web (descarta javascript:, data:, mailto:… en cualquier combinación de mayúsculas)
+        if url.lower().startswith(("http://", "https://")) and len(url) <= MAX_URL_LENGTH:
+            out.append(url)
     return out
 
 
@@ -73,6 +82,9 @@ def discover(fetcher: Fetcher, src: dict) -> tuple[list[str], dict[str, str]]:
     max_pages = src.get("max_pages", 3)
     render = src.get("render", False)
 
+    # fichas y paginación deben estar en el mismo sitio que los listados: un enlace a otro
+    # dominio (o a una dirección interna) que «case» con el patrón no se sigue
+    own_sites = {_site(u) for u in src["start_urls"]}
     queue = deque(src["start_urls"])
     seen_pages: set[str] = set()
     details: dict[str, None] = {}
@@ -85,16 +97,16 @@ def discover(fetcher: Fetcher, src: dict) -> tuple[list[str], dict[str, str]]:
         html = fetcher.get(url, render=render)
         if html is None:
             continue
-        links = _links(html, url)
+        links = [l for l in _links(html, url) if _site(l) in own_sites]
         found = [l for l in links if detail_rx.search(l)]
         # web con JS: reintentar con navegador si no salió nada
         if not found and not render and fetcher.render_available():
             log.info("  sin enlaces en %s, probando con navegador", url)
             html2 = fetcher.render(url)
             if html2:
-                links = _links(html2, url)
+                links = [l for l in _links(html2, url) if _site(l) in own_sites]
                 found = [l for l in links if detail_rx.search(l)]
-        badges.update(_badges(html, url, detail_rx))
+        badges.update({u: b for u, b in _badges(html, url, detail_rx).items() if _site(u) in own_sites})
         for l in found:
             details.setdefault(l.rstrip("/") + ("/" if l.endswith("/") else ""), None)
         if page_rx:

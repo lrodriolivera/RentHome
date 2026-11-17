@@ -5,7 +5,7 @@
 <header class="page-head">
   <p class="eyebrow">{{ listing.agency.name }} · {{ listing.place or catalog.AREAS.get(listing.area, listing.area) }}</p>
   <h1>{{ listing.title }}</h1>
-  <p>{% if listing.price %}{{ listing.price|money }} al mes · {% endif %}{% if listing.bedrooms is not none %}{{ listing.bedrooms }} hab. · {% endif %}<a href="{{ listing.url }}" target="_blank" rel="noopener noreferrer">ver el anuncio en la web de la inmobiliaria</a></p>
+  <p>{% if listing.price %}{{ listing.price|money }} al mes · {% endif %}{% if listing.bedrooms is not none %}{{ listing.bedrooms }} hab. · {% endif %}{% if listing.url.startswith(("http://", "https://")) %}<a href="{{ listing.url }}" target="_blank" rel="noopener noreferrer">ver el anuncio en la web de la inmobiliaria</a>{% endif %}</p>
 </header>
 {{ flashes() }}
 {% if listing.ai_summary or listing.ai_requirements or listing.ai_flags %}
@@ -22,7 +22,7 @@
   <header><h2>¿Encaja contigo?</h2><p>La IA compara el piso con tu perfil, tus ingresos y lo que buscas.</p></header>
   <div class="stack">
     {% if state and state.fit_score is not none %}
-      <div class="row"><span class="fit-score num">{{ state.fit_score }}<small>/10</small></span><p>{{ state.fit_reason }}</p></div>
+      <div class="row"><span class="fit-score num">{{ state.fit_score }}<small>/10</small></span><p>{{ fit_reason }}</p></div>
     {% endif %}
     <form method="post" action="/pisos/{{ listing.id }}/encaje">{{ csrf() }}
       <button class="btn btn-ghost" type="submit"{% if not ai_ready %} disabled{% endif %}>{{ "Volver a valorar" if state and state.fit_score is not none else "Valorar el encaje" }}</button></form>

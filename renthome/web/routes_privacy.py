@@ -35,11 +35,11 @@ def _columns(obj, skip: tuple[str, ...] = ()) -> dict:
             if c.name not in skip and not isinstance(v := getattr(obj, c.name), bytes)}
 
 
-def _draft(settings: Settings, state) -> str:
-    if not state.draft_message_enc:
+def _decrypt(settings: Settings, state, purpose: str, blob: bytes | None) -> str:
+    if not blob:
         return ""
     try:
-        return crypto.decrypt(settings.secret_key, state.user_id, "draft", state.draft_message_enc).decode()
+        return crypto.decrypt(settings.secret_key, state.user_id, purpose, blob).decode()
     except crypto.DecryptionError:
         return ""
 
@@ -56,8 +56,9 @@ def build_export(db: Session, settings: Settings, user: User, out: IO[bytes]) ->
         "documentos": [_columns(d, skip=("storage_name",)) for d in user.documents],
         "busquedas_guardadas": [_columns(s) for s in user.saved_searches],
         "anuncios_guardados_o_descartados": [
-            {**_columns(state), "anuncio": getattr(db.get(Listing, state.listing_id), "url", ""),
-             "borrador_mensaje": _draft(settings, state)}
+            {**_columns(state, skip=("fit_reason",)), "anuncio": getattr(db.get(Listing, state.listing_id), "url", ""),
+             "motivo_encaje": _decrypt(settings, state, "fit", state.fit_reason_enc),
+             "borrador_mensaje": _decrypt(settings, state, "draft", state.draft_message_enc)}
             for state in user.listing_states],
         "registro_de_actividad": [_columns(entry) for entry in log],
     }

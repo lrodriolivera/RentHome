@@ -8,13 +8,14 @@ from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 
 from . import ai_tenant, crypto
-from .ai import LLMUnavailable
+from .ai import LLMUnavailable, interactive
 from .config import Settings
 from .deps import audit, flash, get_db, get_settings, render, require_user, verify_csrf
 from .models import Listing, User, UserListing
 
 router = APIRouter()
 DRAFT_PURPOSE = "draft"
+FIT_PURPOSE = "fit"
 # el modelo atiende una petición cada vez; si está ocupado se avisa en lugar de apilar esperas
 _assistant_busy = threading.Lock()
 
@@ -34,13 +35,22 @@ def user_state(db: Session, user: User, listing_id: int, create: bool = False) -
     return state
 
 
-def read_draft(settings: Settings, state: UserListing | None) -> str:
-    if state is None or not state.draft_message_enc:
+def _read(settings: Settings, state: UserListing | None, purpose: str, blob: bytes | None) -> str:
+    if state is None or not blob:
         return ""
     try:
-        return crypto.decrypt(settings.secret_key, state.user_id, DRAFT_PURPOSE, state.draft_message_enc).decode()
+        return crypto.decrypt(settings.secret_key, state.user_id, purpose, blob).decode()
     except crypto.DecryptionError:
         return ""
+
+
+def read_draft(settings: Settings, state: UserListing | None) -> str:
+    return _read(settings, state, DRAFT_PURPOSE, state.draft_message_enc if state else None)
+
+
+def read_fit_reason(settings: Settings, state: UserListing | None) -> str:
+    """El motivo del encaje habla de ingresos y situación laboral: se guarda cifrado."""
+    return _read(settings, state, FIT_PURPOSE, state.fit_reason_enc if state else None)
 
 
 def write_draft(settings: Settings, state: UserListing, text: str) -> None:
@@ -58,7 +68,7 @@ def assistant(listing_id: int, request: Request, user: User = Depends(require_us
     listing = get_listing(db, listing_id)
     state = user_state(db, user, listing_id)
     return render(request, "assistant.html", user=user, listing=listing, state=state,
-                  draft=read_draft(settings, state), ai_ready=request.app.state.llm is not None,
+                  draft=read_draft(settings, state), fit_reason=read_fit_reason(settings, state), ai_ready=request.app.state.llm is not None,
                   languages=ai_tenant.LANGUAGES,
                   brief=ai_tenant.tenant_brief(user, user.profile, user.preference, True))
 
@@ -73,7 +83,8 @@ def _run_assistant(request: Request, listing_id: int, action):
         flash(request, "El asistente está ocupado con otra petición. Prueba en un minuto.", "error")
         return back_to(listing_id)
     try:
-        action(llm)
+        with interactive():  # la lectura de anuncios en segundo plano cede el modelo
+            action(llm)
     except LLMUnavailable:
         flash(request, "El asistente no ha respondido. Inténtalo de nuevo en un momento.", "error")
     finally:
@@ -82,13 +93,15 @@ def _run_assistant(request: Request, listing_id: int, action):
 
 
 @router.post("/pisos/{listing_id}/encaje", dependencies=[Depends(verify_csrf)])
-def score_fit(listing_id: int, request: Request, user: User = Depends(require_user), db: Session = Depends(get_db)):
+def score_fit(listing_id: int, request: Request, user: User = Depends(require_user), db: Session = Depends(get_db),
+              settings: Settings = Depends(get_settings)):
     listing = get_listing(db, listing_id)
 
     def action(llm) -> None:
         score, reason = ai_tenant.fit(llm, user, listing)
         state = user_state(db, user, listing_id, create=True)
-        state.fit_score, state.fit_reason = score, reason
+        state.fit_score = score
+        state.fit_reason_enc = crypto.encrypt(settings.secret_key, user.id, FIT_PURPOSE, reason.encode())
         audit(db, request, user.id, "ia_encaje")
 
     return _run_assistant(request, listing_id, action)

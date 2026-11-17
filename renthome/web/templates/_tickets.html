@@ -1,17 +1,17 @@
 {# Lista de anuncios. Espera `matches`, `back` (ruta a la que volver) y `csrf_token`. #}
 {% from "_macros.html" import csrf with context %}
 <div class="tickets">
-{% for m in matches %}{% set l = m.listing %}
+{% for m in matches %}{% set l = m.listing %}{% set link = l.url if l.url.startswith(("http://", "https://")) else "#" %}
   <article class="ticket {{ 'preferred' if m.is_preferred else '' }}">
     <div class="ticket-price">
       {% if l.price %}<strong>{{ l.price|money }}</strong><span>al mes{% if l.price_prev %} · antes {{ l.price_prev|money }}{% endif %}</span>
       {% else %}<strong>—</strong><span>consultar precio</span>{% endif %}
     </div>
     <div class="ticket-body">
-      <h3><a href="{{ l.url }}" target="_blank" rel="noopener noreferrer">{{ l.title or l.url }}</a></h3>
+      <h3><a href="{{ link }}" target="_blank" rel="noopener noreferrer">{{ l.title or l.url }}</a></h3>
       <div class="tags">
         {% if m.is_new %}<span class="tag new">nuevo</span>{% endif %}
-        {% if m.fit_score is not none %}<span class="tag fit" title="{{ m.fit_reason }}">encaje {{ m.fit_score }}/10</span>{% endif %}
+        {% if m.fit_score is not none %}<span class="tag fit">encaje {{ m.fit_score }}/10</span>{% endif %}
         <span class="tag">{% if l.bedrooms is none %}hab. sin confirmar{% elif l.bedrooms == 0 %}estudio{% else %}{{ l.bedrooms }} hab.{% endif %}</span>
         {% if l.size_m2 %}<span class="tag">{{ l.size_m2 }} m²</span>{% endif %}
         <span class="tag">{{ l.place or catalog.AREAS.get(l.area, l.area) }}</span>
@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <a class="ticket-photo" href="{{ l.url }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">{% if l.image and l.image.startswith("https://") %}<img src="{{ l.image }}" alt="" loading="lazy" width="136" height="104" referrerpolicy="no-referrer">{% endif %}</a>
+    <a class="ticket-photo" href="{{ link }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">{% if l.image and l.image.startswith("https://") %}<img src="{{ l.image }}" alt="" loading="lazy" width="136" height="104" referrerpolicy="no-referrer">{% endif %}</a>
   </article>
 {% endfor %}
 </div>

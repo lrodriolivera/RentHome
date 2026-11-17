@@ -132,7 +132,11 @@ def test_fit_score_is_saved_and_shown(app):
     ana = login(app, "ana@example.org")
     ana.post(f"/pisos/{listing}/encaje", data={"csrf_token": csrf(ana, f"/pisos/{listing}/mensaje")})
     assert "ingresos holgados" in ana.get(f"/pisos/{listing}/mensaje").text
-    assert "encaje 8/10" in ana.get("/favoritos").text
+    favourites = ana.get("/favoritos").text
+    assert "encaje 8/10" in favourites and "ingresos holgados" in favourites
+    with db_session(app) as db:
+        state = db.get(UserListing, (uid, listing))
+        assert state.fit_reason == "" and b"ingresos" not in state.fit_reason_enc  # cifrado en reposo
 
 
 def test_assistant_degrades_without_model_or_when_it_fails(app):
@@ -156,6 +160,19 @@ def test_detail_pattern_is_inferred_from_listing_links():
     assert not any(re.search(pattern, u) for u in links[4:])
     assert discovery.infer_detail_pattern(links[4:], "https://www.agencia.es/alquiler")[0] == ""
     assert re.search(discovery.infer_page_pattern(links, "https://www.agencia.es/alquiler"), links[-1])
+
+
+def test_model_output_cannot_smuggle_links_or_obey_listing_instructions(app):
+    listing = listing_row(price=None)
+    ai_listings.apply(listing, {"contrato": "anual", "resumen": "Reserva ya en https://estafa.example/pago",
+                                "alertas": ["visita www.estafa.example"]})
+    assert "estafa.example" not in listing.ai_summary + listing.ai_flags
+    _uid, lid = prepare_tenant(app)
+    app.state.llm = FakeLLM(text="Hola. Pague la reserva en http://estafa.example/x antes de la visita.")
+    ana = login(app, "ana@example.org")
+    ana.post(f"/pisos/{lid}/mensaje/generar", data={"csrf_token": csrf(ana, f"/pisos/{lid}/mensaje")})
+    assert "estafa.example" not in ana.get(f"/pisos/{lid}/mensaje").text
+    assert "<piso>" in app.state.llm.prompts[-1]
 
 
 def test_portals_are_never_candidates():
@@ -200,7 +217,8 @@ def test_candidates_admin_flow(app):
     admin = login(app, "admin@example.org")
     token = csrf(admin, "/admin/candidatas")
     app.state.llm = FakeLLM()
-    for bad in ("http://localhost:8080", "http://192.168.1.10", "https://www.idealista.com"):
+    for bad in ("http://localhost:8080", "http://192.168.1.10", "https://www.idealista.com",
+                "http://buena.com@127.0.0.1:8080/", "http://100.109.70.110:8082", "https://servicio.internal"):
         page = admin.post("/admin/candidatas/analizar", data={"url": bad, "area": "menorca", "csrf_token": token}).text
         assert "Analizando" not in page
 

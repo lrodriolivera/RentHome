@@ -9,7 +9,8 @@ EXCLUDE_TYPES = [
     "solar", "nave", "warehouse", "traspaso", "restaurante", "restaurant", "edificio", "hotel",
 ]
 # Lugares fuera de las zonas cubiertas que algunas inmobiliarias mezclan en su cartera
-FAR_PLACES = ["tarbena", "alicante", "valencia", "madrid", "denia", "andorra", "malaga", "marbella"]
+FAR_PLACES = ["tarbena", "alicante", "valencia", "madrid", "denia", "andorra", "malaga", "marbella", "alfaz del pi",
+              "benidorm", "altea", "calpe", "javea", "costa blanca", "girona", "tarragona", "lleida"]
 # Sin precio publicado + estas palabras = casi seguro muy por encima de un alquiler normal
 LUXURY_WORDS = ["villa", "mansion", "finca", "lujo", "luxury", "exclusiv", "six senses", "estate",
                 "casa de campo", "payesa", "masia"]

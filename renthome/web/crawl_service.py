@@ -90,7 +90,9 @@ def crawl_agency(factory: sessionmaker[Session], agency_id: int, fetcher) -> Cra
         return _finish(factory, agency_id, CrawlResult(error=f"no se pudieron leer los listados: {exc}"[:200]))
     if not urls:
         return _finish(factory, agency_id, CrawlResult(error="no se encontraron fichas (¿cambió la web?)"))
-    urls = urls[:MAX_URLS_PER_AGENCY]
+    urls = [u for u in urls if u.lower().startswith(("http://", "https://"))][:MAX_URLS_PER_AGENCY]
+    if not urls:
+        return _finish(factory, agency_id, CrawlResult(error="no se encontraron fichas (¿cambió la web?)"))
 
     fresh: dict[str, dict] = {}
     budget = MAX_DETAILS_PER_RUN
@@ -111,20 +113,27 @@ def crawl_agency(factory: sessionmaker[Session], agency_id: int, fetcher) -> Cra
     result = CrawlResult(found=len(urls))
     with factory() as db:
         existing = {l.url: l for l in db.scalars(select(Listing).where(Listing.agency_id == agency_id))}
+        # la URL es única en toda la base: si ya la tiene otra inmobiliaria, no se duplica
+        taken = set(db.scalars(select(Listing.url).where(Listing.url.in_(urls), Listing.agency_id != agency_id)))
         seen = set(urls)
         for url in urls:
             listing, values = existing.get(url), fresh.get(url)
             if listing is None:
-                if values is None:
-                    continue  # no se pudo leer la ficha: se reintenta en la próxima pasada
+                if values is None or url in taken:
+                    continue  # no se pudo leer la ficha (se reintenta) o pertenece a otra inmobiliaria
                 listing = Listing(agency_id=agency_id, url=url, first_seen=now)
                 db.add(listing)
                 result.new += 1 if values["eligible"] else 0
             if values is not None:
                 if listing.price and values["price"] and values["price"] < listing.price:
                     listing.price_prev = listing.price
-                for column, value in values.items():
-                    setattr(listing, column, value)
+                if listing.ai_checked_at and listing.text == values["text"] and values["status"] == "available":
+                    # el anuncio no ha cambiado: se conserva la lectura de la IA en vez de pisarla con las reglas
+                    listing.image = values["image"]
+                    listing.ai_checked_at = now
+                else:
+                    for column, value in values.items():
+                        setattr(listing, column, value)
                 listing.detail_checked_at = now
             elif url in badges and listing.status != badges[url]:
                 # el listado dice que ya está alquilado/reservado

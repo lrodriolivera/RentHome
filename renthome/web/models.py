@@ -253,7 +253,8 @@ class UserListing(Base):
     created_at: Mapped[dt.datetime] = mapped_column(DateTime, default=utcnow)
     # capa de IA: encaje con el perfil y borrador de mensaje
     fit_score: Mapped[int | None] = mapped_column(Integer, nullable=True)
-    fit_reason: Mapped[str] = mapped_column(String(400), default="")
+    fit_reason: Mapped[str] = mapped_column(String(400), default="")   # en desuso: ahora va cifrado
+    fit_reason_enc: Mapped[bytes | None] = mapped_column(LargeBinary, nullable=True)
     draft_message_enc: Mapped[bytes | None] = mapped_column(LargeBinary, nullable=True)
 
 

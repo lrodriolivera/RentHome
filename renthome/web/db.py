@@ -4,7 +4,7 @@ from __future__ import annotations
 from collections.abc import Iterator
 from pathlib import Path
 
-from sqlalchemy import create_engine, event
+from sqlalchemy import MetaData, create_engine, event, inspect, text
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
@@ -25,6 +25,28 @@ def make_engine(db_path: Path) -> Engine:
         cur.close()
 
     return engine
+
+
+def add_missing_columns(engine: Engine, metadata: MetaData) -> list[str]:
+    """Migración mínima: añade a las tablas existentes las columnas nuevas del modelo.
+
+    Solo cubre columnas que admiten nulos (lo único que SQLite permite añadir sin reconstruir
+    la tabla). `create_all` crea las tablas nuevas, pero no toca las que ya existen.
+    """
+    added = []
+    inspector = inspect(engine)
+    with engine.begin() as connection:
+        for table in metadata.sorted_tables:
+            if not inspector.has_table(table.name):
+                continue
+            present = {column["name"] for column in inspector.get_columns(table.name)}
+            for column in table.columns:
+                if column.name in present or not column.nullable:
+                    continue
+                kind = column.type.compile(dialect=engine.dialect)
+                connection.execute(text(f'ALTER TABLE "{table.name}" ADD COLUMN "{column.name}" {kind}'))
+                added.append(f"{table.name}.{column.name}")
+    return added
 
 
 def make_session_factory(engine: Engine) -> sessionmaker[Session]:

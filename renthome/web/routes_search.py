@@ -8,7 +8,8 @@ from sqlalchemy.orm import Session
 
 from . import criteria as criteria_lib
 from . import forms, matching
-from .deps import flash, get_db, render, require_user, verify_csrf
+from .config import Settings
+from .deps import flash, get_db, get_settings, render, require_user, verify_csrf
 from .routes_profile import ensure_preference
 from .models import Agency, CrawlJob, Listing, SavedSearch, User, UserListing, utcnow
 from .worker import USER_REFRESH_HOURS, stale_agencies
@@ -63,7 +64,10 @@ def results(request: Request, b: int | None = None, user: User = Depends(require
 @router.post("/pisos/actualizar", dependencies=[Depends(verify_csrf)])
 async def refresh(request: Request, user: User = Depends(require_user), db: Session = Depends(get_db)):
     form = await request.form()
-    search_id = forms.integer(form, "b", 1, 10**9) if form.get("b") else None
+    try:
+        search_id = forms.integer(form, "b", 1, 10**9) if form.get("b") else None
+    except forms.FormError as exc:
+        raise HTTPException(status_code=404) from exc
     criteria = own_search(db, user, search_id) if search_id else user.preference
     areas = criteria_lib.area_keys(criteria) if criteria else []
     back = f"/pisos?b={search_id}" if search_id else "/pisos"
@@ -104,8 +108,11 @@ async def set_listing_state(listing_id: int, request: Request, user: User = Depe
 
 
 @router.get("/favoritos")
-def favourites(request: Request, user: User = Depends(require_user), db: Session = Depends(get_db)):
-    matches = matching.find(db, user.preference, user.id, only_saved=True)
+def favourites(request: Request, user: User = Depends(require_user), db: Session = Depends(get_db),
+               settings: Settings = Depends(get_settings)):
+    from .routes_ai import read_fit_reason  # import tardío: routes_ai depende de este módulo en plantillas
+    matches = matching.find(db, user.preference, user.id, only_saved=True,
+                            read_reason=lambda state: read_fit_reason(settings, state))
     hidden = db.scalar(select(func.count()).select_from(UserListing).where(
         UserListing.user_id == user.id, UserListing.state == "hidden"))
     return render(request, "favourites.html", user=user, matches=matches, hidden_count=hidden or 0, back="/favoritos")

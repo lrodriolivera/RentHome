@@ -7,12 +7,42 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
+import threading
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
 
 log = logging.getLogger("renthome.ai")
 DEFAULT_TIMEOUT_SECONDS = 120
+
+
+_URL_RE = re.compile(r"(?:https?://|www\.)\S+", re.I)
+_waiting_lock = threading.Lock()
+_interactive_waiting = 0
+
+
+class interactive:
+    """Contexto para peticiones de un usuario: las tareas de fondo ceden el modelo mientras dura."""
+
+    def __enter__(self) -> None:
+        global _interactive_waiting
+        with _waiting_lock:
+            _interactive_waiting += 1
+
+    def __exit__(self, *_exc) -> None:
+        global _interactive_waiting
+        with _waiting_lock:
+            _interactive_waiting -= 1
+
+
+def someone_is_waiting() -> bool:
+    return _interactive_waiting > 0
+
+
+def strip_links(text: str) -> str:
+    """Quita enlaces de un texto generado por el modelo (un anuncio hostil podría colarlos)."""
+    return _URL_RE.sub("[enlace eliminado]", text)
 
 
 class LLMUnavailable(Exception):
@@ -89,7 +119,7 @@ def as_int(value: object, minimum: int, maximum: int) -> int | None:
 def as_text(value: object, limit: int) -> str:
     if isinstance(value, list):
         value = "; ".join(str(v) for v in value if v)
-    return " ".join(str(value or "").split())[:limit]
+    return " ".join(strip_links(str(value or "")).split())[:limit]
 
 
 def as_list(value: object, limit: int, item_limit: int = 60) -> list[str]:

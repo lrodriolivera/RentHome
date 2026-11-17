@@ -80,7 +80,7 @@ def notify_saved_searches(factory: sessionmaker[Session], mailer: Mailer | None,
                 mailer.send(user.email, f"RentHome: {len(fresh)} piso(s) nuevo(s) en «{search.name}»",
                             build_body(search.name, fresh, base_url, search.id))
             except (smtplib.SMTPException, OSError) as exc:
-                log.warning("No se pudo enviar el aviso: %s", exc)
+                log.warning("No se pudo enviar un aviso (%s)", exc.__class__.__name__)  # sin datos del destinatario
                 continue
             search.last_notified_at = now
             sent += 1

@@ -12,6 +12,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session, sessionmaker
 
 from ..fetch import Fetcher
+from ..netguard import is_public_url
 from . import ai_listings, catalog, discovery
 from .ai import LLM
 from .crawl_service import CrawlResult, crawl_agency
@@ -132,8 +133,10 @@ class CrawlWorker:
                 if fetcher is not None:  # cola vacía: se cierra el navegador hasta la próxima tanda
                     fetcher.close()
                     fetcher = None
-                self._read_with_ai()  # en los ratos libres, la IA va leyendo anuncios pendientes
-                if self._crawled_since_idle and self._on_idle is not None:
+                # en los ratos libres, la IA va leyendo anuncios pendientes; los avisos salen cuando
+                # ya no queda nada por leer, para no avisar de pisos que la IA vaya a descartar
+                ai_backlog = self._read_with_ai()
+                if self._crawled_since_idle and self._on_idle is not None and not ai_backlog:
                     self._crawled_since_idle = False
                     try:
                         self._on_idle()
@@ -141,7 +144,8 @@ class CrawlWorker:
                         log.exception("Fallo en los avisos")
                 continue
             if fetcher is None:
-                fetcher = Fetcher(USER_AGENT, delay=float(os.environ.get("RENTHOME_CRAWL_DELAY", "1.0")), timeout=25)
+                fetcher = Fetcher(USER_AGENT, delay=float(os.environ.get("RENTHOME_CRAWL_DELAY", "1.0")), timeout=25,
+                                  url_guard=is_public_url)
             try:
                 if kind == "crawl":
                     self._process(int(payload), fetcher)  # type: ignore[arg-type]
@@ -157,13 +161,15 @@ class CrawlWorker:
             except Exception:
                 log.exception("Fallo en la tarea %s", kind)
 
-    def _read_with_ai(self) -> None:
+    def _read_with_ai(self) -> bool:
+        """Lee una tanda de anuncios con la IA. Devuelve True si puede quedar trabajo pendiente."""
         if self.llm is None:
-            return
+            return False
         try:
-            ai_listings.process_pending(self._factory, self.llm, AI_BATCH_PER_JOB)
+            return ai_listings.process_pending(self._factory, self.llm, AI_BATCH_PER_JOB) > 0
         except Exception:
             log.exception("Fallo leyendo anuncios con IA")
+            return False
 
     def _process(self, job_id: int, fetcher: Fetcher) -> None:
         with self._factory() as db:

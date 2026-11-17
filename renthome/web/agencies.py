@@ -5,6 +5,8 @@ import re
 from pathlib import Path
 
 import yaml
+
+from ..netguard import looks_public
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -13,6 +15,9 @@ from .models import Agency
 
 SEED_FILE = Path(__file__).resolve().parent / "agencies_seed.yaml"
 MAX_START_URLS = 12
+MAX_PATTERN_LENGTH = 300
+# cuantificador sobre un grupo que ya contiene otro: (a+)+, (.*)*… bloquean el rastreador
+_NESTED_QUANTIFIER = re.compile(r"\([^()]*[+*][^()]*\)\s*[+*{]")
 
 
 class AgencyConfigError(ValueError):
@@ -25,11 +30,15 @@ def validate_config(start_urls: list[str], detail_pattern: str, page_pattern: st
     if len(start_urls) > MAX_START_URLS:
         raise AgencyConfigError(f"Como máximo {MAX_START_URLS} páginas de listado.")
     for url in start_urls:
-        if not re.match(r"^https?://[^\s/]+\.[^\s/]+", url):
-            raise AgencyConfigError(f"No es una dirección web válida: {url[:80]}")
+        if not looks_public(url):
+            raise AgencyConfigError(f"No es la dirección de una web pública: {url[:80]}")
     if not detail_pattern:
         raise AgencyConfigError("Falta el patrón de las fichas.")
     for pattern in (detail_pattern, page_pattern):
+        if len(pattern) > MAX_PATTERN_LENGTH:
+            raise AgencyConfigError(f"Un patrón supera los {MAX_PATTERN_LENGTH} caracteres.")
+        if _NESTED_QUANTIFIER.search(pattern):
+            raise AgencyConfigError("Patrón no admitido: evita repetir un grupo que ya contiene + o *.")
         try:
             re.compile(pattern)
         except re.error as exc:

@@ -2,10 +2,11 @@
 from __future__ import annotations
 
 import datetime as dt
+from collections.abc import Callable
 from dataclasses import dataclass
 
 from sqlalchemy import or_, select
-from sqlalchemy.orm import Session, joinedload
+from sqlalchemy.orm import Session, defer, joinedload
 
 from ..parse import norm
 from .criteria import area_keys
@@ -75,22 +76,27 @@ def _passes(listing: Listing, criteria, types: set[str]) -> bool:
 
 
 def find(db: Session, criteria, user_id: int, new_since: dt.datetime | None = None,
-         only_saved: bool = False) -> list[Match]:
-    """Anuncios activos de alquiler de larga duración que cumplen los criterios, mejores primero."""
-    areas = area_keys(criteria)
+         only_saved: bool = False, read_reason: Callable[[UserListing], str] | None = None) -> list[Match]:
+    """Anuncios activos de alquiler de larga duración que cumplen los criterios, mejores primero.
+
+    `read_reason` descifra el motivo del encaje (dato derivado del perfil); sin él no se muestra.
+    """
+    areas = area_keys(criteria) if criteria is not None else []
     if not areas and not only_saved:
         return []
     states = {s.listing_id: s for s in db.scalars(select(UserListing).where(UserListing.user_id == user_id))}
-    query = select(Listing).options(joinedload(Listing.agency)).where(Listing.active, Listing.eligible)
+    # el texto completo de la ficha solo lo usa la IA: no se carga para pintar listados
+    base = select(Listing).options(joinedload(Listing.agency), defer(Listing.text))
+    query = base.where(Listing.active, Listing.eligible)
     if only_saved:
         saved_ids = [lid for lid, s in states.items() if s.state == "saved"]
-        query = select(Listing).options(joinedload(Listing.agency)).where(Listing.id.in_(saved_ids))
+        query = base.where(Listing.id.in_(saved_ids))
     else:
         query = query.where(Listing.area.in_(areas))
         if criteria.max_price:
             query = query.where(or_(Listing.price.is_(None), Listing.price <= criteria.max_price))
-    types = {t for t in (criteria.property_types or "").split(",") if t}
-    zone_terms = _zone_terms(criteria.zones or "")
+    types = {t for t in (getattr(criteria, "property_types", "") or "").split(",") if t}
+    zone_terms = _zone_terms(getattr(criteria, "zones", "") or "")
     since = new_since or utcnow() - dt.timedelta(days=NEW_WINDOW_DAYS)
 
     matches = []
@@ -98,11 +104,12 @@ def find(db: Session, criteria, user_id: int, new_since: dt.datetime | None = No
         state = states.get(listing.id)
         if not only_saved and ((state and state.state == "hidden") or not _passes(listing, criteria, types)):
             continue
-        score, preferred, highlights = _score(listing, criteria, zone_terms)
+        score, preferred, highlights = _score(listing, criteria, zone_terms) if criteria is not None else (0, False, ())
         matches.append(Match(
             listing=listing, score=score, is_new=listing.first_seen > since, is_preferred=preferred,
             state=state.state if state else "", highlights=highlights,
-            fit_score=state.fit_score if state else None, fit_reason=state.fit_reason if state else "",
+            fit_score=state.fit_score if state else None,
+            fit_reason=read_reason(state) if state and read_reason else "",
         ))
     return sorted(matches, key=lambda m: (-(m.fit_score or 0) if only_saved else 0, -m.score,
                                           m.listing.price or 10**9, m.listing.id))
