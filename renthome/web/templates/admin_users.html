@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Usuarios{% endblock %}
+{% block content %}
+<header class="page-head"><p class="eyebrow">Administración</p><h1>Quién usa RentHome.</h1>
+  <p>Las cuentas se crean solo por invitación. No puedes ver perfiles ni documentos de nadie.</p></header>
+{{ flashes() }}
+{% if new_link %}
+<section class="panel accent">
+  <h3>Invitación para {{ new_link.email }}</h3>
+  <p>Envíale este enlace por un canal privado. Vale {{ invitation_days }} días, sirve una sola vez y <strong>no volverá a mostrarse</strong>.</p>
+  <div class="copybox"><input id="invite-url" type="text" readonly value="{{ new_link.url }}" aria-label="Enlace de invitación">
+    <button class="btn" type="button" data-copy="invite-url">Copiar</button></div>
+</section>
+{% endif %}
+<section class="form-section">
+  <header><h2>Invitar</h2><p>Se genera un enlace personal para que la persona cree su cuenta y su contraseña.</p></header>
+  <form class="fields" method="post" action="/admin/invitaciones">
+    {{ csrf() }}
+    <div class="field"><label for="email">Email de la persona</label>
+      <input id="email" name="email" type="email" required maxlength="254"></div>
+    <div class="field"><span class="label">&nbsp;</span><div><button class="btn" type="submit">Crear invitación</button></div></div>
+  </form>
+</section>
+{% if invitations %}
+<section class="stack">
+  <h2>Invitaciones pendientes</h2>
+  <div class="table-wrap"><table><thead><tr><th>Email</th><th>Caduca</th><th></th></tr></thead><tbody>
+    {% for i in invitations %}<tr><td>{{ i.email }}</td><td class="num">{{ i.expires_at|date }}</td>
+      <td><form method="post" action="/admin/invitaciones/{{ i.id }}/revocar">{{ csrf() }}<button class="btn btn-ghost btn-sm" type="submit">Revocar</button></form></td></tr>{% endfor %}
+  </tbody></table></div>
+</section>
+{% endif %}
+<section class="stack">
+  <h2>Cuentas</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Persona</th><th>Estado</th><th>Documentos</th><th>Último acceso</th><th></th></tr></thead>
+    <tbody>{% for u in users %}
+    <tr>
+      <td><strong>{{ u.name or "—" }}</strong><br><span class="muted">{{ u.email }}</span></td>
+      <td><div class="tags">{% if u.is_admin %}<span class="tag ok">Administrador</span>{% endif %}
+        <span class="tag {{ '' if u.is_active else 'off' }}">{{ "Activa" if u.is_active else "Desactivada" }}</span></div></td>
+      <td class="num">{{ doc_counts.get(u.id, 0) }}</td>
+      <td class="num">{{ u.last_login_at|datetime or "Nunca" }}</td>
+      <td>{% if u.id != user.id %}<div class="row">
+        <form method="post" action="/admin/usuarios/{{ u.id }}/estado">{{ csrf() }}<button class="btn btn-ghost btn-sm" type="submit">{{ "Desactivar" if u.is_active else "Activar" }}</button></form>
+        <form method="post" action="/admin/usuarios/{{ u.id }}/rol">{{ csrf() }}<button class="btn btn-ghost btn-sm" type="submit">{{ "Quitar admin" if u.is_admin else "Hacer admin" }}</button></form>
+        <details class="confirm"><summary><span class="btn btn-danger btn-sm">Eliminar</span></summary>
+          <form class="confirm-body" method="post" action="/admin/usuarios/{{ u.id }}/eliminar">{{ csrf() }}
+            <span class="small">Se borran su perfil y documentos. No se puede deshacer.</span>
+            <button class="btn btn-danger btn-sm" type="submit">Sí, eliminar</button></form></details>
+      </div>{% else %}<span class="muted small">Tu cuenta</span>{% endif %}</td>
+    </tr>{% endfor %}</tbody></table></div>
+</section>
+{% endblock %}

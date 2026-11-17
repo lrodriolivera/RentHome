@@ -1,0 +1,29 @@
+# Plataforma RentHome (usuarios, perfiles, documentos) — versión de pruebas.
+#   docker compose -f docker-compose.plataforma.yml --env-file .env.plataforma up -d --build
+services:
+  renthome-next:
+    build: .
+    image: renthome-plataforma
+    container_name: renthome-next
+    restart: unless-stopped
+    command: ["uvicorn", "renthome.web.app:create_app", "--factory", "--host", "0.0.0.0", "--port", "8080",
+              "--proxy-headers", "--forwarded-allow-ips", "*"]
+    env_file: .env.plataforma
+    environment:
+      RENTHOME_DATA_DIR: /app/data-web
+      RENTHOME_LISTINGS_FILE: /app/data/listings.json
+    ports:
+      - "127.0.0.1:8089:8080"
+    volumes:
+      - ./data-web:/app/data-web          # base de datos y documentos cifrados
+      - ./data:/app/data:ro               # anuncios ya rastreados (solo lectura)
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8080/api/health',timeout=4)"]
+      interval: 60s
+      timeout: 5s
+      retries: 3
+    networks: [homelab]
+
+networks:
+  homelab:
+    external: true

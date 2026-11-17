@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Mi perfil{% endblock %}
+{% block content %}
+<header class="page-head">
+  <p class="eyebrow">Mi perfil</p>
+  <h1>Lo que te va a pedir la inmobiliaria.</h1>
+  <p>Rellénalo una vez. Solo tú ves estos datos; sirven para preparar tu presentación y saber qué pisos puedes permitirte.</p>
+</header>
+{{ flashes(error) }}
+<form method="post" action="/perfil">
+  {{ csrf() }}
+  <section class="form-section">
+    <header><h2>Quién eres</h2><p>Datos de identificación y contacto.</p></header>
+    <div class="fields">
+      <div class="field wide"><label for="name">Nombre y apellidos</label>
+        <input id="name" name="name" type="text" required maxlength="120" autocomplete="name" value="{{ user.name }}"></div>
+      <div class="field"><label for="phone">Teléfono</label>
+        <input id="phone" name="phone" type="tel" maxlength="30" autocomplete="tel" value="{{ profile.phone }}"></div>
+      <div class="field"><label for="nationality">Nacionalidad</label>
+        <input id="nationality" name="nationality" type="text" maxlength="60" value="{{ profile.nationality }}"></div>
+      <div class="field"><label for="birth_date">Fecha de nacimiento</label>
+        <input id="birth_date" name="birth_date" type="date" value="{{ profile.birth_date or '' }}"></div>
+      <div class="field"><label for="id_type">Documento de identidad</label>
+        <select id="id_type" name="id_type"><option value="">Elige…</option>
+          {% for k, v in catalog.ID_TYPES.items() %}<option value="{{ k }}"{% if profile.id_type == k %} selected{% endif %}>{{ v }}</option>{% endfor %}
+        </select></div>
+      <div class="field"><label for="id_number">Número de documento</label>
+        <input id="id_number" name="id_number" type="text" maxlength="30" autocomplete="off" value="{{ id_number }}">
+        <span class="hint">Se guarda cifrado.</span></div>
+    </div>
+  </section>
+
+  <section class="form-section" id="trabajo">
+    <header><h2>Trabajo e ingresos</h2><p>Las inmobiliarias suelen pedir que el alquiler no supere el 30–35 % de tus ingresos netos.</p></header>
+    <div class="fields">
+      <div class="field wide"><label for="employment_status">Situación laboral</label>
+        <select id="employment_status" name="employment_status"><option value="">Elige…</option>
+          {% for k, v in catalog.EMPLOYMENT.items() %}<option value="{{ k }}"{% if profile.employment_status == k %} selected{% endif %}>{{ v }}</option>{% endfor %}
+        </select></div>
+      <div class="field"><label for="employer">Empresa o actividad</label>
+        <input id="employer" name="employer" type="text" maxlength="120" value="{{ profile.employer }}"></div>
+      <div class="field"><label for="job_title">Puesto</label>
+        <input id="job_title" name="job_title" type="text" maxlength="120" value="{{ profile.job_title }}"></div>
+      <div class="field"><label for="employment_since">Desde cuándo</label>
+        <input id="employment_since" name="employment_since" type="date" value="{{ profile.employment_since or '' }}"></div>
+      <div class="field"><label for="net_monthly_income">Ingresos netos</label>
+        <div class="money"><input id="net_monthly_income" name="net_monthly_income" type="text" inputmode="numeric" value="{{ profile.net_monthly_income if profile.net_monthly_income is not none else '' }}"></div></div>
+      <div class="field"><label for="other_monthly_income">Otros ingresos</label>
+        <div class="money"><input id="other_monthly_income" name="other_monthly_income" type="text" inputmode="numeric" value="{{ profile.other_monthly_income if profile.other_monthly_income is not none else '' }}"></div></div>
+      <div class="field wide"><span class="label">Garantías</span>
+        <div class="checks"><label class="check"><input type="checkbox" name="has_guarantor" value="1"{% if profile.has_guarantor %} checked{% endif %}><span>Puedo aportar avalista</span></label></div></div>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <header><h2>Quién va a vivir</h2><p>Los propietarios preguntan por el número de personas, mascotas y si se fuma.</p></header>
+    <div class="fields">
+      <div class="field"><label for="adults">Adultos</label>
+        <input id="adults" name="adults" type="number" min="1" max="12" value="{{ profile.adults }}"></div>
+      <div class="field"><label for="children">Menores</label>
+        <input id="children" name="children" type="number" min="0" max="12" value="{{ profile.children }}"></div>
+      <div class="field wide"><span class="label">Convivencia</span>
+        <div class="checks">
+          <label class="check"><input type="checkbox" name="has_pets" value="1"{% if profile.has_pets %} checked{% endif %}><span>Tengo mascota</span></label>
+          <label class="check"><input type="checkbox" name="smoker" value="1"{% if profile.smoker %} checked{% endif %}><span>Fumador/a</span></label>
+        </div></div>
+      <div class="field wide"><label for="pets_detail">Sobre tu mascota</label>
+        <input id="pets_detail" name="pets_detail" type="text" maxlength="200" placeholder="Por ejemplo: un gato adulto, tranquilo" value="{{ profile.pets_detail }}"></div>
+      <div class="field wide"><label for="about">Preséntate</label>
+        <textarea id="about" name="about" maxlength="1500" placeholder="A qué te dedicas, por qué te mudas, cuánto tiempo piensas quedarte…">{{ profile.about }}</textarea>
+        <span class="hint">Unas líneas con tu voz. Más adelante servirán para redactar tu mensaje a la inmobiliaria.</span></div>
+    </div>
+  </section>
+  <div class="form-actions"><button class="btn" type="submit">Guardar perfil</button></div>
+</form>
+{% endblock %}

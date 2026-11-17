@@ -1,0 +1,6 @@
+{% macro csrf() %}<input type="hidden" name="csrf_token" value="{{ csrf_token }}">{% endmacro %}
+{% macro flashes(error=None) %}
+  {% if error %}<p class="notice error" role="alert">{{ error }}</p>{% endif %}
+  {% for m in messages %}<p class="notice {{ 'error' if m.kind == 'error' else '' }}" role="status">{{ m.text }}</p>{% endfor %}
+{% endmacro %}
+{% macro navlink(href, label) %}<a href="{{ href }}"{% if path == href %} aria-current="page"{% endif %}>{{ label }}</a>{% endmacro %}

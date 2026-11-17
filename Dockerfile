@@ -7,13 +7,16 @@ ENV PYTHONUNBUFFERED=1 \
     TZ=Europe/Madrid
 
 WORKDIR /app
-COPY requirements.txt .
+# El navegador va en su propia capa: es lo más pesado y casi nunca cambia.
 # libatomic1: lo necesita el Node que incluye Playwright en la imagen slim (arm64)
 RUN apt-get update \
  && apt-get install -y --no-install-recommends libatomic1 \
- && pip install -r requirements.txt \
+ && pip install "playwright==1.65.2" \
  && python -m playwright install --with-deps chromium \
  && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt requirements-dev.txt ./
+RUN pip install -r requirements.txt -r requirements-dev.txt
 
 COPY renthome ./renthome
 COPY config.yaml ./

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Invitación no válida{% endblock %}
+{% block body %}
+<div class="gate">
+  <section class="gate-art"><span class="wordmark">Rent<span>Home</span></span>
+    <div class="stack"><h1>Este enlace ya no sirve.</h1></div></section>
+  <section class="gate-form">
+    <h2>Invitación caducada o usada</h2>
+    <p>Las invitaciones valen unos días y solo se pueden usar una vez. Pide una nueva a quien te la envió.</p>
+    <p><a href="/login">Ir a la página de acceso</a></p>
+  </section>
+</div>
+{% endblock %}

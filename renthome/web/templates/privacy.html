@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Privacidad{% endblock %}
+{% block body %}
+<div class="main"><div class="page prose">
+  <p><a class="wordmark" href="/">Rent<span>Home</span></a></p>
+  <header class="page-head"><p class="eyebrow">Versión {{ version }}</p><h1>Política de privacidad.</h1>
+    <p>Qué datos guardamos, para qué, y cómo borrarlos.</p></header>
+
+  <h2>Quién es el responsable</h2>
+  <p>{{ settings.controller_name }}{% if settings.controller_email %} · <strong>{{ settings.controller_email }}</strong>{% endif %}. RentHome es un servicio privado, sin ánimo de lucro y con acceso solo por invitación.</p>
+
+  <h2>Qué datos tratamos</h2>
+  <ul>
+    <li><strong>Cuenta:</strong> email, nombre y contraseña (guardada con hash, nunca en claro).</li>
+    <li><strong>Perfil de inquilino:</strong> los datos que tú escribas: contacto, identificación, situación laboral, ingresos y convivencia.</li>
+    <li><strong>Qué vivienda buscas:</strong> zonas, presupuesto y características.</li>
+    <li><strong>Documentos</strong> que decidas subir (identidad, nóminas, contrato…).</li>
+    <li><strong>Registro de actividad:</strong> fecha, acción e IP de accesos y cambios, por seguridad.</li>
+  </ul>
+  <p>Todos los datos del perfil son voluntarios. No se piden categorías especiales de datos (salud, ideología, etc.): no las incluyas en los campos de texto libre.</p>
+
+  <h2>Para qué y con qué base legal</h2>
+  <p>Únicamente para ayudarte a buscar una vivienda de alquiler: filtrar anuncios según tus preferencias y tener preparada la documentación. La base legal es tu <strong>consentimiento</strong> (art. 6.1.a RGPD), que das al crear la cuenta y puedes retirar en cualquier momento borrándola.</p>
+  <p>No hay publicidad, ni perfiles comerciales, ni decisiones automatizadas con efectos sobre ti. Tus datos no se venden ni se ceden, y RentHome no envía nada a las inmobiliarias: eres tú quien decide qué les mandas.</p>
+
+  <h2>Dónde están y quién puede verlos</h2>
+  <ul>
+    <li>Los datos se guardan en un servidor propio del responsable, situado en España.</li>
+    <li>Los documentos y el número de identidad se guardan <strong>cifrados</strong> (AES-256). La aplicación solo te los muestra a ti; el administrador no dispone de ninguna pantalla para verlos. Como en cualquier servicio, quien administra el servidor custodia la clave de cifrado.</li>
+    <li>La conexión pasa por <strong>Cloudflare</strong> (Cloudflare, Inc.), que actúa como encargado del tratamiento para proteger y transportar el tráfico, con las garantías del Marco de Privacidad de Datos UE-EE. UU. y cláusulas contractuales tipo.</li>
+    <li>Si se usan funciones de inteligencia artificial, se ejecutan en el mismo servidor: tus datos no se envían a servicios externos de IA.</li>
+  </ul>
+
+  <h2>Cuánto tiempo</h2>
+  <p>Mientras tengas la cuenta. Al borrarla se eliminan de inmediato el perfil, las preferencias y los documentos; el registro de actividad se conserva de forma anónima. Las cuentas sin actividad durante 12 meses se eliminan.</p>
+
+  <h2>Tus derechos</h2>
+  <ul>
+    <li><strong>Acceso y portabilidad:</strong> descarga todos tus datos y documentos en «Mis datos».</li>
+    <li><strong>Rectificación:</strong> edita tu perfil cuando quieras.</li>
+    <li><strong>Supresión y retirada del consentimiento:</strong> borra tu cuenta en «Mis datos».</li>
+    <li><strong>Limitación y oposición:</strong> escribe al responsable.</li>
+  </ul>
+  <p>Si crees que tus datos no se tratan correctamente, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+
+  <h2>Cookies</h2>
+  <p>Solo se usa una cookie técnica de sesión, necesaria para mantenerte identificado. No hay cookies de análisis ni de terceros, y las tipografías se sirven desde este mismo servidor.</p>
+  <p><a href="{{ '/' if user else '/login' }}">Volver</a></p>
+</div></div>
+{% endblock %}

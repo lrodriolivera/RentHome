@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+{{ flashes() }}
+<section class="hero">
+  <div class="stack">
+    <p class="eyebrow">Hola, {{ (user.name or user.email).split(" ")[0] }}</p>
+    {% if done < steps|length %}
+    <h1>Te faltan <em>{{ steps|length - done }}</em> pasos para tener el perfil listo.</h1>
+    <p class="muted">Con el perfil completo, cuando aparezca un piso podrás responder a la inmobiliaria el mismo día, con todo lo que te van a pedir.</p>
+    {% else %}
+    <h1>Perfil listo. <em>A por el piso.</em></h1>
+    <p class="muted">Tienes todo lo que suelen pedir las inmobiliarias. Mantén los documentos al día.</p>
+    {% endif %}
+  </div>
+  <ul class="steps">
+    {% for s in steps %}
+    <li class="{{ 'done' if s.done else '' }}"><a href="{{ s.href }}">
+      <span class="tick" aria-hidden="true">{{ "✓" if s.done else "" }}</span>{{ s.label }}
+      {% if not s.done %}<span class="todo-tag">Pendiente</span>{% endif %}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="stack">
+  <div class="row spread">
+    <h2>Pisos que encajan contigo</h2>
+    {% if pref and pref.max_price %}<span class="tag">hasta {{ pref.max_price|money }}/mes · {{ pref.min_bedrooms }}+ hab.</span>{% endif %}
+  </div>
+  {% if not pref or not pref.areas %}
+    <p class="empty">Todavía no has dicho dónde buscas. <a href="/busqueda">Cuéntanos qué vivienda quieres</a> y aquí verás los anuncios que encajan.</p>
+  {% elif not wants_ibiza %}
+    <p class="empty">Por ahora solo hay anuncios de Ibiza. Estamos incorporando inmobiliarias del resto de Baleares y de Barcelona: tus zonas quedarán cubiertas en la próxima versión.</p>
+  {% elif not listings %}
+    <p class="empty">Ahora mismo ningún anuncio de alquiler anual encaja con tu presupuesto y habitaciones. Se revisan las inmobiliarias cada semana.</p>
+  {% else %}
+  <p class="muted small">{{ listings|length }} anuncios de alquiler de larga duración en Ibiza, de inmobiliarias locales. Confirma siempre con la inmobiliaria el precio y el tipo de contrato.</p>
+  <div class="tickets">
+    {% for l in listings %}
+    <a class="ticket {{ 'preferred' if l.preferred else '' }}" href="{{ l.url }}" target="_blank" rel="noopener noreferrer">
+      <div class="ticket-price">
+        {% if l.price %}<strong>{{ l.price|money }}</strong><span>al mes</span>{% else %}<strong>—</strong><span>consultar precio</span>{% endif %}
+      </div>
+      <div class="ticket-body">
+        <h3>{{ l.title }}</h3>
+        <div class="tags">
+          <span class="tag">{% if l.bedrooms is none %}hab. sin confirmar{% elif l.bedrooms == 0 %}estudio{% else %}{{ l.bedrooms }} hab.{% endif %}</span>
+          <span class="tag">{{ l.location }}</span>
+          <span class="tag">{{ l.source }}</span>
+          {% if l.uncertain_term %}<span class="tag warn">confirmar que es anual</span>{% endif %}
+        </div>
+      </div>
+      <div class="ticket-photo">{% if l.image %}<img src="{{ l.image }}" alt="" loading="lazy" width="136" height="104" referrerpolicy="no-referrer">{% endif %}</div>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

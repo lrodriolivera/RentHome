@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Cuenta{% endblock %}
+{% block content %}
+<header class="page-head"><p class="eyebrow">Cuenta</p><h1>Acceso y seguridad.</h1><p>{{ user.email }}</p></header>
+{{ flashes(error) }}
+<section class="form-section">
+  <header><h2>Cambiar contraseña</h2><p>Al cambiarla se cierran tus sesiones en otros dispositivos.</p></header>
+  <form class="fields" method="post" action="/cuenta/contrasena">
+    {{ csrf() }}
+    <div class="field wide"><label for="current">Contraseña actual</label>
+      <input id="current" name="current" type="password" autocomplete="current-password" required></div>
+    <div class="field"><label for="password">Nueva contraseña</label>
+      <input id="password" name="password" type="password" autocomplete="new-password" required minlength="10"></div>
+    <div class="field"><label for="password2">Repite la nueva</label>
+      <input id="password2" name="password2" type="password" autocomplete="new-password" required minlength="10"></div>
+    <div class="field wide"><div><button class="btn" type="submit">Cambiar contraseña</button></div></div>
+  </form>
+</section>
+{% endblock %}

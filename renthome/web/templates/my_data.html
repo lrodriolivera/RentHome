@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Mis datos{% endblock %}
+{% block content %}
+<header class="page-head"><p class="eyebrow">Mis datos</p><h1>Tus datos son tuyos.</h1>
+  <p>Llévatelos o bórralos cuando quieras. Aceptaste la <a href="/privacidad">política de privacidad</a> (versión {{ user.consent_version }}) el {{ user.consent_at|date }}.</p></header>
+{{ flashes() }}
+<section class="form-section">
+  <header><h2>Descargar todo</h2><p>Un archivo ZIP con tu perfil, tus preferencias, tu actividad y tus documentos.</p></header>
+  <form method="post" action="/mis-datos/exportar">{{ csrf() }}<button class="btn" type="submit">Descargar mis datos</button></form>
+</section>
+<section class="form-section">
+  <header><h2>Actividad reciente</h2><p>Accesos y cambios registrados en tu cuenta.</p></header>
+  <div class="table-wrap"><table><thead><tr><th>Cuándo</th><th>Acción</th><th>IP</th></tr></thead><tbody>
+    {% for e in log %}<tr><td class="num">{{ e.at|datetime }}</td><td>{{ e.action|replace("_", " ") }}{% if e.detail %} · {{ e.detail }}{% endif %}</td><td class="num">{{ e.ip }}</td></tr>{% endfor %}
+  </tbody></table></div>
+</section>
+<section class="form-section">
+  <header><h2>Borrar mi cuenta</h2><p>Elimina de forma inmediata e irreversible tu perfil, preferencias y documentos.</p></header>
+  <details class="confirm">
+    <summary><span class="btn btn-danger">Quiero borrar mi cuenta</span></summary>
+    <form class="confirm-body panel danger" method="post" action="/mis-datos/eliminar">
+      {{ csrf() }}
+      <p>Escribe tu contraseña para confirmar. No se puede deshacer.</p>
+      <div class="field"><label for="password">Contraseña</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required></div>
+      <div><button class="btn btn-danger" type="submit">Borrar definitivamente</button></div>
+    </form>
+  </details>
+</section>
+{% endblock %}

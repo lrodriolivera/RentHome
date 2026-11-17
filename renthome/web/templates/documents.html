@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Documentos{% endblock %}
+{% block content %}
+<header class="page-head">
+  <p class="eyebrow">Documentos</p>
+  <h1>Tu carpeta, lista para enviar.</h1>
+  <p>Se guardan cifrados y solo tú puedes verlos o descargarlos. El administrador no tiene acceso.</p>
+</header>
+{{ flashes() }}
+<section class="form-section">
+  <header><h2>Subir documento</h2><p>PDF, JPG o PNG, hasta {{ max_mb }} MB cada uno.</p></header>
+  <form class="fields" method="post" action="/documentos" enctype="multipart/form-data">
+    {{ csrf() }}
+    <div class="field"><label for="kind">Tipo de documento</label>
+      <select id="kind" name="kind" required><option value="">Elige…</option>
+        {% for k, v in catalog.DOCUMENT_KINDS.items() %}<option value="{{ k }}">{{ v }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="file">Archivo</label>
+      <input id="file" name="file" type="file" required accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"></div>
+    <div class="field wide"><div><button class="btn" type="submit">Subir y cifrar</button></div></div>
+  </form>
+</section>
+
+<section class="stack">
+  <h2>Lo que suelen pedir</h2>
+  {% set have = documents|map(attribute="kind")|list %}
+  <div class="tags">
+    {% for k, v in catalog.DOCUMENT_KINDS.items() if k != "otros" %}
+      <span class="tag {{ 'ok' if k in have else '' }}">{{ "✓ " if k in have else "" }}{{ v }}</span>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="stack">
+  <h2>Guardados</h2>
+  {% if not documents %}<p class="empty">Aún no has subido ningún documento.</p>{% else %}
+  <div class="table-wrap"><table>
+    <thead><tr><th>Documento</th><th>Tipo</th><th>Tamaño</th><th>Subido</th><th></th></tr></thead>
+    <tbody>{% for d in documents %}
+      <tr><td>{{ d.filename }}</td><td>{{ catalog.DOCUMENT_KINDS.get(d.kind, d.kind) }}</td>
+        <td class="num">{{ d.size|filesize }}</td><td class="num">{{ d.created_at|date }}</td>
+        <td><div class="row"><a class="btn btn-ghost btn-sm" href="/documentos/{{ d.id }}/descargar">Descargar</a>
+          <form method="post" action="/documentos/{{ d.id }}/borrar">{{ csrf() }}<button class="btn btn-danger btn-sm" type="submit">Borrar</button></form></div></td></tr>
+    {% endfor %}</tbody></table></div>{% endif %}
+</section>
+{% endblock %}

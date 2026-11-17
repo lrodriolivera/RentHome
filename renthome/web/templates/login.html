@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Entrar{% endblock %}
+{% block body %}
+<div class="gate">
+  <section class="gate-art">
+    <span class="wordmark">Rent<span>Home</span></span>
+    <div class="stack">
+      <h1>Tu piso, sin portales.</h1>
+      <p>Alquiler de larga duración en Baleares y Barcelona, directo de las inmobiliarias locales.</p>
+    </div>
+  </section>
+  <section class="gate-form">
+    <div class="stack">
+      <p class="eyebrow">Acceso solo con invitación</p>
+      <h2>Entrar</h2>
+    </div>
+    {{ flashes(error) }}
+    {% if request.query_params.get("eliminada") %}<p class="notice">Tu cuenta y todos tus datos se han eliminado.</p>{% endif %}
+    <form method="post" action="/login">
+      {{ csrf() }}
+      <div class="field"><label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="username" required value="{{ email or '' }}"></div>
+      <div class="field"><label for="password">Contraseña</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required></div>
+      <div><button class="btn" type="submit">Entrar</button></div>
+    </form>
+    <p class="small muted">¿No tienes cuenta? Pide una invitación a quien te habló de RentHome. · <a href="/privacidad">Privacidad</a></p>
+  </section>
+</div>
+{% endblock %}

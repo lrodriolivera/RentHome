@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+<div class="gate">
+  <section class="gate-art"><span class="wordmark">Rent<span>Home</span></span>
+    <div class="stack"><h1>{{ title }}.</h1></div></section>
+  <section class="gate-form">
+    {% if detail %}<p>{{ detail }}</p>{% endif %}
+    <p><a href="/">Volver al inicio</a></p>
+  </section>
+</div>
+{% endblock %}
