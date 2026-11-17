@@ -228,6 +228,9 @@
   max_pages: 1
   long_term_section: false
 # ---- Barcelona ciudad ----
+# En Barcelona el alquiler residencial de una administración de fincas es de larga duración por
+# defecto y casi nunca lo dice: se aceptan los anuncios que no mencionan temporada (con el aviso
+# «confirmar que es anual») y se siguen descartando los que sí la mencionan.
 - name: Finques Feliu
   town: Barcelona
   areas: [barcelona]
@@ -246,7 +249,7 @@
   - https://www.finquesteixidor.com/ca/alquiler-barcelona.cfm
   detail_pattern: finquesteixidor\.com/ca/alquiler-pisos-barcelona\.cfm/ID/\d+/CAT/(?!.*(parking|local|despa|plaza|traspas|venta|pz-))[^/]+\.htm$
   max_pages: 2
-  long_term_section: false
+  long_term_section: true
 - name: BCN Finques
   town: Barcelona
   areas: [barcelona]
@@ -255,7 +258,7 @@
   - https://www.bcnfinques.com/es/alquiler-barcelona-piso-casa-despacho-local-parking-solar.html
   detail_pattern: bcnfinques\.com/es/inmueble_alquiler-vivienda[^/]*_\d+\.html$
   max_pages: 2
-  long_term_section: false
+  long_term_section: true
 - name: Fincas Futura
   town: Barcelona
   areas: [barcelona]
@@ -264,7 +267,7 @@
   - https://www.fincasfutura.com/es/alquiler
   detail_pattern: fincasfutura\.com/es/alquiler/ref-\d+$
   max_pages: 2
-  long_term_section: false
+  long_term_section: true
   render: true
 # ---- Área metropolitana de Barcelona ----
 - name: Amat Immobiliaris
@@ -275,7 +278,7 @@
   - https://www.amatimmobiliaris.com/es/inmuebles-en-alquiler
   detail_pattern: amatimmobiliaris\.com/es/alquiler/(apartamento-piso|casa-chalet|atico|duplex|estudio)[^/]*/[^/]+/[^/]+/[^/?]+$
   max_pages: 2
-  long_term_section: false
+  long_term_section: true
 - name: Immomax
   town: L'Hospitalet de Llobregat
   areas: [barcelona_area, barcelona]
@@ -284,7 +287,7 @@
   - https://www.immomax.es/es/alquiler
   detail_pattern: immomax\.es/es/alquiler/ref-\d+$
   max_pages: 2
-  long_term_section: false
+  long_term_section: true
   render: true
 - name: BCN Sellers
   town: L'Hospitalet de Llobregat
@@ -295,4 +298,4 @@
   - https://www.bcnsellers.com/aticos-en-alquiler-18-2.html
   detail_pattern: bcnsellers\.com/(piso|atico|duplex|estudio|apartamento|casa)[a-z0-9-]*-es\d+\.html$
   max_pages: 2
-  long_term_section: false
+  long_term_section: true
