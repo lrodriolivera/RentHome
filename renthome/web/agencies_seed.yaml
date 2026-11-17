@@ -227,3 +227,72 @@
   detail_pattern: yourformentera\.es/es/long-term/[^/]+/?$
   max_pages: 1
   long_term_section: false
+# ---- Barcelona ciudad ----
+- name: Finques Feliu
+  town: Barcelona
+  areas: [barcelona]
+  website: https://finquesfeliu.es
+  start_urls:
+  - https://finquesfeliu.es/alquiler-inmuebles/barcelona
+  detail_pattern: finquesfeliu\.es/alquiler-inmuebles/[a-z0-9-]+/[0-9a-f]{8}-[0-9a-f-]{27}$
+  page_pattern: finquesfeliu\.es/alquiler-inmuebles/barcelona\?page=\d+$
+  max_pages: 5
+  long_term_section: true
+- name: Finques Teixidor
+  town: Barcelona
+  areas: [barcelona]
+  website: https://www.finquesteixidor.com
+  start_urls:
+  - https://www.finquesteixidor.com/ca/alquiler-barcelona.cfm
+  detail_pattern: finquesteixidor\.com/ca/alquiler-pisos-barcelona\.cfm/ID/\d+/CAT/(?!.*(parking|local|despa|plaza|traspas|venta|pz-))[^/]+\.htm$
+  max_pages: 2
+  long_term_section: false
+- name: BCN Finques
+  town: Barcelona
+  areas: [barcelona]
+  website: https://www.bcnfinques.com
+  start_urls:
+  - https://www.bcnfinques.com/es/alquiler-barcelona-piso-casa-despacho-local-parking-solar.html
+  detail_pattern: bcnfinques\.com/es/inmueble_alquiler-vivienda[^/]*_\d+\.html$
+  max_pages: 2
+  long_term_section: false
+- name: Fincas Futura
+  town: Barcelona
+  areas: [barcelona]
+  website: https://www.fincasfutura.com
+  start_urls:
+  - https://www.fincasfutura.com/es/alquiler
+  detail_pattern: fincasfutura\.com/es/alquiler/ref-\d+$
+  max_pages: 2
+  long_term_section: false
+  render: true
+# ---- Área metropolitana de Barcelona ----
+- name: Amat Immobiliaris
+  town: Sant Just Desvern
+  areas: [barcelona_area, barcelona]
+  website: https://www.amatimmobiliaris.com
+  start_urls:
+  - https://www.amatimmobiliaris.com/es/inmuebles-en-alquiler
+  detail_pattern: amatimmobiliaris\.com/es/alquiler/(apartamento-piso|casa-chalet|atico|duplex|estudio)[^/]*/[^/]+/[^/]+/[^/?]+$
+  max_pages: 2
+  long_term_section: false
+- name: Immomax
+  town: L'Hospitalet de Llobregat
+  areas: [barcelona_area, barcelona]
+  website: https://www.immomax.es
+  start_urls:
+  - https://www.immomax.es/es/alquiler
+  detail_pattern: immomax\.es/es/alquiler/ref-\d+$
+  max_pages: 2
+  long_term_section: false
+  render: true
+- name: BCN Sellers
+  town: L'Hospitalet de Llobregat
+  areas: [barcelona_area, barcelona]
+  website: https://www.bcnsellers.com
+  start_urls:
+  - https://www.bcnsellers.com/results/?type%5B0%5D=24&id_tipo_operacion=2
+  - https://www.bcnsellers.com/aticos-en-alquiler-18-2.html
+  detail_pattern: bcnsellers\.com/(piso|atico|duplex|estudio|apartamento|casa)[a-z0-9-]*-es\d+\.html$
+  max_pages: 2
+  long_term_section: false

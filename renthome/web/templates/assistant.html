@@ -21,6 +21,7 @@
 <section class="form-section">
   <header><h2>¿Encaja contigo?</h2><p>La IA compara el piso con tu perfil, tus ingresos y lo que buscas.</p></header>
   <div class="stack">
+    {% if effort_note %}<p class="notice {{ 'info' if 'por encima' in effort_note else '' }}">{{ effort_note }}</p>{% endif %}
     {% if state and state.fit_score is not none %}
       <div class="row"><span class="fit-score num">{{ state.fit_score }}<small>/10</small></span><p>{{ fit_reason }}</p></div>
     {% endif %}

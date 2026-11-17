@@ -1,6 +1,7 @@
 """Alta de inmobiliarias desde YAML (semilla inicial y propuestas del descubrimiento)."""
 from __future__ import annotations
 
+import logging
 import re
 from pathlib import Path
 
@@ -13,6 +14,7 @@ from sqlalchemy.orm import Session
 from . import catalog
 from .models import Agency
 
+log = logging.getLogger("renthome.agencies")
 SEED_FILE = Path(__file__).resolve().parent / "agencies_seed.yaml"
 MAX_START_URLS = 12
 MAX_PATTERN_LENGTH = 300
@@ -75,7 +77,11 @@ def seed(db: Session, path: Path = SEED_FILE) -> int:
         if entry.get("name") in existing:
             continue
         agency = Agency(origin="seed")
-        apply_entry(agency, entry)
+        try:
+            apply_entry(agency, entry)
+        except (AgencyConfigError, KeyError) as exc:  # una entrada mal escrita no impide arrancar
+            log.warning("Inmobiliaria inicial ignorada (%s): %s", entry.get("name"), exc)
+            continue
         db.add(agency)
         added += 1
     return added

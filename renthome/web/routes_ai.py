@@ -70,6 +70,7 @@ def assistant(listing_id: int, request: Request, user: User = Depends(require_us
     return render(request, "assistant.html", user=user, listing=listing, state=state,
                   draft=read_draft(settings, state), fit_reason=read_fit_reason(settings, state), ai_ready=request.app.state.llm is not None,
                   languages=ai_tenant.LANGUAGES,
+                  effort_note=ai_tenant.effort_note(ai_tenant.rent_effort(user.profile, listing)),
                   brief=ai_tenant.tenant_brief(user, user.profile, user.preference, True))
 
 

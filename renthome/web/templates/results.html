@@ -21,7 +21,7 @@
       <span class="muted small">Se están incorporando; aparecerán aquí en cuanto estén listas.</span>
     {% else %}
       <strong>{{ status.agencies }} inmobiliarias locales en tus zonas</strong>
-      <span class="muted small">{% if status.oldest %}Revisadas por última vez el {{ status.oldest|datetime }} (UTC).{% else %}{{ status.never }} aún sin revisar.{% endif %} Se revisan solas cada día.</span>
+      <span class="muted small">{% if status.oldest %}Revisadas por última vez el {{ status.oldest|datetime }}.{% else %}{{ status.never }} aún sin revisar.{% endif %} Se revisan solas cada día.</span>
     {% endif %}
   </div>
   <div class="row">

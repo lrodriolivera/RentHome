@@ -5,9 +5,12 @@
 from __future__ import annotations
 
 import asyncio
+import datetime as dt
 import logging
+import os
 from contextlib import asynccontextmanager
 from pathlib import Path
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import RedirectResponse
@@ -47,12 +50,23 @@ SECURITY_HEADERS = {
 ERROR_TITLES = {403: "Acceso no permitido", 404: "Página no encontrada", 410: "Ya no está disponible"}
 
 
+def _local(value):
+    """Las fechas se guardan en UTC; se muestran en la hora local configurada (TZ)."""
+    if not isinstance(value, dt.datetime):
+        return value
+    try:
+        zone = ZoneInfo(os.environ.get("TZ") or "Europe/Madrid")
+    except ZoneInfoNotFoundError:
+        return value
+    return value.replace(tzinfo=dt.timezone.utc).astimezone(zone)
+
+
 def _format_date(value) -> str:
-    return value.strftime("%d/%m/%Y") if value else ""
+    return _local(value).strftime("%d/%m/%Y") if value else ""
 
 
 def _format_datetime(value) -> str:
-    return value.strftime("%d/%m/%Y %H:%M") if value else ""
+    return _local(value).strftime("%d/%m/%Y %H:%M") if value else ""
 
 
 def _format_money(value: int | None) -> str:

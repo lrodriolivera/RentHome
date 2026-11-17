@@ -128,6 +128,9 @@ def test_message_draft_is_generated_stored_encrypted_and_private(app):
 
 def test_fit_score_is_saved_and_shown(app):
     uid, listing = prepare_tenant(app)
+    with db_session(app) as db:
+        db.get(Profile, uid).net_monthly_income = 6000  # esfuerzo del 25 %: no se recorta la nota
+        db.commit()
     app.state.llm = FakeLLM({"puntuacion": 8, "motivo": "Dentro de presupuesto y con ingresos holgados."})
     ana = login(app, "ana@example.org")
     ana.post(f"/pisos/{listing}/encaje", data={"csrf_token": csrf(ana, f"/pisos/{listing}/mensaje")})
@@ -238,3 +241,17 @@ def test_candidates_admin_flow(app):
         assert db.get(AgencyCandidate, cid).status == "approved"
     add_user(app, "ana@example.org")
     assert login(app, "ana@example.org").get("/admin/candidatas").status_code == 404
+
+
+def test_affordability_is_computed_not_left_to_the_model(app):
+    uid, listing_id = prepare_tenant(app)  # 3.200 € de ingresos, piso de 1.500 € → 47 %
+    with db_session(app) as db:
+        user, listing = db.get(User, uid), db.get(Listing, listing_id)
+        effort = ai_tenant.rent_effort(user.profile, listing)
+        assert round(effort, 2) == 0.47 and "por encima" in ai_tenant.effort_note(effort)
+        llm = FakeLLM({"puntuacion": 9, "motivo": "Encaja perfecto"})
+        score, _reason = ai_tenant.fit(llm, user, listing)
+        assert score == 5 and "47 %" in llm.prompts[-1]          # la nota optimista del modelo se recorta
+    assert ai_tenant.cap_score(9, 0.30) == 9 and ai_tenant.cap_score(9, 0.38) == 7 and ai_tenant.cap_score(9, 0.6) == 3
+    assert ai_tenant.cap_score(8, None) == 8 and ai_tenant.effort_note(None) == ""
+    assert "47 %" in login(app, "ana@example.org").get(f"/pisos/{listing_id}/mensaje").text
