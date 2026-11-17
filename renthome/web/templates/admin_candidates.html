@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% block title %}Candidatas{% endblock %}
+{% block content %}
+<header class="page-head"><p class="eyebrow">Inmobiliarias</p><h1>Candidatas por revisar.</h1>
+  <p>Cada semana se buscan inmobiliarias locales nuevas y se prueba si su web se puede leer. Aquí decides cuáles entran.</p></header>
+{{ flashes() }}
+{% if not ai_ready %}<p class="notice info">El descubrimiento usa el modelo de IA local, que no está configurado (variable RENTHOME_LLM_URL).</p>{% endif %}
+<section class="form-section">
+  <header><h2>Analizar una web</h2><p>Pega la web de una inmobiliaria local y se intentará deducir cómo rastrearla.</p></header>
+  <form class="fields" method="post" action="/admin/candidatas/analizar">{{ csrf() }}
+    <div class="field"><label for="url">Web de la inmobiliaria</label><input id="url" name="url" type="text" required maxlength="200" placeholder="https://miagencia.com"></div>
+    <div class="field"><label for="area">Zona</label><select id="area" name="area" required><option value="">Elige…</option>
+      {% for k, v in catalog.AREAS.items() %}<option value="{{ k }}">{{ v }}</option>{% endfor %}</select></div>
+    <div class="field wide"><div class="row"><button class="btn" type="submit"{% if not ai_ready %} disabled{% endif %}>Analizar</button></div></div>
+  </form>
+</section>
+<section class="row spread panel">
+  <span>La búsqueda automática se ejecuta sola una vez por semana.</span>
+  <form method="post" action="/admin/candidatas/buscar">{{ csrf() }}<button class="btn btn-ghost" type="submit"{% if not ai_ready %} disabled{% endif %}>Buscar inmobiliarias nuevas ahora</button></form>
+</section>
+<section class="stack">
+  <h2>Pendientes ({{ pending|length }})</h2>
+  {% if not pending %}<p class="empty">No hay candidatas pendientes.</p>{% endif %}
+  {% for c in pending %}
+  <article class="panel">
+    <div class="row spread"><h3>{{ c.name }}</h3><span class="tag">{{ catalog.AREAS.get(c.area, c.area) }}</span></div>
+    <p><a href="{{ c.website }}" target="_blank" rel="noopener noreferrer">{{ c.website }}</a></p>
+    {% if c.evidence %}<p class="muted">{{ c.evidence }}</p>{% endif %}
+    <p><strong>Prueba de rastreo:</strong> {{ c.probe_result }}</p>
+    <details><summary class="small muted">Configuración propuesta</summary><pre class="small brief">{{ c.proposal }}</pre></details>
+    <div class="row">
+      <form method="post" action="/admin/candidatas/{{ c.id }}/aprobar">{{ csrf() }}<button class="btn" type="submit">Aprobar y rastrear</button></form>
+      <form method="post" action="/admin/candidatas/{{ c.id }}/rechazar">{{ csrf() }}<button class="btn btn-ghost" type="submit">Descartar</button></form>
+    </div>
+  </article>
+  {% endfor %}
+</section>
+{% if discarded %}
+<section class="stack">
+  <h2>Analizadas sin éxito</h2>
+  <div class="table-wrap"><table><thead><tr><th>Web</th><th>Zona</th><th>Motivo</th><th>Fecha</th></tr></thead><tbody>
+    {% for c in discarded %}<tr><td>{{ c.website }}</td><td>{{ catalog.AREAS.get(c.area, c.area) }}</td><td>{{ c.probe_result }}</td><td class="num">{{ c.found_at|date }}</td></tr>{% endfor %}
+  </tbody></table></div>
+</section>
+{% endif %}
+{% endblock %}

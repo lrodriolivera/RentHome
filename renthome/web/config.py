@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 MIN_SECRET_LENGTH = 32
-PRIVACY_VERSION = "2026-11-17"
+PRIVACY_VERSION = "2026-11-17b"
 MAX_UPLOAD_BYTES = 10 * 1024 * 1024
 MAX_DOCUMENTS_PER_USER = 40
 # cuerpo máximo de una petición: subida de documentos / resto de formularios

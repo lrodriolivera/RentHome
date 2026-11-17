@@ -1,4 +1,4 @@
-// Copiar al portapapeles (enlace de invitación). Sin dependencias.
+// Copiar al portapapeles (enlace de invitación, borrador de mensaje). Sin dependencias.
 document.addEventListener("click", async (event) => {
   const button = event.target.closest("[data-copy]");
   if (!button) return;

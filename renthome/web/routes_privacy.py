@@ -17,7 +17,7 @@ from sqlalchemy.orm import Session
 from . import crypto, documents, security
 from .config import AUDIT_RETENTION_DAYS, INACTIVE_DAYS, PRIVACY_VERSION, Settings
 from .deps import audit, current_user, flash, get_db, get_settings, render, require_user, verify_csrf
-from .models import AuditLog, Invitation, User, utcnow
+from .models import AuditLog, Invitation, Listing, User, utcnow
 from .routes_profile import read_id_number
 
 router = APIRouter()
@@ -35,6 +35,15 @@ def _columns(obj, skip: tuple[str, ...] = ()) -> dict:
             if c.name not in skip and not isinstance(v := getattr(obj, c.name), bytes)}
 
 
+def _draft(settings: Settings, state) -> str:
+    if not state.draft_message_enc:
+        return ""
+    try:
+        return crypto.decrypt(settings.secret_key, state.user_id, "draft", state.draft_message_enc).decode()
+    except crypto.DecryptionError:
+        return ""
+
+
 def build_export(db: Session, settings: Settings, user: User, out: IO[bytes]) -> None:
     """Escribe en `out` un ZIP con los datos del usuario en JSON y sus documentos descifrados."""
     log = db.scalars(select(AuditLog).where(AuditLog.user_id == user.id).order_by(AuditLog.at)).all()
@@ -45,6 +54,11 @@ def build_export(db: Session, settings: Settings, user: User, out: IO[bytes]) ->
         "perfil": {**_columns(user.profile), "id_number": read_id_number(settings, user)},
         "busqueda": _columns(user.preference),
         "documentos": [_columns(d, skip=("storage_name",)) for d in user.documents],
+        "busquedas_guardadas": [_columns(s) for s in user.saved_searches],
+        "anuncios_guardados_o_descartados": [
+            {**_columns(state), "anuncio": getattr(db.get(Listing, state.listing_id), "url", ""),
+             "borrador_mensaje": _draft(settings, state)}
+            for state in user.listing_states],
         "registro_de_actividad": [_columns(entry) for entry in log],
     }
     # sin compresión: los PDF y las imágenes ya vienen comprimidos

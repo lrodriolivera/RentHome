@@ -270,3 +270,11 @@ class AgencyCandidate(Base):
     probe_result: Mapped[str] = mapped_column(String(400), default="")
     status: Mapped[str] = mapped_column(String(10), default="pending", index=True)  # pending | approved | rejected
     found_at: Mapped[dt.datetime] = mapped_column(DateTime, default=utcnow)
+
+
+class AppState(Base):
+    """Pequeños valores del sistema (p. ej. cuándo se ejecutó el último descubrimiento)."""
+    __tablename__ = "app_state"
+
+    key: Mapped[str] = mapped_column(String(40), primary_key=True)
+    value: Mapped[str] = mapped_column(String(200), default="")

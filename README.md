@@ -1,5 +1,10 @@
 # 🏠 RentHome Ibiza
 
+> **Nueva plataforma multiusuario** (Baleares y Barcelona, perfiles, documentos cifrados, IA local):
+> ver [documentacion/PLATAFORMA.md](documentacion/PLATAFORMA.md) y [documentacion/RGPD.md](documentacion/RGPD.md).
+> Lo que sigue describe el buscador original de una sola persona, que sigue funcionando.
+
+
 Buscador automático de **pisos y casas en alquiler anual (larga duración)** en Ibiza.
 **No usa portales masivos** (Idealista, Fotocasa, etc.): recorre directamente las webs de las
 **inmobiliarias locales** de la isla.

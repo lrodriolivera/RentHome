@@ -143,3 +143,87 @@
   render: true
   render_details: false
   long_term_section: true
+# ---- Mallorca ----
+- name: AM Inmobiliaria
+  town: Santanyí
+  areas: [mallorca]
+  website: https://www.am-inmobiliaria.com
+  start_urls:
+  - https://www.am-inmobiliaria.com/es/alquileres-residencial/casas-de-pueblo-apartamentos-en-alquiler.html
+  - https://www.am-inmobiliaria.com/es/alquileres-residencial/villas-chalets-en-alquiler.html
+  - https://www.am-inmobiliaria.com/es/alquileres-residencial/fincas-casas-de-campo-en-alquiler.html
+  detail_pattern: am-inmobiliaria\.com/es/inmobiliarias/[^/]+\.html$
+  max_pages: 2
+  long_term_section: true
+- name: Rent a Home Mallorca
+  town: Palma
+  areas: [mallorca]
+  website: https://www.rentahomemallorca.es
+  start_urls:
+  - https://www.rentahomemallorca.es/alquiler-vivienda
+  - https://www.rentahomemallorca.es/alquiler-vivienda/amueblado
+  - https://www.rentahomemallorca.es/alquiler-vivienda/sin-muebles
+  detail_pattern: rentahomemallorca\.es/alquiler-vivienda/[^/]+-pr\d+$
+  max_pages: 1
+  long_term_section: false
+- name: Mallorca Dream Homes
+  town: Sóller
+  areas: [mallorca]
+  website: https://www.mallorcadreamhomes.com
+  start_urls:
+  - https://www.mallorcadreamhomes.com/alquileres
+  detail_pattern: mallorcadreamhomes\.com/REF-[A-Z0-9]+$
+  page_pattern: mallorcadreamhomes\.com/alquileres\?page=\d+$
+  max_pages: 3
+  long_term_section: false
+- name: Mallorca Property Centre
+  town: Artà
+  areas: [mallorca]
+  website: https://www.mpcweb.net
+  start_urls:
+  - https://www.mpcweb.net/alquiler-larga-estancia-mallorca
+  detail_pattern: mpcweb\.net/es/rental/id/\d+
+  page_pattern: mpcweb\.net/alquiler-larga-estancia-mallorca/page/\d+$
+  max_pages: 4
+  long_term_section: false
+  render: true
+- name: Homeing Mallorca
+  town: Algaida
+  areas: [mallorca]
+  website: https://www.homeingmallorca.com
+  start_urls:
+  - https://www.homeingmallorca.com/todos-alquileres-de-larga-estancia-mallorca
+  detail_pattern: homeingmallorca\.com/es/rental/id/\d+
+  max_pages: 1
+  long_term_section: true
+  render: true
+- name: Pollentia Properties
+  town: Pollença
+  areas: [mallorca]
+  website: https://www.pollentiaproperties.com
+  start_urls:
+  - https://www.pollentiaproperties.com/es/alquileres-larga-estancia-en-mallorca
+  detail_pattern: pollentiaproperties\.com/es/rental/id/\d+
+  max_pages: 1
+  long_term_section: false
+# ---- Menorca ----
+- name: Bonnin Sanso
+  town: Maó
+  areas: [menorca]
+  website: https://www.bonninsanso.com
+  start_urls:
+  - https://www.bonninsanso.com/es/fincas/alquiler/menorca/tipo/vivienda/apartamento-piso/
+  - https://www.bonninsanso.com/es/fincas/alquiler/menorca/tipo/vivienda/casa/
+  detail_pattern: bonninsanso\.com/es/alquiler/[^/]+/\d+/?$
+  max_pages: 1
+  long_term_section: false
+# ---- Formentera ----
+- name: Your Formentera
+  town: Sant Francesc
+  areas: [formentera]
+  website: https://yourformentera.es
+  start_urls:
+  - https://yourformentera.es/es/long-term/
+  detail_pattern: yourformentera\.es/es/long-term/[^/]+/?$
+  max_pages: 1
+  long_term_section: false

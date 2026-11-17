@@ -279,3 +279,29 @@ def test_seed_agencies_loaded_on_start(app):
     with db_session(app) as db:
         names = set(db.scalars(select(Agency.name)))
     assert {"Living in Ibiza", "Roxire"} <= names
+
+
+# ---------- avisos ----------
+
+def test_saved_search_email_digest_is_sent_once(app):
+    from renthome.web.notifications import notify_saved_searches
+
+    class FakeMailer:
+        sent: list = []
+
+        def send(self, to, subject, body):
+            self.sent.append((to, subject, body))
+
+    agency = add_agency(app)
+    add_user(app, "ana@example.org", areas="ibiza")
+    ana = login(app, "ana@example.org")
+    ana.post("/busquedas", data={"name": "Ibiza", "areas": "ibiza", "notify": "1", "csrf_token": csrf(ana, "/busquedas/nueva")})
+    mailer, factory = FakeMailer(), app.state.session_factory
+    assert notify_saved_searches(factory, mailer, "https://rh.test") == 0  # nada nuevo todavía
+    add_listing(app, agency, "1", title="Recién llegado")
+    assert notify_saved_searches(factory, mailer, "https://rh.test") == 1
+    to, subject, body = mailer.sent[0]
+    assert to == "ana@example.org" and "Recién llegado" in body and "https://rh.test/pisos?b=" in body
+    add_listing(app, agency, "2", title="Otro más")
+    assert notify_saved_searches(factory, mailer, "https://rh.test") == 0  # como mucho uno cada 12 h
+    assert notify_saved_searches(factory, None, "") == 0

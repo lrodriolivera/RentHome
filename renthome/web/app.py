@@ -15,12 +15,14 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
-from . import (agencies, routes_admin, routes_agencies, routes_auth, routes_documents, routes_home, routes_privacy,
+from . import (agencies, routes_admin, routes_agencies, routes_auth, routes_documents, routes_home, routes_ai, routes_privacy,
                routes_profile, routes_search)
+from .ai import LLM
 from .config import SESSION_MAX_AGE_SECONDS, Settings, load_settings
 from .db import Base, make_engine, make_session_factory, session_scope
 from .deps import LoginRequired, render
 from .limits import BodyLimitMiddleware
+from .notifications import Mailer, notify_saved_searches
 from .routes_privacy import purge_stale
 from .security import LoginLimiter
 from .worker import CrawlWorker
@@ -61,7 +63,18 @@ def _format_size(value: int) -> str:
     return f"{value / 1024 / 1024:.1f} MB" if value >= 1024 * 1024 else f"{max(1, value // 1024)} KB"
 
 
+def configure_logging() -> None:
+    """uvicorn solo configura sus propios registros; aquí se activan los de la aplicación."""
+    root = logging.getLogger("renthome")
+    if not root.handlers:
+        handler = logging.StreamHandler()
+        handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s", "%d/%m %H:%M:%S"))
+        root.addHandler(handler)
+        root.setLevel(logging.INFO)
+
+
 def create_app(settings: Settings | None = None) -> FastAPI:
+    configure_logging()
     settings = settings or load_settings()
     engine = make_engine(settings.db_path)
     Base.metadata.create_all(engine)
@@ -71,7 +84,10 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         added = agencies.seed(db)
     if added:
         log.info("Añadidas %d inmobiliarias iniciales", added)
-    worker = CrawlWorker(session_factory)
+    llm = LLM.from_env()
+    mailer = Mailer.from_env()
+    worker = CrawlWorker(session_factory, llm=llm,
+                         on_idle=lambda: notify_saved_searches(session_factory, mailer, settings.base_url))
 
     def run_purge() -> None:
         try:
@@ -100,6 +116,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.settings = settings
     app.state.session_factory = session_factory
     app.state.worker = worker
+    app.state.llm = llm
     app.state.limiter = LoginLimiter()
 
     templates = Jinja2Templates(directory=str(HERE / "templates"))
@@ -142,6 +159,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     app.mount("/static", StaticFiles(directory=str(HERE / "static")), name="static")
     for module in (routes_home, routes_auth, routes_profile, routes_documents, routes_privacy, routes_search,
-                   routes_admin, routes_agencies):
+                   routes_ai, routes_admin, routes_agencies):
         app.include_router(module.router)
+    app.include_router(routes_agencies.candidates_router)
     return app

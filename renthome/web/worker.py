@@ -12,8 +12,10 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session, sessionmaker
 
 from ..fetch import Fetcher
+from . import ai_listings, catalog, discovery
+from .ai import LLM
 from .crawl_service import CrawlResult, crawl_agency
-from .models import Agency, CrawlJob, utcnow
+from .models import Agency, AppState, CrawlJob, utcnow
 
 log = logging.getLogger("renthome.worker")
 USER_AGENT = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -22,6 +24,9 @@ USER_REFRESH_HOURS = 3       # "Buscar ahora" no vuelve a rastrear lo que se ley
 AUTO_REFRESH_HOURS = 24      # rastreo automático diario
 SCHEDULER_INTERVAL_SECONDS = 30 * 60
 MAX_CONSECUTIVE_FAILURES = 5  # tras tantos fallos seguidos, el rastreo automático la deja en paz
+DISCOVERY_INTERVAL_DAYS = 7
+DISCOVERY_STATE_KEY = "last_discovery"
+AI_BATCH_PER_JOB = 40
 
 
 def stale_agencies(db: Session, areas: list[str] | None, max_age_hours: float, include_failing: bool) -> list[Agency]:
@@ -38,13 +43,16 @@ def pending_agency_ids(db: Session) -> set[int]:
 
 
 class CrawlWorker:
-    def __init__(self, factory: sessionmaker[Session],
-                 on_new_listings: Callable[[list[int]], None] | None = None) -> None:
+    def __init__(self, factory: sessionmaker[Session], llm: LLM | None = None,
+                 on_idle: Callable[[], None] | None = None) -> None:
         self._factory = factory
-        self._queue: queue.Queue[int] = queue.Queue()
+        self.llm = llm
+        self._on_idle = on_idle       # se llama al vaciarse la cola tras rastrear (p. ej. enviar avisos)
+        self._crawled_since_idle = False
+        # elementos: ("crawl", id de trabajo) | ("discover", zonas) | ("analyse", (url, zona))
+        self._queue: queue.Queue[tuple[str, object]] = queue.Queue()
         self._thread: threading.Thread | None = None
         self._stop = threading.Event()
-        self._on_new = on_new_listings
 
     # ---------- encolar ----------
     def enqueue(self, db: Session, agency_ids: list[int], reason: str) -> int:
@@ -56,8 +64,14 @@ class CrawlWorker:
         job_ids = [job.id for job in jobs]
         db.commit()
         for job_id in job_ids:
-            self._queue.put(job_id)
+            self._queue.put(("crawl", job_id))
         return len(job_ids)
+
+    def request_discovery(self, areas: list[str] | None = None) -> None:
+        self._queue.put(("discover", areas or list(catalog.AREAS)))
+
+    def request_analysis(self, url: str, area: str) -> None:
+        self._queue.put(("analyse", (url, area)))
 
     def enqueue_stale(self, db: Session, areas: list[str] | None, max_age_hours: float, reason: str) -> int:
         include_failing = reason != "scheduled"
@@ -72,7 +86,7 @@ class CrawlWorker:
             queued = [j.id for j in db.scalars(select(CrawlJob).where(CrawlJob.status == "queued"))]
             db.commit()
         for job_id in queued:
-            self._queue.put(job_id)
+            self._queue.put(("crawl", job_id))
         self._thread = threading.Thread(target=self._run, name="crawl-worker", daemon=True)
         self._thread.start()
         threading.Thread(target=self._schedule, name="crawl-scheduler", daemon=True).start()
@@ -87,24 +101,69 @@ class CrawlWorker:
                     queued = self.enqueue_stale(db, None, AUTO_REFRESH_HOURS, "scheduled")
                 if queued:
                     log.info("Rastreo automático: %d inmobiliarias en cola", queued)
+                self._maybe_discover()
             except Exception:
                 log.exception("Fallo en el planificador de rastreos")
             if self._stop.wait(SCHEDULER_INTERVAL_SECONDS):
                 return
 
+    def _maybe_discover(self) -> None:
+        """Una vez por semana busca inmobiliarias nuevas (si hay modelo local configurado)."""
+        if self.llm is None:
+            return
+        with self._factory() as db:
+            state = db.get(AppState, DISCOVERY_STATE_KEY)
+            last = dt.datetime.fromisoformat(state.value) if state and state.value else None
+            if last and utcnow() - last < dt.timedelta(days=DISCOVERY_INTERVAL_DAYS):
+                return
+            if state is None:
+                state = AppState(key=DISCOVERY_STATE_KEY)
+                db.add(state)
+            state.value = utcnow().isoformat()
+            db.commit()
+        self.request_discovery()
+
     def _run(self) -> None:
         fetcher: Fetcher | None = None
         while not self._stop.is_set():
             try:
-                job_id = self._queue.get(timeout=20)
+                kind, payload = self._queue.get(timeout=5)
             except queue.Empty:
                 if fetcher is not None:  # cola vacía: se cierra el navegador hasta la próxima tanda
                     fetcher.close()
                     fetcher = None
+                self._read_with_ai()  # en los ratos libres, la IA va leyendo anuncios pendientes
+                if self._crawled_since_idle and self._on_idle is not None:
+                    self._crawled_since_idle = False
+                    try:
+                        self._on_idle()
+                    except Exception:
+                        log.exception("Fallo en los avisos")
                 continue
             if fetcher is None:
                 fetcher = Fetcher(USER_AGENT, delay=float(os.environ.get("RENTHOME_CRAWL_DELAY", "1.0")), timeout=25)
-            self._process(job_id, fetcher)
+            try:
+                if kind == "crawl":
+                    self._process(int(payload), fetcher)  # type: ignore[arg-type]
+                elif kind == "discover" and self.llm is not None:
+                    found = discovery.run(self._factory, self.llm, fetcher, list(payload))  # type: ignore[call-overload]
+                    log.info("Descubrimiento terminado: %d candidatas viables", found)
+                elif kind == "analyse" and self.llm is not None:
+                    url, area = payload  # type: ignore[misc]
+                    proposal = discovery.analyse_site(self.llm, fetcher, url, area)
+                    with self._factory() as db:
+                        discovery.store(db, proposal, url, area)
+                        db.commit()
+            except Exception:
+                log.exception("Fallo en la tarea %s", kind)
+
+    def _read_with_ai(self) -> None:
+        if self.llm is None:
+            return
+        try:
+            ai_listings.process_pending(self._factory, self.llm, AI_BATCH_PER_JOB)
+        except Exception:
+            log.exception("Fallo leyendo anuncios con IA")
 
     def _process(self, job_id: int, fetcher: Fetcher) -> None:
         with self._factory() as db:
@@ -125,8 +184,4 @@ class CrawlWorker:
                 job.status = "failed" if result.error else "done"
                 job.finished_at, job.found, job.new_count, job.error = utcnow(), result.found, result.new, result.error
                 db.commit()
-        if result.new_listing_ids and self._on_new is not None:
-            try:
-                self._on_new(result.new_listing_ids)
-            except Exception:
-                log.exception("Fallo al procesar anuncios nuevos")
+        self._crawled_since_idle = True

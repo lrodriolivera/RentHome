@@ -1,15 +1,18 @@
 """Panel de administrador: inmobiliarias que se rastrean."""
 from __future__ import annotations
 
+import re
+
+import yaml
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from . import agencies as agency_lib
-from . import catalog, forms
+from . import catalog, discovery, forms
 from .deps import audit, flash, get_db, render, require_admin, verify_csrf
-from .models import Agency, CrawlJob, Listing, User
+from .models import Agency, AgencyCandidate, CrawlJob, Listing, User
 
 router = APIRouter(prefix="/admin/inmobiliarias")
 
@@ -62,8 +65,10 @@ def agencies(request: Request, admin: User = Depends(require_admin), db: Session
     busy = set(db.scalars(select(CrawlJob.agency_id).where(CrawlJob.status.in_(("queued", "running")))))
     jobs = db.scalars(select(CrawlJob).order_by(CrawlJob.id.desc()).limit(15)).all()
     names = {a.id: a.name for a in rows}
+    candidate_count = db.scalar(select(func.count()).select_from(AgencyCandidate)
+                                .where(AgencyCandidate.status == "pending"))
     return render(request, "admin_agencies.html", user=admin, agencies=rows, counts=counts, busy=busy, jobs=jobs,
-                  names=names)
+                  names=names, candidate_count=candidate_count or 0)
 
 
 @router.get("/nueva")
@@ -147,3 +152,94 @@ def delete_agency(agency_id: int, request: Request, admin: User = Depends(requir
     audit(db, request, admin.id, "inmobiliaria_eliminada", name)
     flash(request, f"{name} eliminada con sus anuncios.")
     return RedirectResponse("/admin/inmobiliarias", status_code=303)
+
+
+# ---------- candidatas del descubrimiento ----------
+
+candidates_router = APIRouter(prefix="/admin/candidatas")
+
+
+def public_site(url: str) -> str:
+    """Solo webs públicas: evita que el servidor visite direcciones internas."""
+    host = discovery.site_key(url)
+    internal = (not host or "." not in host or host.replace(".", "").replace(":", "").isdigit()
+                or host.endswith((".local", ".internal", ".lan", ".localhost")) or host.startswith("localhost"))
+    if internal or not re.match(r"^(https?://)?[\w.-]+(/.*)?$", url):
+        raise forms.FormError("Escribe la dirección de una web pública, por ejemplo https://miagencia.com")
+    if discovery.is_portal(url):
+        raise forms.FormError("Eso es un portal o agregador: solo se admiten inmobiliarias locales.")
+    return f"https://{host}"
+
+
+@candidates_router.get("")
+def candidates(request: Request, admin: User = Depends(require_admin), db: Session = Depends(get_db)):
+    pending = db.scalars(select(AgencyCandidate).where(AgencyCandidate.status == "pending")
+                         .order_by(AgencyCandidate.found_at.desc())).all()
+    discarded = db.scalars(select(AgencyCandidate).where(AgencyCandidate.status == "discarded")
+                           .order_by(AgencyCandidate.found_at.desc()).limit(30)).all()
+    return render(request, "admin_candidates.html", user=admin, pending=pending, discarded=discarded,
+                  ai_ready=request.app.state.llm is not None)
+
+
+@candidates_router.post("/buscar", dependencies=[Depends(verify_csrf)])
+def discover_now(request: Request, admin: User = Depends(require_admin), db: Session = Depends(get_db)):
+    if request.app.state.llm is None:
+        flash(request, "El descubrimiento necesita el modelo de IA local, que no está configurado.", "error")
+    else:
+        request.app.state.worker.request_discovery()
+        audit(db, request, admin.id, "descubrimiento_lanzado")
+        flash(request, "Buscando inmobiliarias nuevas en todas las zonas. Tarda varios minutos; "
+                       "las que funcionen aparecerán aquí.")
+    return RedirectResponse("/admin/candidatas", status_code=303)
+
+
+@candidates_router.post("/analizar", dependencies=[Depends(verify_csrf)])
+async def analyse(request: Request, admin: User = Depends(require_admin), db: Session = Depends(get_db)):
+    form = await request.form()
+    try:
+        site = public_site(str(form.get("url") or "").strip())
+        area = forms.choice(form, "area", catalog.AREAS)
+        if not area:
+            raise forms.FormError("Elige la zona de la inmobiliaria.")
+        if request.app.state.llm is None:
+            raise forms.FormError("El análisis necesita el modelo de IA local, que no está configurado.")
+    except forms.FormError as exc:
+        flash(request, str(exc), "error")
+        return RedirectResponse("/admin/candidatas", status_code=303)
+    request.app.state.worker.request_analysis(site, area)
+    audit(db, request, admin.id, "candidata_analizada", site)
+    flash(request, f"Analizando {site}. En un par de minutos aparecerá aquí el resultado.")
+    return RedirectResponse("/admin/candidatas", status_code=303)
+
+
+@candidates_router.post("/{candidate_id}/aprobar", dependencies=[Depends(verify_csrf)])
+def approve(candidate_id: int, request: Request, admin: User = Depends(require_admin), db: Session = Depends(get_db)):
+    candidate = db.get(AgencyCandidate, candidate_id)
+    if candidate is None or candidate.status != "pending":
+        raise HTTPException(status_code=404)
+    try:
+        entry = yaml.safe_load(candidate.proposal) or {}
+        if db.scalar(select(Agency).where(Agency.name == entry.get("name"))) is not None:
+            raise agency_lib.AgencyConfigError("ya existe una inmobiliaria con ese nombre")
+        agency = Agency(origin="discovered", notes=candidate.probe_result[:300])
+        agency_lib.apply_entry(agency, entry)
+    except (agency_lib.AgencyConfigError, yaml.YAMLError, KeyError) as exc:
+        flash(request, f"No se pudo aprobar: {exc}", "error")
+        return RedirectResponse("/admin/candidatas", status_code=303)
+    db.add(agency)
+    candidate.status = "approved"
+    db.flush()
+    request.app.state.worker.enqueue(db, [agency.id], "admin")
+    audit(db, request, admin.id, "candidata_aprobada", agency.name)
+    flash(request, f"{agency.name} añadida y en cola para su primer rastreo.")
+    return RedirectResponse("/admin/inmobiliarias", status_code=303)
+
+
+@candidates_router.post("/{candidate_id}/rechazar", dependencies=[Depends(verify_csrf)])
+def reject(candidate_id: int, request: Request, admin: User = Depends(require_admin), db: Session = Depends(get_db)):
+    candidate = db.get(AgencyCandidate, candidate_id)
+    if candidate is None:
+        raise HTTPException(status_code=404)
+    candidate.status = "rejected"  # se conserva para no volver a proponerla
+    flash(request, f"{candidate.name} descartada.")
+    return RedirectResponse("/admin/candidatas", status_code=303)
