@@ -7,6 +7,7 @@ EXCLUDE_TYPES = [
     "commercial premises", "oficina", "office", "despacho", "habitación en piso compartido",
     "alquiler de habitación", "room for rent", "tienda", "licencia", "plot", "parcela", "terreno",
     "solar", "nave", "warehouse", "traspaso", "restaurante", "restaurant", "edificio", "hotel",
+    "local diafano", "amplio local", "local en alquiler", "local en venta", "plaza de coche", "plaza de moto",
 ]
 # Lugares fuera de las zonas cubiertas que algunas inmobiliarias mezclan en su cartera
 FAR_PLACES = ["tarbena", "alicante", "valencia", "madrid", "denia", "andorra", "malaga", "marbella", "alfaz del pi",
