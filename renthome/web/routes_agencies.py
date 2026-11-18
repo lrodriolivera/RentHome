@@ -11,7 +11,7 @@ from ..netguard import normalise_site
 from . import agencies as agency_lib
 from . import catalog, discovery, forms
 from .deps import audit, flash, get_db, render, require_admin, verify_csrf
-from .models import Agency, AgencyCandidate, CrawlJob, Listing, User
+from .models import Agency, AgencyCandidate, CrawlJob, Listing, TownSearch, User
 
 router = APIRouter(prefix="/admin/inmobiliarias")
 
@@ -174,8 +174,41 @@ def candidates(request: Request, admin: User = Depends(require_admin), db: Sessi
                          .order_by(AgencyCandidate.found_at.desc())).all()
     discarded = db.scalars(select(AgencyCandidate).where(AgencyCandidate.status == "discarded")
                            .order_by(AgencyCandidate.found_at.desc()).limit(30)).all()
+    towns = db.scalars(select(TownSearch).order_by(TownSearch.id.desc()).limit(15)).all()
     return render(request, "admin_candidates.html", user=admin, pending=pending, discarded=discarded,
-                  ai_ready=request.app.state.llm is not None)
+                  ai_ready=request.app.state.llm is not None, town_searches=towns,
+                  town_busy=any(s.status in ("queued", "running") for s in towns))
+
+
+@candidates_router.post("/ciudad", dependencies=[Depends(verify_csrf)])
+async def discover_town(request: Request, admin: User = Depends(require_admin), db: Session = Depends(get_db)):
+    """Busca inmobiliarias locales en una ciudad concreta de una de las zonas."""
+    form = await request.form()
+    try:
+        area = forms.choice(form, "area", catalog.AREAS)
+        if not area:
+            raise forms.FormError("Elige la zona en la que está la ciudad.")
+        try:
+            town = discovery.clean_town(str(form.get("town") or ""))
+        except ValueError as exc:
+            raise forms.FormError(str(exc)) from exc
+        if request.app.state.llm is None:
+            raise forms.FormError("La búsqueda por ciudad necesita el modelo de IA local, que no está configurado.")
+        active = db.scalars(select(TownSearch).where(TownSearch.area == area,
+                                                     TownSearch.status.in_(("queued", "running"))))
+        if any(s.town.casefold() == town.casefold() for s in active):
+            raise forms.FormError(f"En {town} ya se está buscando; espera a que termine.")
+    except forms.FormError as exc:
+        flash(request, str(exc), "error")
+        return RedirectResponse("/admin/candidatas", status_code=303)
+    search = TownSearch(area=area, town=town)
+    db.add(search)
+    db.commit()  # antes de encolar: el worker la lee desde otra sesión
+    request.app.state.worker.request_town_discovery(search.id)
+    audit(db, request, admin.id, "busqueda_ciudad", f"{town} ({area})")
+    flash(request, f"Buscando inmobiliarias en {town}. Tarda unos minutos; las que se puedan rastrear "
+                   "aparecerán en «Pendientes».")
+    return RedirectResponse("/admin/candidatas", status_code=303)
 
 
 @candidates_router.post("/buscar", dependencies=[Depends(verify_csrf)])

@@ -266,11 +266,28 @@ class AgencyCandidate(Base):
     website: Mapped[str] = mapped_column(String(200), unique=True)
     name: Mapped[str] = mapped_column(String(120), default="")
     area: Mapped[str] = mapped_column(String(20), default="")
+    town: Mapped[str | None] = mapped_column(String(80), nullable=True)  # ciudad buscada, si vino de una búsqueda por ciudad
     evidence: Mapped[str] = mapped_column(String(400), default="")       # por qué parece una inmobiliaria local
     proposal: Mapped[str] = mapped_column(Text, default="")              # configuración propuesta (YAML)
     probe_result: Mapped[str] = mapped_column(String(400), default="")
     status: Mapped[str] = mapped_column(String(10), default="pending", index=True)  # pending | approved | rejected
     found_at: Mapped[dt.datetime] = mapped_column(DateTime, default=utcnow)
+
+
+class TownSearch(Base):
+    """Búsqueda de inmobiliarias en una ciudad concreta, lanzada por el administrador."""
+    __tablename__ = "town_searches"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    area: Mapped[str] = mapped_column(String(20))
+    town: Mapped[str] = mapped_column(String(80))
+    status: Mapped[str] = mapped_column(String(10), default="queued", index=True)  # queued | running | done | failed
+    suggested: Mapped[int] = mapped_column(Integer, default=0)   # webs que propuso la IA
+    analysed: Mapped[int] = mapped_column(Integer, default=0)    # nuevas que se visitaron
+    viable: Mapped[int] = mapped_column(Integer, default=0)      # candidatas que se pueden rastrear
+    error: Mapped[str] = mapped_column(String(200), default="")
+    requested_at: Mapped[dt.datetime] = mapped_column(DateTime, default=utcnow)
+    finished_at: Mapped[dt.datetime | None] = mapped_column(DateTime, nullable=True)
 
 
 class AppState(Base):

@@ -45,11 +45,16 @@ MAX_LINKS_FOR_MODEL = 60
 MIN_DETAIL_LINKS = 3
 PROBE_DETAILS = 3
 MIN_RENT, MAX_RENT = 300, 20000
+TOWN_LIMIT = 10                       # webs nuevas que se analizan como mucho en una búsqueda por ciudad
+TOWN_MIN, TOWN_MAX = 2, 60
+_TOWN_CHARS = re.compile(r"[^\W\d_]+(?:[ '’.\-][^\W\d_]*)*")
+_TOWN_PARTICLES = {"de", "del", "d", "la", "las", "les", "los", "el", "els", "i", "y", "sa", "ses", "es", "s", "l"}
 
 SUGGEST_SYSTEM = """Conoces el mercado inmobiliario español. Responde SOLO JSON:
 {"agencias": [{"nombre": "...", "web": "https://..."}]}
 Lista hasta 15 inmobiliarias LOCALES e independientes (oficina física en la zona, web propia) que gestionen alquiler
-residencial de larga duración en la zona indicada. Excluye portales, agregadores, franquicias nacionales y agencias
+residencial de larga duración en la zona indicada (y, si se indica un municipio, con oficina en ese municipio
+o muy cerca). Excluye portales, agregadores, franquicias nacionales y agencias
 solo de alquiler vacacional o de lujo. Si no estás seguro de la web exacta, no incluyas la agencia."""
 
 CLASSIFY_SYSTEM = """Analizas la página de inicio de una web inmobiliaria española. Responde SOLO JSON:
@@ -225,12 +230,13 @@ def known_sites(db: Session) -> set[str]:
     return sites | {site_key(w) for w in db.scalars(select(AgencyCandidate.website)) if w}
 
 
-def store(db: Session, proposal: Proposal, url: str, area: str) -> AgencyCandidate:
+def store(db: Session, proposal: Proposal, url: str, area: str, town: str = "") -> AgencyCandidate:
     """Guarda el resultado del análisis (también los inviables, para no repetirlos cada semana)."""
     website = f"https://{site_key(url)}"
     candidate = db.scalar(select(AgencyCandidate).where(AgencyCandidate.website == website)) or AgencyCandidate(website=website)
     candidate.name = str(proposal.entry.get("name") or site_key(url))[:120]
     candidate.area = area
+    candidate.town = town or candidate.town
     candidate.evidence = proposal.evidence[:400]
     candidate.proposal = yaml.safe_dump(proposal.entry, allow_unicode=True, sort_keys=False) if proposal.entry else ""
     candidate.probe_result = proposal.probe[:400]
@@ -239,9 +245,27 @@ def store(db: Session, proposal: Proposal, url: str, area: str) -> AgencyCandida
     return candidate
 
 
-def suggest_sites(llm: LLM, area: str) -> list[str]:
+def clean_town(raw: str) -> str:
+    """Nombre de ciudad o municipio legible. Solo letras, espacios, apóstrofos, puntos y guiones."""
+    town = " ".join(str(raw or "").split())
+    if not TOWN_MIN <= len(town) <= TOWN_MAX or not _TOWN_CHARS.fullmatch(town):
+        raise ValueError("Escribe el nombre de una ciudad o municipio, por ejemplo «Sant Cugat del Vallès».")
+    if town != town.lower():
+        return town  # respeta cómo lo ha escrito quien sabe el nombre
+    words = []
+    for i, word in enumerate(town.split(" ")):
+        if i and word in _TOWN_PARTICLES:
+            words.append(word)
+        else:
+            words.append("-".join(part[:1].upper() + part[1:] for part in word.split("-")))
+    return " ".join(words)
+
+
+def suggest_sites(llm: LLM, area: str, town: str = "") -> list[str]:
     """Webs que el modelo cree que son inmobiliarias locales de la zona. Hay que verificarlas."""
-    answer = llm.chat_json(SUGGEST_SYSTEM, f"Zona: {catalog.AREAS.get(area, area)} (España)", max_tokens=900)
+    zone = f"Zona: {catalog.AREAS.get(area, area)} (España)"
+    prompt = f"Municipio: {town}\n{zone}" if town else zone
+    answer = llm.chat_json(SUGGEST_SYSTEM, prompt, max_tokens=900)
     urls = []
     for item in answer.get("agencias") or []:
         raw = str(item.get("web") or "")[:200] if isinstance(item, dict) else ""
@@ -249,6 +273,29 @@ def suggest_sites(llm: LLM, area: str) -> list[str]:
         if site and not is_portal(site):
             urls.append(site)
     return urls
+
+
+@dataclass(frozen=True)
+class TownResult:
+    suggested: int
+    analysed: int
+    viable: int
+
+
+def _analyse_new(factory: sessionmaker[Session], llm: LLM, fetcher, suggestions: list[str], area: str,
+                 limit: int, town: str = "") -> tuple[int, int]:
+    """Analiza las webs sugeridas que aún no se conocen. Devuelve (analizadas, viables)."""
+    with factory() as db:
+        known = known_sites(db)
+    fresh = [u for u in dict.fromkeys(suggestions) if site_key(u) not in known][:limit]
+    viable = 0
+    for url in fresh:
+        proposal = analyse_site(llm, fetcher, url, area)
+        with factory() as db:
+            store(db, proposal, url, area, town)
+            db.commit()
+        viable += 1 if proposal.viable else 0
+    return len(fresh), viable
 
 
 def run(factory: sessionmaker[Session], llm: LLM, fetcher, areas: list[str], per_area: int = 6) -> int:
@@ -260,14 +307,17 @@ def run(factory: sessionmaker[Session], llm: LLM, fetcher, areas: list[str], per
         except LLMUnavailable as exc:
             log.warning("Descubrimiento: IA no disponible (%s)", exc)
             return viable
-        with factory() as db:
-            known = known_sites(db)
-        fresh = [u for u in dict.fromkeys(suggestions) if site_key(u) not in known][:per_area]
-        log.info("Descubrimiento %s: %d sugeridas, %d por analizar", area, len(suggestions), len(fresh))
-        for url in fresh:
-            proposal = analyse_site(llm, fetcher, url, area)
-            with factory() as db:
-                store(db, proposal, url, area)
-                db.commit()
-            viable += 1 if proposal.viable else 0
+        analysed, found = _analyse_new(factory, llm, fetcher, suggestions, area, per_area)
+        log.info("Descubrimiento %s: %d sugeridas, %d analizadas", area, len(suggestions), analysed)
+        viable += found
     return viable
+
+
+def run_town(factory: sessionmaker[Session], llm: LLM, fetcher, area: str, town: str,
+             limit: int = TOWN_LIMIT) -> TownResult:
+    """Busca inmobiliarias de una ciudad concreta. LLMUnavailable se propaga a quien llama."""
+    suggestions = list(dict.fromkeys(suggest_sites(llm, area, town=town)))
+    analysed, viable = _analyse_new(factory, llm, fetcher, suggestions, area, limit, town)
+    log.info("Descubrimiento en %s (%s): %d sugeridas, %d analizadas, %d viables",
+             town, area, len(suggestions), analysed, viable)
+    return TownResult(suggested=len(suggestions), analysed=analysed, viable=viable)

@@ -3,9 +3,27 @@
 {% block title %}Candidatas{% endblock %}
 {% block content %}
 <header class="page-head"><p class="eyebrow">Inmobiliarias</p><h1>Candidatas por revisar.</h1>
-  <p>Cada semana se buscan inmobiliarias locales nuevas y se prueba si su web se puede leer. Aquí decides cuáles entran.</p></header>
+  <p>Busca inmobiliarias locales por ciudad, o deja que se busquen solas cada semana. Se prueba si su web se puede leer y aquí decides cuáles entran.</p></header>
 {{ flashes() }}
 {% if not ai_ready %}<p class="notice info">El descubrimiento usa el modelo de IA local, que no está configurado (variable RENTHOME_LLM_URL).</p>{% endif %}
+<section class="form-section" id="ciudad">
+  <header><h2>Buscar por ciudad</h2><p>Escribe una ciudad o municipio y se buscarán inmobiliarias locales de allí. Cada web se visita y se prueba; solo las que se pueden rastrear pasan a «Pendientes», y nada se añade sin tu aprobación.</p></header>
+  <form class="fields" method="post" action="/admin/candidatas/ciudad">{{ csrf() }}
+    <div class="field"><label for="town">Ciudad o municipio</label><input id="town" name="town" type="text" required minlength="2" maxlength="60" placeholder="Sant Antoni de Portmany" autocomplete="off"></div>
+    <div class="field"><label for="town-area">Zona</label><select id="town-area" name="area" required><option value="">Elige…</option>
+      {% for k, v in catalog.AREAS.items() %}<option value="{{ k }}">{{ v }}</option>{% endfor %}</select></div>
+    <div class="field wide"><div class="row"><button class="btn" type="submit"{% if not ai_ready %} disabled{% endif %}>Buscar inmobiliarias</button></div></div>
+  </form>
+  {% if town_searches %}
+  <div class="table-wrap"><table><thead><tr><th>Ciudad</th><th>Zona</th><th>Estado</th><th>Sugeridas</th><th>Analizadas</th><th>Viables</th><th>Fecha</th></tr></thead><tbody>
+    {% for s in town_searches %}<tr><td>{{ s.town }}</td><td>{{ catalog.AREAS.get(s.area, s.area) }}</td>
+      <td>{% if s.status == "queued" %}<span class="tag">en cola</span>{% elif s.status == "running" %}<span class="tag new">buscando…</span>{% elif s.status == "done" %}<span class="tag ok">terminada</span>{% else %}<span class="tag" title="{{ s.error }}">falló</span> <span class="muted small">{{ s.error }}</span>{% endif %}</td>
+      <td class="num">{{ s.suggested if s.status == "done" else "—" }}</td><td class="num">{{ s.analysed if s.status == "done" else "—" }}</td>
+      <td class="num">{% if s.status == "done" %}<strong>{{ s.viable }}</strong>{% else %}—{% endif %}</td><td class="num">{{ s.requested_at|datetime }}</td></tr>{% endfor %}
+  </tbody></table></div>
+  {% if town_busy %}<p class="muted small">Hay búsquedas en marcha. <a href="/admin/candidatas#ciudad">Recarga la página</a> para ver cómo van.</p>{% endif %}
+  {% endif %}
+</section>
 <section class="form-section">
   <header><h2>Analizar una web</h2><p>Pega la web de una inmobiliaria local y se intentará deducir cómo rastrearla.</p></header>
   <form class="fields" method="post" action="/admin/candidatas/analizar">{{ csrf() }}
@@ -24,7 +42,7 @@
   {% if not pending %}<p class="empty">No hay candidatas pendientes.</p>{% endif %}
   {% for c in pending %}
   <article class="panel">
-    <div class="row spread"><h3>{{ c.name }}</h3><span class="tag">{{ catalog.AREAS.get(c.area, c.area) }}</span></div>
+    <div class="row spread"><h3>{{ c.name }}</h3><div class="row">{% if c.town %}<span class="tag">{{ c.town }}</span>{% endif %}<span class="tag">{{ catalog.AREAS.get(c.area, c.area) }}</span></div></div>
     <p><a href="{{ c.website }}" target="_blank" rel="noopener noreferrer">{{ c.website }}</a></p>
     {% if c.evidence %}<p class="muted">{{ c.evidence }}</p>{% endif %}
     <p><strong>Prueba de rastreo:</strong> {{ c.probe_result }}</p>
@@ -39,8 +57,8 @@
 {% if discarded %}
 <section class="stack">
   <h2>Analizadas sin éxito</h2>
-  <div class="table-wrap"><table><thead><tr><th>Web</th><th>Zona</th><th>Motivo</th><th>Fecha</th></tr></thead><tbody>
-    {% for c in discarded %}<tr><td>{{ c.website }}</td><td>{{ catalog.AREAS.get(c.area, c.area) }}</td><td>{{ c.probe_result }}</td><td class="num">{{ c.found_at|date }}</td></tr>{% endfor %}
+  <div class="table-wrap"><table><thead><tr><th>Web</th><th>Zona</th><th>Ciudad</th><th>Motivo</th><th>Fecha</th></tr></thead><tbody>
+    {% for c in discarded %}<tr><td>{{ c.website }}</td><td>{{ catalog.AREAS.get(c.area, c.area) }}</td><td>{{ c.town or "" }}</td><td>{{ c.probe_result }}</td><td class="num">{{ c.found_at|date }}</td></tr>{% endfor %}
   </tbody></table></div>
 </section>
 {% endif %}

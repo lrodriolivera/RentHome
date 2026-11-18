@@ -16,7 +16,7 @@ from ..netguard import is_public_url
 from . import ai_listings, catalog, discovery
 from .ai import LLM
 from .crawl_service import CrawlResult, crawl_agency
-from .models import Agency, AppState, CrawlJob, utcnow
+from .models import Agency, AppState, CrawlJob, TownSearch, utcnow
 
 log = logging.getLogger("renthome.worker")
 USER_AGENT = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -51,6 +51,7 @@ class CrawlWorker:
         self._on_idle = on_idle       # se llama al vaciarse la cola tras rastrear (p. ej. enviar avisos)
         self._crawled_since_idle = False
         # elementos: ("crawl", id de trabajo) | ("discover", zonas) | ("analyse", (url, zona))
+        #            | ("discover_town", id de TownSearch)
         self._queue: queue.Queue[tuple[str, object]] = queue.Queue()
         self._thread: threading.Thread | None = None
         self._stop = threading.Event()
@@ -74,6 +75,9 @@ class CrawlWorker:
     def request_analysis(self, url: str, area: str) -> None:
         self._queue.put(("analyse", (url, area)))
 
+    def request_town_discovery(self, search_id: int) -> None:
+        self._queue.put(("discover_town", search_id))
+
     def enqueue_stale(self, db: Session, areas: list[str] | None, max_age_hours: float, reason: str) -> int:
         include_failing = reason != "scheduled"
         agencies = stale_agencies(db, areas, max_age_hours, include_failing)
@@ -85,9 +89,13 @@ class CrawlWorker:
             for job in db.scalars(select(CrawlJob).where(CrawlJob.status == "running")):
                 job.status, job.error, job.finished_at = "failed", "interrumpido por un reinicio", utcnow()
             queued = [j.id for j in db.scalars(select(CrawlJob).where(CrawlJob.status == "queued"))]
+            # las búsquedas por ciudad interrumpidas se repiten desde el principio
+            towns = [s.id for s in db.scalars(select(TownSearch).where(TownSearch.status.in_(("queued", "running"))))]
             db.commit()
         for job_id in queued:
             self._queue.put(("crawl", job_id))
+        for search_id in towns:
+            self._queue.put(("discover_town", search_id))
         self._thread = threading.Thread(target=self._run, name="crawl-worker", daemon=True)
         self._thread.start()
         threading.Thread(target=self._schedule, name="crawl-scheduler", daemon=True).start()
@@ -152,6 +160,8 @@ class CrawlWorker:
                 elif kind == "discover" and self.llm is not None:
                     found = discovery.run(self._factory, self.llm, fetcher, list(payload))  # type: ignore[call-overload]
                     log.info("Descubrimiento terminado: %d candidatas viables", found)
+                elif kind == "discover_town":
+                    self._discover_town(int(payload), fetcher)  # type: ignore[arg-type]
                 elif kind == "analyse" and self.llm is not None:
                     url, area = payload  # type: ignore[misc]
                     proposal = discovery.analyse_site(self.llm, fetcher, url, area)
@@ -160,6 +170,34 @@ class CrawlWorker:
                         db.commit()
             except Exception:
                 log.exception("Fallo en la tarea %s", kind)
+
+    def _discover_town(self, search_id: int, fetcher) -> None:
+        with self._factory() as db:
+            search = db.get(TownSearch, search_id)
+            if search is None or search.status == "done":
+                return
+            search.status, search.error = "running", ""
+            area, town = search.area, search.town
+            db.commit()
+        status, error, result = "done", "", None
+        if self.llm is None:
+            status, error = "failed", "La IA local no está configurada."
+        else:
+            try:
+                result = discovery.run_town(self._factory, self.llm, fetcher, area, town)
+            except discovery.LLMUnavailable as exc:
+                status, error = "failed", f"IA no disponible: {exc}"
+            except Exception as exc:
+                log.exception("Fallo buscando inmobiliarias en %s", town)
+                status, error = "failed", f"error interno: {exc.__class__.__name__}"
+        with self._factory() as db:
+            search = db.get(TownSearch, search_id)
+            if search is None:
+                return
+            search.status, search.error, search.finished_at = status, error[:200], utcnow()
+            if result is not None:
+                search.suggested, search.analysed, search.viable = result.suggested, result.analysed, result.viable
+            db.commit()
 
     def _read_with_ai(self) -> bool:
         """Lee una tanda de anuncios con la IA. Devuelve True si puede quedar trabajo pendiente."""
