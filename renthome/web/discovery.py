@@ -1,6 +1,7 @@
 """Descubrimiento de inmobiliarias locales nuevas.
 
-1. Se reúnen webs candidatas (sugeridas por el modelo local o pegadas por el administrador).
+1. Se reúnen webs candidatas reales (OpenStreetMap y búsqueda web, ver agency_finder; o pegadas por
+   el administrador). El modelo ya no las sugiere: inventaba dominios.
 2. Cada una se visita: el modelo decide si es una inmobiliaria local con alquiler de larga
    duración y cuál es su página de listado.
 3. Se deduce el patrón de las fichas y se prueba el rastreo de verdad.
@@ -23,7 +24,6 @@ from sqlalchemy.orm import Session, sessionmaker
 from ..crawl import discover
 from ..netguard import normalise_site
 from ..parse import extract, norm
-from . import catalog
 from .ai import LLM, LLMUnavailable, as_text
 from .models import Agency, AgencyCandidate
 
@@ -49,13 +49,6 @@ TOWN_LIMIT = 10                       # webs nuevas que se analizan como mucho e
 TOWN_MIN, TOWN_MAX = 2, 60
 _TOWN_CHARS = re.compile(r"[^\W\d_]+(?:[ '’.\-][^\W\d_]*)*")
 _TOWN_PARTICLES = {"de", "del", "d", "la", "las", "les", "los", "el", "els", "i", "y", "sa", "ses", "es", "s", "l"}
-
-SUGGEST_SYSTEM = """Conoces el mercado inmobiliario español. Responde SOLO JSON:
-{"agencias": [{"nombre": "...", "web": "https://..."}]}
-Lista hasta 15 inmobiliarias LOCALES e independientes (oficina física en la zona, web propia) que gestionen alquiler
-residencial de larga duración en la zona indicada (y, si se indica un municipio, con oficina en ese municipio
-o muy cerca). Excluye portales, agregadores, franquicias nacionales y agencias
-solo de alquiler vacacional o de lujo. Si no estás seguro de la web exacta, no incluyas la agencia."""
 
 CLASSIFY_SYSTEM = """Analizas la página de inicio de una web inmobiliaria española. Responde SOLO JSON:
 {
@@ -261,25 +254,12 @@ def clean_town(raw: str) -> str:
     return " ".join(words)
 
 
-def suggest_sites(llm: LLM, area: str, town: str = "") -> list[str]:
-    """Webs que el modelo cree que son inmobiliarias locales de la zona. Hay que verificarlas."""
-    zone = f"Zona: {catalog.AREAS.get(area, area)} (España)"
-    prompt = f"Municipio: {town}\n{zone}" if town else zone
-    answer = llm.chat_json(SUGGEST_SYSTEM, prompt, max_tokens=900)
-    urls = []
-    for item in answer.get("agencias") or []:
-        raw = str(item.get("web") or "")[:200] if isinstance(item, dict) else ""
-        site = normalise_site(raw)  # solo «https://dominio»: sin usuario, puerto, IP ni ruta
-        if site and not is_portal(site):
-            urls.append(site)
-    return urls
-
-
 @dataclass(frozen=True)
 class TownResult:
     suggested: int
     analysed: int
     viable: int
+    sources: str = ""     # de dónde salieron las webs, legible
 
 
 def _analyse_new(factory: sessionmaker[Session], llm: LLM, fetcher, suggestions: list[str], area: str,
@@ -298,26 +278,27 @@ def _analyse_new(factory: sessionmaker[Session], llm: LLM, fetcher, suggestions:
     return len(fresh), viable
 
 
-def run(factory: sessionmaker[Session], llm: LLM, fetcher, areas: list[str], per_area: int = 6) -> int:
-    """Descubrimiento completo. Devuelve cuántas candidatas viables nuevas ha dejado."""
+def _sources_line(found) -> str:
+    line = f"OpenStreetMap: {found.osm} · web: {found.web}"
+    return f"{line} ({found.notes})"[:200] if found.notes else line
+
+
+def run(factory: sessionmaker[Session], llm: LLM, fetcher, areas: list[str], finder, per_area: int = 6) -> int:
+    """Descubrimiento de toda la zona. Devuelve cuántas candidatas viables nuevas ha dejado."""
     viable = 0
     for area in areas:
-        try:
-            suggestions = suggest_sites(llm, area)
-        except LLMUnavailable as exc:
-            log.warning("Descubrimiento: IA no disponible (%s)", exc)
-            return viable
-        analysed, found = _analyse_new(factory, llm, fetcher, suggestions, area, per_area)
-        log.info("Descubrimiento %s: %d sugeridas, %d analizadas", area, len(suggestions), analysed)
-        viable += found
+        found = finder.find(area, "")
+        analysed, new = _analyse_new(factory, llm, fetcher, found.sites, area, per_area)
+        log.info("Descubrimiento %s: %d webs (%s), %d analizadas", area, len(found.sites), _sources_line(found), analysed)
+        viable += new
     return viable
 
 
-def run_town(factory: sessionmaker[Session], llm: LLM, fetcher, area: str, town: str,
+def run_town(factory: sessionmaker[Session], llm: LLM, fetcher, area: str, town: str, finder,
              limit: int = TOWN_LIMIT) -> TownResult:
     """Busca inmobiliarias de una ciudad concreta. LLMUnavailable se propaga a quien llama."""
-    suggestions = list(dict.fromkeys(suggest_sites(llm, area, town=town)))
-    analysed, viable = _analyse_new(factory, llm, fetcher, suggestions, area, limit, town)
-    log.info("Descubrimiento en %s (%s): %d sugeridas, %d analizadas, %d viables",
-             town, area, len(suggestions), analysed, viable)
-    return TownResult(suggested=len(suggestions), analysed=analysed, viable=viable)
+    found = finder.find(area, town)
+    analysed, viable = _analyse_new(factory, llm, fetcher, found.sites, area, limit, town)
+    log.info("Descubrimiento en %s (%s): %d webs, %d analizadas, %d viables",
+             town, area, len(found.sites), analysed, viable)
+    return TownResult(suggested=len(found.sites), analysed=analysed, viable=viable, sources=_sources_line(found))

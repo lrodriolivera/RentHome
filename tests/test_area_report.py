@@ -299,3 +299,18 @@ def test_area_page_requires_login_and_existing_listing(app, runner):
     assert TestClient(app).get("/pisos/1/zona", follow_redirects=False).status_code == 303
     add_user(app, "ana@example.org")
     assert login(app, "ana@example.org").get("/pisos/999/zona").status_code == 404
+
+
+def test_overpass_tries_a_second_round_when_all_servers_are_busy():
+    answers = iter([FakeResponse(502, {})] * len(area_sources.OVERPASS_URLS) + [FakeResponse(200, {"elements": OSM_ELEMENTS})])
+    http = full_http(overpass=lambda url, kw: next(answers))
+    summary = area_sources.AreaSources(http).nearby(LAT, LON, "ibiza")
+    assert summary["super"]["count"] == 2
+    assert len(http.calls) == len(area_sources.OVERPASS_URLS) + 1
+
+
+def test_overpass_gives_up_after_the_last_round():
+    http = full_http(overpass=FakeResponse(502, {}))
+    with pytest.raises(area_sources.SourceError):
+        area_sources.AreaSources(http).nearby(LAT, LON, "ibiza")
+    assert len(http.calls) == len(area_sources.OVERPASS_URLS) * area_sources.OVERPASS_ROUNDS

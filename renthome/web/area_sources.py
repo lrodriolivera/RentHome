@@ -9,6 +9,7 @@ from __future__ import annotations
 import logging
 import math
 import re
+import time
 from dataclasses import dataclass
 
 import requests
@@ -21,6 +22,8 @@ log = logging.getLogger("renthome.area")
 USER_AGENT = "RentHome/1.0 (buscador personal de alquiler de larga duración; uso no comercial)"
 TIMEOUT_SECONDS = 25
 OVERPASS_TIMEOUT_SECONDS = 70
+OVERPASS_ROUNDS = 2                  # los servidores públicos se saturan a ratos: una segunda vuelta
+OVERPASS_RETRY_PAUSE_SECONDS = 20
 NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
 OVERPASS_URLS = (
     "https://overpass-api.de/api/interpreter",
@@ -165,8 +168,10 @@ def _clean_html(value: str, limit: int) -> str:
 class AreaSources:
     """Consultas a las fuentes públicas. `http` es un objeto con get/post al estilo de requests."""
 
-    def __init__(self, http=None) -> None:
+    def __init__(self, http=None, retry_pause: float | None = None) -> None:
         self.http = http or requests.Session()
+        # con un cliente inyectado (pruebas) no se espera entre vueltas
+        self.retry_pause = retry_pause if retry_pause is not None else (OVERPASS_RETRY_PAUSE_SECONDS if http is None else 0)
         self.headers = {"User-Agent": USER_AGENT, "Accept-Language": "es"}
 
     def _json(self, method: str, url: str, timeout: int = TIMEOUT_SECONDS, **kwargs):
@@ -194,18 +199,23 @@ class AreaSources:
         except (KeyError, TypeError, ValueError):
             return None
 
-    def nearby(self, lat: float, lon: float, area: str) -> dict[str, dict]:
-        query = overpass_query(lat, lon, RADIUS_M.get(area, DEFAULT_RADIUS_M))
+    def overpass(self, query: str) -> dict:
+        """Consulta Overpass probando los servidores espejo; si todos fallan, otra vuelta tras una pausa."""
         last_error: SourceError | None = None
-        for url in OVERPASS_URLS:  # el servidor principal suele estar saturado: se prueban espejos
-            try:
-                payload = self._json("post", url, timeout=OVERPASS_TIMEOUT_SECONDS, data={"data": query})
-            except SourceError as exc:
-                log.info("Overpass no disponible (%s); se prueba otro servidor", exc)
-                last_error = exc
-                continue
-            return summarise_pois(payload.get("elements") or [], lat, lon)
+        for round_number in range(OVERPASS_ROUNDS):
+            if round_number and self.retry_pause:
+                time.sleep(self.retry_pause)
+            for url in OVERPASS_URLS:
+                try:
+                    return self._json("post", url, timeout=OVERPASS_TIMEOUT_SECONDS, data={"data": query})
+                except SourceError as exc:
+                    log.info("Overpass no disponible (%s); se prueba otro servidor", exc)
+                    last_error = exc
         raise last_error or SourceError("Overpass: sin servidores")
+
+    def nearby(self, lat: float, lon: float, area: str) -> dict[str, dict]:
+        payload = self.overpass(overpass_query(lat, lon, RADIUS_M.get(area, DEFAULT_RADIUS_M)))
+        return summarise_pois(payload.get("elements") or [], lat, lon)
 
     def wikipedia(self, lat: float, lon: float, names: list[str]) -> dict | None:
         found = self._json("get", WIKIPEDIA_API, params={

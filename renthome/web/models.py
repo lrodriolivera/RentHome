@@ -282,9 +282,10 @@ class TownSearch(Base):
     area: Mapped[str] = mapped_column(String(20))
     town: Mapped[str] = mapped_column(String(80))
     status: Mapped[str] = mapped_column(String(10), default="queued", index=True)  # queued | running | done | failed
-    suggested: Mapped[int] = mapped_column(Integer, default=0)   # webs que propuso la IA
+    suggested: Mapped[int] = mapped_column(Integer, default=0)   # webs encontradas (OSM + búsqueda web)
     analysed: Mapped[int] = mapped_column(Integer, default=0)    # nuevas que se visitaron
     viable: Mapped[int] = mapped_column(Integer, default=0)      # candidatas que se pueden rastrear
+    sources: Mapped[str | None] = mapped_column(String(200), nullable=True)  # de dónde salieron las webs
     error: Mapped[str] = mapped_column(String(200), default="")
     requested_at: Mapped[dt.datetime] = mapped_column(DateTime, default=utcnow)
     finished_at: Mapped[dt.datetime | None] = mapped_column(DateTime, nullable=True)

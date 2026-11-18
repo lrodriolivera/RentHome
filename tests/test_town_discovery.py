@@ -4,7 +4,7 @@ from __future__ import annotations
 import pytest
 from sqlalchemy import select
 
-from renthome.web import discovery
+from renthome.web import agency_finder, discovery
 from renthome.web.models import AgencyCandidate, TownSearch
 
 from .conftest import add_agency, add_user, csrf, db_session, login
@@ -37,6 +37,16 @@ def search_town(client, town: str = "Santa Eulària des Riu", area: str = "ibiza
                        data={"town": town, "area": area, "csrf_token": csrf(client, "/admin/candidatas")})
 
 
+class FakeFinder:
+    def __init__(self, sites: list[str], notes: str = ""):
+        self.sites, self.notes, self.calls = sites, notes, []
+
+    def find(self, area: str, town: str) -> agency_finder.FoundSites:
+        self.calls.append((area, town))
+        return agency_finder.FoundSites(sites=list(dict.fromkeys(self.sites)), osm=len(self.sites), web=0,
+                                        notes=self.notes)
+
+
 def fake_proposal(viable: bool):
     def analyse(_llm, _fetcher, url, area):
         entry = {"name": f"Agencia {discovery.site_key(url)}", "areas": [area], "website": url}
@@ -45,14 +55,6 @@ def fake_proposal(viable: bool):
 
 
 # ---------- utilidades ----------
-
-def test_suggest_sites_mentions_town_and_area_and_filters_portals():
-    llm = FakeLLM({"agencias": [{"web": "https://www.idealista.com"}, {"web": "https://inmo-santa-eularia.es/x"},
-                                {"web": "http://127.0.0.1"}, "basura"]})
-    urls = discovery.suggest_sites(llm, "ibiza", town="Santa Eulària des Riu")
-    assert urls == ["https://inmo-santa-eularia.es"]
-    assert "Santa Eulària des Riu" in llm.prompts[0] and "Ibiza" in llm.prompts[0]
-
 
 @pytest.mark.parametrize("raw, expected", [("  sant  cugat del vallès ", "Sant Cugat del Vallès"),
                                            ("L'Hospitalet de Llobregat", "L'Hospitalet de Llobregat"),
@@ -69,11 +71,11 @@ def test_clean_town_rejects_invalid_names(raw):
 
 def test_run_town_analyses_only_new_sites_and_records_town(app, monkeypatch):
     add_agency(app, website="https://ya-conocida.es")
-    suggestions = ["https://ya-conocida.es", "https://nueva-uno.es", "https://nueva-dos.es", "https://nueva-uno.es"]
-    monkeypatch.setattr(discovery, "suggest_sites", lambda llm, area, town="": suggestions)
+    finder = FakeFinder(["https://ya-conocida.es", "https://nueva-uno.es", "https://nueva-dos.es"], notes="nota")
     monkeypatch.setattr(discovery, "analyse_site", fake_proposal(viable=True))
-    result = discovery.run_town(app.state.session_factory, FakeLLM(), fetcher=None, area="ibiza", town="Sant Josep")
+    result = discovery.run_town(app.state.session_factory, FakeLLM(), None, "ibiza", "Sant Josep", finder)
     assert (result.suggested, result.analysed, result.viable) == (3, 2, 2)
+    assert finder.calls == [("ibiza", "Sant Josep")] and "OpenStreetMap: 3" in result.sources and "nota" in result.sources
     with db_session(app) as db:
         rows = db.scalars(select(AgencyCandidate).order_by(AgencyCandidate.website)).all()
         assert [c.website for c in rows] == ["https://nueva-dos.es", "https://nueva-uno.es"]
@@ -81,10 +83,9 @@ def test_run_town_analyses_only_new_sites_and_records_town(app, monkeypatch):
 
 
 def test_run_town_respects_limit(app, monkeypatch):
-    monkeypatch.setattr(discovery, "suggest_sites",
-                        lambda llm, area, town="": [f"https://agencia-{n}.es" for n in range(20)])
+    finder = FakeFinder([f"https://agencia-{n}.es" for n in range(20)])
     monkeypatch.setattr(discovery, "analyse_site", fake_proposal(viable=False))
-    result = discovery.run_town(app.state.session_factory, FakeLLM(), None, "mallorca", "Sóller", limit=4)
+    result = discovery.run_town(app.state.session_factory, FakeLLM(), None, "mallorca", "Sóller", finder, limit=4)
     assert (result.suggested, result.analysed, result.viable) == (20, 4, 0)
 
 
@@ -98,9 +99,9 @@ def test_worker_runs_town_search_and_stores_counts(app, monkeypatch):
         sid = search.id
     calls = []
 
-    def fake_run(factory, llm, fetcher, area, town, limit=discovery.TOWN_LIMIT):
+    def fake_run(factory, llm, fetcher, area, town, finder, limit=discovery.TOWN_LIMIT):
         calls.append((area, town))
-        return discovery.TownResult(suggested=7, analysed=5, viable=2)
+        return discovery.TownResult(suggested=7, analysed=5, viable=2, sources="OpenStreetMap: 3 · web: 4")
 
     monkeypatch.setattr(discovery, "run_town", fake_run)
     app.state.worker.llm = FakeLLM()
@@ -109,7 +110,17 @@ def test_worker_runs_town_search_and_stores_counts(app, monkeypatch):
     with db_session(app) as db:
         done = db.get(TownSearch, sid)
         assert (done.status, done.suggested, done.analysed, done.viable) == ("done", 7, 5, 2)
+        assert done.sources == "OpenStreetMap: 3 · web: 4"
         assert done.finished_at is not None
+
+
+def test_weekly_discovery_uses_real_sources_not_ai_suggestions(app, monkeypatch):
+    finder = FakeFinder(["https://real-uno.es"])
+    monkeypatch.setattr(discovery, "analyse_site", fake_proposal(viable=True))
+    llm = FakeLLM()
+    assert discovery.run(app.state.session_factory, llm, None, ["menorca"], finder) == 1
+    assert finder.calls == [("menorca", "")]
+    assert not hasattr(discovery, "suggest_sites") and not hasattr(discovery, "SUGGEST_SYSTEM")
 
 
 def test_worker_marks_town_search_failed_when_ai_is_down(app, monkeypatch):

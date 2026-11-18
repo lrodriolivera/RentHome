@@ -14,6 +14,7 @@ from sqlalchemy.orm import Session, sessionmaker
 from ..fetch import Fetcher
 from ..netguard import is_public_url
 from . import ai_listings, catalog, discovery
+from .agency_finder import AgencyFinder
 from .ai import LLM
 from .crawl_service import CrawlResult, crawl_agency
 from .models import Agency, AppState, CrawlJob, TownSearch, utcnow
@@ -48,6 +49,7 @@ class CrawlWorker:
                  on_idle: Callable[[], None] | None = None) -> None:
         self._factory = factory
         self.llm = llm
+        self.finder = AgencyFinder.from_env()   # de dónde salen las webs de inmobiliarias nuevas
         self._on_idle = on_idle       # se llama al vaciarse la cola tras rastrear (p. ej. enviar avisos)
         self._crawled_since_idle = False
         # elementos: ("crawl", id de trabajo) | ("discover", zonas) | ("analyse", (url, zona))
@@ -158,7 +160,7 @@ class CrawlWorker:
                 if kind == "crawl":
                     self._process(int(payload), fetcher)  # type: ignore[arg-type]
                 elif kind == "discover" and self.llm is not None:
-                    found = discovery.run(self._factory, self.llm, fetcher, list(payload))  # type: ignore[call-overload]
+                    found = discovery.run(self._factory, self.llm, fetcher, list(payload), self.finder)  # type: ignore[call-overload]
                     log.info("Descubrimiento terminado: %d candidatas viables", found)
                 elif kind == "discover_town":
                     self._discover_town(int(payload), fetcher)  # type: ignore[arg-type]
@@ -184,7 +186,7 @@ class CrawlWorker:
             status, error = "failed", "La IA local no está configurada."
         else:
             try:
-                result = discovery.run_town(self._factory, self.llm, fetcher, area, town)
+                result = discovery.run_town(self._factory, self.llm, fetcher, area, town, self.finder)
             except discovery.LLMUnavailable as exc:
                 status, error = "failed", f"IA no disponible: {exc}"
             except Exception as exc:
@@ -197,6 +199,7 @@ class CrawlWorker:
             search.status, search.error, search.finished_at = status, error[:200], utcnow()
             if result is not None:
                 search.suggested, search.analysed, search.viable = result.suggested, result.analysed, result.viable
+                search.sources = result.sources
             db.commit()
 
     def _read_with_ai(self) -> bool:

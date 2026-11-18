@@ -5,6 +5,8 @@ redirigir o enlazar a direcciones internas para que el rastreador las lea; aquí
 """
 from __future__ import annotations
 
+import re
+
 import ipaddress
 import socket
 from functools import lru_cache
@@ -64,9 +66,15 @@ def is_public_url(url: str) -> bool:
     return looks_public(url) and _host_resolves_public((urlparse(url).hostname or "").lower())
 
 
+_HOSTNAME = re.compile(r"(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}")
+
+
 def normalise_site(url: str) -> str | None:
     """«https://dominio» de una web pública, o None si no lo parece. Descarta usuario, puerto y ruta."""
     candidate = url.strip() if "//" in url else f"https://{url.strip()}"
     if not looks_public(candidate):
         return None
-    return f"https://{(urlparse(candidate).hostname or '').lower()}"
+    host = (urlparse(candidate).hostname or "").lower()
+    if not _HOSTNAME.fullmatch(host):  # p. ej. «inmobiliariadeibiza oeste.com» o sin dominio
+        return None
+    return f"https://{host}"
