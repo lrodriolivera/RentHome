@@ -17,7 +17,7 @@ from . import ai_listings, catalog, discovery
 from .agency_finder import AgencyFinder
 from .ai import LLM
 from .crawl_service import CrawlResult, crawl_agency
-from .models import Agency, AppState, CrawlJob, TownSearch, utcnow
+from .models import Agency, AgencyCandidate, AppState, CrawlJob, TownSearch, utcnow
 
 log = logging.getLogger("renthome.worker")
 USER_AGENT = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -52,7 +52,7 @@ class CrawlWorker:
         self.finder = AgencyFinder.from_env()   # de dónde salen las webs de inmobiliarias nuevas
         self._on_idle = on_idle       # se llama al vaciarse la cola tras rastrear (p. ej. enviar avisos)
         self._crawled_since_idle = False
-        # elementos: ("crawl", id de trabajo) | ("discover", zonas) | ("analyse", (url, zona))
+        # elementos: ("crawl", id de trabajo) | ("discover", zonas) | ("analyse", (url, zona, ciudad))
         #            | ("discover_town", id de TownSearch)
         self._queue: queue.Queue[tuple[str, object]] = queue.Queue()
         self._thread: threading.Thread | None = None
@@ -74,8 +74,16 @@ class CrawlWorker:
     def request_discovery(self, areas: list[str] | None = None) -> None:
         self._queue.put(("discover", areas or list(catalog.AREAS)))
 
-    def request_analysis(self, url: str, area: str) -> None:
-        self._queue.put(("analyse", (url, area)))
+    def request_analysis(self, url: str, area: str, town: str = "") -> None:
+        self._queue.put(("analyse", (url, area, town)))
+
+    def requeue_pending_analyses(self) -> None:
+        """Las webs pegadas que quedaron «en análisis» al reiniciar se vuelven a encolar."""
+        with self._factory() as db:
+            pending = [(c.website, c.area, c.town or "") for c in
+                       db.scalars(select(AgencyCandidate).where(AgencyCandidate.status == "analysing"))]
+        for url, area, town in pending:
+            self.request_analysis(url, area, town)
 
     def request_town_discovery(self, search_id: int) -> None:
         self._queue.put(("discover_town", search_id))
@@ -98,6 +106,7 @@ class CrawlWorker:
             self._queue.put(("crawl", job_id))
         for search_id in towns:
             self._queue.put(("discover_town", search_id))
+        self.requeue_pending_analyses()
         self._thread = threading.Thread(target=self._run, name="crawl-worker", daemon=True)
         self._thread.start()
         threading.Thread(target=self._schedule, name="crawl-scheduler", daemon=True).start()
@@ -165,13 +174,16 @@ class CrawlWorker:
                 elif kind == "discover_town":
                     self._discover_town(int(payload), fetcher)  # type: ignore[arg-type]
                 elif kind == "analyse" and self.llm is not None:
-                    url, area = payload  # type: ignore[misc]
-                    proposal = discovery.analyse_site(self.llm, fetcher, url, area)
-                    with self._factory() as db:
-                        discovery.store(db, proposal, url, area)
-                        db.commit()
+                    self._analyse(payload, fetcher)  # type: ignore[arg-type]
             except Exception:
                 log.exception("Fallo en la tarea %s", kind)
+
+    def _analyse(self, payload: tuple[str, str, str], fetcher) -> None:
+        url, area, town = payload
+        proposal = discovery.analyse_site(self.llm, fetcher, url, area)
+        with self._factory() as db:
+            discovery.store(db, proposal, url, area, town)
+            db.commit()
 
     def _discover_town(self, search_id: int, fetcher) -> None:
         with self._factory() as db:

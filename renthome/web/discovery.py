@@ -45,6 +45,8 @@ MAX_LINKS_FOR_MODEL = 60
 MIN_DETAIL_LINKS = 3
 PROBE_DETAILS = 3
 MIN_RENT, MAX_RENT = 300, 20000
+MAX_BULK_SITES = 25                   # webs pegadas que se analizan de una vez
+_SITE_SEPARATORS = re.compile(r"[\s,;]+")
 TOWN_LIMIT = 10                       # webs nuevas que se analizan como mucho en una búsqueda por ciudad
 TOWN_MIN, TOWN_MAX = 2, 60
 _TOWN_CHARS = re.compile(r"[^\W\d_]+(?:[ '’.\-][^\W\d_]*)*")
@@ -236,6 +238,22 @@ def store(db: Session, proposal: Proposal, url: str, area: str, town: str = "") 
     candidate.status = "pending" if proposal.viable else "discarded"
     db.add(candidate)
     return candidate
+
+
+def parse_sites(text: str) -> tuple[list[str], list[str]]:
+    """Webs pegadas (una por línea, o separadas por comas). Devuelve (válidas sin repetir, rechazadas)."""
+    valid: dict[str, str] = {}
+    rejected: list[str] = []
+    for token in _SITE_SEPARATORS.split(text or ""):
+        token = token.strip()[:200]
+        if not token:
+            continue
+        site = normalise_site(token)
+        if site is None or is_portal(site):
+            rejected.append(token)
+        elif site_key(site) not in valid and len(valid) < MAX_BULK_SITES:
+            valid[site_key(site)] = site
+    return list(valid.values()), rejected
 
 
 def clean_town(raw: str) -> str:

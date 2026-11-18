@@ -172,12 +172,15 @@ def public_site(url: str) -> str:
 def candidates(request: Request, admin: User = Depends(require_admin), db: Session = Depends(get_db)):
     pending = db.scalars(select(AgencyCandidate).where(AgencyCandidate.status == "pending")
                          .order_by(AgencyCandidate.found_at.desc())).all()
+    analysing = db.scalars(select(AgencyCandidate).where(AgencyCandidate.status == "analysing")
+                           .order_by(AgencyCandidate.id)).all()
     discarded = db.scalars(select(AgencyCandidate).where(AgencyCandidate.status == "discarded")
                            .order_by(AgencyCandidate.found_at.desc()).limit(30)).all()
     towns = db.scalars(select(TownSearch).order_by(TownSearch.id.desc()).limit(15)).all()
-    return render(request, "admin_candidates.html", user=admin, pending=pending, discarded=discarded,
+    return render(request, "admin_candidates.html", user=admin, pending=pending, discarded=discarded, analysing=analysing,
                   ai_ready=request.app.state.llm is not None, town_searches=towns,
                   web_search_ready=request.app.state.worker.finder.brave is not None,
+                  max_bulk=discovery.MAX_BULK_SITES,
                   town_busy=any(s.status in ("queued", "running") for s in towns))
 
 
@@ -224,23 +227,64 @@ def discover_now(request: Request, admin: User = Depends(require_admin), db: Ses
     return RedirectResponse("/admin/candidatas", status_code=303)
 
 
+def _plural(n: int, word: str) -> str:
+    return f"{n} {word}" if n == 1 else f"{n} {word}s"
+
+
 @candidates_router.post("/analizar", dependencies=[Depends(verify_csrf)])
 async def analyse(request: Request, admin: User = Depends(require_admin), db: Session = Depends(get_db)):
+    """Analiza una o varias webs pegadas por el administrador (una por línea)."""
     form = await request.form()
+    back = RedirectResponse("/admin/candidatas", status_code=303)
     try:
-        site = public_site(str(form.get("url") or "").strip())
         area = forms.choice(form, "area", catalog.AREAS)
         if not area:
-            raise forms.FormError("Elige la zona de la inmobiliaria.")
+            raise forms.FormError("Elige la zona de las inmobiliarias.")
+        raw_town = str(form.get("town") or "").strip()
+        try:
+            town = discovery.clean_town(raw_town) if raw_town else ""
+        except ValueError as exc:
+            raise forms.FormError(str(exc)) from exc
         if request.app.state.llm is None:
             raise forms.FormError("El análisis necesita el modelo de IA local, que no está configurado.")
     except forms.FormError as exc:
         flash(request, str(exc), "error")
-        return RedirectResponse("/admin/candidatas", status_code=303)
-    request.app.state.worker.request_analysis(site, area)
-    audit(db, request, admin.id, "candidata_analizada", site)
-    flash(request, f"Analizando {site}. En un par de minutos aparecerá aquí el resultado.")
-    return RedirectResponse("/admin/candidatas", status_code=303)
+        return back
+    text = str(form.get("urls") or form.get("url") or "")[:20_000]
+    sites, rejected = discovery.parse_sites(text)
+    agencies = {discovery.site_key(w) for w in db.scalars(select(Agency.website)) if w}
+    candidates = {discovery.site_key(c.website): c for c in db.scalars(select(AgencyCandidate))}
+    queued, known = [], 0
+    for site in sites:
+        key = discovery.site_key(site)
+        candidate = candidates.get(key)
+        if key in agencies or (candidate is not None and candidate.status in ("pending", "analysing", "approved")):
+            known += 1
+            continue
+        if candidate is None:
+            candidate = AgencyCandidate(website=f"https://{key}", name=key)
+            db.add(candidate)
+        candidate.area, candidate.town, candidate.status = area, town or None, "analysing"
+        candidate.probe_result = ""
+        queued.append(site)
+    db.commit()  # antes de encolar: el worker las lee desde otra sesión
+    for site in queued:
+        request.app.state.worker.request_analysis(site, area, town)
+    if queued:
+        audit(db, request, admin.id, "candidatas_analizadas", f"{len(queued)} webs ({area})")
+    details = []
+    if known:
+        details.append(f"ya conocidas: {known}")
+    if rejected:
+        shown = ", ".join(rejected[:6]) + ("…" if len(rejected) > 6 else "")
+        details.append(f"no válidas o portales: {shown}")
+    suffix = f" ({'; '.join(details)})" if details else ""
+    if queued:
+        flash(request, f"Analizando {_plural(len(queued), 'web')}. Cada una tarda uno o dos minutos; "
+                       f"irán apareciendo en «Pendientes» o en «Analizadas sin éxito».{suffix}")
+    else:
+        flash(request, f"Ninguna web nueva que analizar{suffix}.", "error")
+    return back
 
 
 @candidates_router.post("/{candidate_id}/aprobar", dependencies=[Depends(verify_csrf)])

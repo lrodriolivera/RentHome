@@ -26,11 +26,14 @@
   {% endif %}
 </section>
 <section class="form-section">
-  <header><h2>Analizar una web</h2><p>Pega la web de una inmobiliaria local y se intentará deducir cómo rastrearla.</p></header>
+  <header><h2>Analizar webs</h2><p>Pega las webs de inmobiliarias que encuentres (en Google Maps, por ejemplo), una por línea. Se analizan todas y las que se puedan rastrear pasan a «Pendientes».</p></header>
   <form class="fields" method="post" action="/admin/candidatas/analizar">{{ csrf() }}
-    <div class="field"><label for="url">Web de la inmobiliaria</label><input id="url" name="url" type="text" required maxlength="200" placeholder="https://miagencia.com"></div>
+    <div class="field wide"><label for="urls">Webs de inmobiliarias</label>
+      <textarea id="urls" name="urls" required rows="6" maxlength="20000" placeholder="https://miagencia.com&#10;https://otra-inmobiliaria.es&#10;…"></textarea>
+      <span class="hint">Hasta {{ max_bulk }} por vez. Valen direcciones completas o solo el dominio; los portales (Idealista, Fotocasa…) y las ya conocidas se omiten.</span></div>
     <div class="field"><label for="area">Zona</label><select id="area" name="area" required><option value="">Elige…</option>
       {% for k, v in catalog.AREAS.items() %}<option value="{{ k }}">{{ v }}</option>{% endfor %}</select></div>
+    <div class="field"><label for="bulk-town">Ciudad (opcional)</label><input id="bulk-town" name="town" type="text" maxlength="60" placeholder="Sant Antoni de Portmany" autocomplete="off"></div>
     <div class="field wide"><div class="row"><button class="btn" type="submit"{% if not ai_ready %} disabled{% endif %}>Analizar</button></div></div>
   </form>
 </section>
@@ -38,6 +41,13 @@
   <span>La búsqueda automática se ejecuta sola una vez por semana.</span>
   <form method="post" action="/admin/candidatas/buscar">{{ csrf() }}<button class="btn btn-ghost" type="submit"{% if not ai_ready %} disabled{% endif %}>Buscar inmobiliarias nuevas ahora</button></form>
 </section>
+{% if analysing %}
+<section class="stack">
+  <h2>En análisis ({{ analysing|length }})</h2>
+  <p class="muted small">Se revisan de una en una, uno o dos minutos cada web. <a href="/admin/candidatas">Recarga la página</a> para ver cómo van.</p>
+  <div class="tags">{% for c in analysing %}<span class="tag">{{ c.name }}{% if c.town %} · {{ c.town }}{% endif %}</span>{% endfor %}</div>
+</section>
+{% endif %}
 <section class="stack">
   <h2>Pendientes ({{ pending|length }})</h2>
   {% if not pending %}<p class="empty">No hay candidatas pendientes.</p>{% endif %}
