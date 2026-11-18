@@ -9,11 +9,13 @@ from sqlalchemy import or_, select
 from sqlalchemy.orm import Session, defer, joinedload
 
 from ..parse import norm
-from .criteria import area_keys
-from .models import Listing, UserListing, utcnow
+from . import catalog
+from .criteria import area_keys, wanted_services
+from .models import AreaReport, Listing, UserListing, utcnow
 
 MIN_PLAUSIBLE_RENT = 300
 NEW_WINDOW_DAYS = 7
+SERVICE_POINTS = 10
 
 
 @dataclass(frozen=True)
@@ -26,6 +28,7 @@ class Match:
     highlights: tuple[str, ...]
     fit_score: int | None = None
     fit_reason: str = ""
+    services_unknown: bool = False   # se pidieron servicios cerca y la zona aún no está analizada
 
 
 def _zone_terms(zones: str) -> list[str]:
@@ -75,6 +78,24 @@ def _passes(listing: Listing, criteria, types: set[str]) -> bool:
     return True
 
 
+def zone_services(db: Session) -> dict[int, set[str] | None]:
+    """Servicios con algo cerca de cada piso analizado. None: analizado, pero sin datos de servicios."""
+    rows = db.execute(select(AreaReport.listing_id, AreaReport.services).where(AreaReport.status == "done"))
+    return {lid: (set(s.split(",")) - {""} if s is not None else None) for lid, s in rows}
+
+
+def _services(wanted: list[str], have: set[str] | None, required: bool) -> tuple[bool, int, tuple[str, ...], bool]:
+    """(pasa, puntos, etiquetas, sin datos) para los servicios deseados."""
+    if not wanted:
+        return True, 0, (), False
+    if have is None:
+        return True, 0, (), True
+    present = [s for s in wanted if s in have]
+    if required and len(present) < len(wanted):
+        return False, 0, (), False
+    return True, SERVICE_POINTS * len(present), tuple(f"{catalog.SERVICE_SHORT[s]} cerca" for s in present), False
+
+
 def find(db: Session, criteria, user_id: int, new_since: dt.datetime | None = None,
          only_saved: bool = False, read_reason: Callable[[UserListing], str] | None = None) -> list[Match]:
     """Anuncios activos de alquiler de larga duración que cumplen los criterios, mejores primero.
@@ -98,6 +119,9 @@ def find(db: Session, criteria, user_id: int, new_since: dt.datetime | None = No
     types = {t for t in (getattr(criteria, "property_types", "") or "").split(",") if t}
     zone_terms = _zone_terms(getattr(criteria, "zones", "") or "")
     since = new_since or utcnow() - dt.timedelta(days=NEW_WINDOW_DAYS)
+    wanted = wanted_services(criteria) if criteria is not None else []
+    required = bool(getattr(criteria, "services_required", False)) and not only_saved
+    zones = zone_services(db) if wanted else {}
 
     matches = []
     for listing in db.scalars(query):
@@ -105,11 +129,16 @@ def find(db: Session, criteria, user_id: int, new_since: dt.datetime | None = No
         if not only_saved and ((state and state.state == "hidden") or not _passes(listing, criteria, types)):
             continue
         score, preferred, highlights = _score(listing, criteria, zone_terms) if criteria is not None else (0, False, ())
+        passes, points, near, unknown = _services(wanted, zones.get(listing.id), required)
+        if not passes:
+            continue
+        score, highlights = score + points, highlights + near
         matches.append(Match(
             listing=listing, score=score, is_new=listing.first_seen > since, is_preferred=preferred,
             state=state.state if state else "", highlights=highlights,
             fit_score=state.fit_score if state else None,
             fit_reason=read_reason(state) if state and read_reason else "",
+            services_unknown=unknown,
         ))
     return sorted(matches, key=lambda m: (-(m.fit_score or 0) if only_saved else 0, -m.score,
                                           m.listing.price or 10**9, m.listing.id))

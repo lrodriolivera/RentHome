@@ -212,6 +212,8 @@ async def _save_search(request: Request, user: User, db: Session, search: SavedS
     search.name, search.notify = name, forms.flag(form, "notify")
     for field, value in values.items():
         setattr(search, field, value)
+    if values.get("wanted_services"):
+        request.app.state.area_runner.wake()
     db.flush()
     flash(request, f"Búsqueda «{name}» guardada.")
     return RedirectResponse(f"/pisos?b={search.id}", status_code=303)

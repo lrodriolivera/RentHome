@@ -115,6 +115,8 @@ async def save_preference(request: Request, user: User = Depends(require_user), 
         return render(request, "preferences.html", user=user, pref=pref, status_code=400, error=str(exc))
     for field, value in values.items():
         setattr(pref, field, value)
+    if values.get("wanted_services"):
+        request.app.state.area_runner.wake()  # analiza ya las zonas de los pisos
     audit(db, request, user.id, "busqueda_actualizada")
     flash(request, "Preferencias guardadas. Estos son los pisos que encajan.")
     return RedirectResponse("/pisos", status_code=303)

@@ -127,6 +127,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         if settings.crawl_enabled:
             worker.start()
             app.state.area_runner.resume()
+            app.state.area_runner.start_scanner()
         yield
         worker.stop()
         app.state.area_runner.stop()

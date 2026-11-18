@@ -101,6 +101,9 @@ class CriteriaColumns:
     needs_parking: Mapped[bool] = mapped_column(Boolean, default=False)
     needs_elevator: Mapped[bool] = mapped_column(Boolean, default=False)
     wants_terrace: Mapped[bool] = mapped_column(Boolean, default=False)
+    # servicios deseados cerca (claves de catalog.SERVICES); opcionales, por eso admiten nulos
+    wanted_services: Mapped[str | None] = mapped_column(String(160), nullable=True)
+    services_required: Mapped[bool | None] = mapped_column(Boolean, nullable=True)  # True: ocultar los que no los tengan
 
 
 class SearchPreference(CriteriaColumns, Base):
@@ -301,6 +304,7 @@ class AreaReport(Base):
     locality: Mapped[str] = mapped_column(String(120), default="")      # sector buscado (p. ej. «Cala Llonga»)
     municipality: Mapped[str] = mapped_column(String(120), default="")
     locality_key: Mapped[str] = mapped_column(String(160), default="", index=True)  # zona|sector, para reutilizar
+    services: Mapped[str | None] = mapped_column(String(200), nullable=True)  # servicios con algo cerca; None = sin datos
     lat: Mapped[float | None] = mapped_column(Float, nullable=True)
     lon: Mapped[float | None] = mapped_column(Float, nullable=True)
     facts_json: Mapped[str] = mapped_column(Text, default="")             # datos de OSM, Wikipedia y Commons

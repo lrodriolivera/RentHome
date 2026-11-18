@@ -1,5 +1,5 @@
 {# Campos comunes de una búsqueda. Espera `values` y `show_profile_fields`. #}
-{% set areas = (values.areas or "").split(",") %}{% set types = (values.property_types or "").split(",") %}
+{% set areas = (values.areas or "").split(",") %}{% set types = (values.property_types or "").split(",") %}{% set services = (values.wanted_services or "").split(",") %}
   <section class="form-section">
     <header><h2>Dónde</h2><p>Elige una o varias zonas. Puedes afinar con barrios o pueblos.</p></header>
     <div class="fields">
@@ -47,4 +47,16 @@
 {% if show_profile_fields %}      <div class="field wide"><label for="notes">Algo más que debamos saber</label>
         <textarea id="notes" name="notes" maxlength="1000" placeholder="Trabajo desde casa y necesito luz natural; no quiero planta baja…">{{ values.notes }}</textarea></div>
 {% endif %}    </div>
+  </section>
+
+  <section class="form-section">
+    <header><h2>Servicios cerca</h2><p>Opcional. Marca lo que te gustaría tener cerca y esos pisos saldrán primero.</p></header>
+    <div class="fields">
+      <div class="field wide"><span class="label">Me gustaría tener cerca</span>
+        <div class="checks">{% for k, v in catalog.SERVICES.items() %}
+          <label class="check"><input type="checkbox" name="wanted_services" value="{{ k }}"{% if k in services %} checked{% endif %}><span>{{ v }}</span></label>{% endfor %}</div>
+        <span class="hint">Se comprueba con OpenStreetMap alrededor del sector del piso: unos 1,5 km (700 m en Barcelona; playas hasta 3 km). Los anuncios no dan la dirección exacta, así que es aproximado.</span></div>
+      <div class="field wide"><label class="check"><input type="checkbox" name="services_required" value="1"{% if values.services_required %} checked{% endif %}><span>Mostrar solo pisos que los tengan</span></label>
+        <span class="hint">Las zonas se analizan solas en segundo plano. Mientras tanto, los pisos de zonas sin analizar se muestran igualmente con la etiqueta «servicios por comprobar».</span></div>
+    </div>
   </section>

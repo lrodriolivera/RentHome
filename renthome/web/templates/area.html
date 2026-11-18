@@ -42,6 +42,12 @@
 {% endif %}
 
 {% if report.error %}<p class="notice info">{{ report.error }}</p>{% endif %}
+{% if not story %}
+<section class="panel area-intro">
+  <p>{% if report.error %}Puedes volver a pedirlo en un momento.{% else %}Estos son los datos de la zona. La IA puede resumirlos en claro: cómo es vivir allí, servicios, transporte, ocio, y qué tener en cuenta.{% endif %}</p>
+  <form method="post" action="/pisos/{{ listing.id }}/zona">{{ csrf() }}<button class="btn" type="submit">Pedir el resumen de la IA</button></form>
+</section>
+{% endif %}
 
 {% if story %}
 <section class="area-story">
@@ -83,7 +89,7 @@
 <footer class="area-sources small muted">
   <p>Ubicación aproximada: {{ facts.label }}{% if report.lat is not none %} · <a href="https://www.openstreetmap.org/?mlat={{ '%.5f'|format(report.lat) }}&amp;mlon={{ '%.5f'|format(report.lon) }}#map=15/{{ '%.5f'|format(report.lat) }}/{{ '%.5f'|format(report.lon) }}" target="_blank" rel="noopener noreferrer">ver en el mapa</a>{% endif %}</p>
   <p>Datos © colaboradores de OpenStreetMap (ODbL) · textos de Wikipedia (CC BY-SA) · fotos de Wikimedia Commons con la licencia de cada autor. Informe del {{ report.updated_at|datetime }}.</p>
-  {% if can_request %}<form method="post" action="/pisos/{{ listing.id }}/zona">{{ csrf() }}<button class="btn btn-ghost btn-sm" type="submit">Actualizar el informe</button></form>{% endif %}
+  {% if can_request and story %}<form method="post" action="/pisos/{{ listing.id }}/zona">{{ csrf() }}<button class="btn btn-ghost btn-sm" type="submit">Actualizar el informe</button></form>{% endif %}
 </footer>
 {% endif %}
 {% endblock %}

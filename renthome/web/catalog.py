@@ -21,6 +21,20 @@ PROPERTY_TYPES: dict[str, str] = {
 
 FURNISHED: dict[str, str] = {"any": "Me da igual", "yes": "Amueblado", "no": "Sin amueblar"}
 
+# servicios que se pueden pedir cerca del piso (claves = categorías de area_sources, salvo «transporte»,
+# que agrupa bus, tren/metro/tranvía y ferri)
+SERVICES: dict[str, str] = {
+    "super": "Supermercado", "farmacia": "Farmacia", "salud": "Centro de salud o clínica",
+    "educacion": "Colegio o guardería", "transporte": "Transporte público", "playas": "Playa",
+    "parques": "Parque", "restaurantes": "Restaurantes y cafés", "deporte": "Gimnasio o polideportivo",
+    "ocio": "Cine, teatro o biblioteca",
+}
+SERVICE_SHORT: dict[str, str] = {
+    "super": "súper", "farmacia": "farmacia", "salud": "centro de salud", "educacion": "colegio",
+    "transporte": "transporte público", "playas": "playa", "parques": "parque", "restaurantes": "restaurantes",
+    "deporte": "gimnasio", "ocio": "ocio",
+}
+
 ID_TYPES: dict[str, str] = {"dni": "DNI", "nie": "NIE", "pasaporte": "Pasaporte"}
 
 EMPLOYMENT: dict[str, str] = {

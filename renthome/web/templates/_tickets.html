@@ -17,6 +17,7 @@
         <span class="tag">{{ l.place or catalog.AREAS.get(l.area, l.area) }}</span>
         {% for h in m.highlights %}<span class="tag ok">{{ h }}</span>{% endfor %}
         {% if l.term != "long" %}<span class="tag warn">confirmar que es anual</span>{% endif %}
+        {% if m.services_unknown %}<span class="tag" title="La zona de este piso aún no se ha analizado">servicios por comprobar</span>{% endif %}
         {% for flag in (l.ai_flags or "").split("|") if flag %}<span class="tag warn">{{ flag }}</span>{% endfor %}
       </div>
       {% if l.ai_summary %}<p class="small">{{ l.ai_summary }}</p>{% endif %}

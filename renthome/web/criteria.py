@@ -5,7 +5,7 @@ from . import catalog, forms
 
 CRITERIA_FIELDS = ("areas", "zones", "property_types", "max_price", "min_bedrooms", "preferred_bedrooms",
                    "min_size_m2", "furnished", "needs_pets_allowed", "needs_parking", "needs_elevator",
-                   "wants_terrace")
+                   "wants_terrace", "wanted_services", "services_required")
 
 
 def read_form(form) -> dict:
@@ -23,6 +23,8 @@ def read_form(form) -> dict:
         "needs_parking": forms.flag(form, "needs_parking"),
         "needs_elevator": forms.flag(form, "needs_elevator"),
         "wants_terrace": forms.flag(form, "wants_terrace"),
+        "wanted_services": forms.choices(form, "wanted_services", catalog.SERVICES) or None,
+        "services_required": forms.flag(form, "services_required"),
     }
     if not values["areas"]:
         raise forms.FormError("Elige al menos una zona donde buscar.")
@@ -32,6 +34,14 @@ def read_form(form) -> dict:
 def copy(source, target) -> None:
     for field in CRITERIA_FIELDS:
         setattr(target, field, getattr(source, field))
+
+
+def wanted_services(criteria) -> list[str]:
+    return [s for s in (getattr(criteria, "wanted_services", "") or "").split(",") if s in catalog.SERVICES]
+
+
+def _join(words: list[str]) -> str:
+    return words[0] if len(words) == 1 else f"{', '.join(words[:-1])} y {words[-1]}"
 
 
 def area_keys(criteria) -> list[str]:
@@ -48,4 +58,7 @@ def summary(criteria) -> str:
              if t in catalog.PROPERTY_TYPES]
     if types:
         parts.append(", ".join(types))
+    services = [catalog.SERVICE_SHORT[s] for s in wanted_services(criteria)]
+    if services:
+        parts.append(f"{'solo' if criteria.services_required else 'mejor'} con {_join(services)} cerca")
     return " · ".join(parts)
