@@ -92,5 +92,6 @@ def render(request: Request, template: str, user: User | None = None, status_cod
         "path": request.url.path,
         # sin correo de envío configurado no se ofrecen avisos por email
         "email_enabled": getattr(request.app.state, "mailer", None) is not None,
+        "whatsapp_enabled": getattr(request.app.state, "whatsapp", None) is not None,
     }
     return request.app.state.templates.TemplateResponse(request, template, {**base, **context}, status_code=status_code)

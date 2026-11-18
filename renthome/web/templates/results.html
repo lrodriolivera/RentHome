@@ -28,6 +28,20 @@
     <form method="post" action="/pisos/actualizar">{{ csrf() }}{% if saved %}<input type="hidden" name="b" value="{{ saved.id }}">{% endif %}
       <button class="btn" type="submit"{% if status.pending or not status.can_refresh %} disabled{% endif %}>{{ "Buscando…" if status.pending else ("Al día" if not status.can_refresh else "Buscar ahora") }}</button></form>
     {% if not saved %}<a class="btn btn-ghost" href="/busquedas/nueva">Guardar como búsqueda</a>{% endif %}
+    {% if whatsapp_enabled and user.is_admin and matches %}
+    <details class="confirm wa-send" id="whatsapp">
+      <summary class="btn btn-ghost">Enviar por WhatsApp</summary>
+      <form class="confirm-body" method="post" action="/pisos/whatsapp">{{ csrf() }}{% if saved %}<input type="hidden" name="b" value="{{ saved.id }}">{% endif %}
+        <div class="field"><label for="wa-recipient">Número del contacto, con prefijo del país</label>
+          <input id="wa-recipient" name="recipient" type="text" inputmode="tel" autocomplete="off" required
+                 placeholder="+34 600 11 22 33" list="wa-recent">
+          {% if wa_recent %}<datalist id="wa-recent">{% for n in wa_recent %}<option value="{{ n }}">+{{ n }}</option>{% endfor %}</datalist>
+          <span class="hint">Usados hace poco: {% for n in wa_recent %}+{{ n }}{{ ", " if not loop.last }}{% endfor %}</span>{% endif %}
+          <span class="hint">Se envían los {{ [matches|length, 15]|min }} mejores pisos desde tu WhatsApp.</span></div>
+        <div class="row"><button class="btn btn-sm" type="submit">Enviar</button></div>
+      </form>
+    </details>
+    {% endif %}
   </div>
 </section>
 {% if searches %}

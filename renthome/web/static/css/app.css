@@ -308,3 +308,7 @@ textarea.mono { min-height: 6rem; }
 .fit-score small { font-size: 1rem; color: var(--ink-soft); font-weight: 600; }
 .inline-select { width: auto; padding-block: 0.5rem; }
 .brief { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0.5rem 0; padding: 0.9rem; background: var(--sunken); border-radius: var(--radius-sm); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+/* envío temporal por WhatsApp: al abrirse ocupa toda la fila de la barra de búsqueda */
+details.wa-send[open] { flex-basis: 100%; }
+details.wa-send .confirm-body { max-width: 26rem; }

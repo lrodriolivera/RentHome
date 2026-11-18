@@ -1,20 +1,24 @@
 """Resultados de búsqueda, búsquedas guardadas y anuncios guardados/descartados."""
 from __future__ import annotations
 
+import asyncio
+import logging
+
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from . import criteria as criteria_lib
-from . import forms, matching
+from . import forms, matching, whatsapp
 from .config import Settings
-from .deps import flash, get_db, get_settings, render, require_user, verify_csrf
+from .deps import audit, flash, get_db, get_settings, render, require_admin, require_user, verify_csrf
 from .routes_profile import ensure_preference
 from .models import Agency, CrawlJob, Listing, SavedSearch, User, UserListing, utcnow
 from .worker import USER_REFRESH_HOURS, stale_agencies
 
 router = APIRouter()
+log = logging.getLogger("renthome.whatsapp")
 MAX_SAVED_SEARCHES = 12
 LISTING_STATES = {"saved": "saved", "hidden": "hidden", "none": ""}
 
@@ -56,9 +60,51 @@ def results(request: Request, b: int | None = None, user: User = Depends(require
     matches = matching.find(db, criteria, user.id, new_since=since) if areas else []
     if saved is not None:
         saved.last_viewed_at = utcnow()
+    wa_recent = whatsapp.recent_recipients(db, user.id) if user.is_admin else []
     return render(request, "results.html", user=user, matches=matches, saved=saved, criteria=criteria,
                   summary=criteria_lib.summary(criteria) if areas else "", status=crawl_status(db, areas),
-                  searches=user.saved_searches, back=f"/pisos?b={saved.id}" if saved else "/pisos")
+                  searches=user.saved_searches, back=f"/pisos?b={saved.id}" if saved else "/pisos",
+                  wa_recent=wa_recent)
+
+
+@router.post("/pisos/whatsapp", dependencies=[Depends(verify_csrf)])
+async def send_whatsapp(request: Request, user: User = Depends(require_admin), db: Session = Depends(get_db),
+                        settings: Settings = Depends(get_settings)):
+    """Temporal: el administrador envía los resultados a un contacto por el WhatsApp del homelab."""
+    sender = getattr(request.app.state, "whatsapp", None)
+    if sender is None:
+        raise HTTPException(status_code=404)
+    form = await request.form()
+    try:
+        search_id = forms.integer(form, "b", 1, 10**9) if form.get("b") else None
+    except forms.FormError as exc:
+        raise HTTPException(status_code=404) from exc
+    saved = own_search(db, user, search_id) if search_id else None
+    criteria = saved or user.preference
+    back = f"/pisos?b={saved.id}" if saved else "/pisos"
+    try:
+        recipient = whatsapp.normalize_recipient(str(form.get("recipient") or ""))
+    except ValueError as exc:
+        flash(request, str(exc), "error")
+        return RedirectResponse(back, status_code=303)
+    matches = matching.find(db, criteria, user.id) if criteria and criteria_lib.area_keys(criteria) else []
+    if not matches:
+        flash(request, "No hay pisos que enviar con estos criterios.", "error")
+        return RedirectResponse(back, status_code=303)
+    message = whatsapp.build_message(saved.name if saved else "Mi búsqueda", matches, settings.base_url, back,
+                                     sender_name=user.name)
+    try:
+        await asyncio.to_thread(sender.send, recipient, message)
+    except whatsapp.WhatsAppError as exc:
+        log.warning("No se pudo enviar por WhatsApp: %s", exc)  # sin el número del destinatario
+        flash(request, "No se pudo enviar por WhatsApp. Comprueba que el servicio de WhatsApp está conectado.",
+              "error")
+        return RedirectResponse(back, status_code=303)
+    whatsapp.remember_recipient(db, user.id, recipient)
+    audit(db, request, user.id, "whatsapp", f"{len(matches)} pisos a …{recipient[-3:]}")
+    sent = min(len(matches), whatsapp.MAX_LISTINGS_PER_MESSAGE)
+    flash(request, f"Enviado por WhatsApp al +{recipient}: {sent} {'piso' if sent == 1 else 'pisos'}.")
+    return RedirectResponse(back, status_code=303)
 
 
 @router.post("/pisos/actualizar", dependencies=[Depends(verify_csrf)])

@@ -28,6 +28,7 @@ from .limits import BodyLimitMiddleware
 from .notifications import Mailer, notify_saved_searches
 from .routes_privacy import purge_stale
 from .security import LoginLimiter
+from .whatsapp import WhatsAppSender
 from .worker import CrawlWorker
 
 PURGE_INTERVAL_SECONDS = 24 * 3600
@@ -134,6 +135,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.worker = worker
     app.state.llm = llm
     app.state.mailer = mailer
+    app.state.whatsapp = WhatsAppSender.from_env()
     app.state.limiter = LoginLimiter()
 
     templates = Jinja2Templates(directory=str(HERE / "templates"))
