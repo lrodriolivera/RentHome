@@ -4,7 +4,7 @@ from __future__ import annotations
 import datetime as dt
 import secrets
 
-from sqlalchemy import Boolean, Date, DateTime, ForeignKey, Integer, LargeBinary, String, Text
+from sqlalchemy import Boolean, Date, DateTime, Float, ForeignKey, Integer, LargeBinary, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .db import Base
@@ -288,6 +288,26 @@ class TownSearch(Base):
     error: Mapped[str] = mapped_column(String(200), default="")
     requested_at: Mapped[dt.datetime] = mapped_column(DateTime, default=utcnow)
     finished_at: Mapped[dt.datetime | None] = mapped_column(DateTime, nullable=True)
+
+
+class AreaReport(Base):
+    """Informe de la zona de un piso (datos públicos + resumen de la IA). Sin datos personales."""
+    __tablename__ = "area_reports"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    listing_id: Mapped[int] = mapped_column(ForeignKey("listings.id", ondelete="CASCADE"), unique=True)
+    status: Mapped[str] = mapped_column(String(10), default="queued", index=True)  # queued | running | done | failed
+    locality: Mapped[str] = mapped_column(String(120), default="")      # sector buscado (p. ej. «Cala Llonga»)
+    municipality: Mapped[str] = mapped_column(String(120), default="")
+    locality_key: Mapped[str] = mapped_column(String(160), default="", index=True)  # zona|sector, para reutilizar
+    lat: Mapped[float | None] = mapped_column(Float, nullable=True)
+    lon: Mapped[float | None] = mapped_column(Float, nullable=True)
+    facts_json: Mapped[str] = mapped_column(Text, default="")             # datos de OSM, Wikipedia y Commons
+    story_json: Mapped[str] = mapped_column(Text, default="")             # resumen redactado por la IA
+    error: Mapped[str] = mapped_column(String(200), default="")           # o aviso, si el informe es parcial
+    requested_by: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    created_at: Mapped[dt.datetime] = mapped_column(DateTime, default=utcnow)
+    updated_at: Mapped[dt.datetime] = mapped_column(DateTime, default=utcnow)
 
 
 class AppState(Base):

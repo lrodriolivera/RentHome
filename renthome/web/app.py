@@ -18,9 +18,10 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
-from . import (agencies, routes_admin, routes_agencies, routes_auth, routes_documents, routes_home, routes_ai, routes_privacy,
+from . import (agencies, routes_admin, routes_area, routes_agencies, routes_auth, routes_documents, routes_home, routes_ai, routes_privacy,
                routes_profile, routes_search)
 from .ai import LLM
+from .area_report import AreaReportRunner
 from .config import SESSION_MAX_AGE_SECONDS, Settings, load_settings
 from .db import Base, add_missing_columns, make_engine, make_session_factory, session_scope
 from .deps import LoginRequired, render
@@ -125,8 +126,10 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         task = asyncio.create_task(purge_loop())
         if settings.crawl_enabled:
             worker.start()
+            app.state.area_runner.resume()
         yield
         worker.stop()
+        app.state.area_runner.stop()
         task.cancel()
 
     app = FastAPI(title="RentHome", docs_url=None, redoc_url=None, openapi_url=None, lifespan=lifespan)
@@ -136,6 +139,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.llm = llm
     app.state.mailer = mailer
     app.state.whatsapp = WhatsAppSender.from_env()
+    app.state.area_runner = AreaReportRunner(session_factory, llm)
     app.state.limiter = LoginLimiter()
 
     templates = Jinja2Templates(directory=str(HERE / "templates"))
@@ -177,7 +181,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         return response
 
     app.mount("/static", StaticFiles(directory=str(HERE / "static")), name="static")
-    for module in (routes_home, routes_auth, routes_profile, routes_documents, routes_privacy, routes_search,
+    for module in (routes_home, routes_auth, routes_profile, routes_documents, routes_privacy, routes_search, routes_area,
                    routes_ai, routes_admin, routes_agencies):
         app.include_router(module.router)
     app.include_router(routes_agencies.candidates_router)

@@ -8,6 +8,7 @@
   <link rel="preload" href="/static/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/static/css/app.css">
   <script src="/static/js/app.js" defer></script>
+  {% block head %}{% endblock %}
 </head>
 <body>
 {% from "_macros.html" import csrf, flashes, navlink with context %}

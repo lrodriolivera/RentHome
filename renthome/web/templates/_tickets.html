@@ -25,6 +25,7 @@
       <div class="ticket-foot">
         <span class="muted small">{{ l.agency.name }} · visto desde {{ l.first_seen|date }}</span>
         <div class="row">
+          <a class="linklike small" href="/pisos/{{ l.id }}/zona">Explorar la zona</a>
           {% if m.state == "saved" %}<a class="linklike small" href="/pisos/{{ l.id }}/mensaje">Preparar mensaje</a>{% endif %}
           <form method="post" action="/pisos/{{ l.id }}/estado">{{ csrf() }}<input type="hidden" name="next" value="{{ back }}">
             <input type="hidden" name="state" value="{{ 'none' if m.state == 'saved' else 'saved' }}">

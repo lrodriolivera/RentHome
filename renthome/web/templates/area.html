@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% from "_macros.html" import csrf, flashes, navlink with context %}
+{% macro dist(m) %}{% if m >= 1000 %}{{ "%.1f"|format(m / 1000) }} km{% else %}{{ m }} m{% endif %}{% endmacro %}
+{% block title %}La zona{% endblock %}
+{% block head %}{% if pending %}<meta http-equiv="refresh" content="6">{% endif %}{% endblock %}
+{% block content %}
+{% set place = (report.locality if report and report.locality else (listing.place or catalog.AREAS.get(listing.area, listing.area))) %}
+<header class="page-head">
+  <p class="eyebrow">Explorar la zona · {{ catalog.AREAS.get(listing.area, listing.area) }}</p>
+  <h1>{{ place }}</h1>
+  <p>{{ listing.title }}{% if listing.price %} · {{ listing.price|money }} al mes{% endif %} · <a href="/pisos">volver a los pisos</a></p>
+</header>
+{{ flashes() }}
+
+{% if report is none %}
+<section class="panel area-intro">
+  <p>Reúne información pública de la zona del piso para ayudarte a decidir: <strong>qué hay cerca</strong> (súper, farmacia, salud, colegios), <strong>transporte</strong>, <strong>ocio</strong>, playas y parques, una <strong>descripción</strong> del lugar y <strong>fotos</strong>. Después la IA lo resume en claro.</p>
+  <p class="small muted">Se consulta OpenStreetMap, Wikipedia y Wikimedia Commons solo con el nombre del lugar; no se envía ningún dato tuyo. Tarda uno o dos minutos.</p>
+  <form method="post" action="/pisos/{{ listing.id }}/zona">{{ csrf() }}<button class="btn" type="submit">Investigar la zona</button></form>
+</section>
+
+{% elif pending %}
+<section class="panel area-intro" role="status">
+  <p><strong>Preparando el informe de {{ place }}…</strong></p>
+  <p class="small muted">Se está ubicando el piso y consultando los servicios cercanos, Wikipedia y las fotos. La página se actualiza sola.</p>
+</section>
+
+{% elif report.status == "failed" %}
+<p class="notice error" role="alert">{{ report.error or "No se pudo preparar el informe." }}</p>
+<form method="post" action="/pisos/{{ listing.id }}/zona">{{ csrf() }}<button class="btn" type="submit">Intentarlo otra vez</button></form>
+
+{% else %}
+{% if facts.photos %}
+<section class="area-gallery" aria-label="Fotos de la zona">
+  {% for p in facts.photos %}
+  <figure>
+    <a href="{{ p.page }}" target="_blank" rel="noopener noreferrer"><img src="{{ p.src }}" alt="{{ p.title }}" loading="{{ 'eager' if loop.first else 'lazy' }}" width="320" height="220" referrerpolicy="no-referrer"></a>
+    <figcaption>{{ p.author }}{% if p.license %} · {{ p.license }}{% endif %}</figcaption>
+  </figure>
+  {% endfor %}
+</section>
+{% endif %}
+
+{% if report.error %}<p class="notice info">{{ report.error }}</p>{% endif %}
+
+{% if story %}
+<section class="area-story">
+  <p class="area-lead">{{ story.resumen }}</p>
+  <div class="area-points">
+    {% for key, label in (("ambiente", "Vivir aquí"), ("servicios", "Servicios"), ("transporte", "Transporte y accesos"), ("ocio", "Ocio")) %}
+      {% if story[key] %}<div><h2>{{ label }}</h2><p>{{ story[key] }}</p></div>{% endif %}
+    {% endfor %}
+  </div>
+  <div class="area-verdict">
+    {% if story.a_favor %}<div class="pros"><h2>A favor</h2><ul>{% for i in story.a_favor %}<li>{{ i }}</li>{% endfor %}</ul></div>{% endif %}
+    {% if story.a_tener_en_cuenta %}<div class="cons"><h2>A tener en cuenta</h2><ul>{% for i in story.a_tener_en_cuenta %}<li>{{ i }}</li>{% endfor %}</ul></div>{% endif %}
+  </div>
+  <p class="small muted">Resumen escrito por la IA con los datos de abajo. Es orientativo: visita la zona antes de decidir.</p>
+</section>
+{% endif %}
+
+{% if facts.pois %}
+<section class="stack">
+  <h2>Qué hay cerca</h2>
+  <div class="table-wrap"><table class="area-pois"><thead><tr><th>Qué</th><th class="num">Cuántos</th><th>Lo más cercano</th></tr></thead><tbody>
+    {% for key, cat in categories.items() %}{% set info = facts.pois.get(key) %}{% if info %}
+    <tr class="{{ 'none' if not info.count }}"><td>{{ info.label }}</td><td class="num">{{ info.count }}</td>
+      <td>{% for p in info.nearest %}{{ p.name }} <span class="muted">({{ dist(p.distance_m) }})</span>{{ ", " if not loop.last }}{% else %}<span class="muted">nada en el radio</span>{% endfor %}</td></tr>
+    {% endif %}{% endfor %}
+  </tbody></table></div>
+  <p class="small muted">Distancias en línea recta desde el centro aproximado de {{ place }}{% if listing.area in ("barcelona", "barcelona_area") %} (radio de 0,7-1 km){% else %} (radio de 1,5 km; playas y ferri hasta 3 km){% endif %}. El anuncio no da la dirección exacta.</p>
+</section>
+{% endif %}
+
+{% if facts.wiki %}
+<section class="panel">
+  <p class="eyebrow">Wikipedia · {{ facts.wiki.title }}</p>
+  <p>{{ facts.wiki.extract }}</p>
+  {% if facts.wiki.url %}<p class="small"><a href="{{ facts.wiki.url }}" target="_blank" rel="noopener noreferrer">Leer el artículo completo</a></p>{% endif %}
+</section>
+{% endif %}
+
+<footer class="area-sources small muted">
+  <p>Ubicación aproximada: {{ facts.label }}{% if report.lat is not none %} · <a href="https://www.openstreetmap.org/?mlat={{ '%.5f'|format(report.lat) }}&amp;mlon={{ '%.5f'|format(report.lon) }}#map=15/{{ '%.5f'|format(report.lat) }}/{{ '%.5f'|format(report.lon) }}" target="_blank" rel="noopener noreferrer">ver en el mapa</a>{% endif %}</p>
+  <p>Datos © colaboradores de OpenStreetMap (ODbL) · textos de Wikipedia (CC BY-SA) · fotos de Wikimedia Commons con la licencia de cada autor. Informe del {{ report.updated_at|datetime }}.</p>
+  {% if can_request %}<form method="post" action="/pisos/{{ listing.id }}/zona">{{ csrf() }}<button class="btn btn-ghost btn-sm" type="submit">Actualizar el informe</button></form>{% endif %}
+</footer>
+{% endif %}
+{% endblock %}

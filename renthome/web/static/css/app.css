@@ -312,3 +312,24 @@ textarea.mono { min-height: 6rem; }
 /* envío temporal por WhatsApp: al abrirse ocupa toda la fila de la barra de búsqueda */
 details.wa-send[open] { flex-basis: 100%; }
 details.wa-send .confirm-body { max-width: 26rem; }
+
+/* explorar la zona de un piso */
+.area-intro { max-width: 46rem; }
+.area-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); gap: 0.75rem; }
+.area-gallery figure { margin: 0; display: flex; flex-direction: column; gap: 0.3rem; }
+.area-gallery figure:first-child { grid-column: span 2; grid-row: span 2; }
+.area-gallery img { width: 100%; height: 100%; min-height: 9rem; object-fit: cover; border-radius: var(--radius-sm); background: var(--sunken); transition: transform var(--duration-fast, 150ms) ease-out; }
+.area-gallery a:hover img, .area-gallery a:focus-visible img { transform: scale(1.015); }
+.area-gallery figcaption { font-size: var(--text-xs); color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.area-story { display: flex; flex-direction: column; gap: 1.5rem; }
+.area-lead { font-size: var(--text-lg); line-height: 1.5; max-width: 60ch; border-left: 5px solid var(--accent); padding-left: 1rem; }
+.area-points { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1.25rem 2rem; }
+.area-points h2, .area-verdict h2 { font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 0.35rem; }
+.area-verdict { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1rem; }
+.area-verdict > div { padding: 1rem 1.2rem; border-radius: var(--radius-sm); }
+.area-verdict ul { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.area-verdict .pros { background: var(--ok-wash); }
+.area-verdict .cons { background: var(--warn-wash); }
+.area-pois tr.none td { color: var(--ink-soft); }
+.area-sources { display: flex; flex-direction: column; gap: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+@media (max-width: 40rem) { .area-gallery figure:first-child { grid-column: auto; grid-row: auto; } }
