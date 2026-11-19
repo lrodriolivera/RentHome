@@ -179,7 +179,8 @@ def candidates(request: Request, admin: User = Depends(require_admin), db: Sessi
     towns = db.scalars(select(TownSearch).order_by(TownSearch.id.desc()).limit(15)).all()
     return render(request, "admin_candidates.html", user=admin, pending=pending, discarded=discarded, analysing=analysing,
                   ai_ready=request.app.state.llm is not None, town_searches=towns,
-                  web_search_ready=request.app.state.worker.finder.brave is not None,
+                  web_search_ready=request.app.state.worker.finder.web_search_ready,
+                  web_sources=request.app.state.worker.finder.web_sources,
                   max_bulk=discovery.MAX_BULK_SITES,
                   town_busy=any(s.status in ("queued", "running") for s in towns))
 

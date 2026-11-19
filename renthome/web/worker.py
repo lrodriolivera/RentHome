@@ -49,7 +49,7 @@ class CrawlWorker:
                  on_idle: Callable[[], None] | None = None) -> None:
         self._factory = factory
         self.llm = llm
-        self.finder = AgencyFinder.from_env()   # de dónde salen las webs de inmobiliarias nuevas
+        self.finder = AgencyFinder.from_env(factory)   # de dónde salen las webs de inmobiliarias nuevas
         self._on_idle = on_idle       # se llama al vaciarse la cola tras rastrear (p. ej. enviar avisos)
         self._crawled_since_idle = False
         # elementos: ("crawl", id de trabajo) | ("discover", zonas) | ("analyse", (url, zona, ciudad))

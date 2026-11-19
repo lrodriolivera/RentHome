@@ -7,8 +7,8 @@
 {{ flashes() }}
 {% if not ai_ready %}<p class="notice info">El descubrimiento usa el modelo de IA local, que no está configurado (variable RENTHOME_LLM_URL).</p>{% endif %}
 <section class="form-section" id="ciudad">
-  <header><h2>Buscar por ciudad</h2><p>Escribe una ciudad o municipio y se buscarán inmobiliarias reales de allí en OpenStreetMap{% if web_search_ready %} y en la web (Brave Search){% endif %}. Cada web se visita y se prueba; solo las que se pueden rastrear pasan a «Pendientes», y nada se añade sin tu aprobación.</p>
-    {% if not web_search_ready %}<p class="small muted">La búsqueda web está desactivada: falta la clave de Brave Search (RENTHOME_BRAVE_API_KEY). Solo se usa OpenStreetMap, que tiene pocas inmobiliarias registradas.</p>{% endif %}</header>
+  <header><h2>Buscar por ciudad</h2><p>Escribe una ciudad o municipio y se buscarán inmobiliarias reales de allí en OpenStreetMap{% if web_search_ready %} y en {{ web_sources }}{% endif %}. Cada web se visita y se prueba; solo las que se pueden rastrear pasan a «Pendientes», y nada se añade sin tu aprobación.</p>
+    {% if not web_search_ready %}<p class="small muted">La búsqueda web está desactivada: falta la clave de Google Places (RENTHOME_GOOGLE_PLACES_KEY). Solo se usa OpenStreetMap, que tiene pocas inmobiliarias registradas.</p>{% endif %}</header>
   <form class="fields" method="post" action="/admin/candidatas/ciudad">{{ csrf() }}
     <div class="field"><label for="town">Ciudad o municipio</label><input id="town" name="town" type="text" required minlength="2" maxlength="60" placeholder="Sant Antoni de Portmany" autocomplete="off"></div>
     <div class="field"><label for="town-area">Zona</label><select id="town-area" name="area" required><option value="">Elige…</option>
