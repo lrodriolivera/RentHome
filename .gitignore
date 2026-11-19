@@ -5,3 +5,4 @@ __pycache__/
 .env
 data-web/
 .env.plataforma
+.env.plataforma.bak
